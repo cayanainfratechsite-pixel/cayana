@@ -63,7 +63,7 @@ const projects = [
 
 export default function GallerySection() {
   return (
-    <section className="p-8 mx-4 sm:mx-8 md:mx-16 lg:mx-24 mt-20">
+    <section className="p-8 mx-1 sm:mx-8 md:mx-16 lg:mx-24 mt-20">
       {/* Heading & Subheading */}
       <motion.h1
         className="text-lg sm:text-xl md:text-2xl font-medium uppercase text-zinc-900"
@@ -74,7 +74,7 @@ export default function GallerySection() {
         Our Gallery
       </motion.h1>
       <motion.p
-        className="text-sm text-zinc-700 mt-2"
+        className="text-xs sm:text-sm text-zinc-700 mt-2"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}

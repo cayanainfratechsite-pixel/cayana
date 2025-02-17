@@ -1,142 +1,103 @@
 "use client";
 
-import React, { useEffect } from "react";
-import Image from "next/image";
-import { motion, useAnimation, useInView } from "framer-motion";
-
-// Fade-in animation
-const fadeIn = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
-// Stagger container animation
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 },
-  },
-};
-
-// Animated Number Component (animates only once per page load)
-const AnimatedNumber: React.FC<{ value: number }> = ({ value }) => {
-  const controls = useAnimation();
-  const ref = React.useRef(null);
-  // Remove 'once: true' from useInView so we can control re-animation manually
-  const inView = useInView(ref, { amount: 0.5 });
-  const [count, setCount] = React.useState(0);
-  // Flag to ensure the animation starts only once
-  const hasAnimated = React.useRef(false);
-
-  useEffect(() => {
-    if (inView && !hasAnimated.current) {
-      controls.start({
-        count: value,
-        transition: { duration: 2, ease: "easeOut" },
-      });
-      hasAnimated.current = true;
-    }
-  }, [inView, value, controls]);
-
-  return (
-    <motion.span
-      ref={ref}
-      animate={controls}
-      className="text-xl sm:text-3xl lg:text-3xl font-bold text-black"
-      onUpdate={(latest) => {
-        // latest.count is available only after the animation starts
-        if (latest.count !== undefined) {
-          setCount(Math.floor(latest.count));
-        }
-      }}
-    >
-      {count}+
-    </motion.span>
-  );
-};
+import React from "react";
+import { motion } from "framer-motion";
 
 const Values: React.FC = () => {
+  // Simulated growth data for the last 15 years
+  const growthData = [
+    { year: "2010", value: 20 },
+    { year: "2011", value: 15 },
+    { year: "2012", value: 30 },
+    { year: "2013", value: 25 },
+    { year: "2014", value: 55 },
+    { year: "2015", value: 50 },
+    { year: "2016", value: 60 },
+    { year: "2017", value: 78 },
+    { year: "2018", value: 75 },
+    { year: "2019", value: 85 },
+    { year: "2020", value: 75 },
+    { year: "2021", value: 80 },
+    { year: "2022", value: 100 },
+    { year: "2023", value: 115 },
+    { year: "2024", value: 130 },
+  ];
+
+  // Determine the maximum value for scaling the bar heights
+  const maxValue = Math.max(...growthData.map((item) => item.value));
+
   return (
-    <section className="bg-zinc-100 py-24">
+    <motion.section
+      className="bg-zinc-100 py-20"
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-        >
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
           {/* Left Side: About CAYANA */}
-          <motion.div variants={fadeIn} className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-black">
-              About CAYANA
+          <div className="space-y-6">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
+              THE CAYANA journey
             </h2>
             <div className="flex gap-3">
-              <div className="border-r border-black text-black"></div>
+              <div className="border-r border-black"></div>
               <div>
-                <p className="text-black italic text-">
-                Where Dreams Take Shape, and Trust is Built
+                <p className="text-black italic">
+                  Where Dreams Take Shape, and Trust is Built
                 </p>
               </div>
             </div>
             <p className="text-black text-base sm:text-lg leading-relaxed">
-            Founded in 2010 and based in Bhubaneswar, Odisha, Cayana Infratech Pvt. Ltd. is a trusted name in real estate development and construction. With a commitment to transparency, timely delivery, and world-class amenities, we redefine living spaces with innovation and trust.
+              Founded in 2010 and based in Bhubaneswar, Odisha, Cayana Infratech
+              Pvt. Ltd. is a trusted name in real estate development and
+              construction. With a commitment to transparency, timely delivery,
+              and world-class amenities, we redefine living spaces with
+              innovation and trust.
             </p>
             <p className="text-black text-base sm:text-lg leading-relaxed">
-            Beyond building apartments, we create lifestyles, foster trust, and elevate businesses—turning dreams into reality
+              Beyond building apartments, we create lifestyles, foster trust,
+              and elevate businesses—turning dreams into reality.
             </p>
-          </motion.div>
+          </div>
 
-          {/* Right Side: Statistics Cards */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={staggerContainer}
-            className="grid grid-cols-2 gap-6 border-l border-zinc-500"
-          >
-            {[
-              { title: "Years of Excellence", value: 25 },
-              { title: "Projects Completed", value: 100 },
-              { title: "Delivered Projects", value: 130 },
-              { title: "Satisfied Clients", value: 90 },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                variants={fadeIn}
-                whileHover={{ scale: 1.05 }}
-                className="p-6 ml-6 text-start flex flex-col justify-start"
-              >
-                <AnimatedNumber value={stat.value} />
-                <h3 className="text-sm sm:text-base md:text-base font-semibold text-black mb-2">
-                  {stat.title}
-                </h3>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        
-      </div>
-
-       {/* "About Us" button */}
-       <div className="flex justify-center mt-20">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group bg-transparent border border-zinc-900 text-zinc-900 
-                   px-8 py-2 rounded-sm font-semibold flex items-center gap-2 
-                   transition-colors duration-300 hover:bg-zinc-900 hover:text-white"
-          >
-            About Us
-          </motion.button>
+          {/* Right Side: Animated Bar Graph for Company Growth */}
+          <div className="px-4">
+            {/* Use flex container so that all bars share the available width */}
+            <div className="flex justify-center space-x-1 md:space-x-4">
+              {growthData.map((data, index) => {
+                const heightPercentage = (data.value / maxValue) * 100;
+                return (
+                  <div
+                    key={data.year}
+                    className="flex flex-col items-center flex-1"
+                  >
+                    <div className="relative h-48 md:h-64 w-[10] sm:w-full flex items-end">
+                      <motion.div
+                        initial={{ height: 0 }}
+                        animate={{ height: `${heightPercentage}%` }}
+                        transition={{
+                          duration: 0.8,
+                          delay: index * 0.1,
+                          ease: "easeOut",
+                        }}
+                        className="bg-zinc-900 w-full"
+                      />
+                    </div>
+                    <span className="text-[7px] sm:text-xs text-zinc-900 mt-2">
+                      {data.year}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-center text-zinc-900 uppercase mt-6">
+              Company Growth - Last 15 Years
+            </h2>
+          </div>
         </div>
-    </section>
+      </div>
+    </motion.section>
   );
 };
 

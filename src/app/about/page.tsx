@@ -4,6 +4,7 @@ import MissionVision from "@/components/AboutPage/MissionVision";
 import CorporateEthics from "@/components/AboutPage/CorporateEthics";
 import OurLeadershipTeam from "@/components/AboutPage/OurLeadershipTeam";
 import TeamGrid from "@/components/AboutPage/TeamGrid";
+import OurLeadershipTeamCMO from "@/components/AboutPage/OurLeadershipTeamCMO";
 
 export default function AboutUsPage() {
   return (
@@ -13,7 +14,8 @@ export default function AboutUsPage() {
       <MissionVision />
       <CorporateEthics />
       <OurLeadershipTeam/>
-      <TeamGrid/> 
+      <OurLeadershipTeamCMO/>
+      {/* <TeamGrid/>  */}
     </div>
   );
 }

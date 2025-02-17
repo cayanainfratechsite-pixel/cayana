@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaPhoneAlt,
@@ -97,17 +98,23 @@ const Navbar: React.FC = () => {
         }`}
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          {/* Left: Logo */}
+
           <Link href="/" className="flex items-center">
-            <img src="/images/CAYANA.png" alt="Logo" className="h-10 w-auto" />
+            <Image
+              src="/images/CAYANA.png"
+              alt="Logo"
+              width={1000} 
+              height={200} 
+              className="w-36 sm:w-40 md:w-48 lg:w-52 xl:w-56 h-auto" 
+            />
           </Link>
 
           {/* Center: Navigation Items */}
           <div className="flex items-center justify-center space-x-4 md:space-x-8">
             {/* OUR PROJECTS Link (hidden on mobile) */}
             <Link
-              href="/project"
-              className="hidden md:block text-white text-xl font-bold hover:text-gray-300 transition-colors"
+              href="/projects"
+              className="hidden md:block text-white text-xl font-medium hover:text-gray-300 transition-colors"
             >
               OUR PROJECTS
             </Link>
@@ -118,10 +125,11 @@ const Navbar: React.FC = () => {
                 onClick={() => setShowCallPopup((prev) => !prev)}
                 className="focus:outline-none"
               >
-                <div className="bg-gradient-to-r from-blue-700 to-red-500 shadow-lg rounded-full p-3 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                  <FaPhoneAlt className="text-white h-5 w-5" />
+                <div className="bg-black/30 shadow-lg rounded-full p-2 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                  <FaPhoneAlt className="text-white h-4 w-4" />
                 </div>
               </button>
+
               <AnimatePresence>
                 {showCallPopup && (
                   <motion.div
@@ -175,18 +183,10 @@ const Navbar: React.FC = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-0 right-0 h-full bg-black bg-opacity-85 w-full sm:w-1/4 z-50 flex flex-col justify-between"
+            className="fixed top-0 right-0 h-full bg-black bg-opacity-65 w-full sm:w-1/4 z-50 flex flex-col justify-between"
           >
             <div>
-              <div className="p-4 flex justify-between items-center border-b border-gray-700">
-                {/* Sidebar Logo */}
-                <div className="flex items-center">
-                  <img
-                    src="/images/CAYANA.png"
-                    alt="Logo"
-                    className="h-10 w-auto"
-                  />
-                </div>
+              <div className="p-4 flex justify-normal gap-2 items-center border-b border-gray-700">
                 {/* Close Button */}
                 <button
                   onClick={() => setShowMenuSidebar(false)}
@@ -194,6 +194,11 @@ const Navbar: React.FC = () => {
                 >
                   <FaTimes className="text-white h-6 w-6" />
                 </button>
+                <div className="flex items-center">
+                  <h1 className="text-zinc-100 text-xl font-medium uppercase">
+                    Close
+                  </h1>
+                </div>
               </div>
               <motion.ul
                 variants={sidebarVariants}
@@ -204,10 +209,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/"
-                    className={`block text-lg font-bold transition-colors ${
+                    className={`block text-lg font-medium pb-3 transition-colors ${
                       pathname === "/"
-                        ? "text-yellow-500"
-                        : "text-white hover:text-yellow-500"
+                        ? "text-zinc-100"
+                        : "text-white hover:text-zinc-400"
                     }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -217,10 +222,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/about"
-                    className={`block text-lg font-bold transition-colors ${
+                    className={`block text-lg font-medium pb-3 transition-colors ${
                       pathname === "/about"
-                        ? "text-yellow-500"
-                        : "text-white hover:text-yellow-500"
+                        ? "text-zinc-50"
+                        : "text-white hover:text-zinc-400"
                     }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -230,10 +235,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/projects"
-                    className={`block text-lg font-bold transition-colors ${
-                      pathname === "/project"
-                        ? "text-yellow-500"
-                        : "text-white hover:text-yellow-500"
+                    className={`block text-lg font-medium pb-3 transition-colors ${
+                      pathname === "/projects"
+                        ? "text-zinc-100"
+                        : "text-white hover:text-zinc-400"
                     }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -243,10 +248,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/blogs"
-                    className={`block text-lg font-bold transition-colors ${
+                    className={`block text-lg font-medium pb-3 transition-colors ${
                       pathname === "/blogs"
-                        ? "text-yellow-500"
-                        : "text-white hover:text-yellow-500"
+                        ? "text-zinc-100"
+                        : "text-white hover:text-zinc-400"
                     }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -256,10 +261,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/gallery"
-                    className={`block text-lg font-bold transition-colors ${
+                    className={`block text-lg font-medium pb-3 transition-colors ${
                       pathname === "/gallery"
-                        ? "text-yellow-500"
-                        : "text-white hover:text-yellow-500"
+                        ? "text-zinc-100"
+                        : "text-white hover:text-zinc-400"
                     }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -269,10 +274,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/careers"
-                    className={`block text-lg font-bold transition-colors ${
+                    className={`block text-lg font-medium pb-3 transition-colors ${
                       pathname === "/careers"
-                        ? "text-yellow-500"
-                        : "text-white hover:text-yellow-500"
+                        ? "text-zinc-100"
+                        : "text-white hover:text-zinc-400"
                     }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -282,10 +287,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/contact"
-                    className={`block text-lg font-bold transition-colors ${
+                    className={`block text-lg font-medium pb-3 transition-colors ${
                       pathname === "/contact"
-                        ? "text-yellow-500"
-                        : "text-white hover:text-yellow-500"
+                        ? "text-zinc-100"
+                        : "text-white hover:text-zinc-400"
                     }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -297,7 +302,7 @@ const Navbar: React.FC = () => {
             {/* Bottom Section with Gradient Background */}
             <div className="border-t border-gray-700 bg-gradient-to-b from-black to-transparent">
               {/* Locations and Contact Numbers */}
-              <div className="p-4 flex flex-col space-y-4 mb-4">
+              {/* <div className="p-4 flex flex-col space-y-4 mb-4">
                 <div className="flex flex-col">
                   <div className="flex items-center space-x-2">
                     <FaMapMarkerAlt className="text-white h-4 w-4" />
@@ -309,11 +314,11 @@ const Navbar: React.FC = () => {
                     890-801-2233
                   </span>
                 </div>
-              </div>
+              </div> */}
               {/* Follow Us Title and Social Icons */}
               <div className="p-4">
-                <p className="text-white text-xs font-bold mb-2">Follow Us :</p>
-                <div className="flex space-x-4">
+                {/* <p className="text-white text-xs font-bold mb-2">Follow Us :</p> */}
+                <div className="flex space-x-9">
                   <Link
                     href="https://instagram.com"
                     target="_blank"

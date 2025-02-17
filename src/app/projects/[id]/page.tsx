@@ -23,8 +23,8 @@ const Page: React.FC = () => {
     name: "Skyline Towers",
     location: "BBSR, ODISHA, INDIA",
     price: "2,500,000",
-    heroImage: "/images/AboutPage/2.webp",
-    secondImage: "/images/Blog/blog_bg.webp",
+    heroImage: "/images/Projects/cover.webp",
+    secondImage: "/images/Projects/projectsub.webp",
     subContent: `This project is a testament to modern architecture. It offers luxurious living spaces.
 Experience comfort and convenience like never before.`,
     longDescription:
@@ -46,7 +46,7 @@ Experience comfort and convenience like never before.`,
         <div className="absolute inset-0 bg-black opacity-50"></div>
 
         {/* Black background container at the bottom of the image */}
-        <div className="absolute bottom-0 left-0 right-0 bg-black/40 px-4 py-8 mx-auto max-w-7xl mb-10 rounded-lg">
+        <div className="absolute bottom-0 left-0 right-0 bg-black/40 mx-3 px-4 py-8 sm:mx-auto max-w-7xl mb-10 rounded-lg">
           <motion.h1
             className="text-xl text-zinc-100 sm:text-2xl uppercase font-bold mb-2 "
             initial={{ opacity: 0, y: -20 }}
@@ -115,7 +115,7 @@ Experience comfort and convenience like never before.`,
               Overview
             </h1>
             <Underline />
-            <p className="text-zinc-900">{project.subContent}</p>
+            <p className=" text-zinc-900">{project.subContent}</p>
           </div>
         </div>
 
@@ -167,16 +167,16 @@ Experience comfort and convenience like never before.`,
 
       <div className="mb-8 text-center">
         <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
-          Download
+          Download Brochure
         </h1>
         <Underline />
         <div className="flex justify-center">
           <button
         onClick={handleDownload}
-        className="flex items-center justify-center text-[#0553F1] hover:text-zinc-100 px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
+        className="flex items-center justify-center text-[#0553F1] hover:text-zinc-100 px-4 rounded hover:bg-blue-700 transition duration-300"
           >
         <FaDownload className="mr-2" />
-        Download PDF
+        Download
           </button>
         </div>
       </div>

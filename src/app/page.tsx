@@ -12,7 +12,7 @@ export default function HomePage() {
       <AboutUs />
       <Values/>
       <VideosSection />
-      <TestimonialsPage />
+      {/* <TestimonialsPage /> */}
       <BlogSlider/>
     </div>
   );

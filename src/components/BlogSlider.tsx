@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Underline from "./Underline";
 
 interface Blog {
   id: number;
@@ -14,39 +15,39 @@ interface Blog {
 const blogs: Blog[] = [
   {
     id: 1,
-    image: "/images/Blog/blog1.png",
-    title: "Discover the Latest Trends",
+    image: "/images/Blog/blog01.png",
+    title: "⁠Early investment in real estate.",
     excerpt:
       "Explore the newest trends in design and innovation in our comprehensive guide.",
     link: "/blog/1",
   },
   {
     id: 2,
-    image: "/images/Blog/blog1.webp",
-    title: "Building Sustainable Futures",
+    image: "/images/Blog/blog2.webp",
+    title: "Future of real estate market in Puri (geographical and commercial importance of Puri)",
     excerpt:
       "Learn how sustainable practices are transforming construction and architecture.",
     link: "/blog/2",
   },
   {
     id: 3,
-    image: "/images/Blog/blog2.webp",
-    title: "Innovative Design Strategies",
+    image: "/images/Blog/Blogbox.png",
+    title: "Future of real estate in Odisha. ",
     excerpt:
       "Uncover creative strategies that are revolutionizing space design across the globe.",
     link: "/blog/3",
   },
   {
     id: 4,
-    image: "/images/Blog/blog3.webp",
-    title: "A Journey Through Architecture",
+    image: "/images/Blog/blog4.webp",
+    title: "Documents needed for buying a house in Odisha",
     excerpt:
       "Take a tour through some of the most iconic architectural feats and discover their stories.",
     link: "/blog/4",
   },
   {
     id: 5,
-    image: "/images/Blog/blog4.webp",
+    image: "/images/Blog/blog3.webp",
     title: "Emerging Design Ideas",
     excerpt:
       "A look into the emerging ideas that are shaping the future of design.",
@@ -60,11 +61,11 @@ const BlogBentoGridSmall: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
             Latest Insights & Trends
-            <span className="block h-[1px] w-[15rem] bg-zinc-900 mx-auto mt-2"></span>
-          </h1>
-          <p className="text-lg text-gray-700">
+            <Underline />
+          </h2>
+          <p className="text-lg text-zinc-900">
             Discover the world of design, architecture, and innovation through
             our curated blogs and articles.
           </p>
@@ -79,7 +80,7 @@ const BlogBentoGridSmall: React.FC = () => {
               <motion.div
                 key={blog.id}
                 whileHover={{ scale: 1.02 }}
-                className={`bg-white rounded-md overflow-hidden shadow-lg transition transform duration-200 ${
+                className={`bg-white rounded-xs hover:cursor-pointer overflow-hidden shadow-sm transition transform duration-200 ${
                   isFirst ? "md:col-span-2" : ""
                 }`}
               >

@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
       />
 
       {/* Transparent Overlay Layer */}
-      <div className="absolute inset-0 bg-black opacity-40"></div>
+      <div className="absolute inset-0 bg-black opacity-60"></div>
 
       {/* Main Content */}
       <div className="relative z-10 py-16 px-4">
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
                 Phone:{" "}
                 <a
                   href="tel:+918908012233"
-                  className="underline hover:text-[#FFD700] transition"
+                  className="underline hover:text-[#0553F1] transition"
                 >
                   +91 890-801-2233
                 </a>
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
                 Email:{" "}
                 <a
                   href="mailto:support@cayana.co.in"
-                  className="underline hover:text-[#FFD700] transition"
+                  className="underline hover:text-[#0553F1] transition"
                 >
                   support@cayana.co.in
                 </a>
@@ -77,21 +77,21 @@ const Footer: React.FC = () => {
                 <a
                   href="#"
                   aria-label="Facebook"
-                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#FFD700] transition"
+                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
                 >
                   <FaFacebookF size={18} />
                 </a>
                 <a
                   href="#"
                   aria-label="Twitter"
-                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#FFD700] transition"
+                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
                 >
                   <FaTwitter size={18} />
                 </a>
                 <a
                   href="#"
                   aria-label="Instagram"
-                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#FFD700] transition"
+                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
                 >
                   <FaInstagram size={18} />
                 </a>
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-300 hover:text-[#FFD700] transition"
+                    className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Home
                   </a>
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-300 hover:text-[#FFD700] transition"
+                    className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     About Us
                   </a>
@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-300 hover:text-[#FFD700] transition"
+                    className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Our Projects
                   </a>
@@ -129,7 +129,7 @@ const Footer: React.FC = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-300 hover:text-[#FFD700] transition"
+                    className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Services
                   </a>
@@ -137,7 +137,7 @@ const Footer: React.FC = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-300 hover:text-[#FFD700] transition"
+                    className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Contact
                   </a>
@@ -156,7 +156,7 @@ const Footer: React.FC = () => {
                 Call us at:{" "}
                 <a
                   href="tel:+918908012233"
-                  className="underline hover:text-[#FFD700] transition"
+                  className="underline hover:text-[#0553F1] transition"
                 >
                   +91 890-801-2233
                 </a>
@@ -165,14 +165,14 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Footer Bottom */}
-          <div className="mt-12 border-t border-gray-700 pt-4 text-center">
-            <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} Cayana. Designed & Developed by{" "}
+          <div className="mt-12 border-t border-zinc-200 pt-4 text-center">
+            <p className="text-zinc-200 text-sm">
+              &copy; {new Date().getFullYear()} Cayana Infratech Pvt. Ltd. All Rights Reserved. | Designed & Developed by{" "}
               <a
                 href="https://vanurmedia.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-300"
+                className="text-zinc-200 hover:text-[#0553F1]"
               >
                 VANURTECH MEDIA PVT. LTD.
               </a>

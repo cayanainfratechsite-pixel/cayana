@@ -4,51 +4,70 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaQuoteLeft } from "react-icons/fa";
 import Underline from "@/components/Underline";
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const CareerPage = () => {
   const [showForm, setShowForm] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleApplyClick = (e) => {
     e.preventDefault();
     setShowForm(true);
   };
 
+  useEffect(() => {
+    const checkScreenSize = () => setIsMobile(window.innerWidth < 640);
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  const heroImage = isMobile
+    ? "/images/Career/TOP_mobile.png"
+    : "/images/Career/TOP.webp";
+
   return (
     <div className="bg-gray-100">
-      <section className="relative w-full">
-        <Image
-          src="/images/Blog/blog_bg.webp"
-          alt="Hero Image"
-          width={1900}
-          height={800}
-          layout="responsive"
-          className="w-full"
-          quality={90}
-        />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        {/* Quote container */}
-        <div className="absolute bottom-0 left-0 right-0 bg-black/60 px-4 py-8 mx-auto max-w-7xl mb-10 rounded-lg">
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+      <section className="w-full">
+        <div className="relative w-full">
+          <Image
+            src={heroImage}
+            alt="Hero Image"
+            width={isMobile ? 800 : 1900}
+            height={isMobile ? 1200 : 800}
+            layout="responsive"
+            className="w-full"
+            quality={90}
+          />
+
+          {/* Dark overlay over the image */}
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+
+          {/* Black background container at the bottom of the image */}
+          <div
+            className="absolute bottom-0 left-0 right-0 bg-black/60 
+                        px-4 py-1 md:px-8 md:py-5 mx-2 md:mx-10 lg:mx-28 
+                        mb-2 md:mb-5 rounded-lg"
           >
-            <FaQuoteLeft className="w-8 h-8 text-zinc-100 mb-4" />
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="m-1 font-serif mx-auto text-center text-xs sm:text-lg md:text-2xl text-zinc-100"
-          >
-            Dive into our journey and learn more about our mission, values, and
-            the inspiration behind everything we do.
-          </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <FaQuoteLeft className="w-5 h-5 md:w-5 md:h-5 lg:w-8 lg:h-8 text-zinc-100 md:mb-4" />
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="m-1 font-serif mx-auto text-center text-base sm:text-lg md:text-xl lg:text-2xl text-zinc-100"
+            >
+              Join our team and be part of a culture driven by passion, innovation, and excellence.
+            </motion.p>
+          </div>
         </div>
       </section>
-
       <section className="py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.h2
@@ -155,7 +174,7 @@ const CareerPage = () => {
             {/* Image on Right */}
             <div>
               <Image
-                src="/images/Career/car1.webp"
+                src="/images/Career/workCulture.webp"
                 alt="Work Culture"
                 height={335}
                 width={828}
@@ -174,7 +193,7 @@ const CareerPage = () => {
             {/* Image on Left */}
             <div className="md:order-1">
               <Image
-                src="/images/Career/car1.webp"
+                src="/images/Career/CareerImage.webp"
                 alt="Career Growth at Cayana"
                 height={335}
                 width={828}
@@ -289,7 +308,9 @@ const CareerPage = () => {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </button>
-            <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase text-center">Apply Now</h2>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase text-center">
+              Apply Now
+            </h2>
             <form className="space-y-6">
               <div>
                 <label
