@@ -16,7 +16,7 @@ const OurLeadershipTeamCMO: React.FC = () => {
           transition={{ duration: 1 }}
           className="text-center text-lg sm:text-xl md:text-2xl font-medium uppercase text-zinc-900"
         >
-          Message From CMO
+          Message From CEO
         </motion.h2>
 
         <Underline />
@@ -37,7 +37,7 @@ const OurLeadershipTeamCMO: React.FC = () => {
             transition={{ duration: 1 }}
           >
             <h3 className="text-lg md:text-xl font-medium text-gray-800 mb-4">
-              A Message from Our CMO
+              A Message from Our CEO
             </h3>
             <p className="text-zinc-900 text-lg leading-relaxed mb-6">
               As the Chief Marketing Officer, I am honored to drive our brand's

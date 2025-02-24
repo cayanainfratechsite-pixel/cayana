@@ -2,43 +2,48 @@
 import React, { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import Underline from '../Underline';
+import { submitProjectEnquiry } from '@/api/projects/page'; 
 
 const GetInTouch: React.FC = () => {
-  // Helper to determine the default time slot based on current hour
-  const getDefaultTimeSlot = () => {
-    const now = new Date();
-    const hour = now.getHours();
-    if (hour < 10) return '10 AM';
-    if (hour < 12) return '10 AM';
-    if (hour < 14) return '12 PM';
-    if (hour < 17) return '2 PM';
-    return '5 PM';
-  };
-
+  // State variables for the form fields.
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [date, setDate] = useState('');
-  const [selectedDate, setSelectedDate] = useState(getDefaultTimeSlot());
-  const [agreed, setAgreed] = useState(false);
+  const [selectedTime, setSelectedTime] = useState('10:00 AM');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!agreed) {
-      alert('Please agree to the Privacy Policy');
-      return;
+
+    const data = {
+      category: "project", 
+      projectId: "67b43790df2773c9320ccf1e", 
+      firstName,
+      lastName,
+      email,
+      mobile,
+      date,
+      time: selectedTime, 
+    };
+
+    try {
+      const response = await submitProjectEnquiry(data);
+      if (response && response.data) {
+        console.log("Response:", response.data);
+      }
+      alert("Your enquiry has been submitted successfully!");
+
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setMobile('');
+      setDate('');
+      setSelectedTime('10:00 AM');
+    } catch (error) {
+      console.error("Error submitting enquiry:", error);
+      alert("There was an error submitting your enquiry. Please try again later.");
     }
-    // Process form submission (e.g., send data to an API)
-    console.log({ firstName, lastName, email, mobile, date, selectedDate });
-    // Clear form fields after submission
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setMobile('');
-    setDate('');
-    setSelectedDate(getDefaultTimeSlot());
-    setAgreed(false);
   };
 
   return (
@@ -51,14 +56,14 @@ const GetInTouch: React.FC = () => {
           className="max-w-7xl mx-auto bg-white p-8 rounded-sm shadow-lg"
         >
           <h1 className="text-lg text-center sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
-          Enquiry Form
+            Enquiry Form
           </h1>
           <Underline />
           <p className="text-center text-gray-600 mb-6">
             We'd love to hear from you! Please fill out the form below and our team will reach out shortly.
           </p>
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Row 1: First Name, Last Name, Email ID */}
+            {/* Row 1: First Name, Last Name, Email */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label htmlFor="firstName" className="block px-3 text-zinc-900 mb-1">
@@ -104,7 +109,7 @@ const GetInTouch: React.FC = () => {
               </div>
             </div>
 
-            {/* Row 2: Mobile Number, Date, Selected Date */}
+            {/* Row 2: Mobile, Date, Selected Time */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label htmlFor="mobile" className="block px-3 text-zinc-900 mb-1">
@@ -134,43 +139,25 @@ const GetInTouch: React.FC = () => {
                 />
               </div>
               <div>
-                <label htmlFor="selectedDate" className="block px-3 text-zinc-900 mb-1">
-                  Selected Date
+                <label htmlFor="selectedTime" className="block px-3 text-zinc-900 mb-1">
+                  Selected Time
                 </label>
                 <select
-                  id="selectedDate"
-                  value={selectedDate}
-                  onChange={(e) => setSelectedDate(e.target.value)}
+                  id="selectedTime"
+                  value={selectedTime}
+                  onChange={(e) => setSelectedTime(e.target.value)}
                   required
                   className="w-full px-3 py-2 border-b-2 text-zinc-900 border-zinc-800 focus:border-blue-500 focus:outline-none transition-colors"
                 >
-                  <option value="10 AM">10.00 AM</option>
-                  <option value="12 PM">12.00 PM</option>
-                  <option value="2 PM">02.00 PM</option>
-                  <option value="5 PM">05.00 PM</option>
+                  <option value="10:00 AM">10:00 AM</option>
+                  <option value="12:00 PM">12:00 PM</option>
+                  <option value="2:00 PM">2:00 PM</option>
+                  <option value="5:00 PM">5:00 PM</option>
                 </select>
               </div>
             </div>
 
-            {/* Privacy Policy Checkbox */}
-            <div className="flex items-center">
-              <input 
-                type="checkbox"
-                id="privacy"
-                checked={agreed}
-                onChange={(e) => setAgreed(e.target.checked)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                required
-              />
-              <label htmlFor="privacy" className="ml-2 block text-gray-700">
-                I agree to the{' '}
-                Our team is dedicated to providing you with the best service. Your inquiry is important to us, and we will respond as soon as possible.
-                <a href="/privacy-policy" className="underline text-blue-600 hover:text-blue-800">
-                  Privacy Policy
-                </a>
-              </label>
-            </div>
-
+            {/* Submit Button */}
             <div className="flex justify-end">
               <button
                 type="submit"

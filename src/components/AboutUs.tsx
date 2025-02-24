@@ -36,7 +36,7 @@ const Values: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
           {/* Left Side: About CAYANA */}
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-xl">
             <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
               THE CAYANA journey
             </h2>

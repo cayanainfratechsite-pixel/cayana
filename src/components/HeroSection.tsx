@@ -6,15 +6,15 @@ import { useSwipeable } from "react-swipeable";
 
 // Import landscape images
 import img1 from "../assets/images/1.webp";
-import img2 from "../assets/images/2.webp";
+import img2 from "../assets/images/2.jpg";
 import img3 from "../assets/images/3.webp";
-import img4 from "../assets/images/4.webp";
+import img4 from "../assets/images/4.jpg";
 import img5 from "../assets/images/5.webp";
 import img6 from "../assets/images/6.webp";
 
 // Import portrait images
 import img1P from "../assets/images/prtHome1.png";
-import img2P from "../assets/images/prtHome2.png";
+import img2P from "../assets/images/prtHome2.webp";
 import img3P from "../assets/images/prtHome3.png";
 import img4P from "../assets/images/prtHome4.png";
 import img5P from "../assets/images/prtHome5.png";

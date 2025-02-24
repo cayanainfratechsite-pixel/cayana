@@ -16,7 +16,7 @@ const OurLeadershipTeam: React.FC = () => {
           transition={{ duration: 1 }}
           className="text-center text-lg sm:text-xl md:text-2xl font-medium uppercase text-zinc-900"
         >
-          Message From CEO
+          Message From CMD
         </motion.h2>
 
         <Underline/>
@@ -52,7 +52,7 @@ const OurLeadershipTeam: React.FC = () => {
             transition={{ duration: 1 }}
           >
             <h3 className="text-lg md:text-xl font-medium text-gray-800 mb-4">
-              A Message from Our CEO
+              A Message from Our CMD
             </h3>
             <p className="text-zinc-900 text-lg leading-relaxed mb-6">
               Welcome to our journey of innovation and commitment. Our company

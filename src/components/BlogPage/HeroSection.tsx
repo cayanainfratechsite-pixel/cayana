@@ -16,7 +16,7 @@ const HeroSection = () => {
   }, []);
 
   const heroImage = isMobile
-    ? "/images/Blog/blog_bg_mobile.png"
+    ? "/images/Blog/blog_bg_mobile.webp"
     : "/images/Blog/blog_bg.webp";
 
   return (
@@ -33,7 +33,7 @@ const HeroSection = () => {
         />
 
         {/* Dark overlay over the image */}
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-black opacity-30"></div>
 
         {/* Black background container at the bottom of the image */}
         <div

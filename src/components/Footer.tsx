@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
       <div className="absolute inset-0 bg-black opacity-60"></div>
 
       {/* Main Content */}
-      <div className="relative z-10 py-16 px-4">
+      <div className="relative z-10 pt-16 pb-6 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Contact Info Column */}
@@ -165,7 +165,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Footer Bottom */}
-          <div className="mt-12 border-t border-zinc-200 pt-4 text-center">
+          <div className="border-t border-zinc-200 pt-4 mt-32 text-center">
             <p className="text-zinc-200 text-sm">
               &copy; {new Date().getFullYear()} Cayana Infratech Pvt. Ltd. All Rights Reserved. | Designed & Developed by{" "}
               <a

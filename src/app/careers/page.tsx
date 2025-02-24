@@ -23,7 +23,7 @@ const CareerPage = () => {
   }, []);
 
   const heroImage = isMobile
-    ? "/images/Career/TOP_mobile.png"
+    ? "/images/Career/TOP_mobile.webp"
     : "/images/Career/TOP.webp";
 
   return (
@@ -41,7 +41,7 @@ const CareerPage = () => {
           />
 
           {/* Dark overlay over the image */}
-          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="absolute inset-0 bg-black opacity-30"></div>
 
           {/* Black background container at the bottom of the image */}
           <div
