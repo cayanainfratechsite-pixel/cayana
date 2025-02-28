@@ -11,8 +11,8 @@ interface ValueCardProps {
 
 const cardData: ValueCardProps[] = [
   { image: "/images/value1.webp" },
-  { image: "/images/value2.webp" },
   { image: "/images/value3.webp" },
+  { image: "/images/value2.webp" },
   { image: "/images/value4.webp" },
 ];
 
@@ -20,7 +20,7 @@ const ValueCard: React.FC<ValueCardProps> = ({ image }) => {
   return (
     <div className="flex flex-col items-center">
       <motion.div
-        className="relative w-[350px] h-[480px] sm:w-[250px] sm:h-[350px] md:w-[200px] md:h-[290px] lg:w-[250px] lg:h-[380px] xl:w-[310px] xl:h-[440px] overflow-hidden cursor-pointer p-4"
+        className="relative w-[350px] h-[480px] sm:w-[250px] sm:h-[350px] md:w-[200px] md:h-[290px] lg:w-[250px] lg:h-[380px] xl:w-[310px] xl:h-[440px] overflow-hidden  p-4"
         initial="rest"
         whileHover="hover"
         animate="rest"

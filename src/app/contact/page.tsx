@@ -6,7 +6,7 @@ import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 import { FaQuoteLeft } from "react-icons/fa";
 import Image from "next/image";
 
-import { submitContactEnquiry } from "@/api/contact/page";
+import { submitContactEnquiry } from "@/api/Contact/page";
 
 export default function ContactPage() {
   // Form fields
@@ -126,7 +126,7 @@ export default function ContactPage() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-9">
+            <form onSubmit={handleSubmit} className="space-y-9 flex flex-col">
               {/* Name Fields */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {/* First Name */}
@@ -136,22 +136,27 @@ export default function ContactPage() {
                     id="firstName"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
+                    placeholder=" "
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     required
                   />
                   <label
                     htmlFor="firstName"
-                    className="absolute text-sm text-zinc-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    className="absolute text-sm text-zinc-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] 
+      peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 
+      peer-focus:scale-75 peer-focus:-translate-y-6"
                   >
                     First Name
                   </label>
                 </div>
+
                 {/* Last Name */}
                 <div className="relative z-0 w-full group mt-6">
                   <input
                     type="text"
                     id="lastName"
                     value={lastName}
+                    placeholder=" " 
                     onChange={(e) => setLastName(e.target.value)}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     required
@@ -240,6 +245,8 @@ export default function ContactPage() {
                   Message
                 </label>
               </div>
+
+
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.03 }}

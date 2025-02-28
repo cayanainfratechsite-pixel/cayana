@@ -1,67 +1,47 @@
 "use client";
-import Link from "next/link";
+
+import {
+  CircularProgress,
+  Typography,
+} from "@mui/material";
+
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { fetchGallery } from "@/api/Gallery/page";
 
-const projects = [
-  {
-    id: 1,
-    name: "Skyline Towers",
-    location: "Off Kanakapura Road, Bangalore",
-    price: "2,500,000",
-    image: "/images/Projects/projects1.webp",
-    type: "Apartment",
-    bedrooms: "2,3 BHK",
-    size: "1500 sqft",
-    units: "120 Units",
-  },
-  {
-    id: 2,
-    name: "Sunset Villas",
-    location: "Los Angeles, USA",
-    price: "1,800,000",
-    image: "/images/Projects/projects2.webp",
-    type: "Villa",
-    bedrooms: "2,3,4 BHK",
-    size: "2000 sqft",
-    units: "80 Units",
-  },
-  {
-    id: 3,
-    name: "Urban Residences",
-    location: "Chicago, USA",
-    price: "1,200,000",
-    image: "/images/Projects/projects3.webp",
-    type: "Apartment",
-    bedrooms: "2 BHK",
-    size: "1200 sqft",
-    units: "150 Units",
-  },
-  {
-    id: 4,
-    name: "Modern Estates",
-    location: "New York, USA",
-    price: "3,000,000",
-    image: "/images/Projects/projects2.webp",
-    type: "Condo",
-    bedrooms: "3 BHK",
-    size: "1800 sqft",
-    units: "90 Units",
-  },
-  {
-    id: 5,
-    name: "Garden Homes",
-    location: "Mumbai, India",
-    price: "950,000",
-    image: "/images/Projects/projects1.webp",
-    type: "Villa",
-    bedrooms: "3 BHK",
-    size: "2200 sqft",
-    units: "60 Units",
-  },
-];
+
+interface GalleryItem {
+  _id: string;
+  image: string;
+}
+
 
 export default function GallerySection() {
+  const [gallery, setGallery] = useState<GalleryItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadGallery = async () => {
+      try {
+        const data = await fetchGallery();
+        setGallery(data);
+      } catch (error) {
+        setError(
+          error instanceof Error
+            ? error.message
+            : "An unexpected error occurred"
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadGallery();
+  }, []);
+
   return (
     <section className="p-8 mx-1 sm:mx-8 md:mx-16 lg:mx-24 mt-20">
       {/* Heading & Subheading */}
@@ -84,7 +64,19 @@ export default function GallerySection() {
 
       {/* Gallery Cards */}
       <div className="mt-10 grid gap-8 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-        {projects.map((project) => (
+
+
+
+      {loading ? (
+          <div className="flex justify-center py-10">
+            <CircularProgress />
+          </div>
+        ) : error ? (
+          <Typography color="error" className="text-center">
+            {error}
+          </Typography>
+        ) : (
+        gallery.map((project) => (
           // <Link key={project.id} href={`/gallery/card${project.id}`}>
             <motion.div className="p-3 hover:bg-white hover:shadow-lg hover:rounded-sm border border-zinc-200 cursor-pointer transition-all duration-500 ease-in-out">
               {/* Image */}
@@ -97,7 +89,8 @@ export default function GallerySection() {
               />
             </motion.div>
           // </Link>
-        ))}
+        ))
+      )}
       </div>
     </section>
   );

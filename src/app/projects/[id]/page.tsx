@@ -23,7 +23,7 @@ const Page: React.FC = () => {
     location: "BBSR, ODISHA, INDIA",
     price: "2,500,000",
     heroImage: "/images/Projects/cover.webp",
-    secondImage: "/images/Projects/projectsub.webp",
+    secondImage: "/images/Projects/floor.png",
     subContent: `This project is a testament to modern architecture. It offers luxurious living spaces.
 Experience comfort and convenience like never before.`,
     longDescription:
@@ -118,17 +118,12 @@ Experience comfort and convenience like never before.`,
           </div>
         </div>
 
-        {/* Secondary Image */}
-        <div className="relative w-full">
-          <Image
-            src={project.secondImage}
-            alt="Hero Image"
-            width={1900}
-            height={800}
-            layout="responsive"
-            className="w-full"
-            quality={90}
-          />
+        <div>
+          <Gallery />
+        </div>
+
+        <div>
+          <ProjectSection />
         </div>
 
         <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
@@ -157,11 +152,28 @@ Experience comfort and convenience like never before.`,
             loading="lazy"
           ></iframe>
         </div>
-      </div>
 
-      <div>
-        <ProjectSection />
-        <Gallery />
+        <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
+          <div className="mb-8 text-center">
+            <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
+              Floor Structure
+            </h1>
+            <Underline />
+          </div>
+        </div>
+
+        {/* Secondary Image */}
+        <div className="relative w-full mb-12">
+          <Image
+            src={project.secondImage}
+            alt="Hero Image"
+            width={1900}
+            height={800}
+            layout="responsive"
+            className="w-full"
+            // quality={1000}
+          />
+        </div>
       </div>
 
       <div className="mb-8 text-center">
@@ -172,7 +184,7 @@ Experience comfort and convenience like never before.`,
         <div className="flex justify-center">
           <button
             onClick={handleDownload}
-            className="flex items-center justify-center text-[#0553F1] hover:text-zinc-100 px-4 rounded hover:bg-blue-700 transition duration-300"
+            className="flex items-center justify-center text-[#0553F1] hover:text-zinc-100 px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
           >
             <FaDownload className="mr-2" />
             Download

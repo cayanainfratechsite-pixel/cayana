@@ -32,7 +32,7 @@ const ProjectSection: React.FC = () => {
           viewport={{ once: true }}
         >
           <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
-            Serene Living
+            Amenities
           </h1>
           <Underline />
           <p className="text-zinc-900">

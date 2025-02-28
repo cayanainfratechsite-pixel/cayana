@@ -34,7 +34,7 @@ const Gallery: React.FC = () => {
       const nextIndex = (currentIndex + 1) % images.length;
       scrollToImage(nextIndex);
       setCurrentIndex(nextIndex);
-    }, 1000); 
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [currentIndex, images.length]);
@@ -42,12 +42,12 @@ const Gallery: React.FC = () => {
   return (
     <section className="w-full py-8">
       <div className="relative">
-        <div className=" text-center">
+        {/* <div className=" text-center">
           <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
             Gallery
           </h1>
           <Underline />
-        </div>
+        </div> */}
 
         {/* Image Slider */}
         <div
@@ -69,17 +69,7 @@ const Gallery: React.FC = () => {
             </motion.div>
           ))}
         </div>
-        <div className="flex justify-center mt-12">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group bg-transparent border border-zinc-900 text-zinc-900 
-                                   px-8 py-2 rounded-sm font-semibold flex items-center gap-2 
-                                   transition-colors duration-300 hover:bg-zinc-900 hover:text-white"
-                  >
-                    Explore Gallery
-                  </motion.button>
-                </div>
+       
       </div>
       {/* Inline global styles to hide scrollbar */}
       <style jsx global>{`
