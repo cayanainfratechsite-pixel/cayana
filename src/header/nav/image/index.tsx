@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from './style.module.css';
 import { opacity } from '../../anim';
 
-export default function Index({src, selectedLink}) {
+export default function Index({src, selectedLink}: {src: string, selectedLink: {isActive: boolean}}) {
   return (
     <motion.div variants={opacity} initial="initial" animate={selectedLink.isActive ? "open" : "closed"} className={styles.imageContainer}>
         <Image 

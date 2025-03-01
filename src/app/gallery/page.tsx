@@ -82,7 +82,7 @@ export default function GallerySection() {
               {/* Image */}
               <Image
                 src={project.image}
-                alt={project.name}
+                alt={`Gallery Image ${project._id}`}
                 width={400}
                 height={300}
                 className="w-full h-auto object-contain mx-auto"

@@ -35,7 +35,7 @@ const StickyEnquiry: React.FC = () => {
 
     try {
       const response = await submitProjectEnquiry(data);
-      console.log("Response:", response.data);
+      console.log("Response:", response?.data);
       alert("Your enquiry has been submitted successfully!");
 
       // Clear form fields after successful submission

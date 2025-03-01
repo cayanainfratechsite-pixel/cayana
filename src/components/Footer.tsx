@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
       {/* Background Video */}
       <video
         ref={videoRef}
-        src="/videos/footer.mp4" // Replace with your video file path
+        src="./videos/footer.mp4" // Replace with your video file path
         className="absolute top-0 left-0 w-full h-full object-cover"
         loop
         muted

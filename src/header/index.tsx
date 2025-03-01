@@ -19,12 +19,12 @@ const dropdownItemVariants = {
 export default function Index() {
   const [isActive, setIsActive] = useState(false);     
   const [callActive, setCallActive] = useState(false);
-  const callContainerRef = useRef(null);
+  const callContainerRef = useRef<HTMLDivElement>(null);
 
   const [headerBgActive, setHeaderBgActive] = useState(false);
 
   useEffect(() => {
-    let timer;
+    let timer: NodeJS.Timeout;
     if (isActive) {
       setHeaderBgActive(true);
     } else {
@@ -37,12 +37,12 @@ export default function Index() {
 
   // Close the call dropdown when clicking outside its container.
   useEffect(() => {
-    function handleClickOutside(event) {
+    function handleClickOutside(event: MouseEvent): void {
       if (
-        callContainerRef.current &&
-        !callContainerRef.current.contains(event.target)
+      callContainerRef.current &&
+      !callContainerRef.current.contains(event.target as Node)
       ) {
-        setCallActive(false);
+      setCallActive(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
