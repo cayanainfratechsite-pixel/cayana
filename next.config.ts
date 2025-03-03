@@ -2,7 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["images.unsplash.com", "artgallery.yale.edu", "www.photocrati.com", "localhost"],
+    remotePatterns: [
+      { hostname: "images.unsplash.com" },
+      { hostname: "artgallery.yale.edu" },
+      { hostname: "www.photocrati.com" },
+      { hostname: "localhost" }
+    ],
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if

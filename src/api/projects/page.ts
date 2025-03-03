@@ -1,6 +1,6 @@
 import axios from "axios";
 import { limit } from "@/lib/data";
-const API_BASE_URL = "http://localhost:4000/api/v1";
+const API_BASE_URL = "http://145.223.23.134:4000/api/v1";
 
 export interface ProjectEnquiryPayload {
   category: string;
