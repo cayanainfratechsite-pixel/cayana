@@ -26,24 +26,16 @@ export const fetchJobPosts = async (page: number) => {
 };
 
 
-export interface ApplyJobPayload {
-  jobId: string;
-  fullName: string;
-  email: string;
-  mobile: string;
-  resume: string;
-  message: string;
-}
 
 
-export const submitJobApplication = async (data: ApplyJobPayload) => {
+export const submitJobApplication = async (formData: FormData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/job/apply-job`, data);
+    const response = await axios.post(`${API_BASE_URL}/job/apply-job`, formData);
     return response;
   } catch (error) {
     console.error("Error submitting enquiry:", error);
-    alert(
-      "There was an error submitting your enquiry. Please try again later."
-    );
+    alert("There was an error submitting your enquiry. Please try again later.");
   }
 }
+
+
