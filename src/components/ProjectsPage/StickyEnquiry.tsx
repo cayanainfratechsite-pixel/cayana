@@ -2,10 +2,16 @@
 
 import React, { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { submitProjectEnquiry } from "@/api/projects/page"; // Adjust the path as needed
+import { submitProjectEnquiry } from "@/api/Projects/page"; // Adjust the path as needed
 
-const StickyEnquiry: React.FC = () => {
-  // State to control modal visibility
+
+
+interface StickyEnquiryProps {
+  projectId: string;
+}
+
+
+const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
 
   // Form field states
@@ -23,8 +29,8 @@ const StickyEnquiry: React.FC = () => {
     
 
     const data = {
-      category: "project", // Fixed category
-      projectId: "67b43790df2773c9320ccf1e", // Hard-coded project ID
+      category: "project",
+      projectId,
       firstName,
       lastName,
       email,

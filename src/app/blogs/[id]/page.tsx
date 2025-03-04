@@ -14,7 +14,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 
-import { fetchBlogById, fetchBlogs } from "@/api/Blogs/page";
+import { fetchBlogById, fetchBlogsRecent } from "@/api/Blogs/page";
 
 interface BlogImage {
   cardImage: string;
@@ -97,7 +97,7 @@ const Page: React.FC = () => {
   useEffect(() => {
     const fetchBlogsData = async () => {
       try {
-        const data: BlogResponse = await fetchBlogs(page);
+        const data: BlogResponse = await fetchBlogsRecent(page);
         if (data.success === 0) {
           setBlogs(data.result.blogs);
           setTotalPages(data.result.totalPages);
@@ -172,11 +172,10 @@ const Page: React.FC = () => {
 
             {/* Content Section */}
 
-
-<article
-  className="prose sm:prose lg:prose-xl text-gray-800"
-  dangerouslySetInnerHTML={{ __html: blog?.content || "" }}
-></article>
+            <article
+              className="prose sm:prose lg:prose-xl text-gray-800"
+              dangerouslySetInnerHTML={{ __html: blog?.content || "" }}
+            ></article>
           </div>
 
           {/* Right Column: Recent Blogs */}

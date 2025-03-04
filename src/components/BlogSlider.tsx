@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Underline from "@/components/Underline";
 
-import { fetchBlogs } from "@/api/Blogs/page";
+import { fetchBlogsHome } from "@/api/Blogs/page";
 
 interface BlogImage {
   cardImage: string;
@@ -57,7 +57,7 @@ const BlogBentoGridSmall: React.FC = () => {
   useEffect(() => {
     const fetchBlogsData = async () => {
       try {
-        const data: BlogResponse = await fetchBlogs(page);
+        const data: BlogResponse = await fetchBlogsHome(page);
         if (data.success === 0) {
           setBlogs(data.result.blogs);
           setTotalPages(data.result.totalPages);
@@ -132,15 +132,17 @@ const BlogBentoGridSmall: React.FC = () => {
             ))}
           </motion.div>
           <div className="flex justify-center mt-12">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group bg-transparent border border-zinc-900 text-zinc-900 
-                           px-8 py-2 rounded-sm font-semibold flex items-center gap-2 
-                           transition-colors duration-300 hover:bg-zinc-900 hover:text-white"
-            >
-              Explore All Blogs
-            </motion.button>
+            <Link href="/blogs">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group bg-transparent border border-zinc-900 text-zinc-900 
+                 px-8 py-2 rounded-sm font-semibold flex items-center gap-2 
+                 transition-colors duration-300 hover:bg-zinc-900 hover:text-white"
+              >
+                Explore All Blogs
+              </motion.button>
+            </Link>
           </div>
         </div>
       </section>

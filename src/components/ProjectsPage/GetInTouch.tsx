@@ -2,9 +2,13 @@
 import React, { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import Underline from '../Underline';
-import { submitProjectEnquiry } from '@/api/projects/page'; 
+import { submitProjectEnquiry } from '@/api/Projects/page'; 
 
-const GetInTouch: React.FC = () => {
+interface GetInTouchProps {
+  projectId: string;
+}
+
+const GetInTouch: React.FC<GetInTouchProps> = ({ projectId }) => {
   // State variables for the form fields.
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -18,7 +22,7 @@ const GetInTouch: React.FC = () => {
 
     const data = {
       category: "project", 
-      projectId: "67b43790df2773c9320ccf1e", 
+      projectId, 
       firstName,
       lastName,
       email,

@@ -24,6 +24,48 @@ export const fetchBlogs = async (page:number) => {
   }
 };
 
+export const fetchBlogsHome = async (page:number) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/blog`, {
+      params: {
+        page,
+        limit: 6,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(
+        error.response?.data?.message ||
+          "An error occurred while fetching blogs"
+      );
+    } else {
+      throw new Error("An unknown error occurred while fetching blogs");
+    }
+  }
+};
+
+export const fetchBlogsRecent = async (page:number) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/blog`, {
+      params: {
+        page,
+        limit: 3,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(
+        error.response?.data?.message ||
+          "An error occurred while fetching blogs"
+      );
+    } else {
+      throw new Error("An unknown error occurred while fetching blogs");
+    }
+  }
+};
+
 
 
 // Generic API response interface

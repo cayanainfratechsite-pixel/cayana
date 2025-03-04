@@ -1,9 +1,7 @@
 "use client";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
-
   FaQuoteLeft,
 } from "react-icons/fa";
 import Image from "next/image";
@@ -69,8 +67,6 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
-
-     
      <FeaturedProjects/>
     </div>
   );

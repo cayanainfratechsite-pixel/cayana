@@ -4,14 +4,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Underline from "../Underline";
 
-const Gallery: React.FC = () => {
-  // Hard-coded list of image paths
-  const images: string[] = [
-    "/images/Projects/projects1.webp",
-    "/images/Projects/projects2.webp",
-    "/images/Projects/projects3.webp",
-    "/images/Projects/projects1.webp",
-  ];
+
+interface GalleryProps {
+  images: string[];
+}
+
+
+
+const Gallery: React.FC<GalleryProps> = ({ images }) => {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,12 +42,7 @@ const Gallery: React.FC = () => {
   return (
     <section className="w-full py-8">
       <div className="relative">
-        {/* <div className=" text-center">
-          <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
-            Gallery
-          </h1>
-          <Underline />
-        </div> */}
+
 
         {/* Image Slider */}
         <div

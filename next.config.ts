@@ -6,7 +6,20 @@ const nextConfig: NextConfig = {
       { hostname: "images.unsplash.com" },
       { hostname: "artgallery.yale.edu" },
       { hostname: "www.photocrati.com" },
-      { hostname: "localhost" }
+      { hostname: "145.223.23.134" },
+      {
+        protocol: "https",
+        hostname: "cdn-icons-png.flaticon.com",
+      },
+    ],
+    domains: [
+      "images.unsplash.com",
+      "media.istockphoto.com",
+      "images.ctfassets.net",
+      "example.com",
+      "artgallery.yale.edu",
+      "www.photocrati.com",
+      "145.223.23.134"
     ],
   },
   eslint: {

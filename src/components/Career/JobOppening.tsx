@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Underline from "../Underline";
 import PaginationComponent from "../Pagination";
-import { fetchJobPosts, submitJobApplication, ApplyJobPayload } from "@/api/jobPosts/page";
+import { fetchJobPosts, submitJobApplication, ApplyJobPayload } from "@/api/JobPosts/page";
 
 export interface JobPosts {
   _id: string;
@@ -28,15 +28,14 @@ const JobOppening = () => {
   const [totalPages, setTotalPages] = useState<number>(1);
   const [selectedJobId, setSelectedJobId] = useState<string | null>(null);
 
-
   const [applyFullName, setApplyFullName] = useState("");
   const [applyEmail, setApplyEmail] = useState("");
   const [applyMobile, setApplyMobile] = useState("");
-  const [applyResume, setApplyResume] = useState("");
+  // Change resume state to hold a File object (or null)
+  const [applyResume, setApplyResume] = useState<File | null>(null);
   const [applyMessage, setApplyMessage] = useState("");
   const [applyLoading, setApplyLoading] = useState(false);
   const [applyError, setApplyError] = useState<string | null>(null);
-
 
   useEffect(() => {
     const fetchJobPostsData = async () => {
@@ -54,7 +53,6 @@ const JobOppening = () => {
     fetchJobPostsData();
   }, [page]);
 
-
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number
@@ -62,12 +60,10 @@ const JobOppening = () => {
     setPage(value);
   };
 
-
   const handleApplyClick = (jobId: string) => {
     setSelectedJobId(jobId);
     setShowForm(true);
   };
-
 
   const handleApplicationSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -75,15 +71,19 @@ const JobOppening = () => {
     setApplyLoading(true);
     setApplyError(null);
     try {
-      const payload: ApplyJobPayload = {
-        jobId: selectedJobId,
-        fullName: applyFullName,
-        email: applyEmail,
-        mobile: applyMobile,
-        resume: applyResume,
-        message: applyMessage,
-      };
-      const response = await submitJobApplication(payload);
+      // Create a FormData instance for file upload
+      const formData = new FormData();
+      formData.append("jobId", selectedJobId);
+      formData.append("fullName", applyFullName);
+      formData.append("email", applyEmail);
+      formData.append("mobile", applyMobile);
+      if (applyResume) {
+        formData.append("resume", applyResume);
+      }
+      formData.append("message", applyMessage);
+
+      // Update submitJobApplication to accept FormData instead of a JSON object
+      const response = await submitJobApplication(formData);
       if (response && response.data) {
         console.log("Application Response:", response.data);
       }
@@ -92,7 +92,7 @@ const JobOppening = () => {
       setApplyFullName("");
       setApplyEmail("");
       setApplyMobile("");
-      setApplyResume("");
+      setApplyResume(null);
       setApplyMessage("");
       setShowForm(false);
     } catch (error) {
@@ -102,7 +102,6 @@ const JobOppening = () => {
       setApplyLoading(false);
     }
   };
-
 
   return (
     <div>
@@ -149,6 +148,7 @@ const JobOppening = () => {
                 ) : (
                   jobPosts.map((job) => (
                     <motion.tr
+                      key={job._id}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8 }}
@@ -174,7 +174,6 @@ const JobOppening = () => {
                           Apply Now
                         </a>
                       </td>
-
                     </motion.tr>
                   ))
                 )}
@@ -184,16 +183,10 @@ const JobOppening = () => {
         </div>
       </section>
 
-         {/* Pagination Component */}
-         <PaginationComponent
-        count={totalPages}
-        page={page}
-        onChange={handlePageChange}
-      />
-
+      {/* Pagination Component */}
+      <PaginationComponent count={totalPages} page={page} onChange={handlePageChange} />
 
       {/* Modal Popup for Application Form */}
-
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <motion.div
@@ -235,7 +228,7 @@ const JobOppening = () => {
                   name="fullName"
                   value={applyFullName}
                   onChange={(e) => setApplyFullName(e.target.value)}
-                  className="w-full border border-gray-300 p-3 rounded"
+                  className="w-full text-black border border-gray-300 p-3 rounded"
                   placeholder="Your full name"
                   required
                 />
@@ -250,7 +243,7 @@ const JobOppening = () => {
                   name="email"
                   value={applyEmail}
                   onChange={(e) => setApplyEmail(e.target.value)}
-                  className="w-full border border-gray-300 p-3 rounded"
+                  className="w-full text-black border border-gray-300 p-3 rounded"
                   placeholder="Your email address"
                   required
                 />
@@ -265,23 +258,26 @@ const JobOppening = () => {
                   name="phone"
                   value={applyMobile}
                   onChange={(e) => setApplyMobile(e.target.value)}
-                  className="w-full border border-gray-300 p-3 rounded"
+                  className="w-full text-black border border-gray-300 p-3 rounded"
                   placeholder="Your phone number"
                   required
                 />
               </div>
               <div>
                 <label htmlFor="resume" className="block text-gray-700 font-medium mb-2">
-                  Resume URL
+                  Resume Upload
                 </label>
+                {/* Change input type to file */}
                 <input
-                  type="text"
+                  type="file"
                   id="resume"
                   name="resume"
-                  value={applyResume}
-                  onChange={(e) => setApplyResume(e.target.value)}
-                  className="w-full border border-gray-300 p-3 rounded"
-                  placeholder="Link to your resume"
+                  onChange={(e) => {
+                    if (e.target.files && e.target.files[0]) {
+                      setApplyResume(e.target.files[0]);
+                    }
+                  }}
+                  className="w-full text-black border border-gray-300 p-3 rounded"
                   required
                 />
               </div>
@@ -294,7 +290,7 @@ const JobOppening = () => {
                   name="message"
                   value={applyMessage}
                   onChange={(e) => setApplyMessage(e.target.value)}
-                  className="w-full border border-gray-300 p-3 rounded"
+                  className="w-full text-black border border-gray-300 p-3 rounded"
                   placeholder="Your message"
                 ></textarea>
               </div>

@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Underline from "@/components/Underline";
@@ -9,32 +10,53 @@ import Gallery from "@/components/ProjectsPage/Gallery";
 import { FaDownload } from "react-icons/fa";
 import GetInTouch from "@/components/ProjectsPage/GetInTouch";
 import StickyEnquiry from "@/components/ProjectsPage/StickyEnquiry";
+import { useParams, useRouter } from "next/navigation";
 
 const Page: React.FC = () => {
-  const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/path/to/your/file.pdf";
-    link.download = "file.pdf";
-    link.click();
+  const { id } = useParams();
+  const [project, setProject] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`http://145.223.23.134:4000/api/v1/project/${id}`)
+      .then((response) => {
+        if (response.data.success === 0) {
+          setProject(response.data.result);
+        }
+      })
+      .catch((error) => console.error("Error fetching project:", error))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const handleDownload = async () => {
+    try {
+      const response = await fetch(project.brochureURL);
+      const blob = await response.blob();
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "Brochure.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link); 
+    } catch (error) {
+      console.error("Download failed:", error);
+    }
   };
 
-  const project = {
-    name: "Skyline Towers",
-    location: "BBSR, ODISHA, INDIA",
-    price: "2,500,000",
-    heroImage: "/images/Projects/cover.webp",
-    secondImage: "/images/Projects/floor.png",
-    subContent: `This project is a testament to modern architecture. It offers luxurious living spaces.
-Experience comfort and convenience like never before.`,
-    longDescription:
-      "Skyline Towers is a remarkable blend of elegance, modern design, and sustainable practices. It offers state-of-the-art facilities, spacious living areas, and a community-centric environment. Residents enjoy panoramic views, innovative amenities, and a peaceful urban retreat amidst the hustle of city life. Every detail has been meticulously planned to ensure maximum comfort and convenience. From energy-efficient designs to smart home integrations, this project sets new benchmarks in contemporary living. The strategic location in Bhubaneswar ensures excellent connectivity and access to key amenities. Embrace a lifestyle of luxury, comfort, and sophistication at Skyline Towers.",
-  };
+  if (loading) {
+    return <div className="text-center py-10 text-xl">Loading...</div>;
+  }
+
+  if (!project) {
+    return <div className="text-center py-10 text-xl">Project not found</div>;
+  }
 
   return (
     <section className="relative">
       <div className="relative w-full h-[70vh]">
         <Image
-          src={project.heroImage}
+          src={project.coverImage}
           alt={project.name}
           layout="fill"
           objectFit="cover"
@@ -60,7 +82,7 @@ Experience comfort and convenience like never before.`,
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {project.location}
+            {project.locationName}
           </motion.p>
           <div className="flex gap-3 md:gap-8 flex-wrap">
             <motion.p
@@ -69,7 +91,7 @@ Experience comfort and convenience like never before.`,
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              INR {project.price}/- onwards
+              INR {project.basePrice}/- onwards
             </motion.p>
             <motion.p
               className="text-sm sm:text-xl font-medium text-zinc-100"
@@ -85,7 +107,7 @@ Experience comfort and convenience like never before.`,
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              3+ Utility & 4+ Utility BHK
+              Type: {project.type}
             </motion.p>
             <motion.p
               className="text-sm sm:text-xl font-medium text-zinc-100"
@@ -101,7 +123,23 @@ Experience comfort and convenience like never before.`,
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              2,3,4 BHK
+              Size: {project.size} Sq. ft.
+            </motion.p>
+            <motion.p
+              className="text-sm sm:text-xl font-medium text-zinc-100"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              |
+            </motion.p>
+            <motion.p
+              className="text-sm sm:text-xl font-medium text-zinc-100"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              {project.bedRooms} BHK
             </motion.p>
           </div>
         </div>
@@ -119,11 +157,11 @@ Experience comfort and convenience like never before.`,
         </div>
 
         <div>
-          <Gallery />
+          <Gallery images={project.gallery} />
         </div>
 
         <div>
-          <ProjectSection />
+          <ProjectSection amenities={project.amenities} />
         </div>
 
         <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
@@ -132,7 +170,7 @@ Experience comfort and convenience like never before.`,
               Details
             </h1>
             <Underline />
-            <p className="text-zinc-900">{project.longDescription}</p>
+            <p className="text-zinc-900">{project.details}</p>
           </div>
         </div>
 
@@ -145,12 +183,12 @@ Experience comfort and convenience like never before.`,
             <Underline />
           </div>
 
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3753.3455598694056!2d85.829664!3d20.296059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a190b8ec24b2f07%3A0x7f35c5b6a5a45f2a!2sBhubaneswar%2C%20Odisha%2C%20India!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus"
-            className="w-full h-[400px] border-0 rounded-lg shadow-lg"
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
+          <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg shadow-lg border border-gray-300">
+            <div
+              className="w-full h-full"
+              dangerouslySetInnerHTML={{ __html: project.locationEmbedURL }}
+            ></div>
+          </div>
         </div>
 
         <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
@@ -159,19 +197,19 @@ Experience comfort and convenience like never before.`,
               Floor Structure
             </h1>
             <Underline />
+            <p className="text-zinc-900">{project.overview}</p>
           </div>
         </div>
 
         {/* Secondary Image */}
         <div className="relative w-full mb-12">
           <Image
-            src={project.secondImage}
+            src={project.overViewImage}
             alt="Hero Image"
             width={1900}
             height={800}
             layout="responsive"
             className="w-full"
-            // quality={1000}
           />
         </div>
       </div>
@@ -193,11 +231,11 @@ Experience comfort and convenience like never before.`,
       </div>
 
       <div>
-        <GetInTouch />
+        <GetInTouch projectId={id as string} />
       </div>
 
       <div>
-        <StickyEnquiry />
+        <StickyEnquiry projectId={id as string} />
       </div>
     </section>
   );

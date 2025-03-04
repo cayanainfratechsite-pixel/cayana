@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Underline from "../Underline";
+import PaginationComponent from "../Pagination";
 
 import { fetchBlogs } from "@/api/Blogs/page";
 
@@ -74,6 +75,13 @@ const BlogPage: React.FC = () => {
     fetchBlogsData();
   }, [page]);
 
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
+    setPage(value);
+  };
+
   return (
     <>
       {/* Blog Posts Section */}
@@ -133,6 +141,11 @@ const BlogPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
+      <PaginationComponent
+        count={totalPages}
+        page={page}
+        onChange={handlePageChange}
+      />
     </>
   );
 };
