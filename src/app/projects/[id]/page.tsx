@@ -19,7 +19,7 @@ const Page: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get(`http://145.223.23.134:4000/api/v1/project/${id}`)
+      .get(`https://api.cayana.co.in/api/v1/project/${id}`)
       .then((response) => {
         if (response.data.success === 0) {
           setProject(response.data.result);
