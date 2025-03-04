@@ -14,7 +14,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 
-import { fetchBlogById, fetchBlogsRecent } from "@/api/Blogs/page";
+import { fetchBlogById, fetchBlogsRecent } from "@/api/blogs/page";
 
 interface BlogImage {
   cardImage: string;

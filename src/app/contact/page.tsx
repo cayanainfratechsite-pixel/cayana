@@ -6,7 +6,7 @@ import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 import { FaQuoteLeft } from "react-icons/fa";
 import Image from "next/image";
 
-import { submitContactEnquiry } from "@/api/Contact/page";
+import { submitContactEnquiry } from "@/api/contact/page";
 
 export default function ContactPage() {
   // Form fields
