@@ -2,7 +2,7 @@
 
 import React, { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { submitProjectEnquiry } from "@/api/Projects/page"; // Adjust the path as needed
+import { submitProjectEnquiry } from "@/api/projects/page"; // Adjust the path as needed
 
 
 

@@ -2,7 +2,7 @@
 import React, { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import Underline from '../Underline';
-import { submitProjectEnquiry } from '@/api/Projects/page'; 
+import { submitProjectEnquiry } from '@/api/projects/page'; 
 
 interface GetInTouchProps {
   projectId: string;

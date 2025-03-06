@@ -5,7 +5,7 @@ import { CircularProgress, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fetchGallery } from "@/api/Gallery/page";
+import { fetchGallery } from "@/api/gallery/page";
 
 interface GalleryItem {
   _id: string;

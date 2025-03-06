@@ -9,7 +9,7 @@ import {
   FaLayerGroup,
 } from "react-icons/fa";
 import PaginationComponent from "../Pagination";
-import { fetchProjects } from "@/api/Projects/page";
+import { fetchProjects } from "@/api/projects/page";
 import { useParams } from "next/navigation";
 
 import AddTaskSharpIcon from "@mui/icons-material/AddTaskSharp";

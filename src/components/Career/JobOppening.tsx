@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Underline from "../Underline";
 import PaginationComponent from "../Pagination";
-import { fetchJobPosts, submitJobApplication } from "@/api/JobPosts/page";
+import { fetchJobPosts, submitJobApplication } from "@/api/jobPosts/page";
 
 export interface JobPosts {
   _id: string;
