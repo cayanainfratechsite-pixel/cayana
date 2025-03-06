@@ -156,7 +156,7 @@ export default function ContactPage() {
                     type="text"
                     id="lastName"
                     value={lastName}
-                    placeholder=" " 
+                    placeholder=" "
                     onChange={(e) => setLastName(e.target.value)}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     required
@@ -246,7 +246,6 @@ export default function ContactPage() {
                 </label>
               </div>
 
-
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.03 }}
@@ -291,7 +290,7 @@ export default function ContactPage() {
                   <MdPhone className="h-6 w-6 text-blue-500 mr-2" />
                   <span className="font-bold">Phone</span>
                 </div>
-                <p className="text-gray-600">+123 456 7890</p>
+                <p className="text-gray-600">+91 890-801-2233</p>
               </motion.div>
               {/* Email Card */}
               <motion.div
@@ -302,7 +301,7 @@ export default function ContactPage() {
                   <MdEmail className="h-6 w-6 text-blue-500 mr-2" />
                   <span className="font-bold">Email</span>
                 </div>
-                <p className="text-gray-600">email@example.com</p>
+                <p className="text-gray-600">support@cayana.co.in</p>
               </motion.div>
               {/* Address Card */}
               <motion.div
@@ -313,7 +312,9 @@ export default function ContactPage() {
                   <MdLocationOn className="h-6 w-6 text-blue-500 mr-2" />
                   <span className="font-bold">Address</span>
                 </div>
-                <p className="text-gray-600">Bhubaneswar, Odisha, India</p>
+                <p className="text-gray-600 text-sm">
+                  N1/187, IRC Village, Nayapalli, Bhubaneswar, Odisha -15
+                </p>
               </motion.div>
             </div>
 
@@ -328,9 +329,9 @@ export default function ContactPage() {
               </h2>
               <div className="w-full h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden shadow-md">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.499854450253!2d85.81457611511592!3d20.296059186883825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a190f31747e511b%3A0x8e7f7e6d50b8c3a3!2sBhubaneswar%2C%20Odisha%2C%20India!5e0!3m2!1sen!2sus!4v1630311156822!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.2636856106005!2d85.80419907599952!3d20.28934988118133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1907ed44015555%3A0xdb602bbf3b479019!2sCayana%20Infratech%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1741291386582!5m2!1sen!2sin"
+                  width="600"
+                  height="450"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
