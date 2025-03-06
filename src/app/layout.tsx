@@ -11,7 +11,7 @@ const mavenPro = Maven_Pro({
 
 export const metadata = {
   title: "Cayana",
-  description: "Cayana is a modern and minimalistic blog template.",
+  description: "Cayana Infratech Pvt Ltd.",
 };
 
 export default function RootLayout({
@@ -21,6 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+        <head>
+        {/* Directly reference the image from the public folder */}
+        <link rel="icon" href="/images/CAYANA.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/CAYANA.png" />
+      </head>
+
       <body className={mavenPro.className}>
         <Navbar />
         {children}

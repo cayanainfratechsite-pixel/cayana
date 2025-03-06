@@ -28,24 +28,8 @@ const OurLeadershipTeam: React.FC = () => {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 1.2 }}
         >
-          {/* CEO Photo */}
           <motion.div
-            className="w-full md:w-1/2"
-            initial={{ x: -50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1 }}
-          >
-            <img
-              src="/images/as.jpg" 
-              alt="CEO Photo"
-              className="w-full h-auto object-cover rounded-lg shadow-xl"
-            />
-          </motion.div>
-
-          {/* CEO Message */}
-          <motion.div
-            className="w-full md:w-1/2"
+            className="w-full md:w-full"
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}

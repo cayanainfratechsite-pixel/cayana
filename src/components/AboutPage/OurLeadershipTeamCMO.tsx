@@ -20,9 +20,8 @@ const OurLeadershipTeamCMO: React.FC = () => {
         </motion.h2>
 
         <Underline />
-
         <motion.div
-          className="flex flex-col md:flex-row items-center gap-12"
+          className="flex flex-col md:flex-row items-center justify-center gap-12 mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -50,24 +49,24 @@ const OurLeadershipTeamCMO: React.FC = () => {
             <p className="text-zinc-900 text-lg leading-relaxed">
               Our journey is built on passion, collaboration, and a commitment
               to excellence. I am excited to continue leading initiatives that
-              redefine industry standards and bring value to our community. 
+              redefine industry standards and bring value to our community.
               Thank you for being part of this exciting chapter.
             </p>
           </motion.div>
 
           <motion.div
-            className="w-full md:w-1/2"
+            className="w-full md:w-1/2 flex justify-center"
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 1 }}
           >
             <Image
-              src="/images/as.jpg" 
+              src="/images/ceo.jpeg"
               alt="CMO Photo CAYANA"
-              width={500} 
-              height={500}
-              className="w-full h-auto object-cover rounded-lg shadow-xl"
+              width={350}
+              height={350}
+              className="object-cover rounded-lg shadow-xl"
               priority
             />
           </motion.div>

@@ -19,12 +19,11 @@ const nextConfig: NextConfig = {
       "example.com",
       "artgallery.yale.edu",
       "www.photocrati.com",
-      "145.223.23.134"
+      "145.223.23.134",
+      "api.cayana.co.in"
     ],
   },
   eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
 };

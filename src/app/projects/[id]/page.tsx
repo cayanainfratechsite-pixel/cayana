@@ -11,11 +11,122 @@ import { FaDownload } from "react-icons/fa";
 import GetInTouch from "@/components/ProjectsPage/GetInTouch";
 import StickyEnquiry from "@/components/ProjectsPage/StickyEnquiry";
 import { useParams, useRouter } from "next/navigation";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
+// Custom Next Arrow for Slider
+function SampleNextArrow(props: any) {
+  const { onClick } = props;
+  return (
+    <div
+      onClick={onClick}
+      className="absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10 p-2"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-8 w-8 text-zinc-100 bg-zinc-800 rounded-full p-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  );
+}
+
+// Custom Prev Arrow for Slider
+function SamplePrevArrow(props: any) {
+  const { onClick } = props;
+  return (
+    <div
+      onClick={onClick}
+      className="absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10 p-2"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-8 w-8 text-zinc-100 bg-zinc-800 rounded-full p-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+      </svg>
+    </div>
+  );
+}
+
+
+const OverviewSlider = ({
+  images,
+  onImageClick,
+}: {
+  images: string[];
+  onImageClick?: (imageUrl: string) => void;
+}) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    centerMode: true,
+    centerPadding: "60px", 
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          centerPadding: "40px",
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          centerPadding: "20px",
+        },
+      },
+    ],
+  };
+
+  return (
+    <div>
+      <Slider {...settings}>
+        {images.map((imgUrl, idx) => (
+          <div
+            key={idx}
+            className="px-2 cursor-pointer" // Horizontal padding to add gap between images
+            onClick={() => onImageClick && onImageClick(imgUrl)}
+          >
+            <div className="flex justify-center items-center">
+              <Image
+                src={imgUrl}
+                alt={`Overview Image ${idx + 1}`}
+                width={600}
+                height={400}
+                className="object-cover rounded-lg "
+              />
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </div>
+  );
+};
+
+
+
 
 const Page: React.FC = () => {
   const { id } = useParams();
   const [project, setProject] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     axios
@@ -27,7 +138,7 @@ const Page: React.FC = () => {
       })
       .catch((error) => console.error("Error fetching project:", error))
       .finally(() => setLoading(false));
-  }, []);
+  }, [id]);
 
   const handleDownload = async () => {
     try {
@@ -38,7 +149,7 @@ const Page: React.FC = () => {
       link.download = "Brochure.pdf";
       document.body.appendChild(link);
       link.click();
-      document.body.removeChild(link); 
+      document.body.removeChild(link);
     } catch (error) {
       console.error("Download failed:", error);
     }
@@ -63,13 +174,13 @@ const Page: React.FC = () => {
           className="z-0"
         />
 
-        {/* Dark overlay over the image */}
+        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black opacity-30"></div>
 
-        {/* Black background container at the bottom of the image */}
+        {/* Black background container */}
         <div className="absolute bottom-0 left-0 right-0 bg-black/40 mx-3 px-4 py-8 sm:mx-auto max-w-7xl mb-10 rounded-lg">
           <motion.h1
-            className="text-xl text-zinc-100 sm:text-2xl uppercase font-bold mb-2 "
+            className="text-xl text-zinc-100 sm:text-2xl uppercase font-bold mb-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -139,7 +250,7 @@ const Page: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              {project.bedRooms} BHK
+              {project.bedRooms}
             </motion.p>
           </div>
         </div>
@@ -152,7 +263,7 @@ const Page: React.FC = () => {
               Overview
             </h1>
             <Underline />
-            <p className=" text-zinc-900">{project.subContent}</p>
+            <p className="text-zinc-900">{project.subContent}</p>
           </div>
         </div>
 
@@ -165,7 +276,7 @@ const Page: React.FC = () => {
         </div>
 
         <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
-          <div className=" text-center">
+          <div className="text-center">
             <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
               Details
             </h1>
@@ -174,7 +285,7 @@ const Page: React.FC = () => {
           </div>
         </div>
 
-        {/* Map Section: Location set to BBSR, ODISHA, INDIA */}
+        {/* Map Section */}
         <div className="py-8 px-4 sm:px-8">
           <div className="mb-8 text-center">
             <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
@@ -182,7 +293,6 @@ const Page: React.FC = () => {
             </h1>
             <Underline />
           </div>
-
           <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg shadow-lg border border-gray-300">
             <div
               className="w-full h-full"
@@ -201,16 +311,13 @@ const Page: React.FC = () => {
           </div>
         </div>
 
-        {/* Secondary Image */}
-        <div className="relative w-full mb-12">
-          <Image
-            src={project.overViewImage}
-            alt="Hero Image"
-            width={1900}
-            height={800}
-            layout="responsive"
-            className="w-full"
-          />
+        {/* Overview Images Slider */}
+        <div className="py-8 px-4 sm:px-8">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase text-center">
+          Floor Structure Images
+          </h1>
+          <Underline />
+          <OverviewSlider images={project.overViewImage} onImageClick={(imgUrl) => setSelectedImage(imgUrl)} />
         </div>
       </div>
 
@@ -237,6 +344,27 @@ const Page: React.FC = () => {
       <div>
         <StickyEnquiry projectId={id as string} />
       </div>
+
+      {/* Modal for enlarged image */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+          <div className="relative">
+            <Image
+              src={selectedImage}
+              alt="Enlarged Overview Image"
+              width={700}
+              height={200}
+              className="object-contain rounded-lg"
+            />
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-2 right-2 px-2   text-white bg-gray-800 rounded-full"
+            >
+              X
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

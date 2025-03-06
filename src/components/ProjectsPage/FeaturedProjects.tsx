@@ -78,7 +78,7 @@ const FeaturedProjects: React.FC = () => {
         return <AddTaskSharpIcon fontSize="medium" />;
       case "ongoing":
         return <AutorenewIcon fontSize="medium" />;
-      case "pending":
+      case "upcoming":
         return <PendingActionsIcon fontSize="medium" />;
       default:
         return null;
