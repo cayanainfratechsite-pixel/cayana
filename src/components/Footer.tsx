@@ -101,10 +101,11 @@ const Footer: React.FC = () => {
             {/* Quick Links Column */}
             <div>
               <h3 className="text-2xl font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 flex gap-12 ">
+                <div className="flex flex-col gap-3">
                 <li>
                   <a
-                    href="#"
+                    href="/"
                     className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Home
@@ -112,7 +113,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/about"
                     className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     About Us
@@ -120,7 +121,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/projects"
                     className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Our Projects
@@ -128,20 +129,40 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/blogs"
                     className="text-gray-300 hover:text-[#0553F1] transition"
                   >
-                    Services
+                    Blogs
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/gallery"
                     className="text-gray-300 hover:text-[#0553F1] transition"
                   >
-                    Contact
+                    Gallery
                   </a>
                 </li>
+                </div>
+                <div className="flex flex-col gap-3">
+                
+                <li>
+                  <a
+                    href="/careers"
+                    className="text-gray-300 hover:text-[#0553F1] transition"
+                  >
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/contact"
+                    className="text-gray-300 hover:text-[#0553F1] transition"
+                  >
+                    Contact Us
+                  </a>
+                </li>
+                </div>
               </ul>
             </div>
 
