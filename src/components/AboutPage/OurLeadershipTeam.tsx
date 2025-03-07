@@ -19,7 +19,7 @@ const OurLeadershipTeam: React.FC = () => {
           Message From CMD
         </motion.h2>
 
-        <Underline/>
+        <Underline />
 
         <motion.div
           className="flex flex-col md:flex-row items-center gap-12"
@@ -39,20 +39,22 @@ const OurLeadershipTeam: React.FC = () => {
               A Message from Our CMD
             </h3>
             <p className="text-zinc-900 text-lg leading-relaxed mb-6">
-              Welcome to our journey of innovation and commitment. Our company
-              has grown from humble beginnings into a trailblazer in the
-              industry—thanks to the dedication and hard work of our
-              exceptional team. As we continue to forge new paths and overcome
-              challenges, our mission remains steadfast: to deliver excellence
-              and create lasting value for our clients, partners, and
-              community.
+              At Cayana Infratech Pvt. Ltd., we believe in building more than
+              just structures—we build trust, transparency, and lasting
+              relationships. Since our inception, our focus has been on
+              delivering high-quality developments that redefine modern living
+              while maintaining the highest standards of integrity and
+              innovation. Every project we undertake is a testament to our
+              commitment to excellence, sustainability, and customer
+              satisfaction.
             </p>
             <p className="text-zinc-900 text-lg leading-relaxed">
-              I am deeply honored to lead such an inspiring team that
-              continuously pushes the boundaries of what’s possible. Together,
-              we are building a future where innovation meets integrity, and
-              every challenge is an opportunity for growth. Thank you for being
-              part of our incredible journey.
+              As we continue to grow, our vision remains steadfast—to create
+              world-class infrastructure that not only meets the needs of today
+              but also shapes a better tomorrow. With a dedicated team and a
+              passion for excellence, we strive to transform spaces into
+              thriving communities, ensuring value and prosperity for
+              generations to come.
             </p>
           </motion.div>
         </motion.div>

@@ -39,18 +39,19 @@ const OurLeadershipTeamCMO: React.FC = () => {
               A Message from Our CEO
             </h3>
             <p className="text-zinc-900 text-lg leading-relaxed mb-6">
-              As the Chief Marketing Officer, I am honored to drive our brand's
-              vision and connect with our audience in meaningful ways. Marketing
-              is not just about promotions; it’s about creating experiences that
-              resonate and inspire. Our team is dedicated to storytelling,
-              innovation, and pushing creative boundaries to build a lasting
-              impact.
+              At Cayana Infratech Pvt. Ltd., we are driven by a vision to create
+              world-class developments that embody trust, transparency, and
+              excellence. Our commitment to quality and innovation ensures that
+              every project we undertake not only meets but exceeds
+              expectations, delivering sustainable and modern infrastructure for
+              a better future.
             </p>
             <p className="text-zinc-900 text-lg leading-relaxed">
-              Our journey is built on passion, collaboration, and a commitment
-              to excellence. I am excited to continue leading initiatives that
-              redefine industry standards and bring value to our community.
-              Thank you for being part of this exciting chapter.
+              As we continue to grow, our focus remains on enhancing lives
+              through thoughtful design, timely execution, and ethical business
+              practices. With a strong foundation built on integrity and
+              customer satisfaction, we strive to shape the real estate
+              landscape with developments that stand the test of time.
             </p>
           </motion.div>
 

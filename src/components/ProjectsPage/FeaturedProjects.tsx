@@ -101,12 +101,13 @@ const FeaturedProjects: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Discover our premium real estate projects, offering luxury living and
-        modern designs.
+        Discover our Affordable premium real estate projects, offering luxury
+        living and modern designs.
       </motion.p>
       <div className="mt-10 grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
-          <Link key={project._id} href={`/projects/${project._id}`}>
+          // <Link key={project._id} href={`/projects/${project._id}`}>
+          <Link key={project._id} href={`#`}>
             <motion.div className="p-3 hover:bg-white hover:shadow-lg hover:rounded-sm border border-zinc-200 cursor-pointer transition-all duration-500 ease-in-out">
               <img
                 src={project.cardImage}
@@ -149,9 +150,7 @@ const FeaturedProjects: React.FC = () => {
                   <div className="flex items-center border p-2 rounded">
                     <FaBed className="text-zinc-500 mr-2" />
                     <div>
-                      <p className="text-sm font-light text-zinc-700">
-                        Bedrooms
-                      </p>
+                      <p className="text-sm font-light text-zinc-700">Size</p>
                       <p className="text-sm font-medium text-zinc-900">
                         {project.bedRooms}
                       </p>
@@ -161,7 +160,7 @@ const FeaturedProjects: React.FC = () => {
                     <FaRulerCombined className="text-zinc-500 mr-2" />
                     <div>
                       <p className="text-sm font-light text-zinc-700">
-                        Development Size
+                        Category
                       </p>
                       <p className="text-sm font-medium text-zinc-900">
                         {project.size}

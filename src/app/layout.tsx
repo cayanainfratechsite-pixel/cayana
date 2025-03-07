@@ -1,12 +1,10 @@
+// File: app/layout.tsx (or wherever your global RootLayout is located)
 import "./globals.css";
-import Navbar from '@/components/Navbar'
-import Footer from "@/components/Footer";
-
 import { Maven_Pro } from "next/font/google";
-
+import ConditionalLayout from "@/components/ConditionalLayout";
 
 const mavenPro = Maven_Pro({
-  subsets: ['latin'],
+  subsets: ["latin"],
 });
 
 export const metadata = {
@@ -21,16 +19,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-        <head>
+      <head>
         {/* Directly reference the image from the public folder */}
         <link rel="icon" href="/images/CAYANA.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/CAYANA.png" />
       </head>
 
       <body className={mavenPro.className}>
-        <Navbar />
-        {children}
-        <Footer />
+        <ConditionalLayout>
+          {children}
+        </ConditionalLayout>
       </body>
     </html>
   );

@@ -20,7 +20,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ amenities }) => {
         Amenities
       </h1>
       <Underline />
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mt-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 mt-6">
         {amenities.map((amenity) => (
           <motion.div
             key={amenity._id}
@@ -32,7 +32,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ amenities }) => {
               alt={amenity.name}
               width={600}
               height={400}
-              className="object-contain w-auto h-10 sm:h-14 md:h-16"
+              className="object-contain w-auto h-16 sm:h-18 md:h-20"
               />
             <h3 className="text-xs sm:text-sm px-4 py-2  text-zinc-900 mt-5">
               {amenity.name}

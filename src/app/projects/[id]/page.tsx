@@ -180,7 +180,7 @@ const Page: React.FC = () => {
 
   return (
     <section className="relative">
-      <div className="relative w-full h-[70vh]">
+      <div className="relative w-full h-[85vh]">
         <Image
           src={project.coverImage}
           alt={project.name}
@@ -193,7 +193,7 @@ const Page: React.FC = () => {
         <div className="absolute inset-0 bg-black opacity-30"></div>
 
         {/* Black background container */}
-        <div className="absolute bottom-0 left-0 right-0 bg-black/40 mx-3 px-4 py-8 sm:mx-auto max-w-7xl mb-10 rounded-lg">
+        <div className="absolute bottom-0 left-0 right-0 bg-black/45 mx-3 px-4 py-8 sm:mx-auto max-w-7xl mb-10 rounded-lg">
           <motion.h1
             className="text-xl text-zinc-100 sm:text-2xl uppercase font-bold mb-2"
             initial={{ opacity: 0, y: -20 }}
@@ -249,7 +249,7 @@ const Page: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Size: {project.size} Sq. ft.
+              {project.size}
             </motion.p>
             <motion.p
               className="text-sm sm:text-xl font-medium text-zinc-100"
@@ -275,7 +275,7 @@ const Page: React.FC = () => {
         <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
           <div className="mb-8 text-center">
             <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
-              Overview
+              Project Gallery
             </h1>
             <Underline />
             <p className="text-zinc-900">{project.subContent}</p>

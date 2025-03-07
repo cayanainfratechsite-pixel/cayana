@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="relative text-white overflow-hidden">
+    <div className="relative text-white overflow-hidden">
       {/* Background Video */}
       <video
         ref={videoRef}
@@ -201,7 +201,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 
