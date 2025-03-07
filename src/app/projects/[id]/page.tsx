@@ -142,18 +142,33 @@ const Page: React.FC = () => {
 
   const handleDownload = async () => {
     try {
-      const response = await fetch(project.brochureURL);
-      const blob = await response.blob();
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "Brochure.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const response = await fetch(project.brochureURL, {
+        method: 'GET',
+      });
+  
+      // Check if the response is OK (status 200–299).
+      if (response.ok) {
+        const blob = await response.blob();
+  
+        // Create a temporary URL for the blob.
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "Brochure.pdf";  // Set the filename for download.
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+  
+        // Revoke the blob URL to free memory.
+        window.URL.revokeObjectURL(url);
+      } else {
+        console.error("Failed to download file: ", response.statusText);
+      }
     } catch (error) {
       console.error("Download failed:", error);
     }
   };
+  
 
   if (loading) {
     return <div className="text-center py-10 text-xl">Loading...</div>;
