@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "cdn-icons-png.flaticon.com",
       },
+      {
+        protocol: 'http',
+        hostname: 'custom-images.strikinglycdn.com',
+      },
     ],
     domains: [
       "images.unsplash.com",
