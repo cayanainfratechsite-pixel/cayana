@@ -13,7 +13,7 @@ import img5 from "../assets/images/5.webp";
 import img3 from "../assets/images/6.webp";
 
 // Import portrait images
-import img1P from "../assets/images/prtHome1.png";
+import img1P from "../assets/images/prtHome1.jpeg";
 import img2P from "../assets/images/prtHome2.webp";
 import img6P from "../assets/images/prtHome3.png";
 import img4P from "../assets/images/prtHome4.webp";
