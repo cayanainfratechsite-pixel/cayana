@@ -25,10 +25,10 @@ export default function RootLayout({
     <html lang="en" className={mavenPro.className}>
       <body>
         {/* Navbar at the top */}
-        <Navbar />
+        {/* <Navbar /> */}
 
         {/* Centered image section */}
-        {/* <div
+        <div
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -42,13 +42,13 @@ export default function RootLayout({
             width={1200}
             height={900}
           />
-        </div> */}
+        </div>
 
         {/* Footer at the bottom */}
 
         {/* Render page-specific content if needed */}
-        {children}
-        <Footer />
+        {/* {children} */}
+        {/* <Footer /> */}
       </body>
     </html>
   )
