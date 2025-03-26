@@ -10,7 +10,7 @@ interface ValueCardProps {
 }
 
 const cardData: ValueCardProps[] = [
-  { image: "/images/value1.webp" },
+  { image: "/images/value1.jpeg" },
   { image: "/images/value3.webp" },
   { image: "/images/value2.webp" },
   { image: "/images/value4.webp" },
