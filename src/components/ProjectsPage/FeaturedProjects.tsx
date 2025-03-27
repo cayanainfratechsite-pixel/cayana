@@ -106,8 +106,7 @@ const FeaturedProjects: React.FC = () => {
       </motion.p>
       <div className="mt-10 grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
-          // <Link key={project._id} href={`/projects/${project._id}`}>
-          <Link key={project._id} href={`#`}>
+          <Link key={project._id} href={`/projects/${project._id}`}>
             <motion.div className="p-3 hover:bg-white hover:shadow-lg hover:rounded-sm border border-zinc-200 cursor-pointer transition-all duration-500 ease-in-out">
               <img
                 src={project.cardImage}
