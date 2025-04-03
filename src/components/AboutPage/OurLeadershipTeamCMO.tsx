@@ -39,19 +39,19 @@ const OurLeadershipTeamCMO: React.FC = () => {
               A Message from Our CEO
             </h3>
             <p className="text-zinc-900 text-lg leading-relaxed mb-6">
-              At Cayana Infratech Pvt. Ltd., we are driven by a vision to create
-              world-class developments that embody trust, transparency, and
-              excellence. Our commitment to quality and innovation ensures that
-              every project we undertake not only meets but exceeds
-              expectations, delivering sustainable and modern infrastructure for
-              a better future.
+            &quot;Work is God&quot; - a philosophy that drives us to approach every task with dedication, integrity, and a commitment to excellence.
             </p>
-            <p className="text-zinc-900 text-lg leading-relaxed">
-              As we continue to grow, our focus remains on enhancing lives
-              through thoughtful design, timely execution, and ethical business
-              practices. With a strong foundation built on integrity and
-              customer satisfaction, we strive to shape the real estate
-              landscape with developments that stand the test of time.
+            <p className="text-zinc-900 text-lg leading-relaxed mb-6">
+            As we move forward, my vision is to make Cayana, a leader in the real estate industry delivering unparalleled value to our customers with hard work and ethical practices.
+            </p>
+            <p className="text-zinc-900 text-lg leading-relaxed mb-6">
+            Our vision extends beyond the business success; My greatest motivation comes from seeing our people succeed-personally and professionally. By fostering a culture of continuous learning, growth, and empowerment, we ensure that every individual at Cayana reaches their fullest potential and touches extraordinary heights.
+            </p>
+            <p className="text-zinc-900 text-lg leading-relaxed mb-6">
+            We Build, We Grow, on Your Trust.
+            </p>
+            <p className="text-zinc-900 text-lg leading-relaxed mb-6">
+            Please Do Join Hands with Us!!
             </p>
           </motion.div>
 

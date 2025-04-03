@@ -27,20 +27,13 @@ const ContentPage: React.FC = () => {
         className="mt-8 max-w-7xl mx-auto text-center"
       >
         <p className="text-lg md:text-lg text-zinc-900 mb-6">
-          Cayana Infratech Pvt. Ltd., established in 2010, is a dynamic and
-          dedicated company based in Bhubaneswar, Odisha. Specializing in real
-          estate development and construction, Cayana has become a trusted name
-          in the industry. We focus on building trust and creating relationships
-          among our customers and associates.
+          Cayana- A Story of Hard Work, Perseverance & Ambition.
         </p>
         <p className="text-lg md:text-lg text-zinc-900 mb-6">
-          Cayana has been elevating excellence and redefining living spaces with
-          innovation, trust, and preeminence. Driven by a vision to transform
-          Odisha’s real estate landscape, we prioritize transparency, timely
-          delivery, and world-class amenities.{" "}
+        Cayana Infratech Pvt Ltd, a name synonymous with trust, innovation, and excellence in the real estate industry. Established in 2010, we embarked on a journey to redefine the landscape of real estate. Over the years, we have grown and evolved, consistently setting new benchmarks in quality, customer satisfaction, and business integrity.
         </p>
         <p className="text-lg md:text-lg text-zinc-900 mb-6">
-        With each project, we architect more than just apartments. We create lifestyles, build trust, elevate businesses and give wings to your dreams. 
+        Cayana Infratech Pvt Ltd, a name synonymous with trust, innovation, and excellence in the real estate industry. Established in 2010, we embarked on a journey to redefine the landscape of real estate. Over the years, we have grown and evolved, consistently setting new benchmarks in quality, customer satisfaction, and business integrity.
         </p>
       </motion.div>
     </div>

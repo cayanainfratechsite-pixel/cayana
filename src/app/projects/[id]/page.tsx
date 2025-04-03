@@ -14,6 +14,7 @@ import { useParams, useRouter } from "next/navigation";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import EnquiryModal from "@/components/ProjectsPage/EnquiryModal";
 
 // Custom Next Arrow for Slider
 function SampleNextArrow(props: any) {
@@ -127,6 +128,8 @@ const Page: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
+  const [downloadaccess, setdownloadaccess] = useState(false);
 
   useEffect(() => {
     axios
@@ -139,6 +142,22 @@ const Page: React.FC = () => {
       .catch((error) => console.error("Error fetching project:", error))
       .finally(() => setLoading(false));
   }, [id]);
+
+
+
+  const handleDownloadClick = () => {
+    setEnquiryOpen(true);
+  }
+
+  const onClose = () => {
+    setEnquiryOpen(false);
+  }
+
+  const handleEnquirySubmit = () => {
+    setdownloadaccess(true); // Grant access to download
+    setEnquiryOpen(false); // Close the modal
+    handleDownload(); // Trigger the download
+  };
 
   const handleDownload = async () => {
     try {
@@ -286,9 +305,9 @@ const Page: React.FC = () => {
           <Gallery images={project.gallery} />
         </div>
 
-        <div>
+        {/* <div>
           <ProjectSection amenities={project.amenities} />
-        </div>
+        </div> */}
 
         <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
           <div className="text-center">
@@ -343,7 +362,7 @@ const Page: React.FC = () => {
         <Underline />
         <div className="flex justify-center">
           <button
-            onClick={handleDownload}
+            onClick={handleDownloadClick}
             className="flex items-center justify-center text-[#0553F1] hover:text-zinc-100 px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
           >
             <FaDownload className="mr-2" />
@@ -380,6 +399,8 @@ const Page: React.FC = () => {
           </div>
         </div>
       )}
+
+      {enquiryOpen && <EnquiryModal projectId={id as string} onSuccess={handleEnquirySubmit} onClose={onClose}/>}
     </section>
   );
 };

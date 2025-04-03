@@ -24,7 +24,7 @@ const JoinOurTeam = () => {
         transition={{ duration: 1, delay: 0.2 }}
         className="text-lg text-gray-700 mb-6 mx-6"
       >
-        At Cayana Infratech, we don’t just build properties—we build
+        At Cayana Infratech, we just don’t build properties—we build
         careers.
         <br />
         Our team-driven culture encourages innovation, learning, and

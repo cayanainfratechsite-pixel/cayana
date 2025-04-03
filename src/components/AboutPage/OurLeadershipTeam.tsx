@@ -39,23 +39,20 @@ const OurLeadershipTeam: React.FC = () => {
               A Message from Our CMD
             </h3>
             <p className="text-zinc-900 text-lg leading-relaxed mb-6">
-              At Cayana Infratech Pvt. Ltd., we believe in building more than
-              just structures—we build trust, transparency, and lasting
-              relationships. Since our inception, our focus has been on
-              delivering high-quality developments that redefine modern living
-              while maintaining the highest standards of integrity and
-              innovation. Every project we undertake is a testament to our
-              commitment to excellence, sustainability, and customer
-              satisfaction.
+            At Cayana Infratech, our foundation is built on integrity, ethics, and a commitment to sustainability. Since our inception, we have remained dedicated to delivering projects that not only meet the highest standards of quality but also reflect our responsibility toward the environment and the communities we serve.
             </p>
-            <p className="text-zinc-900 text-lg leading-relaxed">
-              As we continue to grow, our vision remains steadfast—to create
-              world-class infrastructure that not only meets the needs of today
-              but also shapes a better tomorrow. With a dedicated team and a
-              passion for excellence, we strive to transform spaces into
-              thriving communities, ensuring value and prosperity for
-              generations to come.
+            <p className="text-zinc-900 text-lg leading-relaxed mb-6">
+            I firmly believe that success is measured not just by what we build, but by the positive impact we leave behind. Our approach blends transparency, trust, and innovation with a deep respect for nature.
             </p>
+
+            <p className="text-zinc-900 text-lg leading-relaxed mb-6">
+            Together, let us shape a future where progress and sustainability go hand in hand.
+            </p>
+            
+            <p className="text-zinc-900 text-lg leading-relaxed mb-6">
+            Thank you for trusting us on this journey.
+            </p>
+
           </motion.div>
         </motion.div>
       </div>

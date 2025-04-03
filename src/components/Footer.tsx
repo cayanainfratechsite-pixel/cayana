@@ -1,7 +1,8 @@
 "use client";
-
+import Link from "next/link";
 import React, { useRef, useEffect } from "react";
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -66,35 +67,56 @@ const Footer: React.FC = () => {
               </p>
               <p className="text-gray-300">
                 Email:{" "}
-                <a
+                <Link
                   href="mailto:support@cayana.co.in"
                   className="underline hover:text-[#0553F1] transition"
                 >
-                  support@cayana.co.in
-                </a>
+                  info@cayana.co.in
+                </Link>
+                {", "}
+                <Link
+                  href="mailto:support@cayana.co.in"
+                  className="underline hover:text-[#0553F1] transition"
+                >
+                  sales@cayana.co.in
+                </Link>
               </p>
               <div className="flex gap-4 mt-6">
-                <a
+                <Link
                   href="#"
                   aria-label="Facebook"
                   className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
                 >
                   <FaFacebookF size={18} />
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#"
                   aria-label="Twitter"
                   className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
                 >
-                  <FaTwitter size={18} />
-                </a>
-                <a
+                  <FaXTwitter size={18} />
+                </Link>
+                <Link
                   href="#"
                   aria-label="Instagram"
                   className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
                 >
                   <FaInstagram size={18} />
-                </a>
+                </Link>
+                <Link
+                  href="#"
+                  aria-label="Instagram"
+                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
+                >
+                  <FaYoutube size={18} />
+                </Link>
+                <Link
+                  href="#"
+                  aria-label="Instagram"
+                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
+                >
+                  <FaLinkedin size={18} />
+                </Link>
               </div>
             </div>
 
@@ -104,12 +126,12 @@ const Footer: React.FC = () => {
               <ul className="space-y-3 flex gap-12 ">
                 <div className="flex flex-col gap-3">
                 <li>
-                  <a
+                  <Link
                     href="/"
                     className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
@@ -120,47 +142,45 @@ const Footer: React.FC = () => {
                   </a>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/projects"
                     className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Our Projects
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/blogs"
                     className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Blogs
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/gallery"
                     className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Gallery
-                  </a>
+                  </Link>
                 </li>
-                </div>
-                <div className="flex flex-col gap-3">
-                
+
                 <li>
-                  <a
+                  <Link
                     href="/careers"
                     className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Careers
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/contact"
                     className="text-gray-300 hover:text-[#0553F1] transition"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </li>
                 </div>
               </ul>
@@ -173,7 +193,7 @@ const Footer: React.FC = () => {
                 If you have any questions, feel free to reach out. We're here to
                 help and answer any queries you may have.
               </p>
-              <p className="text-gray-300">
+              {/* <p className="text-gray-300">
                 Call us at:{" "}
                 <a
                   href="tel:+918908012233"
@@ -181,7 +201,7 @@ const Footer: React.FC = () => {
                 >
                   +91 890-801-2233
                 </a>
-              </p>
+              </p> */}
             </div>
           </div>
 

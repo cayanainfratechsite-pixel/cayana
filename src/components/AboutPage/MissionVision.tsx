@@ -55,10 +55,7 @@ const MissionVision: React.FC = () => {
               Our Mission
             </h4>
             <p className="text-zinc-900 text-lg leading-relaxed max-w-4xl mx-auto mb-6">
-              We deliver exceptional real estate services that exceed
-              expectations, nurturing long-term relationships built on trust,
-              integrity, and expertise—all while making the process fun and
-              engaging.
+            To enrich the quality of life and foster capital growth through innovative, ethical, and customer-centric real estate solutions.
             </p>
           </motion.div>
 
@@ -81,9 +78,7 @@ const MissionVision: React.FC = () => {
               Our Vision
             </h4>
             <p className="text-zinc-900 text-lg leading-relaxed max-w-4xl mx-auto mb-6">
-              To lead the real estate landscape in Odisha by pioneering quality,
-              innovation, and customer delight. We envision a future where every
-              interaction creates lasting value.
+            To build the future by creating spaces that inspire and endure. With a focus on quality construction, innovative design, and sustainable practices, we aim to be a leading force in shaping the future of urban living.
             </p>
           </motion.div>
         </div>
@@ -121,8 +116,7 @@ const MissionVision: React.FC = () => {
               Integrity
             </h4>
             <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
-              We uphold the highest standards of integrity in all our actions.
-              Our team collaborates to deliver the best, most honest solutions.
+            We always strive to do what is right for our clients, for our community, and for our profession. Ethics, fairness, honesty, and integrity are the cornerstones of our practice.
             </p>
           </motion.div>
 
@@ -145,8 +139,7 @@ const MissionVision: React.FC = () => {
               Transparency & Trust
             </h4>
             <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
-              Our transparent approach builds trust, ensuring every interaction
-              is honest and straightforward.
+            Transparent approach in all communication & transactions with customers & vendors, making us the most trustworthy real estate brand in the market.
             </p>
           </motion.div>
         </div>

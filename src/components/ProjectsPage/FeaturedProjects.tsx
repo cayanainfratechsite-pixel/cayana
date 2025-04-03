@@ -104,7 +104,7 @@ const FeaturedProjects: React.FC = () => {
         Discover our Affordable premium real estate projects, offering luxury
         living and modern designs.
       </motion.p>
-      <div className="mt-10 grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-10 grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
         {projects.map((project) => (
           <Link key={project._id} href={`/projects/${project._id}`}>
             <motion.div className="p-3 hover:bg-white hover:shadow-lg hover:rounded-sm border border-zinc-200 cursor-pointer transition-all duration-500 ease-in-out">
@@ -132,8 +132,7 @@ const FeaturedProjects: React.FC = () => {
 
                 <p className="text-sm text-zinc-500">{project.locationName}</p>
                 <p className="text-sm font-medium text-[#0553F1] mt-1">
-                  <span className="font-bold">INR.</span> {project.basePrice}/-
-                  ONWORDS
+                  <span className="font-bold"></span> {project.basePrice}
                 </p>
                 <hr className="my-3 border-zinc-300" />
                 <div className="grid grid-cols-2 gap-4">
