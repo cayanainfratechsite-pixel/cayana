@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Underline from "@/components/Underline";
 
-import { fetchBlogsHome } from "@/api/blogs/page";
+import { fetchBlogsHome } from "@/api/Blogs/page";
 
 interface BlogImage {
   cardImage: string;
@@ -131,6 +131,7 @@ const BlogBentoGridSmall: React.FC = () => {
               </motion.div>
             ))}
           </motion.div>
+          {blogs.length > 6 && (
           <div className="flex justify-center mt-12">
             <Link href="/blogs">
               <motion.button
@@ -143,7 +144,7 @@ const BlogBentoGridSmall: React.FC = () => {
                 Explore All Blogs
               </motion.button>
             </Link>
-          </div>
+          </div>)}
         </div>
       </section>
     </>

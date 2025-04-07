@@ -69,65 +69,86 @@ const EnquiryModal: React.FC<StickyEnquiryProps> = ({ projectId, onSuccess, onCl
           {/* First and Last Name */}
           <div className="grid grid-cols-2 gap-4">
             <div className="relative z-0 w-full group">
-              <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder=" " required 
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
-              />
-              <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                First Name
+              <label className="block relative">
+                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder=" " required 
+                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
+                />
+                <span className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 pointer-events-none">
+                  First Name
+                </span>
               </label>
             </div>
             <div className="relative z-0 w-full group">
-              <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder=" " required 
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
-              />
-              <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                Last Name
+              <label className="block relative">
+                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder=" " required 
+                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
+                />
+                <span className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 pointer-events-none">
+                  Last Name
+                </span>
               </label>
             </div>
           </div>
 
           {/* Email */}
           <div className="relative z-0 w-full group">
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder=" " required 
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
-            />
-            <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-              Email ID
+            <label className="block relative">
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder=" " required 
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
+              />
+              <span className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 pointer-events-none">
+                Email ID
+              </span>
             </label>
           </div>
 
           {/* Mobile Number */}
           <div className="relative z-0 w-full group">
-            <input type="tel" value={mobile} onChange={(e) => setMobile(e.target.value)} placeholder=" " required 
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
-            />
-            <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-              Mobile No
+            <label className="block relative">
+              <input type="tel" value={mobile} onChange={(e) => setMobile(e.target.value)} placeholder=" " required 
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
+              />
+              <span className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 pointer-events-none">
+                Mobile No
+              </span>
             </label>
           </div>
 
           {/* Date */}
           <div className="relative z-0 w-full group">
-            <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required 
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
-            />
-            <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-              Date
+            <label className="block relative">
+              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required 
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
+              />
+              <span className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 pointer-events-none">
+                Date
+              </span>
             </label>
           </div>
 
           {/* Time Selection */}
-          <div className="relative z-0 w-full group">
-            <select value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)} required 
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer mb-4" 
-            >
-              <option value="10:00 AM">10:00 AM</option>
-              <option value="12:00 PM">12:00 PM</option>
-              <option value="2:00 PM">2:00 PM</option>
-              <option value="5:00 PM">5:00 PM</option>
-            </select>
-          </div>
-
+            {/* Select Time */}
+            <div className="relative z-0 w-full group">
+              <select
+                id="time"
+                value={selectedTime}
+                onChange={(e) => setSelectedTime(e.target.value)}
+                required
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer my-8"
+              >
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="5:00 PM">5:00 PM</option>
+              </select>
+              <label
+                htmlFor="time"
+                className="absolute text-sm text-zinc-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Select Time
+              </label>
+            </div>
+          <div className="relative z-0 w-full group"></div>
           {/* Submit Button */}
           <button type="submit" className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
             Submit

@@ -132,7 +132,7 @@ const FeaturedProjects: React.FC = () => {
 
                 <p className="text-sm text-zinc-500">{project.locationName}</p>
                 <p className="text-sm font-medium text-[#0553F1] mt-1">
-                  <span className="font-bold"></span> {project.basePrice}
+                  <span className="font-bold">RERA NO: </span> {project.basePrice}
                 </p>
                 <hr className="my-3 border-zinc-300" />
                 <div className="grid grid-cols-2 gap-4">
@@ -148,9 +148,9 @@ const FeaturedProjects: React.FC = () => {
                   <div className="flex items-center border p-2 rounded">
                     <FaBed className="text-zinc-500 mr-2" />
                     <div>
-                      <p className="text-sm font-light text-zinc-700">Size</p>
+                      <p className="text-sm font-light text-zinc-700">Price</p>
                       <p className="text-sm font-medium text-zinc-900">
-                        {project.bedRooms}
+                      {project.bedRooms> 0 ?"INR " +project.bedRooms +"/- ONWARDS": "N/A"}
                       </p>
                     </div>
                   </div>

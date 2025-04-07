@@ -21,7 +21,7 @@ const OurLeadershipTeamCMO: React.FC = () => {
 
         <Underline />
         <motion.div
-          className="flex flex-col md:flex-row items-center justify-center gap-12 mx-auto"
+          className="flex flex-col md:flex-row items-start justify-center gap-12 mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -63,7 +63,7 @@ const OurLeadershipTeamCMO: React.FC = () => {
             transition={{ duration: 1 }}
           >
             <Image
-              src="/images/ceo.jpeg"
+              src="/images/Cayana_CEO_Croped .jpeg"
               alt="CMO Photo CAYANA"
               width={350}
               height={350}

@@ -7,16 +7,17 @@ import Underline from "./Underline";
 
 interface ValueCardProps {
   image: string;
+  label: string;
 }
 
 const cardData: ValueCardProps[] = [
-  { image: "/images/value1.jpeg" },
-  { image: "/images/value3.webp" },
-  { image: "/images/value2.webp" },
-  { image: "/images/value4.webp" },
+  { image: "/images/Value1.png" , label: "Experience"},
+  { image: "/images/Value3.png", label: "Innovation"},
+  { image: "/images/Value2.png" , label: "Quality"},
+  { image: "/images/Value4.png" , label: "Teamwork"},
 ];
 
-const ValueCard: React.FC<ValueCardProps> = ({ image }) => {
+const ValueCard: React.FC<ValueCardProps> = ({ image ,label}) => {
   return (
     <div className="flex flex-col items-center">
       <motion.div
@@ -29,6 +30,9 @@ const ValueCard: React.FC<ValueCardProps> = ({ image }) => {
           src={image}
           className="w-full h-full object-cover rounded-sm"
         />
+        <div className="absolute inset-0 bottom-12 flex items-end justify-center bg-opacity-50 text-white text-2xl font-bold rounded-sm">
+          {label}
+        </div>
       </motion.div>
     </div>
   );
@@ -67,7 +71,7 @@ const MobileSlider: React.FC = () => {
             onTouchStart={() => setPaused(true)}
             onTouchEnd={() => setPaused(false)}
           >
-            <ValueCard image={cardData[currentIndex].image} />
+            <ValueCard image={cardData[currentIndex].image} label={cardData[currentIndex].label}/>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -99,7 +103,7 @@ const Values: React.FC = () => {
         {/* Cards Grid: Visible on screens 768px and above */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-1 justify-center">
           {cardData.map((card, index) => (
-            <ValueCard key={index} image={card.image} />
+            <ValueCard key={index} image={card.image} label={card.label}/>
           ))}
         </div>
       </div>

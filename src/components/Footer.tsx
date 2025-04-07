@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import React, { useRef, useEffect } from "react";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
-import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaYoutube ,FaMapMarkerAlt} from "react-icons/fa";
+import { FaLinkedin, FaXTwitter, FaEnvelope, FaPhone, FaLocationPinLock , FaMap } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -53,11 +53,13 @@ const Footer: React.FC = () => {
             {/* Contact Info Column */}
             <div>
               <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
-              <p className="mb-4 text-gray-300">
+              <p className="flex items-start gap-2 mb-4 text-gray-300 max-w-xs">
+                <FaMapMarkerAlt size={18} />
                 N1/187, IRC Village, Nayapalli, Bhubaneswar, Odisha -15
               </p>
-              <p className="mb-4 text-gray-300">
-                Phone:{" "}
+              <p className="flex items-center gap-2 mb-4 text-gray-300">
+                {/* Phone:{" "} */}
+                <FaPhone size={18} />
                 <a
                   href="tel:+918908012233"
                   className="underline hover:text-[#0553F1] transition"
@@ -65,20 +67,14 @@ const Footer: React.FC = () => {
                   +91 890-801-2233
                 </a>
               </p>
-              <p className="text-gray-300">
-                Email:{" "}
+              <p className="flex items-center gap-2 text-gray-300">
+                {/* Email:{" "} */}
+                <FaEnvelope size={18} />
                 <Link
                   href="mailto:support@cayana.co.in"
                   className="underline hover:text-[#0553F1] transition"
                 >
                   info@cayana.co.in
-                </Link>
-                {", "}
-                <Link
-                  href="mailto:support@cayana.co.in"
-                  className="underline hover:text-[#0553F1] transition"
-                >
-                  sales@cayana.co.in
                 </Link>
               </p>
               <div className="flex gap-4 mt-6">
@@ -104,14 +100,14 @@ const Footer: React.FC = () => {
                   <FaInstagram size={18} />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://youtu.be/0VCjjqHLy2Y?si=CLYgU_cU9euHtdRG"
                   aria-label="Instagram"
                   className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
                 >
                   <FaYoutube size={18} />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://www.linkedin.com/company/cayana-infratech-pvt-ltd/"
                   aria-label="Instagram"
                   className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
                 >
@@ -125,63 +121,79 @@ const Footer: React.FC = () => {
               <h3 className="text-2xl font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-3 flex gap-12 ">
                 <div className="flex flex-col gap-3">
-                <li>
-                  <Link
-                    href="/"
-                    className="text-gray-300 hover:text-[#0553F1] transition"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    href="/about"
-                    className="text-gray-300 hover:text-[#0553F1] transition"
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <Link
-                    href="/projects"
-                    className="text-gray-300 hover:text-[#0553F1] transition"
-                  >
-                    Our Projects
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/blogs"
-                    className="text-gray-300 hover:text-[#0553F1] transition"
-                  >
-                    Blogs
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/gallery"
-                    className="text-gray-300 hover:text-[#0553F1] transition"
-                  >
-                    Gallery
-                  </Link>
-                </li>
+                  <li>
+                    <Link
+                      href="/"
+                      className="text-gray-300 hover:text-[#0553F1] transition"
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <a
+                      href="/about"
+                      className="text-gray-300 hover:text-[#0553F1] transition"
+                    >
+                      About Us
+                    </a>
+                  </li>
+                  <li>
+                    <Link
+                      href="/projects"
+                      className="text-gray-300 hover:text-[#0553F1] transition"
+                    >
+                      Our Projects
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/blogs"
+                      className="text-gray-300 hover:text-[#0553F1] transition"
+                    >
+                      Blogs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/gallery"
+                      className="text-gray-300 hover:text-[#0553F1] transition"
+                    >
+                      Gallery
+                    </Link>
+                  </li>
 
-                <li>
-                  <Link
-                    href="/careers"
-                    className="text-gray-300 hover:text-[#0553F1] transition"
-                  >
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="text-gray-300 hover:text-[#0553F1] transition"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
+                  <li>
+                    <Link
+                      href="/careers"
+                      className="text-gray-300 hover:text-[#0553F1] transition"
+                    >
+                      Careers
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/contact"
+                      className="text-gray-300 hover:text-[#0553F1] transition"
+                    >
+                      Contact Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/termsandcondition"
+                      className="text-gray-300 hover:text-[#0553F1] transition"
+                    >
+                      Terms and Conditions
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/privacypolicy"
+                      className="text-gray-300 hover:text-[#0553F1] transition"
+                    >
+                      Privacy Policy
+                    </Link>
+                  </li>
                 </div>
               </ul>
             </div>
@@ -202,13 +214,28 @@ const Footer: React.FC = () => {
                   +91 890-801-2233
                 </a>
               </p> */}
+
+              <div>
+                <p className="mb-2">Contact us at : </p>
+                <p className="flex items-center gap-2 text-gray-300">
+                  {/* Email:{" "} */}
+                  {/* <FaEnvelope size={18} /> */}
+                  <Link
+                    href="mailto:support@cayana.co.in"
+                    className="underline hover:text-[#0553F1] transition"
+                  >
+                    sales@cayana.co.in
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Footer Bottom */}
           <div className="border-t border-zinc-200 pt-4 mt-32 text-center">
             <p className="text-zinc-200 text-sm">
-              &copy; {new Date().getFullYear()} Cayana Infratech Pvt. Ltd. All Rights Reserved. | Designed & Developed by{" "}
+              &copy; {new Date().getFullYear()} Cayana Infratech Pvt. Ltd. All
+              Rights Reserved. | Designed & Developed by{" "}
               <a
                 href="https://vanurmedia.com/"
                 target="_blank"

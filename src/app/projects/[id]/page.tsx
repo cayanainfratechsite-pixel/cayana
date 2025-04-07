@@ -203,7 +203,7 @@ const Page: React.FC = () => {
         <Image
           src={project.coverImage}
           alt={project.name}
-          layout="fill"
+          fill
           objectFit="cover"
           className="z-0"
         />
@@ -236,7 +236,7 @@ const Page: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              INR {project.basePrice}/- onwards
+              RERA NO {project.basePrice}
             </motion.p>
             <motion.p
               className="text-sm sm:text-xl font-medium text-zinc-100"
@@ -284,7 +284,7 @@ const Page: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              {project.bedRooms}
+              {project.bedRooms> 0 ?"INR " +project.bedRooms +"/- ONWARDS": "N/A"}
             </motion.p>
           </div>
         </div>
