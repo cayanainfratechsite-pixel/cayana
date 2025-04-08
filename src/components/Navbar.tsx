@@ -151,12 +151,6 @@ const Navbar: React.FC = () => {
                     </div>
 
                     {/* Location Section */}
-                    <div className="flex items-start space-x-3">
-                      <FaMapMarkerAlt className="text-red-500 h-5 w-5 mt-1" />
-                      <p className="text-zinc-100 text-sm leading-tight">
-                        N1/187, IRC Village, Nayapalli, Bhubaneswar, Odisha -15
-                      </p>
-                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>

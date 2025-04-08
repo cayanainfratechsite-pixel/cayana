@@ -74,12 +74,12 @@ const Footer: React.FC = () => {
                   href="mailto:support@cayana.co.in"
                   className="underline hover:text-[#0553F1] transition"
                 >
-                  info@cayana.co.in
+                  support@cayana.co.in
                 </Link>
               </p>
               <div className="flex gap-4 mt-6">
                 <Link
-                  href="#"
+                  href="https://www.facebook.com/profile.php?id=61574770836672"
                   aria-label="Facebook"
                   className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
                 >
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
                   <FaXTwitter size={18} />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://www.instagram.com/cayana_infratech/"
                   aria-label="Instagram"
                   className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
                 >

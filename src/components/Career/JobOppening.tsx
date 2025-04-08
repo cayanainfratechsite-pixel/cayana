@@ -65,7 +65,9 @@ const JobOppening = () => {
     setShowForm(true);
   };
 
-  const handleApplicationSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleApplicationSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
     if (!selectedJobId) return;
     setApplyLoading(true);
@@ -97,7 +99,9 @@ const JobOppening = () => {
       setShowForm(false);
     } catch (error) {
       console.error("Application error:", error);
-      setApplyError(error instanceof Error ? error.message : "An error occurred");
+      setApplyError(
+        error instanceof Error ? error.message : "An error occurred"
+      );
     } finally {
       setApplyLoading(false);
     }
@@ -160,7 +164,16 @@ const JobOppening = () => {
                         </h3>
                       </td>
                       <td className="py-4 px-4 md:px-6 text-zinc-900 text-xs sm:text-base">
-                        <p>{job.description}</p>
+                        <p>
+                          {job.description
+                            .split(/(?:\d+\.\s*|•)/)
+                            .filter((part) => part.trim() !== "") 
+                            .map((part, index) => (
+                              <p key={index} className="mb-1">
+                                •{part.trim()}
+                              </p>
+                            ))}
+                        </p>
                       </td>
                       <td className="py-4 px-4 md:px-6 text-center">
                         <a
@@ -184,7 +197,11 @@ const JobOppening = () => {
       </section>
 
       {/* Pagination Component */}
-      <PaginationComponent count={totalPages} page={page} onChange={handlePageChange} />
+      <PaginationComponent
+        count={totalPages}
+        page={page}
+        onChange={handlePageChange}
+      />
 
       {/* Modal Popup for Application Form */}
       {showForm && (
@@ -216,10 +233,15 @@ const JobOppening = () => {
             <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase text-center">
               Apply Now
             </h2>
-            {applyError && <p className="text-red-500 text-center mt-2">{applyError}</p>}
+            {applyError && (
+              <p className="text-red-500 text-center mt-2">{applyError}</p>
+            )}
             <form className="space-y-6 mt-4" onSubmit={handleApplicationSubmit}>
               <div>
-                <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="fullName"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Full Name
                 </label>
                 <input
@@ -234,7 +256,10 @@ const JobOppening = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Email
                 </label>
                 <input
@@ -249,7 +274,10 @@ const JobOppening = () => {
                 />
               </div>
               <div>
-                <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="phone"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Phone Number
                 </label>
                 <input
@@ -264,7 +292,10 @@ const JobOppening = () => {
                 />
               </div>
               <div>
-                <label htmlFor="resume" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="resume"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Resume Upload
                 </label>
                 {/* Change input type to file */}
@@ -282,7 +313,10 @@ const JobOppening = () => {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Message (Optional)
                 </label>
                 <textarea

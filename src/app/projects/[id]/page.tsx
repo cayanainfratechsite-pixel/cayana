@@ -12,7 +12,7 @@ import GetInTouch from "@/components/ProjectsPage/GetInTouch";
 import StickyEnquiry from "@/components/ProjectsPage/StickyEnquiry";
 import { useParams, useRouter } from "next/navigation";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import EnquiryModal from "@/components/ProjectsPage/EnquiryModal";
 
@@ -31,7 +31,12 @@ function SampleNextArrow(props: any) {
         viewBox="0 0 24 24"
         stroke="currentColor"
       >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 5l7 7-7 7"
+        />
       </svg>
     </div>
   );
@@ -52,12 +57,16 @@ function SamplePrevArrow(props: any) {
         viewBox="0 0 24 24"
         stroke="currentColor"
       >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M15 19l-7-7 7-7"
+        />
       </svg>
     </div>
   );
 }
-
 
 const OverviewSlider = ({
   images,
@@ -70,7 +79,7 @@ const OverviewSlider = ({
     dots: true,
     infinite: true,
     centerMode: true,
-    centerPadding: "60px", 
+    centerPadding: "60px",
     slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
@@ -119,9 +128,6 @@ const OverviewSlider = ({
   );
 };
 
-
-
-
 const Page: React.FC = () => {
   const { id } = useParams();
   const [project, setProject] = useState<any>(null);
@@ -143,15 +149,13 @@ const Page: React.FC = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-
-
   const handleDownloadClick = () => {
     setEnquiryOpen(true);
-  }
+  };
 
   const onClose = () => {
     setEnquiryOpen(false);
-  }
+  };
 
   const handleEnquirySubmit = () => {
     setdownloadaccess(true); // Grant access to download
@@ -162,22 +166,22 @@ const Page: React.FC = () => {
   const handleDownload = async () => {
     try {
       const response = await fetch(project.brochureURL, {
-        method: 'GET',
+        method: "GET",
       });
-  
+
       // Check if the response is OK (status 200–299).
       if (response.ok) {
         const blob = await response.blob();
-  
+
         // Create a temporary URL for the blob.
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
-        link.download = "Brochure.pdf";  // Set the filename for download.
+        link.download = "Brochure.pdf"; // Set the filename for download.
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-  
+
         // Revoke the blob URL to free memory.
         window.URL.revokeObjectURL(url);
       } else {
@@ -187,7 +191,6 @@ const Page: React.FC = () => {
       console.error("Download failed:", error);
     }
   };
-  
 
   if (loading) {
     return <div className="text-center py-10 text-xl">Loading...</div>;
@@ -200,13 +203,23 @@ const Page: React.FC = () => {
   return (
     <section className="relative">
       <div className="relative w-full h-[85vh]">
-        <Image
-          src={project.coverImage}
-          alt={project.name}
-          fill
-          objectFit="cover"
-          className="z-0"
-        />
+        {project._id === "67caecc0e7cbf9eb800249c3" ? (
+          <video
+            src={'/videos/Nilachakra Residency.mp4'}
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <Image
+            src={project.coverImage}
+            alt={project.name}
+            fill
+            objectFit="cover"
+            className="z-0"
+          />
+        )}
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black opacity-30"></div>
@@ -284,7 +297,9 @@ const Page: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              {project.bedRooms> 0 ?"INR " +project.bedRooms +"/- ONWARDS": "N/A"}
+              {project.bedRooms > 0
+                ? "INR " + project.bedRooms + "/- ONWARDS"
+                : "N/A"}
             </motion.p>
           </div>
         </div>
@@ -335,7 +350,7 @@ const Page: React.FC = () => {
           </div>
         </div>
 
-        <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
+        {/* <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
           <div className="mb-8 text-center">
             <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
               Floor Structure
@@ -345,31 +360,33 @@ const Page: React.FC = () => {
           </div>
         </div>
 
-        {/* Overview Images Slider */}
+
         <div className="py-8 px-4 sm:px-8">
           <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase text-center">
           Floor Structure Images
           </h1>
           <Underline />
           <OverviewSlider images={project.overViewImage} onImageClick={(imgUrl) => setSelectedImage(imgUrl)} />
-        </div>
+        </div> */}
       </div>
 
-      <div className="mb-8 text-center">
-        <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
-          Download Brochure
-        </h1>
-        <Underline />
-        <div className="flex justify-center">
-          <button
-            onClick={handleDownloadClick}
-            className="flex items-center justify-center text-[#0553F1] hover:text-zinc-100 px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
-          >
-            <FaDownload className="mr-2" />
-            Download
-          </button>
+      {project._id !== "67caecc0e7cbf9eb800249c3" && (
+        <div className="mb-8 text-center">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
+            Download Brochure
+          </h1>
+          <Underline />
+          <div className="flex justify-center">
+            <button
+              onClick={handleDownloadClick}
+              className="flex items-center justify-center text-[#0553F1] hover:text-zinc-100 px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
+            >
+              <FaDownload className="mr-2" />
+              Download
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
       <div>
         <GetInTouch projectId={id as string} />
@@ -400,7 +417,13 @@ const Page: React.FC = () => {
         </div>
       )}
 
-      {enquiryOpen && <EnquiryModal projectId={id as string} onSuccess={handleEnquirySubmit} onClose={onClose}/>}
+      {enquiryOpen && (
+        <EnquiryModal
+          projectId={id as string}
+          onSuccess={handleEnquirySubmit}
+          onClose={onClose}
+        />
+      )}
     </section>
   );
 };

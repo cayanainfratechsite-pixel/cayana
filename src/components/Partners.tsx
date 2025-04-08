@@ -29,8 +29,8 @@ const Partners = () => {
     <section className="py-16 md:py-16 overflow-hidden ">
       <div className="container mx-auto px-4 md:px-8 text-center ">
         <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
-          OUR PARTNERS
-          <Underline />
+          Certification and Accreditation
+          <Underline maxWidth="500px"/>
         </h2>
         {/* Desktop view */}
         <div className="hidden md:grid grid-cols-3 gap-12 md:gap-16 items-center px-4 md:px-12 max-w-4xl mx-auto">
