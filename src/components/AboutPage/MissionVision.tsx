@@ -115,7 +115,7 @@ const MissionVision: React.FC = () => {
             <h4 className="text-xl font-medium uppercase text-gray-800 mb-2">
               Integrity
             </h4>
-            <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="text-gray-900 text-lg leading-relaxed max-w-2xl mx-auto">
             We always strive to do what is right for our clients, for our community, and for our profession. Ethics, fairness, honesty, and integrity are the cornerstones of our practice.
             </p>
           </motion.div>
@@ -138,7 +138,7 @@ const MissionVision: React.FC = () => {
             <h4 className="text-xl font-medium uppercase text-gray-800 mb-2">
               Transparency & Trust
             </h4>
-            <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="text-gray-900 text-lg leading-relaxed max-w-2xl mx-auto">
             Transparent approach in all communication & transactions with customers & vendors, making us the most trustworthy real estate brand in the market.
             </p>
           </motion.div>
