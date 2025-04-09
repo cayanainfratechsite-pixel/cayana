@@ -62,8 +62,9 @@ const PrivacyPolicy = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="m-1 font-serif mx-auto text-center text-base sm:text-lg md:text-xl lg:text-2xl text-zinc-100"
           >
-            Your privacy is our priority. We are committed to protecting your personal information
-            and ensuring transparency in how we handle your data.
+            We, respect your privacy and are committed to protect it through this Privacy Policy. 
+            This document outlines how we collect, use, disclose, and safeguard your information 
+            when used for software development purposes.
           </motion.p>
         </div>
       </motion.div>
@@ -143,9 +144,9 @@ const PrivacyPolicy = () => {
           >
             <h2 className="text-lg sm:text-xl font-medium mb-3 sm:mb-4 text-gray-900">6. Contact Us</h2>
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-              If you have any questions about our Privacy Policy, please contact us at:<br />
+              For any query on our Privacy Policy, please write to us at:<br />
               Cayana Infratech Pvt Ltd<br />
-              Email: privacy@cayana.com
+              Email: support@cayana.co.in
             </p>
           </motion.section>
 

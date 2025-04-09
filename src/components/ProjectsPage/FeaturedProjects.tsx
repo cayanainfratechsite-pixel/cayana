@@ -116,7 +116,7 @@ const FeaturedProjects: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mt-4">
                   <h2 className="text-lg md:text-xl font-medium text-zinc-800">
-                    {project.name}
+                    {project.name.toUpperCase()}
                   </h2>
                   {project.status && (
                     <span

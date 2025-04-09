@@ -214,20 +214,6 @@ export default function ComingSoon() {
           A New Era in Innovation & Infrastructure
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="text-lg text-gray-200 font-poppins max-w-4xl"
-        >
-          At Cayana Infratech, we blend visionary design with state-of-the-art
-          technology to create exceptional living and commercial spaces. Our
-          commitment to quality, sustainability, and innovation drives us to
-          deliver projects that not only elevate the real estate landscape but
-          also redefine modern living. Join us as we pave the way for a new era
-          in property development.
-        </motion.p>
-
         {!launched ? (
           timer > 0 ? (
             <div className="text-center">

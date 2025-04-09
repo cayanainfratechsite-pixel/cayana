@@ -95,7 +95,7 @@ const TermsAndConditions = () => {
           >
             <h2 className="text-lg sm:text-xl font-medium mb-3 sm:mb-4 text-gray-800">1. Acceptance of Terms</h2>
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-              By accessing and using the Cayana Infratech Pvt Ltd website and services, you acknowledge that you have read, understood, and agree to be bound by these terms and conditions.
+              By accessing and using the website of CAYANA Infratech Pvt Ltd, you acknowledge that you have read, understood, and agree to be bound by these terms and conditions.
             </p>
           </motion.section>
 
@@ -115,7 +115,7 @@ const TermsAndConditions = () => {
           >
             <h2 className="text-lg sm:text-xl font-medium mb-3 sm:mb-4 text-gray-900">3. Intellectual Property</h2>
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-              All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Cayana Infratech Pvt Ltd and is protected by intellectual property laws.
+              All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of CAYANA Infratech Pvt Ltd and is protected by intellectual property rights Law.
             </p>
           </motion.section>
 
@@ -135,7 +135,7 @@ const TermsAndConditions = () => {
           >
             <h2 className="text-lg sm:text-xl font-medium mb-3 sm:mb-4 text-gray-900">5. Limitation of Liability</h2>
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-              Cayana Infratech Pvt Ltd shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of our website or services.
+              CAYANA Infratech Pvt Ltd shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of our website or services.
             </p>
           </motion.section>
 
@@ -143,11 +143,29 @@ const TermsAndConditions = () => {
             className="p-4 sm:p-6 rounded-lg shadow-sm"
             variants={sectionVariants}
           >
-            <h2 className="text-lg sm:text-xl font-medium mb-3 sm:mb-4 text-gray-900">6. Contact Information</h2>
+            <h2 className="text-lg sm:text-xl font-medium mb-3 sm:mb-4 text-gray-900">6. Changes in Terms</h2>
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-              If you have any questions about these Terms and Conditions, please contact us at:<br />
-              Cayana Infratech Pvt Ltd<br />
-              Email: info@cayana.com
+              We may update these Terms from time to time as per requirement & availability of information on the website.
+            </p>
+          </motion.section>
+
+          <motion.section 
+            className="p-4 sm:p-6 rounded-lg shadow-sm"
+            variants={sectionVariants}
+          >
+            <h2 className="text-lg sm:text-xl font-medium mb-3 sm:mb-4 text-gray-900">7. Governing Law</h2>
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+              These Terms are governed by and construed in accordance with the laws of India, without regard to its conflict of law principles.
+            </p>
+          </motion.section>
+
+          <motion.section 
+            className="p-4 sm:p-6 rounded-lg shadow-sm"
+            variants={sectionVariants}
+          >
+            <h2 className="text-lg sm:text-xl font-medium mb-3 sm:mb-4 text-gray-900">8. Contact Information</h2>
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+              For any query ON these Terms and Conditions, please write to us at support@cayana.co.in
             </p>
           </motion.section>
 

@@ -1,31 +1,32 @@
 // app/layout.tsx
 
-import './globals.css'
-import Image from 'next/image'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import { Maven_Pro } from 'next/font/google'
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Maven_Pro } from "next/font/google";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const mavenPro = Maven_Pro({
-  weight: ['400', '500', '700'],
-  subsets: ['latin'],
-})
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata = {
-  title: 'Cayana, a modern and minimalistic blog template',
-  description: 'Cayana is a modern and minimalistic blog template.',
-}
+  title: "Cayana, a modern and minimalistic blog template",
+  description: "Cayana is a modern and minimalistic blog template.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
+  const hidelayout = ["/app-comming-soon"];
   return (
     <html lang="en" className={mavenPro.className}>
       <body>
         {/* Navbar at the top */}
-        <Navbar />
+        {!hidelayout && <Navbar />}
 
         {/* Centered image section */}
         {/* <div
@@ -48,8 +49,13 @@ export default function RootLayout({
 
         {/* Render page-specific content if needed */}
         {children}
-        <Footer />
+        {!hidelayout && (
+          <>
+            <Footer />
+            <WhatsAppButton />
+          </>
+        )}
       </body>
     </html>
-  )
+  );
 }
