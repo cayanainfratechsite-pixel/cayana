@@ -3,6 +3,7 @@
 import "./globals.css";
 import { Maven_Pro } from "next/font/google";
 import LayoutWrapper from "@/components/LayoutWrapper";
+import AntiCopy from "@/components/AnitCopy";
 
 const mavenPro = Maven_Pro({
   weight: ["400", "500", "700"],
@@ -22,7 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={mavenPro.className}>
       <body>
-        <LayoutWrapper>{children}</LayoutWrapper>
+        <LayoutWrapper>
+          <AntiCopy />
+          {children}
+        </LayoutWrapper>
       </body>
     </html>
   );

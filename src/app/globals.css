@@ -38,3 +38,18 @@ iframe {
   width: 100% !important;
   height: 100% !important;
 }
+
+
+
+/* globals.css */
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
