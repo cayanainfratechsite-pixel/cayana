@@ -13,6 +13,9 @@ const mavenPro = Maven_Pro({
 export const metadata = {
   title: "Cayana, a modern and minimalistic blog template",
   description: "Cayana is a modern and minimalistic blog template.",
+  verification: {
+    google: "oTkyv4RdP1sKlve3OYoCNDouMJG2yRApIx68AfIRIFk",
+  },
 };
 
 export default function RootLayout({

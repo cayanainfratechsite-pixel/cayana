@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Underline from "@/components/Underline";
 
-import { fetchBlogsHome } from "@/api/Blogs/page";
+import { fetchBlogsHome } from "@/api/blogs/page";
 
 interface BlogImage {
   cardImage: string;
