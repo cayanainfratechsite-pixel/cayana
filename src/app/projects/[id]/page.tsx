@@ -219,7 +219,8 @@ const Page: React.FC = () => {
             objectFit="cover"
             className="z-0"
           />
-        )}
+        ) 
+ }
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black opacity-30"></div>

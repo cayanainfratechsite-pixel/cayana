@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
       { hostname: "www.photocrati.com" },
       { hostname: "145.223.23.134" },
       {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '4000',
+        pathname: '/public/**',
+      },
+      {
         protocol: "https",
         hostname: "cdn-icons-png.flaticon.com",
       },
@@ -24,7 +30,7 @@ const nextConfig: NextConfig = {
       "artgallery.yale.edu",
       "www.photocrati.com",
       "145.223.23.134",
-      "api.cayana.co.in"
+      "api.cayana.co.in",
     ],
   },
   eslint: {
