@@ -53,6 +53,18 @@ const FeaturedProjects: React.FC = () => {
   };
 
   // At the top of your FeaturedProjects component, add:
+  // const getStatusClasses = (status: string): string => {
+  //   switch (status.toLowerCase()) {
+  //     case "completed":
+  //       return "text-yellow-700 bg-yellow-200";
+  //     case "ongoing":
+  //       return "text-green-700 bg-green-200";
+  //     default:
+  //       return "text-red-700 bg-red-200";
+  //   }
+  // };
+
+
   const getStatusClasses = (status: string): string => {
     switch (status.toLowerCase()) {
       case "completed":

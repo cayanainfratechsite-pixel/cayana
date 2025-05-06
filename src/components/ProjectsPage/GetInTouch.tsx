@@ -10,11 +10,13 @@ interface GetInTouchProps {
 
 const GetInTouch: React.FC<GetInTouchProps> = ({ projectId }) => {
   // State variables for the form fields.
+  // These will hold the values entered by the user.
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [date, setDate] = useState('');
+  // State variable for the selected time.
   const [selectedTime, setSelectedTime] = useState('10:00 AM');
 
   const handleSubmit = async (e: FormEvent) => {

@@ -26,6 +26,7 @@ const ContentPage: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.3 }}
         className="mt-8 max-w-7xl mx-auto text-center"
       >
+        
         <p className="text-lg md:text-lg text-zinc-900 mb-6">
           Cayana- A Story of Hard Work, Perseverance & Ambition.
         </p>

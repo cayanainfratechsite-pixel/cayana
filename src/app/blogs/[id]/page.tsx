@@ -10,7 +10,6 @@ import {
   FaUser,
   FaEye,
 } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 
@@ -44,6 +43,7 @@ interface Blog {
 }
 
 const Page: React.FC = () => {
+  
   const router = useRouter();
   const { id } = useParams() as { id: string };
   const [blog, setBlog] = useState<Blog | null>(null);
@@ -128,6 +128,7 @@ const Page: React.FC = () => {
                   <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-900 mb-4 leading-tight">
                     {blog.title}
                   </h1>
+                  
                   <div className="flex flex-wrap items-center text-xs sm:text-sm text-gray-600 space-x-2 sm:space-x-4">
                     <div className="flex items-center">
                       <FaRegCalendarAlt className="mr-1" />

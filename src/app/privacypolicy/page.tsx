@@ -48,6 +48,7 @@ const PrivacyPolicy = () => {
         <div className="absolute bottom-0 left-0 right-0 bg-black/60 
                       px-4 py-1 md:px-8 md:py-5 mx-2 md:mx-10 lg:mx-28 
                       mb-2 md:mb-5 rounded-lg">
+                      
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -93,6 +94,7 @@ const PrivacyPolicy = () => {
             variants={sectionVariants}
           >
             <h2 className="text-lg sm:text-xl font-medium mb-3 sm:mb-4 text-gray-800">1. Information We Collect</h2>
+            
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
               We collect information that you provide directly to us, including name, email address, phone number, and property preferences when you interact with our website or services. We may also collect technical information about your device and usage of our website.
             </p>

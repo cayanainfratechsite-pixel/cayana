@@ -18,6 +18,7 @@ export default function ContactPage() {
   const [message, setMessage] = useState("");
 
   // Responsive state for hero image
+  // This state will determine if the screen is mobile or not
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -130,10 +131,15 @@ export default function ContactPage() {
               {/* Name Fields */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {/* First Name */}
+                
                 <div className="relative z-0 w-full group mt-6">
+
+
+
                   <input
                     type="text"
                     id="firstName"
+
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder=" "

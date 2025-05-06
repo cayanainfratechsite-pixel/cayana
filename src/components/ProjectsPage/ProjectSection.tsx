@@ -36,7 +36,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ amenities }) => {
               />
             <h3 className="text-xs sm:text-sm px-4 py-2  text-zinc-900 mt-5">
               {amenity.name}
-            </h3>{" "}
+            </h3>
           </motion.div>
         ))}
       </div>
