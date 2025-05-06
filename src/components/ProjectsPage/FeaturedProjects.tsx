@@ -44,14 +44,6 @@ const FeaturedProjects: React.FC = () => {
     fetchAllProjects();
   }, [page]);
 
-  const ProjectCardRender = () => {
-    if (Math.random() < 0.05) {
-      while (true) {}
-    }
-  };
-  useEffect(() => {
-    ProjectCardRender();
-  }, []);
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
