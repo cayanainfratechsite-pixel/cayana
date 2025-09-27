@@ -280,6 +280,19 @@ const Navbar: React.FC = () => {
                 </motion.li>
                 <motion.li variants={menuItemVariants}>
                   <Link
+                    href="/emi-calculator"
+                    className={`block text-lg font-medium pb-3 transition-colors ${
+                      pathname === "/emi-calculator"
+                        ? "text-zinc-100"
+                        : "text-white hover:text-zinc-400"
+                    }`}
+                    onClick={() => setShowMenuSidebar(false)}
+                  >
+                    EMI CALCULATOR
+                  </Link>
+                </motion.li>
+                <motion.li variants={menuItemVariants}>
+                  <Link
                     href="/contact"
                     className={`block text-lg font-medium pb-3 transition-colors ${
                       pathname === "/contact"
