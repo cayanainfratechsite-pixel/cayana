@@ -7,7 +7,7 @@ import { submitProjectEnquiry } from "@/api/projects/page"; // Adjust the path a
 
 
 interface StickyEnquiryProps {
-  projectId: string;
+  projectId?: string;
 }
 
 
@@ -30,7 +30,7 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
 
     const data = {
       category: "project",
-      projectId,
+      projectId: projectId || "general",
       firstName,
       lastName,
       email,
@@ -64,7 +64,7 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
     <>
       {/* Sticky ENQUIRY Button */}
       <motion.button
-        className="fixed -right-20 top-1/2 flex items-center justify-center bg-white border border-[#27262e] rounded-t-[20px] rounded-b-none cursor-pointer h-[40px] lg:h-[50px] w-[180px] lg:w-[200px] -translate-y-1/2 -rotate-90 transition-all duration-800 ease-[cubic-bezier(.45,.05,.55,.95)] z-50"
+        className="fixed -right-20 top-1/2 flex items-center justify-center bg-white border border-[#27262e] rounded-t-[20px] rounded-b-none cursor-pointer h-[40px] lg:h-[50px] w-[180px] lg:w-[200px] -translate-y-1/2 -rotate-90 transition-all duration-800 ease-[cubic-bezier(.45,.05,.55,.95)] z-40"
         onClick={() => setIsFormOpen(true)}
       >
         <span className="text-sm lg:text-lg font-medium text-zinc-950">ENQUIRY</span>
@@ -73,7 +73,7 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
       {/* Enquiry Form Modal */}
       {isFormOpen && (
         <motion.div
-          className="fixed right-0 bg-zinc-50 p-6 shadow-xl w-[420px] h-[67vh] z-50 rounded-sm overflow-y-auto"
+          className="fixed right-0 bg-zinc-50 p-6 shadow-xl w-[420px] h-[67vh] z-40 rounded-sm overflow-y-auto"
           style={{ top: "calc((100% - 18rem) - 50vh)" }}
           initial={{ opacity: 0, x: 3000, y: 100 }}
           animate={{ opacity: 1, x: 0, y: 0 }}

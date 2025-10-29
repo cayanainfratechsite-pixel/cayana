@@ -53,10 +53,17 @@ const Footer: React.FC = () => {
             {/* Contact Info Column */}
             <div>
               <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
-              <p className="flex items-start gap-2 mb-4 text-gray-300 max-w-xs">
+                <p className="flex items-start gap-2 mb-4 text-gray-300 max-w-xs">
                 <FaMapMarkerAlt size={18} />
-                N1/187, IRC Village, Nayapalli, Bhubaneswar, Odisha -15
-              </p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Plot+No+N+1%2F187%2C+N1%2C+Block+N1%2C+IRC+Village%2C+Nayapalli%2C+Bhubaneswar%2C+Odisha+751015"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-[#0553F1] transition cursor-pointer"
+                >
+                  N1/187, IRC Village, Nayapalli, Bhubaneswar, Odisha -15
+                </a>
+                </p>
               <p className="flex items-center gap-2 mb-4 text-gray-300">
                 {/* Phone:{" "} */}
                 <FaPhone size={18} />
@@ -192,6 +199,14 @@ const Footer: React.FC = () => {
                       className="text-gray-300 hover:text-[#0553F1] transition"
                     >
                       Privacy Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/emi-calculator"
+                      className="text-gray-300 hover:text-[#0553F1] transition"
+                    >
+                      EMI Calculator
                     </Link>
                   </li>
                 </div>

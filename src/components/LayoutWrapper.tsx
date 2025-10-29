@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
+import StickyEnquiry from "./ProjectsPage/StickyEnquiry";
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -21,6 +22,8 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
         <>
           <Footer />
           <WhatsAppButton />
+                    <StickyEnquiry />
+          
         </>
       )}
     </>
