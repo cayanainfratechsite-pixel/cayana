@@ -70,7 +70,7 @@ const CultureGrowth = () => {
             about continuous learning, innovation, and limitless
             possibilities. Through continuous learning, mentorship, and
             opportunities to take on new challenges, we help our team unlock
-            their full potential. Whether you're stepping into a leadership
+            their full potential. Whether you are stepping into a leadership
             role, mastering a new skill, or pioneering groundbreaking
             projects, we are committed to your success. Because when our
             people grow, our company grows—and together, we build a future

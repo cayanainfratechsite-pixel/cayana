@@ -13,7 +13,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 
-import { fetchBlogById, fetchBlogsRecent } from "@/api/blogs/page";
+import { fetchBlogById, fetchBlogsRecent } from "@/api/Blogs/page";
 
 interface BlogImage {
   cardImage: string;

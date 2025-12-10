@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Underline from "@/components/Underline";
 
-import { fetchBlogsHome } from "@/api/blogs/page";
+import { fetchBlogsHome } from "@/api/Blogs/page";
 
 interface BlogImage {
   cardImage: string;
   coverImage: string;
 }
 
-export interface Blog {
+export interface Blog { 
   id: string;
   images: BlogImage;
   publisherName: string;

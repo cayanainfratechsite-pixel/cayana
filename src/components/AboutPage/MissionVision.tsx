@@ -7,8 +7,8 @@ import {
   FaHandshake,
   FaEye,
   FaBullseye,
-  FaRocket,
-  FaLaugh,
+  // FaRocket,
+  // FaLaugh,
 } from "react-icons/fa";
 import Underline from "../Underline";
 

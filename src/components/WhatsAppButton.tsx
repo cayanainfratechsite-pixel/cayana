@@ -1,3 +1,28 @@
+// "use client";
+
+// import Script from "next/script";
+
+// const AisensyWhatsApp = () => {
+//   return (
+//     <>
+//       {/* ✅ Load the AiSensy integration script */}
+//       <head>
+//         {/* ✅ AiSensy WhatsApp Script */}
+//         <script
+//           type="text/javascript"
+//           src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
+//           id="aisensy-wa-widget"
+//           widget-id="aaao9r"
+//         ></script>
+//       </head>
+//     </>
+//   );
+// };
+
+// export default AisensyWhatsApp;
+
+
+
 "use client";
 
 import Script from "next/script";
@@ -5,16 +30,13 @@ import Script from "next/script";
 const AisensyWhatsApp = () => {
   return (
     <>
-      {/* ✅ Load the AiSensy integration script */}
-      <head>
-        {/* ✅ AiSensy WhatsApp Script */}
-        <script
-          type="text/javascript"
-          src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
-          id="aisensy-wa-widget"
-          widget-id="aaao9r"
-        ></script>
-      </head>
+      {/* ✅ Load the AiSensy integration script using next/script */}
+      <Script
+        src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
+        id="aisensy-wa-widget"
+        data-widget-id="aaao9r" // Use 'data-*' for custom attributes
+        strategy="lazyOnload" // Recommended for chat/widgets[citation:2][citation:4]
+      />
     </>
   );
 };

@@ -6,7 +6,7 @@ import Link from "next/link";
 import Underline from "../Underline";
 import PaginationComponent from "../Pagination";
 
-import { fetchBlogs } from "@/api/blogs/page";
+import { fetchBlogs } from "@/api/Blogs/page";
 
 interface BlogImage {
   cardImage: string;

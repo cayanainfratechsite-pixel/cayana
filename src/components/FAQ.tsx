@@ -102,7 +102,7 @@ const FAQ: React.FC = () => {
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Find answers to common questions about our projects, services, and processes. 
-            Can't find what you're looking for? Feel free to contact us directly.
+            Can not find what you are looking for? Feel free to contact us directly.
           </p>
         </div>
 
