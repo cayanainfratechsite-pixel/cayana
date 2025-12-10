@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://api.cayana.co.in/api/v1";
+const API_BASE_URL = "https://backend.cayana.co.in/";
 
 export interface ContactEnquiryPayload {
   category: string;
