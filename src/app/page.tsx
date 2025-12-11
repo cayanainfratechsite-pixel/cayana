@@ -7,7 +7,7 @@ import AboutUs from "@/components/AboutUs";
 import VideosSection from "@/components/video";
 import BlogSlider from "@/components/BlogSlider";
 import Partners from "@/components/Partners";
-import FAQ from "@/components/FAQ";
+// import FAQ from "@/components/FAQ";
 import Reviews from "@/components/Reviews";
 import FeaturedProjectsPopup from "@/components/FeaturedProjectsPopup";
 
@@ -36,7 +36,7 @@ export default function HomePage() {
       {/* <TestimonialsPage /> */}
       <BlogSlider />
       <Reviews />
-      <FAQ />
+      {/* <FAQ /> */}
       <Partners />
 
       {/* Features Projects Popup */}

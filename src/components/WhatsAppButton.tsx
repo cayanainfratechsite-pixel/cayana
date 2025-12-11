@@ -34,8 +34,8 @@ const AisensyWhatsApp = () => {
       <Script
         src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
         id="aisensy-wa-widget"
-        data-widget-id="aaao9r" // Use 'data-*' for custom attributes
-        strategy="lazyOnload" // Recommended for chat/widgets[citation:2][citation:4]
+        data-widget-id="aaao9r" 
+        strategy="lazyOnload" 
       />
     </>
   );
