@@ -1,7 +1,7 @@
 import { limit } from "@/lib/data";
 import axios from "axios";
 
-const API_BASE_URL = "https://backend.cayana.co.in/";
+const API_BASE_URL = "https://backend.cayana.co.in/api/v1";
 
 
 export const fetchGallery = async () => {
