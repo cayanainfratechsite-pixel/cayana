@@ -321,9 +321,9 @@ const Page: React.FC = () => {
           <Gallery images={project.gallery} />
         </div>
 
-        {/* <div>
+        <div>
           <ProjectSection amenities={project.amenities} />
-        </div> */}
+        </div>
 
         <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
           <div className="text-center">
