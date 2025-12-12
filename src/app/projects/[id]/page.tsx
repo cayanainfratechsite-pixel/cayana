@@ -139,7 +139,7 @@ const Page: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get(`https://api.cayana.co.in/api/v1/project/${id}`)
+      .get(`https://backend.cayana.co.in/api/v1/project/${id}`)
       .then((response) => {
         if (response.data.success === 0) {
           setProject(response.data.result);
