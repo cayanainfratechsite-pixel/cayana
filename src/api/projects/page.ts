@@ -27,7 +27,7 @@ export const submitProjectEnquiry = async (data: ProjectEnquiryPayload) => {
 
 export const fetchProjects = async (page: number) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/project/getall`, {
+    const response = await axios.get(`${API_BASE_URL}/project/getAll`, {
       params: {
         page,
         limit: limit,
