@@ -96,6 +96,7 @@ const nextConfig: NextConfig = {
       "api.cayana.co.in",
       "cdn-icons-png.flaticon.com",
       "custom-images.strikinglycdn.com",
+      "backend.cayana.co.in"
     ],
   },
 };
