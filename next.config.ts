@@ -41,12 +41,16 @@
 // export default nextConfig;
 
 
-
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "backend.cayana.co.in",
+        pathname: "/**",
+      },
       {
         protocol: "https",
         hostname: "images.unsplash.com",
@@ -63,17 +67,6 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
       {
-        protocol: "http",
-        hostname: "145.223.23.134",
-        pathname: "/**",
-      },
-      {
-        protocol: "http",
-        hostname: "localhost",
-        port: "4000",
-        pathname: "/public/**",
-      },
-      {
         protocol: "https",
         hostname: "cdn-icons-png.flaticon.com",
         pathname: "/**",
@@ -84,23 +77,17 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
-
     domains: [
+      "backend.cayana.co.in",
       "images.unsplash.com",
       "media.istockphoto.com",
       "images.ctfassets.net",
-      "example.com",
       "artgallery.yale.edu",
       "www.photocrati.com",
-      "145.223.23.134",
-      "api.cayana.co.in",
       "cdn-icons-png.flaticon.com",
       "custom-images.strikinglycdn.com",
-      "backend.cayana.co.in",
-      
     ],
   },
 };
 
 export default nextConfig;
-
