@@ -32,6 +32,10 @@ export const fetchProjects = async (page: number) => {
         page,
         limit: limit,
       },
+        headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  }
     });
     return response.data;
   } catch (error) {
