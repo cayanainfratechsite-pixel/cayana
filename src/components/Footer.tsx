@@ -250,15 +250,15 @@ const Footer: React.FC = () => {
           <div className="border-t border-zinc-200 pt-4 mt-32 text-center">
             <p className="text-zinc-200 text-sm">
               &copy; {new Date().getFullYear()} Cayana Infratech Pvt. Ltd. All
-              Rights Reserved. | Designed & Developed by{" "}
-              <a
+              Rights Reserved
+              {/* <a
                 href="https://vanurmedia.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-200 hover:text-[#0553F1]"
               >
                 VANURTECH MEDIA PVT. LTD.
-              </a>
+              </a> */}
             </p>
           </div>
         </div>
