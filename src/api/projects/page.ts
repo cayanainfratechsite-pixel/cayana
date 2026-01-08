@@ -33,15 +33,22 @@ export const fetchProjects = async (page: number) => {
         limit: limit,
       },
     });
+    console.log("API Response:", response.data);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      console.error("API Error Details:", {
+        message: error.message,
+        status: error.response?.status,
+        data: error.response?.data,
+      });
       throw new Error(
         error.response?.data?.message ||
-          "An error occurred while fetching applications"
+          "An error occurred while fetching projects"
       );
     } else {
-      throw new Error("An unknown error occurred while fetching applications");
+      console.error("Unknown Error:", error);
+      throw new Error("An unknown error occurred while fetching projects");
     }
   }
 };

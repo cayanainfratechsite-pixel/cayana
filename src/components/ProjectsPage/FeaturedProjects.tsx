@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+
+import Image from "next/image";
 import {
   FaBuilding,
   FaBed,
@@ -16,12 +18,25 @@ import AddTaskSharpIcon from "@mui/icons-material/AddTaskSharp";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 
+interface Project {
+  _id: string;
+  name: string;
+  cardImage: string;
+  locationName: string;
+  basePrice: string;
+  type: string;
+  bedRooms: number;
+  size: string;
+  units: string;
+  status?: string;
+}
+
 const FeaturedProjects: React.FC = () => {
   const { id } = useParams();
 
   console.log(id);
 
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState<number>(1);
@@ -44,7 +59,6 @@ const FeaturedProjects: React.FC = () => {
     fetchAllProjects();
   }, [page]);
 
-
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number
@@ -63,7 +77,6 @@ const FeaturedProjects: React.FC = () => {
   //       return "text-red-700 bg-red-200";
   //   }
   // };
-
 
   const getStatusClasses = (status: string): string => {
     switch (status.toLowerCase()) {
@@ -89,6 +102,26 @@ const FeaturedProjects: React.FC = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <section className="p-8 mx-1 sm:mx-8 md:mx-16 lg:mx-24 mt-20">
+        <div className="flex justify-center items-center min-h-[400px]">
+          <p className="text-lg text-zinc-600">Loading projects...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="p-8 mx-1 sm:mx-8 md:mx-16 lg:mx-24 mt-20">
+        <div className="flex justify-center items-center min-h-[400px]">
+          <p className="text-lg text-red-600">{error}</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="p-8 mx-1 sm:mx-8 md:mx-16 lg:mx-24 mt-20">
       <motion.h1
@@ -112,11 +145,15 @@ const FeaturedProjects: React.FC = () => {
         {projects.map((project) => (
           <Link key={project._id} href={`/projects/${project._id}`}>
             <motion.div className="p-3 hover:bg-white hover:shadow-lg hover:rounded-sm border border-zinc-200 cursor-pointer transition-all duration-500 ease-in-out">
-              <img
-                src={project.cardImage}
-                alt={project.name}
-                className=" w-full h-auto object-contain mx-auto"
-              />
+              <div className="relative w-full h-[300px]">
+                <Image
+                  src={project.cardImage}
+                  alt={project.name}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
               <div>
                 <div className="flex items-center justify-between mt-4">
                   <h2 className="text-lg md:text-xl font-medium text-zinc-800">
@@ -136,7 +173,8 @@ const FeaturedProjects: React.FC = () => {
 
                 <p className="text-sm text-zinc-500">{project.locationName}</p>
                 <p className="text-sm font-medium text-[#0553F1] mt-1">
-                  <span className="font-bold">RERA NO: </span> {project.basePrice}
+                  <span className="font-bold">RERA NO: </span>{" "}
+                  {project.basePrice}
                 </p>
                 <hr className="my-3 border-zinc-300" />
                 <div className="grid grid-cols-2 gap-4">
@@ -154,7 +192,9 @@ const FeaturedProjects: React.FC = () => {
                     <div>
                       <p className="text-sm font-light text-zinc-700">Price</p>
                       <p className="text-sm font-medium text-zinc-900">
-                      {project.bedRooms> 0 ?"INR " +project.bedRooms +"/- ONWARDS": "N/A"}
+                        {project.bedRooms > 0
+                          ? "INR " + project.bedRooms + "/- ONWARDS"
+                          : "N/A"}
                       </p>
                     </div>
                   </div>
