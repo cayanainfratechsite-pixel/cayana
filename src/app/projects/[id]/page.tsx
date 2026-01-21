@@ -13,6 +13,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import EnquiryModal from "@/components/ProjectsPage/EnquiryModal";
+import { FaDownload } from "react-icons/fa";
 
 // Custom Next Arrow for Slider
 function SampleNextArrow(props: any) {
@@ -253,6 +254,10 @@ const Page: React.FC = () => {
   const handleEnquirySubmit = () => {
     setEnquiryOpen(false); // Close the modal
     handleDownload(); // Trigger the download
+  };
+
+  const handleDownloadClick = async () => {
+    setEnquiryOpen(true);
   };
 
   const handleDownload = async () => {
