@@ -146,7 +146,12 @@ const PrivacyPolicy = () => {
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
               For any query on our Privacy Policy, please write to us at:<br />
               Cayana Infratech Pvt Ltd<br />
-              Email: support@cayana.co.in
+              Email: <a 
+                href="mailto:support@cayana.co.in"
+                className="text-blue-600 hover:text-blue-800 hover:underline transition-colors cursor-pointer"
+              >
+                support@cayana.co.in
+              </a>
             </p>
           </motion.section>
 

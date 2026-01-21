@@ -164,7 +164,12 @@ const TermsAndConditions = () => {
           >
             <h2 className="mb-3 sm:mb-4 font-medium text-gray-900 text-lg sm:text-xl">8. Contact Information</h2>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              For any query ON these Terms and Conditions, please write to us at support@cayana.co.in
+              For any query ON these Terms and Conditions, please write to us at <a 
+                href="mailto:support@cayana.co.in"
+                className="text-blue-600 hover:text-blue-800 hover:underline transition-colors cursor-pointer"
+              >
+                support@cayana.co.in
+              </a>
             </p>
           </motion.section>
 

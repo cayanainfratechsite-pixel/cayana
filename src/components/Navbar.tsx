@@ -143,9 +143,12 @@ const Navbar: React.FC = () => {
                     {/* Phone Section */}
                     <div className="flex items-center space-x-3 mb-2 pb-2 border-gray-200 border-b">
                       <FaPhoneAlt className="w-4 h-4 text-purple-600" />
-                      <p className="font-semibold text-zinc-100">
+                      <a 
+                        href="tel:+918908012233"
+                        className="font-semibold text-zinc-100 hover:text-blue-300 hover:underline transition-colors cursor-pointer"
+                      >
                         890-801-2233
-                      </p>
+                      </a>
                     </div>
 
                     {/* Location Section */}

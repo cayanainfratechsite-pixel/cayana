@@ -292,7 +292,12 @@ export default function ContactPage() {
                   <MdPhone className="mr-2 w-6 h-6 text-blue-500" />
                   <span className="font-bold">Phone</span>
                 </div>
-                <p className="text-gray-600">+91 890-801-2233</p>
+                <a 
+                  href="tel:+918908012233"
+                  className="text-gray-600 hover:text-blue-500 hover:underline transition-colors cursor-pointer"
+                >
+                  +91 890-801-2233
+                </a>
               </motion.div>
               {/* Email Card */}
               <motion.div
@@ -303,7 +308,12 @@ export default function ContactPage() {
                   <MdEmail className="mr-2 w-6 h-6 text-blue-500" />
                   <span className="font-bold">Email</span>
                 </div>
-                <p className="text-gray-600">support@cayana.co.in</p>
+                <a 
+                  href="mailto:support@cayana.co.in"
+                  className="text-gray-600 hover:text-blue-500 hover:underline transition-colors cursor-pointer"
+                >
+                  support@cayana.co.in
+                </a>
               </motion.div>
               {/* Address Card */}
               <motion.div
