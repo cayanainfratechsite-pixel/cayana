@@ -325,7 +325,14 @@ export default function ContactPage() {
                   <span className="font-bold">Address</span>
                 </div>
                 <p className="text-gray-600 text-sm">
-                  N1/187, IRC Village, Nayapalli, Bhubaneswar, Odisha -15
+                  <a 
+                    href="https://maps.google.com/?q=N1/187, IRC Village, Nayapalli, Bhubaneswar, Odisha"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-600 hover:underline transition-colors cursor-pointer"
+                  >
+                    N1/187, IRC Village, Nayapalli, Bhubaneswar, Odisha -15
+                  </a>
                 </p>
               </motion.div>
             </div>
