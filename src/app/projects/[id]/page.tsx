@@ -373,10 +373,10 @@ const Page: React.FC = () => {
 
       {project._id !== "67caecc0e7cbf9eb800249c3" && (
         <div className="mb-8 text-center">
-          <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
+          {/* <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
             Download Brochure
-          </h1>
-          <Underline />
+          </h1> */}
+          {/* <Underline />
           <div className="flex justify-center">
             <button
               onClick={handleDownloadClick}
@@ -385,7 +385,7 @@ const Page: React.FC = () => {
               <FaDownload className="mr-2" />
               Download
             </button>
-          </div>
+          </div> */}
         </div>
       )}
 

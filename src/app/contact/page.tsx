@@ -85,25 +85,23 @@ export default function ContactPage() {
 
           {/* Black background container at the bottom of the image */}
           <div
-            className="absolute bottom-0 left-0 right-0 bg-black/60 
-                        px-4 py-1 md:px-8 md:py-5 mx-2 md:mx-10 lg:mx-28 
-                        mb-2 md:mb-5 rounded-lg"
+            className="right-0 bottom-0 left-0 absolute bg-black/60 mx-2 md:mx-10 lg:mx-28 mb-2 md:mb-5 px-4 md:px-8 py-1 md:py-5 rounded-lg"
           >
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <FaQuoteLeft className="w-5 h-5 md:w-5 md:h-5 lg:w-8 lg:h-8 text-zinc-100 md:mb-4" />
+              <FaQuoteLeft className="md:mb-4 w-5 md:w-5 lg:w-8 h-5 md:h-5 lg:h-8 text-zinc-100" />
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="m-1 font-serif mx-auto text-center text-base sm:text-lg md:text-xl lg:text-2xl text-zinc-100"
+              className="m-1 mx-auto font-serif text-zinc-100 text-base sm:text-lg md:text-xl lg:text-2xl text-center"
             >
-              Join our team and be part of a culture driven by passion,
+              Join our team and be a part of a culture driven by passion,
               innovation, and excellence.
             </motion.p>
           </div>
@@ -111,28 +109,28 @@ export default function ContactPage() {
       </section>
 
       <motion.section
-        className="mx-5 lg:mx-16 xl:mx-24 p-4 md:p-8 mt-20 text-zinc-900"
+        className="mx-5 lg:mx-16 xl:mx-24 mt-20 p-4 md:p-8 text-zinc-900"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-lg sm:text-xl md:text-xl font-medium uppercase text-zinc-900 mb-10">
+        <h1 className="mb-10 font-medium text-zinc-900 text-lg sm:text-xl md:text-xl uppercase">
           Contact Us
         </h1>
-        <div className="flex flex-col md:flex-row gap-12">
+        <div className="flex md:flex-row flex-col gap-12">
           {/* Left Side: Contact Form */}
           <motion.div
-            className="md:w-3/6 xl:w-2/5 bg-white p-6 rounded-lg shadow-md"
+            className="bg-white shadow-md p-6 rounded-lg md:w-3/6 xl:w-2/5"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-9 flex flex-col">
+            <form onSubmit={handleSubmit} className="flex flex-col space-y-9">
               {/* Name Fields */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div className="gap-4 grid grid-cols-1 lg:grid-cols-2">
                 {/* First Name */}
                 
-                <div className="relative z-0 w-full group mt-6">
+                <div className="group z-0 relative mt-6 w-full">
 
 
 
@@ -143,33 +141,31 @@ export default function ContactPage() {
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder=" "
-                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    className="peer block bg-transparent px-0 py-2.5 border-0 border-zinc-700 focus:border-blue-600 border-b-2 focus:outline-none focus:ring-0 w-full text-gray-900 text-sm appearance-none"
                     required
                   />
                   <label
                     htmlFor="firstName"
-                    className="absolute text-sm text-zinc-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] 
-      peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 
-      peer-focus:scale-75 peer-focus:-translate-y-6"
+                    className="top-3 -z-10 absolute text-zinc-900 text-sm scale-75 peer-focus:scale-75 peer-placeholder-shown:scale-100 origin-[0] -translate-y-6 peer-focus:-translate-y-6 peer-placeholder-shown:translate-y-0 duration-300 transform"
                   >
                     First Name
                   </label>
                 </div>
 
                 {/* Last Name */}
-                <div className="relative z-0 w-full group mt-6">
+                <div className="group z-0 relative mt-6 w-full">
                   <input
                     type="text"
                     id="lastName"
                     value={lastName}
                     placeholder=" "
                     onChange={(e) => setLastName(e.target.value)}
-                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    className="peer block bg-transparent px-0 py-2.5 border-0 border-zinc-700 focus:border-blue-600 border-b-2 focus:outline-none focus:ring-0 w-full text-gray-900 text-sm appearance-none"
                     required
                   />
                   <label
                     htmlFor="lastName"
-                    className="absolute text-sm text-zinc-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    className="top-3 -z-10 absolute text-zinc-900 text-sm scale-75 peer-focus:scale-75 peer-placeholder-shown:scale-100 origin-[0] -translate-y-6 peer-focus:-translate-y-6 peer-placeholder-shown:translate-y-0 duration-300 transform"
                   >
                     Last Name
                   </label>
@@ -177,76 +173,76 @@ export default function ContactPage() {
               </div>
 
               {/* Mobile Number Field */}
-              <div className="relative z-0 w-full group">
+              <div className="group z-0 relative w-full">
                 <input
                   type="tel"
                   id="mobile"
                   value={mobile}
                   onChange={(e) => setMobile(e.target.value)}
                   placeholder=" "
-                  className="block py-2.5 px-0 mt-5 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className="peer block bg-transparent mt-5 px-0 py-2.5 border-0 border-zinc-700 focus:border-blue-600 border-b-2 focus:outline-none focus:ring-0 w-full text-gray-900 text-sm appearance-none"
                   required
                 />
                 <label
                   htmlFor="mobile"
-                  className="absolute text-sm text-zinc-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  className="top-3 -z-10 absolute text-zinc-900 text-sm scale-75 peer-focus:scale-75 peer-placeholder-shown:scale-100 origin-[0] -translate-y-6 peer-focus:-translate-y-6 peer-placeholder-shown:translate-y-0 duration-300 transform"
                 >
                   Mobile Number
                 </label>
               </div>
 
               {/* Email Field */}
-              <div className="relative z-0 w-full group">
+              <div className="group z-0 relative w-full">
                 <input
                   type="email"
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder=" "
-                  className="block py-2.5 px-0 mt-5 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className="peer block bg-transparent mt-5 px-0 py-2.5 border-0 border-zinc-700 focus:border-blue-600 border-b-2 focus:outline-none focus:ring-0 w-full text-gray-900 text-sm appearance-none"
                   required
                 />
                 <label
                   htmlFor="email"
-                  className="absolute text-sm text-zinc-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  className="top-3 -z-10 absolute text-zinc-900 text-sm scale-75 peer-focus:scale-75 peer-placeholder-shown:scale-100 origin-[0] -translate-y-6 peer-focus:-translate-y-6 peer-placeholder-shown:translate-y-0 duration-300 transform"
                 >
                   Email
                 </label>
               </div>
 
               {/* City Field */}
-              <div className="relative z-0 w-full group">
+              <div className="group z-0 relative w-full">
                 <input
                   type="text"
                   id="city"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   placeholder=" "
-                  className="block py-2.5 px-0 mt-5 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className="peer block bg-transparent mt-5 px-0 py-2.5 border-0 border-zinc-700 focus:border-blue-600 border-b-2 focus:outline-none focus:ring-0 w-full text-gray-900 text-sm appearance-none"
                   required
                 />
                 <label
                   htmlFor="city"
-                  className="absolute text-sm text-zinc-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  className="top-3 -z-10 absolute text-zinc-900 text-sm scale-75 peer-focus:scale-75 peer-placeholder-shown:scale-100 origin-[0] -translate-y-6 peer-focus:-translate-y-6 peer-placeholder-shown:translate-y-0 duration-300 transform"
                 >
                   City
                 </label>
               </div>
 
               {/* Message Field */}
-              <div className="relative z-0 w-full group">
+              <div className="group z-0 relative w-full">
                 <textarea
                   id="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder=" "
                   rows={4}
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer resize-none"
+                  className="peer block bg-transparent px-0 py-2.5 border-0 border-zinc-700 focus:border-blue-600 border-b-2 focus:outline-none focus:ring-0 w-full text-gray-900 text-sm appearance-none resize-none"
                   required
                 ></textarea>
                 <label
                   htmlFor="message"
-                  className="absolute text-sm text-zinc-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  className="top-3 -z-10 absolute text-zinc-900 text-sm scale-75 peer-focus:scale-75 peer-placeholder-shown:scale-100 origin-[0] -translate-y-6 peer-focus:-translate-y-6 peer-placeholder-shown:translate-y-0 duration-300 transform"
                 >
                   Message
                 </label>
@@ -256,7 +252,7 @@ export default function ContactPage() {
                 type="submit"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded transition-colors"
+                className="bg-blue-500 hover:bg-blue-600 py-2 rounded w-full font-semibold text-white transition-colors"
               >
                 Submit
               </motion.button>
@@ -265,7 +261,7 @@ export default function ContactPage() {
 
           {/* Right Side: Reach Us, Cards, and Map */}
           <motion.div
-            className="md:w-3/6 xl:w-3/5 flex flex-col space-y-8"
+            className="flex flex-col space-y-8 md:w-3/6 xl:w-3/5"
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -276,7 +272,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              <h2 className="text-sm sm:text-lg md:text-xl font-medium uppercase text-zinc-900 mb-4">
+              <h2 className="mb-4 font-medium text-zinc-900 text-sm sm:text-lg md:text-xl uppercase">
                 Reach Us
               </h2>
               <p className="text-gray-700">
@@ -286,14 +282,14 @@ export default function ContactPage() {
             </motion.div>
 
             {/* Cards Section */}
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+            <div className="gap-6 grid grid-cols-1 xl:grid-cols-3">
               {/* Phone Card */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="bg-white p-4 rounded-lg shadow"
+                className="bg-white shadow p-4 rounded-lg"
               >
                 <div className="flex items-center mb-2">
-                  <MdPhone className="h-6 w-6 text-blue-500 mr-2" />
+                  <MdPhone className="mr-2 w-6 h-6 text-blue-500" />
                   <span className="font-bold">Phone</span>
                 </div>
                 <p className="text-gray-600">+91 890-801-2233</p>
@@ -301,10 +297,10 @@ export default function ContactPage() {
               {/* Email Card */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="bg-white p-4 rounded-lg shadow"
+                className="bg-white shadow p-4 rounded-lg"
               >
                 <div className="flex items-center mb-2">
-                  <MdEmail className="h-6 w-6 text-blue-500 mr-2" />
+                  <MdEmail className="mr-2 w-6 h-6 text-blue-500" />
                   <span className="font-bold">Email</span>
                 </div>
                 <p className="text-gray-600">support@cayana.co.in</p>
@@ -312,10 +308,10 @@ export default function ContactPage() {
               {/* Address Card */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="bg-white p-4 rounded-lg shadow"
+                className="bg-white shadow p-4 rounded-lg"
               >
                 <div className="flex items-center mb-2">
-                  <MdLocationOn className="h-6 w-6 text-blue-500 mr-2" />
+                  <MdLocationOn className="mr-2 w-6 h-6 text-blue-500" />
                   <span className="font-bold">Address</span>
                 </div>
                 <p className="text-gray-600 text-sm">
@@ -330,10 +326,10 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              <h2 className="text-sm sm:text-lg md:text-xl font-medium uppercase text-zinc-900 my-4">
+              <h2 className="my-4 font-medium text-zinc-900 text-sm sm:text-lg md:text-xl uppercase">
                 Our Location
               </h2>
-              <div className="w-full h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden shadow-md">
+              <div className="shadow-md rounded-lg w-full h-64 sm:h-80 md:h-96 overflow-hidden">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.2636856106005!2d85.80419907599952!3d20.28934988118133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1907ed44015555%3A0xdb602bbf3b479019!2sCayana%20Infratech%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1741291386582!5m2!1sen!2sin"
                   width="600"

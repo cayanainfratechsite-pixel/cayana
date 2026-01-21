@@ -10,11 +10,10 @@ import {
   FaTimes,
   FaInstagram,
   FaFacebook,
-  FaTwitter,
   FaWhatsapp,
-  FaMapMarkerAlt,
 } from "react-icons/fa";
 import { usePathname } from "next/navigation";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Navbar: React.FC = () => {
   const [showCallPopup, setShowCallPopup] = useState(false);
@@ -97,24 +96,23 @@ const Navbar: React.FC = () => {
             : "bg-gradient-to-b from-black/70 to-transparent"
         }`}
       >
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-
+        <div className="flex justify-between items-center mx-auto px-4 py-4 container">
           <Link href="/" className="flex items-center">
             <Image
               src="/images/CAYANA.png"
               alt="Logo"
-              width={1000} 
-              height={200} 
-              className="w-36 sm:w-40 md:w-48 lg:w-52 xl:w-56 h-auto" 
+              width={1000}
+              height={200}
+              className="w-36 sm:w-40 md:w-48 lg:w-52 xl:w-56 h-auto"
             />
           </Link>
 
           {/* Center: Navigation Items */}
-          <div className="flex items-center justify-center space-x-4 md:space-x-8">
+          <div className="flex justify-center items-center space-x-4 md:space-x-8">
             {/* OUR PROJECTS Link (hidden on mobile) */}
             <Link
               href="/projects"
-              className="hidden md:block text-white text-xl font-medium hover:text-gray-300 transition-colors"
+              className="hidden md:block font-medium text-white hover:text-gray-300 text-xl transition-colors"
             >
               OUR PROJECTS
             </Link>
@@ -125,8 +123,8 @@ const Navbar: React.FC = () => {
                 onClick={() => setShowCallPopup((prev) => !prev)}
                 className="focus:outline-none"
               >
-                <div className="bg-black/30 shadow-lg rounded-full p-2 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                  <FaPhoneAlt className="text-white h-4 w-4" />
+                <div className="flex justify-center items-center bg-black/30 shadow-lg p-2 rounded-full hover:scale-110 transition-transform duration-300">
+                  <FaPhoneAlt className="w-4 h-4 text-white" />
                 </div>
               </button>
 
@@ -143,9 +141,9 @@ const Navbar: React.FC = () => {
                     } border border-white/20 shadow-xl rounded-xl p-4 z-50`}
                   >
                     {/* Phone Section */}
-                    <div className="flex items-center space-x-3 border-b border-gray-200 pb-2 mb-2">
-                      <FaPhoneAlt className="text-purple-600 h-4 w-4" />
-                      <p className="text-zinc-100 font-semibold">
+                    <div className="flex items-center space-x-3 mb-2 pb-2 border-gray-200 border-b">
+                      <FaPhoneAlt className="w-4 h-4 text-purple-600" />
+                      <p className="font-semibold text-zinc-100">
                         890-801-2233
                       </p>
                     </div>
@@ -161,8 +159,8 @@ const Navbar: React.FC = () => {
               onClick={() => setShowMenuSidebar(true)}
               className="focus:outline-none"
             >
-              <div className="rounded-full hover:bg-black/20 transition-colors p-2 flex items-center justify-center">
-                <FaBars className="text-white h-6 w-6" />
+              <div className="flex justify-center items-center hover:bg-black/20 p-2 rounded-full transition-colors">
+                <FaBars className="w-6 h-6 text-white" />
               </div>
             </button>
           </div>
@@ -177,19 +175,19 @@ const Navbar: React.FC = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-0 right-0 h-full bg-black bg-opacity-65 w-full sm:w-1/4 z-50 flex flex-col justify-between"
+            className="top-0 right-0 z-50 fixed flex flex-col justify-between bg-black bg-opacity-65 w-full sm:w-1/4 h-full"
           >
             <div>
-              <div className="p-4 flex justify-normal gap-2 items-center border-b border-gray-700">
+              <div className="flex justify-normal items-center gap-2 p-4 border-gray-700 border-b">
                 {/* Close Button */}
                 <button
                   onClick={() => setShowMenuSidebar(false)}
                   className="focus:outline-none"
                 >
-                  <FaTimes className="text-white h-6 w-6" />
+                  <FaTimes className="w-6 h-6 text-white" />
                 </button>
                 <div className="flex items-center">
-                  <h1 className="text-zinc-100 text-xl font-medium uppercase">
+                  <h1 className="font-medium text-zinc-100 text-xl uppercase">
                     Close
                   </h1>
                 </div>
@@ -198,7 +196,7 @@ const Navbar: React.FC = () => {
                 variants={sidebarVariants}
                 initial="hidden"
                 animate="visible"
-                className="p-4 space-y-4"
+                className="space-y-4 p-4"
               >
                 <motion.li variants={menuItemVariants}>
                   <Link
@@ -307,52 +305,52 @@ const Navbar: React.FC = () => {
               </motion.ul>
             </div>
             {/* Bottom Section with Gradient Background */}
-            <div className="border-t border-gray-700 bg-gradient-to-b from-black to-transparent">
+            <div className="bg-gradient-to-b from-black to-transparent border-gray-700 border-t">
               {/* Locations and Contact Numbers */}
-              {/* <div className="p-4 flex flex-col space-y-4 mb-4">
+              {/* <div className="flex flex-col space-y-4 mb-4 p-4">
                 <div className="flex flex-col">
                   <div className="flex items-center space-x-2">
-                    <FaMapMarkerAlt className="text-white h-4 w-4" />
-                    <span className="text-white text-xs font-bold">
+                    <FaMapMarkerAlt className="w-4 h-4 text-white" />
+                    <span className="font-bold text-white text-xs">
                       N1/187, IRC Village, Nayapalli, Bhubaneswar, Odisha -15
                     </span>
                   </div>
-                  <span className="text-white text-xs font-bold ml-6 mt-3">
+                  <span className="mt-3 ml-6 font-bold text-white text-xs">
                     890-801-2233
                   </span>
                 </div>
               </div> */}
               {/* Follow Us Title and Social Icons */}
               <div className="p-4">
-                {/* <p className="text-white text-xs font-bold mb-2">Follow Us :</p> */}
+                {/* <p className="mb-2 font-bold text-white text-xs">Follow Us :</p> */}
                 <div className="flex space-x-9">
                   <Link
                     href="https://instagram.com"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <FaInstagram className="text-white h-6 w-6 hover:text-yellow-500 transition-colors" />
+                    <FaInstagram className="w-6 h-6 text-white hover:text-yellow-500 transition-colors" />
                   </Link>
                   <Link
                     href="https://facebook.com"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <FaFacebook className="text-white h-6 w-6 hover:text-yellow-500 transition-colors" />
+                    <FaFacebook className="w-6 h-6 text-white hover:text-yellow-500 transition-colors" />
                   </Link>
                   <Link
                     href="https://twitter.com"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <FaTwitter className="text-white h-6 w-6 hover:text-yellow-500 transition-colors" />
+                    <FaXTwitter className="w-6 h-6 text-white hover:text-yellow-500 transition-colors" />
                   </Link>
                   <Link
                     href="https://whatsapp.com"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <FaWhatsapp className="text-white h-6 w-6 hover:text-yellow-500 transition-colors" />
+                    <FaWhatsapp className="w-6 h-6 text-white hover:text-yellow-500 transition-colors" />
                   </Link>
                 </div>
               </div>

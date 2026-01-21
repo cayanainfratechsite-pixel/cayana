@@ -8,7 +8,11 @@ import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
 import StickyEnquiry from "./ProjectsPage/StickyEnquiry";
 
-export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
+export default function LayoutWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const hidelayout = ["/app-comming-soon"];
 
@@ -22,8 +26,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
         <>
           <Footer />
           <WhatsAppButton />
-                    <StickyEnquiry />
-          
+          <StickyEnquiry />
         </>
       )}
     </>

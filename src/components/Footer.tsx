@@ -32,12 +32,12 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative text-white overflow-hidden">
+    <div className="relative overflow-hidden text-white">
       {/* Background Video */}
       <video
         ref={videoRef}
         src="/videos/Footer.mp4" // Replace with your video file path
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="top-0 left-0 absolute w-full h-full object-cover"
         loop
         muted
         playsInline
@@ -47,19 +47,19 @@ const Footer: React.FC = () => {
       <div className="absolute inset-0 bg-black opacity-60"></div>
 
       {/* Main Content */}
-      <div className="relative z-10 pt-16 pb-6 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="z-10 relative px-4 pt-16 pb-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
             {/* Contact Info Column */}
             <div>
-              <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
-                <p className="flex items-start gap-2 mb-4 text-gray-300 max-w-xs">
+              <h3 className="mb-4 font-semibold text-2xl">Contact Us</h3>
+                <p className="flex items-start gap-2 mb-4 max-w-xs text-gray-300">
                 <FaMapMarkerAlt size={18} />
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=Plot+No+N+1%2F187%2C+N1%2C+Block+N1%2C+IRC+Village%2C+Nayapalli%2C+Bhubaneswar%2C+Odisha+751015"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-[#0553F1] transition cursor-pointer"
+                  className="hover:text-[#0553F1] underline transition cursor-pointer"
                 >
                   N1/187, IRC Village, Nayapalli, Bhubaneswar, Odisha -15
                 </a>
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
                 <FaPhone size={18} />
                 <a
                   href="tel:+918908012233"
-                  className="underline hover:text-[#0553F1] transition"
+                  className="hover:text-[#0553F1] underline transition"
                 >
                   +91 890-801-2233
                 </a>
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
                 <FaEnvelope size={18} />
                 <Link
                   href="mailto:support@cayana.co.in"
-                  className="underline hover:text-[#0553F1] transition"
+                  className="hover:text-[#0553F1] underline transition"
                 >
                   support@cayana.co.in
                 </Link>
@@ -88,35 +88,35 @@ const Footer: React.FC = () => {
                 <Link
                   href="https://www.facebook.com/profile.php?id=61574770836672"
                   aria-label="Facebook"
-                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
+                  className="bg-white bg-opacity-20 hover:bg-opacity-40 p-2 rounded-full hover:text-[#0553F1] transition"
                 >
                   <FaFacebookF size={18} />
                 </Link>
                 <Link
                   href="#"
                   aria-label="Twitter"
-                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
+                  className="bg-white bg-opacity-20 hover:bg-opacity-40 p-2 rounded-full hover:text-[#0553F1] transition"
                 >
                   <FaXTwitter size={18} />
                 </Link>
                 <Link
                   href="https://www.instagram.com/cayana_infratech/"
                   aria-label="Instagram"
-                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
+                  className="bg-white bg-opacity-20 hover:bg-opacity-40 p-2 rounded-full hover:text-[#0553F1] transition"
                 >
                   <FaInstagram size={18} />
                 </Link>
                 <Link
                   href="https://youtu.be/0VCjjqHLy2Y?si=CLYgU_cU9euHtdRG"
                   aria-label="Instagram"
-                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
+                  className="bg-white bg-opacity-20 hover:bg-opacity-40 p-2 rounded-full hover:text-[#0553F1] transition"
                 >
                   <FaYoutube size={18} />
                 </Link>
                 <Link
                   href="https://www.linkedin.com/company/cayana-infratech-pvt-ltd/"
                   aria-label="Instagram"
-                  className="p-2 bg-white bg-opacity-20 rounded-full hover:bg-opacity-40 hover:text-[#0553F1] transition"
+                  className="bg-white bg-opacity-20 hover:bg-opacity-40 p-2 rounded-full hover:text-[#0553F1] transition"
                 >
                   <FaLinkedin size={18} />
                 </Link>
@@ -125,8 +125,8 @@ const Footer: React.FC = () => {
 
             {/* Quick Links Column */}
             <div>
-              <h3 className="text-2xl font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-3 flex gap-12 ">
+              <h3 className="mb-4 font-semibold text-2xl">Quick Links</h3>
+              <ul className="flex gap-12 space-y-3">
                 <div className="flex flex-col gap-3">
                   <li>
                     <Link
@@ -215,7 +215,7 @@ const Footer: React.FC = () => {
 
             {/* Have a Question Column */}
             <div>
-              <h3 className="text-2xl font-semibold mb-4">Have a Question</h3>
+              <h3 className="mb-4 font-semibold text-2xl">Have a Question</h3>
               <p className="mb-4 text-gray-300">
                 If you have any questions, feel free to reach out. We're here to
                 help and answer any queries you may have.
@@ -224,7 +224,7 @@ const Footer: React.FC = () => {
                 Call us at:{" "}
                 <a
                   href="tel:+918908012233"
-                  className="underline hover:text-[#0553F1] transition"
+                  className="hover:text-[#0553F1] underline transition"
                 >
                   +91 890-801-2233
                 </a>
@@ -237,7 +237,7 @@ const Footer: React.FC = () => {
                   {/* <FaEnvelope size={18} /> */}
                   <Link
                     href="mailto:support@cayana.co.in"
-                    className="underline hover:text-[#0553F1] transition"
+                    className="hover:text-[#0553F1] underline transition"
                   >
                     sales@cayana.co.in
                   </Link>
@@ -247,9 +247,9 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Footer Bottom */}
-          <div className="border-t border-zinc-200 pt-4 mt-32 text-center">
+          <div className="mt-32 pt-4 border-zinc-200 border-t text-center">
             <p className="text-zinc-200 text-sm">
-              &copy; {new Date().getFullYear()} Cayana Infratech Pvt. Ltd. All
+              &copy; Cayana Infratech Pvt. Ltd. All
               Rights Reserved
               {/* <a
                 href="https://vanurmedia.com/"
