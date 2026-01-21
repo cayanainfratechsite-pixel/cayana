@@ -106,7 +106,7 @@ const FeaturedProjects: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Discover our Affordable premium real estate projects, offering luxury
+        Discover our affordable premium real estate projects, offering luxury
         living and modern designs.
       </motion.p>
       <div className="mt-10 grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
