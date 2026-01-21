@@ -15,17 +15,7 @@ const FeaturedProjectsPopup: React.FC<FeaturedProjectsPopupProps> = ({
     {
       _id: "1",
       name: "Nilachakra Elite",
-      description: `
-Nilachakra Elite is a premium residential project in Puri, Odisha, designed to redefine modern living with elegance and sophistication. Developed by Cayana Infratech Pvt. Ltd., the project embodies trust, transparency, and a strong commitment to excellence.
-
-The meticulously planned apartments offer spacious interiors, high-quality construction, and contemporary aesthetics that cater to the needs of modern urban homebuyers.
-
-The project consists of seven well-designed towers, each standing five storeys tall, with a thoughtfully planned tower-to-tower gap of 20 feet.
-
-This exclusive community features world-class amenities including a gym, landscaped gardens, clubhouse, swimming pool, jogging track, and 24/7 security.
-
-Nilachakra Elite offers a lifestyle that prioritizes comfort, security, and modern living.
-`,
+      description: "Nilachakra Elite is a premium residential project in Puri, Odisha, developed by Cayana Infratech Pvt. Ltd. Featuring seven well-designed towers with 180 one-bedroom and 80 two-bedroom apartments, the project offers modern living with elegance and sophistication. World-class amenities include a three-storied clubhouse, swimming pool, gym, landscaped gardens, and 24/7 security. With superior construction quality and strategic location, Nilachakra Elite provides the perfect blend of comfort, convenience, and modern lifestyle for families and professionals.",
       location: "Puri, Odisha",
       image: "/images/Projects/nilachakra.webp",
       amenities: ["Swimming Pool", "Gym", "24/7 Security", "Parking", "Garden"],

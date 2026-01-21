@@ -128,7 +128,7 @@ const TestimonialsPage: React.FC = () => {
           Experience exceptional service and outstanding results.
         </p>
         <p className="text-lg text-gray-600">
-          Discover why our clients keep coming back for more.
+          Discover why our clients keep coming back.
         </p>
       </div>
 
