@@ -43,25 +43,23 @@ export default function ProjectsPage() {
 
           {/* Black background container at the bottom of the image */}
           <div
-            className="absolute bottom-0 left-0 right-0 bg-black/60 
-                              px-4 py-1 md:px-8 md:py-5 mx-2 md:mx-10 lg:mx-28 
-                              mb-2 md:mb-5 rounded-lg"
+            className="right-0 bottom-0 left-0 absolute bg-black/60 mx-2 md:mx-10 lg:mx-28 mb-2 md:mb-5 px-4 md:px-8 py-1 md:py-5 rounded-lg"
           >
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <FaQuoteLeft className="w-5 h-5 md:w-5 md:h-5 lg:w-8 lg:h-8 text-zinc-100 md:mb-4" />
+              <FaQuoteLeft className="md:mb-4 w-5 md:w-5 lg:w-8 h-5 md:h-5 lg:h-8 text-zinc-100" />
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="m-1 font-serif mx-auto text-center text-base sm:text-lg md:text-xl lg:text-2xl text-zinc-100"
+              className="m-1 mx-auto font-serif text-zinc-100 text-base sm:text-lg md:text-xl lg:text-2xl text-center"
             >
-              Join our team and be part of a culture driven by passion,
+              Join our team and be a part of a culture driven by passion,
               innovation, and excellence.
             </motion.p>
           </div>

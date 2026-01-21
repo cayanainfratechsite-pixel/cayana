@@ -24,20 +24,27 @@
 
 "use client";
 import { useEffect } from "react";
+
 const AisensyWhatsApp = () => {
   useEffect(() => {
-    const existingScript = document.querySelector(
-      'script[src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"]'
-    );
+    // Add delay before loading the script (e.g., 2 seconds)
+    const timer = setTimeout(() => {
+      const existingScript = document.querySelector(
+        'script[src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"]'
+      );
 
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = "https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js";
-      script.id = "aisensy-wa-widget";
-      script.setAttribute("widget-id", "aaao9r");
-      script.async = true;
-      document.body.appendChild(script);
-    } return () => {
+      if (!existingScript) {
+        const script = document.createElement("script");
+        script.src = "https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js";
+        script.id = "aisensy-wa-widget";
+        script.setAttribute("widget-id", "aaao9r");
+        script.async = true;
+        document.body.appendChild(script);
+      }
+    }, 2000); // 2 second delay
+
+    return () => {
+      clearTimeout(timer);
     };
   }, []);
 

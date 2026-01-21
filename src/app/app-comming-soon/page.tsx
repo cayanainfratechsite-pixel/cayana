@@ -10,6 +10,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 type BurstPosition = { top: string; left: string };
 
@@ -167,11 +168,11 @@ export default function ComingSoon() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <div className="relative flex justify-center items-center bg-black min-h-screen overflow-hidden">
       {/* Background Image with Gradient Overlay & Blur Effect */}
       <div className="absolute inset-0">
         <div
-          className="absolute inset-0 bg-cover bg-center filter blur-2xl"
+          className="absolute inset-0 bg-cover bg-center blur-2xl filter"
           style={{
             backgroundImage:
               "url('https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-atmosphere-grand-opening-red-background-uptechnologygrand-opening-background-image_71530.jpg')",
@@ -181,12 +182,12 @@ export default function ComingSoon() {
       </div>
 
       {/* Confetti – Spreading party paper across the screen */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
+      <div className="z-10 absolute inset-0 pointer-events-none">
         <Confetti />
       </div>
 
       {/* Main Content */}
-      <div className="relative z-20 flex flex-col items-center space-y-6 text-center px-4">
+      <div className="z-20 relative flex flex-col items-center space-y-6 px-4 text-center">
         {/* Logo Section */}
         <div className="mb-8">
           <Image
@@ -201,7 +202,7 @@ export default function ComingSoon() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-4xl font-bold text-white font-poppins"
+          className="font-poppins font-bold text-white text-4xl"
         >
           Welcome to Cayana Infratech: Shaping the Future of Real Estate
         </motion.h1>
@@ -209,7 +210,7 @@ export default function ComingSoon() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-2xl font-bold text-white font-poppins"
+          className="font-poppins font-bold text-white text-2xl"
         >
           A New Era in Innovation & Infrastructure
         </motion.h1>
@@ -217,12 +218,12 @@ export default function ComingSoon() {
         {!launched ? (
           timer > 0 ? (
             <div className="text-center">
-              <div className="text-white text-lg font-poppins mb-2">
+              <div className="mb-2 font-poppins text-white text-lg">
                 Launching in
               </div>
-              <div className="bg-black/30 backdrop-blur-md inline-block rounded-lg p-4">
+              <div className="inline-block bg-black/30 backdrop-blur-md p-4 rounded-lg">
                 <div
-                  className="text-white font-mono text-5xl tracking-widest"
+                  className="font-mono text-white text-5xl tracking-widest"
                   style={{ textShadow: "0 0 8px #fff" }}
                 >
                   {formatTime(timer)}
@@ -234,7 +235,7 @@ export default function ComingSoon() {
               whileHover={{ scale: 1.1, rotate: 2 }}
               whileTap={{ scale: 0.9, rotate: -2 }}
               onClick={handleLaunch}
-              className="mt-6 px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-full shadow-xl font-poppins"
+              className="bg-gradient-to-r from-pink-500 to-purple-500 shadow-xl mt-6 px-8 py-4 rounded-full font-poppins font-semibold text-white"
             >
               Launch Website
             </motion.button>
@@ -249,7 +250,7 @@ export default function ComingSoon() {
               className="text-center"
             >
               <motion.p
-                className="text-4xl font-bold text-white font-poppins"
+                className="font-poppins font-bold text-white text-4xl"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
@@ -260,7 +261,7 @@ export default function ComingSoon() {
                 whileHover={{ scale: 1.1, rotate: 2 }}
                 whileTap={{ scale: 0.9, rotate: -2 }}
                 onClick={redirectToWebsite}
-                className="mt-6 px-8 py-1  text-yellow-400 underline font-semibold font-poppins text-md"
+                className="mt-6 px-8 py-1 font-poppins font-semibold text-md text-yellow-400 underline"
               >
                 Visit Website
               </motion.button>
@@ -279,7 +280,7 @@ export default function ComingSoon() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }}
-              className="absolute z-30 pointer-events-none"
+              className="z-30 absolute pointer-events-none"
             >
               <CrackerBurst position={burst} />
             </motion.div>
@@ -287,20 +288,20 @@ export default function ComingSoon() {
       </AnimatePresence>
 
       {/* Social Media Icons */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-6 z-30">
+      <div className="bottom-10 left-1/2 z-30 absolute flex space-x-6 -translate-x-1/2 transform">
         <a
           href="https://twitter.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-2xl hover:text-indigo-400"
+          className="text-white hover:text-indigo-400 text-2xl"
         >
-          <FaTwitter />
+          <FaXTwitter/>
         </a>
         <a
           href="https://facebook.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-2xl hover:text-indigo-400"
+          className="text-white hover:text-indigo-400 text-2xl"
         >
           <FaFacebookF />
         </a>
@@ -308,7 +309,7 @@ export default function ComingSoon() {
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-2xl hover:text-indigo-400"
+          className="text-white hover:text-indigo-400 text-2xl"
         >
           <FaInstagram />
         </a>
@@ -316,7 +317,7 @@ export default function ComingSoon() {
           href="https://linkedin.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-2xl hover:text-indigo-400"
+          className="text-white hover:text-indigo-400 text-2xl"
         >
           <FaLinkedinIn />
         </a>
