@@ -1,23 +1,16 @@
 "use client";
 
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   FaShieldAlt,
   FaHandshake,
   FaEye,
   FaBullseye,
-  // FaRocket,
-  // FaLaugh,
 } from "react-icons/fa";
 import Underline from "../Underline";
 
 const MissionVision: React.FC = () => {
-  // Parallax effects for background decorations
-  const { scrollY } = useScroll();
-  const parallaxUp = useTransform(scrollY, [0, 300], [0, -50]);
-  const parallaxDown = useTransform(scrollY, [0, 300], [0, 50]);
-
   return (
     <section className="relative overflow-hidden py-20 bg-gradient-to-br from-blue-50 to-white">
       <div className="relative z-10 container mx-auto px-6">
@@ -55,7 +48,7 @@ const MissionVision: React.FC = () => {
               Our Mission
             </h4>
             <p className="text-zinc-900 text-lg leading-relaxed max-w-4xl mx-auto mb-6">
-            To enrich the quality of life and foster capital growth through innovative, ethical, and customer-centric real estate solutions.
+              To enrich the quality of life and foster capital growth through innovative, ethical, and customer-centric real estate solutions.
             </p>
           </motion.div>
 
@@ -78,7 +71,7 @@ const MissionVision: React.FC = () => {
               Our Vision
             </h4>
             <p className="text-zinc-900 text-lg leading-relaxed max-w-4xl mx-auto mb-6">
-            To build the future by creating spaces that inspire and endure. With a focus on quality construction, innovative design, and sustainable practices, we aim to be a leading force in shaping the future of urban living.
+              To build the future by creating spaces that inspire and endure. With a focus on quality construction, innovative design, and sustainable practices, we aim to be a leading force in shaping the future of urban living.
             </p>
           </motion.div>
         </div>
@@ -116,7 +109,7 @@ const MissionVision: React.FC = () => {
               Integrity
             </h4>
             <p className="text-gray-900 text-lg leading-relaxed max-w-2xl mx-auto">
-            We always strive to do what is right for our clients, for our community, and for our profession. Ethics, fairness, honesty, and integrity are the cornerstones of our practice.
+              We always strive to do what is right for our clients, our community, and our profession. Ethics, fairness, honesty, and integrity are the cornerstones of our practice.
             </p>
           </motion.div>
 
@@ -139,7 +132,7 @@ const MissionVision: React.FC = () => {
               Transparency & Trust
             </h4>
             <p className="text-gray-900 text-lg leading-relaxed max-w-2xl mx-auto">
-            Transparent approach in all communication & transactions with customers & vendors, making us the most trustworthy real estate brand in the market.
+              Our transparent approach in all communications and transactions with customers and vendors makes us the most trustworthy real estate brand in the market.
             </p>
           </motion.div>
         </div>

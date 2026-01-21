@@ -39,19 +39,19 @@ const OurLeadershipTeamCMO: React.FC = () => {
               A Message from Our CEO
             </h3>
             <p className="text-zinc-900 text-lg leading-relaxed mb-6">
-            &quot;Work is God&quot; - a philosophy that drives us to approach every task with dedication, integrity, and a commitment to excellence.
+              &quot;Work is God&quot; - a philosophy that drives us to approach every task with dedication, integrity, and a commitment to excellence.
             </p>
             <p className="text-zinc-900 text-lg leading-relaxed mb-6">
-            As we move forward, my vision is to make Cayana, a leader in the real estate industry delivering unparalleled value to our customers with hard work and ethical practices.
+              As we move forward, my vision is to make Cayana a leader in the real estate industry, delivering unparalleled value to our customers through hard work and ethical practices.
             </p>
             <p className="text-zinc-900 text-lg leading-relaxed mb-6">
-            Our vision extends beyond the business success; My greatest motivation comes from seeing our people succeed-personally and professionally. By fostering a culture of continuous learning, growth, and empowerment, we ensure that every individual at Cayana reaches their fullest potential and touches extraordinary heights.
+              Our vision extends beyond business success. My greatest motivation comes from seeing our people succeed—personally and professionally. By fostering a culture of continuous learning, growth, and empowerment, we ensure that every individual at Cayana reaches their fullest potential and touches extraordinary heights.
             </p>
             <p className="text-zinc-900 text-lg leading-relaxed mb-6">
-            We Build, Together We Grow, on Your Trust.
+              Together We Build, Together We Grow, on Your Trust.
             </p>
             <p className="text-zinc-900 text-lg leading-relaxed mb-6">
-            Please Do Join Hands with Us!!
+              Please join hands with us!
             </p>
           </motion.div>
 

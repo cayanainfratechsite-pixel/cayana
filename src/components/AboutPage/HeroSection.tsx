@@ -48,7 +48,7 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="mt-1 max-w-2xl text-xs sm:text-lg md:text-xl"
           >
-            Dive into our journey and learn more about our mission, values, and
+            Dive into our journey and learn about our mission, values, and
             the inspiration behind everything we do.
           </motion.p>
         </div>

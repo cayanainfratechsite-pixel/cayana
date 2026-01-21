@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Underline from "@/components/Underline";
 import Gallery from "@/components/ProjectsPage/Gallery";
-import { FaDownload } from "react-icons/fa";
 import GetInTouch from "@/components/ProjectsPage/GetInTouch";
 import StickyEnquiry from "@/components/ProjectsPage/StickyEnquiry";
 import { useParams } from "next/navigation";
@@ -234,10 +233,6 @@ const Page: React.FC = () => {
       .catch((error) => console.error("Error fetching project:", error))
       .finally(() => setLoading(false));
   }, [id]);
-
-  const handleDownloadClick = () => {
-    setEnquiryOpen(true);
-  };
 
   const onClose = () => {
     setEnquiryOpen(false);

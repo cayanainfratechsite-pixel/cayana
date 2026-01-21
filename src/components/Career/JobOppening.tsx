@@ -54,7 +54,7 @@ const JobOppening = () => {
   }, [page]);
 
   const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
+    _event: React.ChangeEvent<unknown>,
     value: number
   ) => {
     setPage(value);
@@ -123,7 +123,7 @@ const JobOppening = () => {
                     Job Title
                   </th>
                   <th className="py-3 px-4 md:px-6 text-left font-medium text-sm">
-                    Responsibilities &amp; Requirements
+                    Responsibilities & Requirements
                   </th>
                   <th className="py-3 px-4 md:px-6 text-center font-medium text-sm">
                     Action

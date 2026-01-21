@@ -21,7 +21,7 @@ const AboutUs: React.FC = () => {
                 <Underline />
               </h2>
               <p className="text-zinc-900">
-                Where Dreams Take Shape, and Trust is Built.
+                Where Dreams Take Shape and Trust Is Built.
               </p>
             </div>
             <p className="text-base sm:text-lg text-black leading-relaxed">

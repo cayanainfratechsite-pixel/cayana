@@ -66,7 +66,7 @@ const CorporateEthics: React.FC = () => {
               <FaArrowRight />
             </span>
             <span>
-              We uphold the highest ethical standards in every deal, ensuring
+              We uphold the highest ethical standards in every transaction, ensuring
               trust with clients, partners, and stakeholders.
             </span>
           </motion.p>

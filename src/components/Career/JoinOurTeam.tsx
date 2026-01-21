@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from "framer-motion";
 import Underline from '../Underline';
 
@@ -51,7 +50,7 @@ const JoinOurTeam = () => {
               <span className="text-white font-bold text-lg">1</span>
             </div>
             <p className="text-gray-700 text-center">
-              Positive &amp; Collaborative Work Culture
+              Positive & Collaborative Work Culture
             </p>
           </motion.div>
 
@@ -63,7 +62,7 @@ const JoinOurTeam = () => {
               <span className="text-white font-bold text-lg">2</span>
             </div>
             <p className="text-gray-700 text-center">
-              Growth &amp; Learning Opportunities
+              Growth & Learning Opportunities
             </p>
           </motion.div>
 
@@ -75,7 +74,7 @@ const JoinOurTeam = () => {
               <span className="text-white font-bold text-lg">3</span>
             </div>
             <p className="text-gray-700 text-center">
-              Competitive Salaries &amp; Employee Benefits
+              Competitive Salaries & Employee Benefits
             </p>
           </motion.div>
         </div>

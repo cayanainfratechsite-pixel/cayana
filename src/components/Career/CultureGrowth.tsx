@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -21,11 +20,11 @@ const CultureGrowth = () => {
           </h3>
           <p className="text-gray-700 mb-4">
             A thriving workplace fosters innovation, collaboration, and
-            excellence. Employees bring in new ideas and develop better
+            excellence. Employees bring new ideas and develop better
             solutions.
           </p>
           <p className="text-gray-700">
-            We ensure an inclusive work environment with team building &amp;
+            We ensure an inclusive work environment with team building and
             open communication. Employees benefit from a harassment-free
             workplace, work-life integration, and safety protocols.
           </p>
@@ -68,7 +67,7 @@ const CultureGrowth = () => {
             At Cayana, we believe that our employees are the architects of
             our success. Your journey with us isn’t just about a job—it’s
             about continuous learning, innovation, and limitless
-            possibilities. Through continuous learning, mentorship, and
+            possibilities. Through mentorship and
             opportunities to take on new challenges, we help our team unlock
             their full potential. Whether you are stepping into a leadership
             role, mastering a new skill, or pioneering groundbreaking
