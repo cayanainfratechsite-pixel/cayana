@@ -260,34 +260,14 @@ const Page: React.FC = () => {
     setEnquiryOpen(true);
   };
 
-  const handleDownload = async () => {
-    try {
-      const response = await fetch(project.brochureURL, {
-        method: "GET",
-      });
+const handleDownload = async () => {
+  try {
+    window.open(project.brochureURL, '_blank');
+  } catch (err) {
+    console.error("Open brochure error:", err);
+  }
+};
 
-      // Check if the response is OK (status 200–299).
-      if (response.ok) {
-        const blob = await response.blob();
-
-        // Create a temporary URL for the blob.
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "Brochure.pdf"; // Set the filename for download.
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        // Revoke the blob URL to free memory.
-        window.URL.revokeObjectURL(url);
-      } else {
-        console.error("Failed to download file: ", response.statusText);
-      }
-    } catch (error) {
-      console.error("Download failed:", error);
-    }
-  };
 
   if (loading) {
     return <div className="py-10 text-xl text-center">Loading...</div>;
