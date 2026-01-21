@@ -72,52 +72,56 @@ const FAQSection = () => {
   const faqData = [
     {
       question: "Are Nilachakra Elite projects legally approved?",
-      answer: "Yes, Nilachakra Elite all projects have required approvals and RERA registration."
+      answer:
+        "Yes, Nilachakra Elite all projects have required approvals and RERA registration.",
     },
     {
       question: "Is the land title clear?",
-      answer: "Yes, all lands have clear and legally verified titles."
+      answer: "Yes, all lands have clear and legally verified titles.",
     },
     {
       question: "Is investing in holiday homes profitable?",
-      answer: "Yes, due to strong tourism demand and appreciation potential in Puri."
+      answer:
+        "Yes, due to strong tourism demand and appreciation potential in Puri.",
     },
     {
       question: "Why invest in Puri?",
-      answer: "Puri is a major spiritual and tourist hub with strong infrastructure growth."
+      answer:
+        "Puri is a major spiritual and tourist hub with strong infrastructure growth.",
     },
     {
       question: "Does Puri offer long-term returns?",
-      answer: "Yes, supported by tourism, connectivity, and government initiatives."
+      answer:
+        "Yes, supported by tourism, connectivity, and government initiatives.",
     },
     {
       question: "Are home loans available?",
-      answer: "Yes, leading banks provide home loans for our projects."
+      answer: "Yes, leading banks provide home loans for our projects.",
     },
     {
       question: "Will Cayana assist with loans?",
-      answer: "Yes, we assist buyers in loan coordination and processing."
+      answer: "Yes, we assist buyers in loan coordination and processing.",
     },
     {
       question: "Are tax benefits available?",
-      answer: "Yes, tax benefits apply as per Income Tax Act provisions."
+      answer: "Yes, tax benefits apply as per Income Tax Act provisions.",
     },
     {
       question: "Is rental income taxable?",
-      answer: "Yes, rental income is taxable as per applicable laws."
+      answer: "Yes, rental income is taxable as per applicable laws.",
     },
     {
       question: "Can NRIs buy Cayana properties?",
-      answer: "Yes, NRIs and PIOs can invest as per RBI norms."
+      answer: "Yes, NRIs and PIOs can invest as per RBI norms.",
     },
     {
       question: "Are NRI home loans available?",
-      answer: "Yes, Indian banks offer home loans to NRIs."
+      answer: "Yes, Indian banks offer home loans to NRIs.",
     },
     {
       question: "Does Cayana support NRIs?",
-      answer: "Yes, we provide complete end-to-end NRI assistance."
-    }
+      answer: "Yes, we provide complete end-to-end NRI assistance.",
+    },
   ];
 
   const toggleFAQ = (index: number) => {
@@ -127,7 +131,10 @@ const FAQSection = () => {
   return (
     <div className="space-y-4">
       {faqData.map((faq, index) => (
-        <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+        <div
+          key={index}
+          className="border border-gray-200 rounded-lg overflow-hidden"
+        >
           <button
             onClick={() => toggleFAQ(index)}
             className="flex justify-between items-center bg-gray-50 hover:bg-gray-100 px-6 py-4 w-full text-left transition-colors duration-200"
@@ -135,13 +142,18 @@ const FAQSection = () => {
             <span className="font-medium text-zinc-900">{faq.question}</span>
             <svg
               className={`w-5 h-5 text-gray-500 transform transition-transform duration-200 ${
-                openIndex === index ? 'rotate-180' : ''
+                openIndex === index ? "rotate-180" : ""
               }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
           {openIndex === index && (
@@ -430,17 +442,20 @@ const Page: React.FC = () => {
           </div>
         </div>
         {/* FAQ SECTION */}
-        <div className="px-4 sm:px-8 py-8">
-          <div className="mb-8 text-center">
-            <h1 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl uppercase">
-              Frequently Asked Questions
-            </h1>
-            <Underline />
+
+        {project._id !== "693c0058218dd577423ee641" && (
+          <div className="px-4 sm:px-8 py-8">
+            <div className="mb-8 text-center">
+              <h1 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl uppercase">
+                Frequently Asked Questions
+              </h1>
+              <Underline />
+            </div>
+            <div className="mx-auto max-w-4xl">
+              <FAQSection />
+            </div>
           </div>
-          <div className="mx-auto max-w-4xl">
-            <FAQSection />
-          </div>
-        </div>
+        )}
 
         {/* <div className="px-4 sm:px-8 py-8 text-center whitespace-pre-line">
           <div className="mb-8 text-center">
@@ -462,12 +477,12 @@ const Page: React.FC = () => {
         </div> */}
       </div>
 
-      {project._id !== "67caecc0e7cbf9eb800249c3" && (
+      {project._id !== "693c0058218dd577423ee641" && (
         <div className="mb-8 text-center">
-          {/* <h1 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl uppercase">
+          <h1 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl uppercase">
             Download Brochure
-          </h1> */}
-          {/* <Underline />
+          </h1>
+          <Underline />
           <div className="flex justify-center">
             <button
               onClick={handleDownloadClick}
@@ -476,7 +491,7 @@ const Page: React.FC = () => {
               <FaDownload className="mr-2" />
               Download
             </button>
-          </div> */}
+          </div>
         </div>
       )}
 
