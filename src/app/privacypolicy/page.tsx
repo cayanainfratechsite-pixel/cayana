@@ -156,7 +156,7 @@ const PrivacyPolicy = () => {
             className="text-xs sm:text-sm text-gray-600 text-center pt-6 sm:pt-8 border-t border-gray-200 mb-4"
             variants={sectionVariants}
           >
-            Last updated: April 2025
+            {/* Last updated: April 2025 */}
           </motion.footer>
         </motion.div>
       </div>

@@ -17,7 +17,7 @@ const cardData: ValueCardProps[] = [
   { image: "/images/Value4.png" , label: "Teamwork"},
 ];
 
-const ValueCard: React.FC<ValueCardProps> = ({ image ,label}) => {
+const ValueCard: React.FC<ValueCardProps> = ({ image, label }) => {
   return (
     <div className="flex flex-col items-center">
       <motion.div
@@ -71,7 +71,7 @@ const MobileSlider: React.FC = () => {
             onTouchStart={() => setPaused(true)}
             onTouchEnd={() => setPaused(false)}
           >
-            <ValueCard image={cardData[currentIndex].image} label={cardData[currentIndex].label}/>
+            <ValueCard image={cardData[currentIndex].image} label={cardData[currentIndex].label} />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -90,7 +90,7 @@ const Values: React.FC = () => {
             <Underline />
           </h2>
           <p className="text-zinc-900">
-            We create spaces that enable Everyday Joys; <br />
+            We create spaces that enable everyday joys; <br />
             one community, one family, one home, and one holiday home at a time.
           </p>
         </div>
@@ -103,7 +103,7 @@ const Values: React.FC = () => {
         {/* Cards Grid: Visible on screens 768px and above */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-1 justify-center">
           {cardData.map((card, index) => (
-            <ValueCard key={index} image={card.image} label={card.label}/>
+            <ValueCard key={index} image={card.image} label={card.label} />
           ))}
         </div>
       </div>
