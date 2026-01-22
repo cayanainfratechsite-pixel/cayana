@@ -363,7 +363,7 @@ const EMICalculator = () => {
                       <span className="text-black text-xs sm:text-sm">Total</span>
                     </div>
                     <h3 className="text-sm sm:text-lg font-medium mb-1 sm:mb-2">Interest Payable</h3>
-                    <p className="text-lg sm:text-2xl font-bold break-words">{formatCurrency(result.totalInterest)}</p>s
+                    <p className="text-lg sm:text-2xl font-bold break-words">{formatCurrency(result.totalInterest)}</p>
                   </div>
                   
                   <div className="text-black border-2 p-4 sm:p-6 rounded-lg shadow-sm sm:col-span-2 lg:col-span-1">

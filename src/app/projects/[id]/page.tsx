@@ -5,16 +5,15 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Underline from "@/components/Underline";
-import ProjectSection from "@/components/ProjectsPage/ProjectSection";
 import Gallery from "@/components/ProjectsPage/Gallery";
-import { FaDownload } from "react-icons/fa";
 import GetInTouch from "@/components/ProjectsPage/GetInTouch";
 import StickyEnquiry from "@/components/ProjectsPage/StickyEnquiry";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import EnquiryModal from "@/components/ProjectsPage/EnquiryModal";
+import { FaDownload } from "react-icons/fa";
 
 // Custom Next Arrow for Slider
 function SampleNextArrow(props: any) {
@@ -22,11 +21,11 @@ function SampleNextArrow(props: any) {
   return (
     <div
       onClick={onClick}
-      className="absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10 p-2"
+      className="top-1/2 right-0 z-10 absolute p-2 -translate-y-1/2 cursor-pointer transform"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-8 w-8 text-zinc-100 bg-zinc-800 rounded-full p-1"
+        className="bg-zinc-800 p-1 rounded-full w-8 h-8 text-zinc-100"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -48,11 +47,11 @@ function SamplePrevArrow(props: any) {
   return (
     <div
       onClick={onClick}
-      className="absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10 p-2"
+      className="top-1/2 left-0 z-10 absolute p-2 -translate-y-1/2 cursor-pointer transform"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-8 w-8 text-zinc-100 bg-zinc-800 rounded-full p-1"
+        className="bg-zinc-800 p-1 rounded-full w-8 h-8 text-zinc-100"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -67,6 +66,107 @@ function SamplePrevArrow(props: any) {
     </div>
   );
 }
+
+const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqData = [
+    {
+      question: "Are Nilachakra Elite projects legally approved?",
+      answer:
+        "Yes, Nilachakra Elite all projects have required approvals and RERA registration.",
+    },
+    {
+      question: "Is the land title clear?",
+      answer: "Yes, all lands have clear and legally verified titles.",
+    },
+    {
+      question: "Is investing in holiday homes profitable?",
+      answer:
+        "Yes, due to strong tourism demand and appreciation potential in Puri.",
+    },
+    {
+      question: "Why invest in Puri?",
+      answer:
+        "Puri is a major spiritual and tourist hub with strong infrastructure growth.",
+    },
+    {
+      question: "Does Puri offer long-term returns?",
+      answer:
+        "Yes, supported by tourism, connectivity, and government initiatives.",
+    },
+    {
+      question: "Are home loans available?",
+      answer: "Yes, leading banks provide home loans for our projects.",
+    },
+    {
+      question: "Will Cayana assist with loans?",
+      answer: "Yes, we assist buyers in loan coordination and processing.",
+    },
+    {
+      question: "Are tax benefits available?",
+      answer: "Yes, tax benefits apply as per Income Tax Act provisions.",
+    },
+    {
+      question: "Is rental income taxable?",
+      answer: "Yes, rental income is taxable as per applicable laws.",
+    },
+    {
+      question: "Can NRIs buy Cayana properties?",
+      answer: "Yes, NRIs and PIOs can invest as per RBI norms.",
+    },
+    {
+      question: "Are NRI home loans available?",
+      answer: "Yes, Indian banks offer home loans to NRIs.",
+    },
+    {
+      question: "Does Cayana support NRIs?",
+      answer: "Yes, we provide complete end-to-end NRI assistance.",
+    },
+  ];
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <div className="space-y-4">
+      {faqData.map((faq, index) => (
+        <div
+          key={index}
+          className="border border-gray-200 rounded-lg overflow-hidden"
+        >
+          <button
+            onClick={() => toggleFAQ(index)}
+            className="flex justify-between items-center bg-gray-50 hover:bg-gray-100 px-6 py-4 w-full text-left transition-colors duration-200"
+          >
+            <span className="font-medium text-zinc-900">{faq.question}</span>
+            <svg
+              className={`w-5 h-5 text-gray-500 transform transition-transform duration-200 ${
+                openIndex === index ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          {openIndex === index && (
+            <div className="bg-white px-6 py-4 border-gray-200 border-t">
+              <p className="text-gray-700">{faq.answer}</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const OverviewSlider = ({
   images,
@@ -118,7 +218,7 @@ const OverviewSlider = ({
                 alt={`Overview Image ${idx + 1}`}
                 width={600}
                 height={400}
-                className="object-cover rounded-lg "
+                className="rounded-lg object-cover"
               />
             </div>
           </div>
@@ -132,14 +232,12 @@ const Page: React.FC = () => {
   const { id } = useParams();
   const [project, setProject] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
-  const [downloadaccess, setdownloadaccess] = useState(false);
 
   useEffect(() => {
     axios
-      .get(`https://api.cayana.co.in/api/v1/project/${id}`)
+      .get(`https://backend.cayana.co.in/api/v1/project/${id}`)
       .then((response) => {
         if (response.data.success === 0) {
           setProject(response.data.result);
@@ -149,55 +247,34 @@ const Page: React.FC = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  const handleDownloadClick = () => {
-    setEnquiryOpen(true);
-  };
-
   const onClose = () => {
     setEnquiryOpen(false);
   };
 
   const handleEnquirySubmit = () => {
-    setdownloadaccess(true); // Grant access to download
     setEnquiryOpen(false); // Close the modal
     handleDownload(); // Trigger the download
   };
 
-  const handleDownload = async () => {
-    try {
-      const response = await fetch(project.brochureURL, {
-        method: "GET",
-      });
-
-      // Check if the response is OK (status 200–299).
-      if (response.ok) {
-        const blob = await response.blob();
-
-        // Create a temporary URL for the blob.
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "Brochure.pdf"; // Set the filename for download.
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        // Revoke the blob URL to free memory.
-        window.URL.revokeObjectURL(url);
-      } else {
-        console.error("Failed to download file: ", response.statusText);
-      }
-    } catch (error) {
-      console.error("Download failed:", error);
-    }
+  const handleDownloadClick = async () => {
+    setEnquiryOpen(true);
   };
 
+const handleDownload = async () => {
+  try {
+    window.open(project.brochureURL, '_blank');
+  } catch (err) {
+    console.error("Open brochure error:", err);
+  }
+};
+
+
   if (loading) {
-    return <div className="text-center py-10 text-xl">Loading...</div>;
+    return <div className="py-10 text-xl text-center">Loading...</div>;
   }
 
   if (!project) {
-    return <div className="text-center py-10 text-xl">Project not found</div>;
+    return <div className="py-10 text-xl text-center">Project not found</div>;
   }
 
   return (
@@ -205,7 +282,7 @@ const Page: React.FC = () => {
       <div className="relative w-full h-[85vh]">
         {project._id === "67caecc0e7cbf9eb800249c3" ? (
           <video
-            src={'/videos/Nilachakra Residency.mp4'}
+            src={"/videos/Nilachakra Residency.mp4"}
             autoPlay
             loop
             muted
@@ -219,16 +296,15 @@ const Page: React.FC = () => {
             objectFit="cover"
             className="z-0"
           />
-        ) 
- }
+        )}
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black opacity-30"></div>
 
         {/* Black background container */}
-        <div className="absolute bottom-0 left-0 right-0 bg-black/45 mx-3 px-4 py-8 sm:mx-auto max-w-7xl mb-10 rounded-lg">
+        <div className="right-0 bottom-0 left-0 absolute bg-black/45 mx-3 sm:mx-auto mb-10 px-4 py-8 rounded-lg max-w-7xl">
           <motion.h1
-            className="text-xl text-zinc-100 sm:text-2xl uppercase font-bold mb-2"
+            className="mb-2 font-bold text-zinc-100 text-xl sm:text-2xl uppercase"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -236,16 +312,16 @@ const Page: React.FC = () => {
             {project.name}
           </motion.h1>
           <motion.p
-            className="text-sm sm:text-xl mb-2 text-zinc-100"
+            className="mb-2 text-zinc-100 text-sm sm:text-xl"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {project.locationName}
           </motion.p>
-          <div className="flex gap-3 md:gap-8 flex-wrap">
+          <div className="flex flex-wrap gap-3 md:gap-8">
             <motion.p
-              className="text-sm sm:text-xl font-medium text-zinc-100"
+              className="font-medium text-zinc-100 text-sm sm:text-xl"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -253,7 +329,7 @@ const Page: React.FC = () => {
               RERA NO {project.basePrice}
             </motion.p>
             <motion.p
-              className="text-sm sm:text-xl font-medium text-zinc-100"
+              className="font-medium text-zinc-100 text-sm sm:text-xl"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -261,7 +337,7 @@ const Page: React.FC = () => {
               |
             </motion.p>
             <motion.p
-              className="text-sm sm:text-xl font-medium text-zinc-100"
+              className="font-medium text-zinc-100 text-sm sm:text-xl"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -269,7 +345,7 @@ const Page: React.FC = () => {
               Type: {project.type}
             </motion.p>
             <motion.p
-              className="text-sm sm:text-xl font-medium text-zinc-100"
+              className="font-medium text-zinc-100 text-sm sm:text-xl"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -277,7 +353,7 @@ const Page: React.FC = () => {
               |
             </motion.p>
             <motion.p
-              className="text-sm sm:text-xl font-medium text-zinc-100"
+              className="font-medium text-zinc-100 text-sm sm:text-xl"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -285,7 +361,7 @@ const Page: React.FC = () => {
               {project.size}
             </motion.p>
             <motion.p
-              className="text-sm sm:text-xl font-medium text-zinc-100"
+              className="font-medium text-zinc-100 text-sm sm:text-xl"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -293,7 +369,7 @@ const Page: React.FC = () => {
               |
             </motion.p>
             <motion.p
-              className="text-sm sm:text-xl font-medium text-zinc-100"
+              className="font-medium text-zinc-100 text-sm sm:text-xl"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -307,9 +383,9 @@ const Page: React.FC = () => {
       </div>
 
       <div className="mx-4 lg:mx-28">
-        <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
+        <div className="px-4 sm:px-8 py-8 text-center whitespace-pre-line">
           <div className="mb-8 text-center">
-            <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
+            <h1 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl uppercase">
               Project Gallery
             </h1>
             <Underline />
@@ -325,9 +401,9 @@ const Page: React.FC = () => {
           <ProjectSection amenities={project.amenities} />
         </div> */}
 
-        <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
+        <div className="px-4 sm:px-8 py-8 text-center whitespace-pre-line">
           <div className="text-center">
-            <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
+            <h1 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl uppercase">
               Details
             </h1>
             <Underline />
@@ -336,24 +412,39 @@ const Page: React.FC = () => {
         </div>
 
         {/* Map Section */}
-        <div className="py-8 px-4 sm:px-8">
+        <div className="px-4 sm:px-8 py-8">
           <div className="mb-8 text-center">
-            <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
+            <h1 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl uppercase">
               Location
             </h1>
             <Underline />
           </div>
-          <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg shadow-lg border border-gray-300">
+          <div className="shadow-lg border border-gray-300 rounded-lg w-full h-[400px] sm:h-[500px] lg:h-[600px]">
             <div
               className="w-full h-full"
               dangerouslySetInnerHTML={{ __html: project.locationEmbedURL }}
             ></div>
           </div>
         </div>
+        {/* FAQ SECTION */}
 
-        {/* <div className="py-8 px-4 sm:px-8 text-center whitespace-pre-line">
+        {project._id !== "693c0058218dd577423ee641" && (
+          <div className="px-4 sm:px-8 py-8">
+            <div className="mb-8 text-center">
+              <h1 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl uppercase">
+                Frequently Asked Questions
+              </h1>
+              <Underline />
+            </div>
+            <div className="mx-auto max-w-4xl">
+              <FAQSection />
+            </div>
+          </div>
+        )}
+
+        {/* <div className="px-4 sm:px-8 py-8 text-center whitespace-pre-line">
           <div className="mb-8 text-center">
-            <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
+            <h1 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl uppercase">
               Floor Structure
             </h1>
             <Underline />
@@ -362,8 +453,8 @@ const Page: React.FC = () => {
         </div>
 
 
-        <div className="py-8 px-4 sm:px-8">
-          <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase text-center">
+        <div className="px-4 sm:px-8 py-8">
+          <h1 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl text-center uppercase">
           Floor Structure Images
           </h1>
           <Underline />
@@ -371,16 +462,16 @@ const Page: React.FC = () => {
         </div> */}
       </div>
 
-      {project._id !== "67caecc0e7cbf9eb800249c3" && (
+      {project._id !== "693c0058218dd577423ee641" && (
         <div className="mb-8 text-center">
-          <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase">
+          <h1 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl uppercase">
             Download Brochure
           </h1>
           <Underline />
           <div className="flex justify-center">
             <button
               onClick={handleDownloadClick}
-              className="flex items-center justify-center text-[#0553F1] hover:text-zinc-100 px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
+              className="flex justify-center items-center hover:bg-blue-700 px-4 py-2 rounded text-[#0553F1] hover:text-zinc-100 transition duration-300"
             >
               <FaDownload className="mr-2" />
               Download
@@ -399,18 +490,18 @@ const Page: React.FC = () => {
 
       {/* Modal for enlarged image */}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+        <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-70">
           <div className="relative">
             <Image
               src={selectedImage}
               alt="Enlarged Overview Image"
               width={700}
               height={200}
-              className="object-contain rounded-lg"
+              className="rounded-lg object-contain"
             />
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-2 right-2 px-2   text-white bg-gray-800 rounded-full"
+              className="top-2 right-2 absolute bg-gray-800 px-2 rounded-full text-white"
             >
               X
             </button>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FaBalanceScale, FaArrowRight } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import Underline from "../Underline";
 
 const CorporateEthics: React.FC = () => {
@@ -66,7 +66,7 @@ const CorporateEthics: React.FC = () => {
               <FaArrowRight />
             </span>
             <span>
-              We uphold the highest ethical standards in every deal, ensuring
+              We uphold the highest ethical standards in every transaction, ensuring
               trust with clients, partners, and stakeholders.
             </span>
           </motion.p>

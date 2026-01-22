@@ -28,10 +28,10 @@ const ContentPage: React.FC = () => {
       >
         
         <p className="text-lg md:text-lg text-zinc-900 mb-6">
-          Cayana- A Story of Hard Work, Perseverance & Ambition.
+          Cayana - A Story of Hard Work, Perseverance & Ambition.
         </p>
         <p className="text-lg md:text-lg text-zinc-900 mb-6">
-        Cayana Infratech Pvt Ltd, a name synonymous with trust, innovation, and excellence in the real estate industry. Established in 2010, we embarked on a journey to redefine the landscape of real estate. Over the years, we have grown and evolved, consistently setting new benchmarks in quality, customer satisfaction, and business integrity.
+          Cayana Infratech Pvt. Ltd. is a name synonymous with trust, innovation, and excellence in the real estate industry. Established in 2010, we embarked on a journey to redefine the landscape of real estate. Over the years, we have grown and evolved, consistently setting new benchmarks in quality, customer satisfaction, and business integrity.
         </p>
         {/* <p className="text-lg md:text-lg text-zinc-900 mb-6">
         Cayana Infratech Pvt Ltd, a name synonymous with trust, innovation, and excellence in the real estate industry. Established in 2010, we embarked on a journey to redefine the landscape of real estate. Over the years, we have grown and evolved, consistently setting new benchmarks in quality, customer satisfaction, and business integrity.

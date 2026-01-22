@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Underline from "./Underline";
 
-const Values: React.FC = () => {
+const AboutUs: React.FC = () => {
   return (
     <motion.section
       className="bg-zinc-100 py-20 flex items-center justify-center"
@@ -21,18 +21,18 @@ const Values: React.FC = () => {
                 <Underline />
               </h2>
               <p className="text-zinc-900">
-                Where Dreams Take Shape, and Trust is Built
+                Where Dreams Take Shape and Trust Is Built.
               </p>
             </div>
             <p className="text-base sm:text-lg text-black leading-relaxed">
-              Founded in 2010 and based in Bhubaneswar, Odisha, Cayana Infratech
-              Pvt. Ltd. is a trusted name in real estate development and
-              construction. With a commitment to transparency, timely delivery,
-              and world-class amenities, we redefine living spaces with
+              Founded in 2010 and based in Bhubaneswar, Odisha, Cayana Infratech 
+              Pvt. Ltd. is a trusted name in real estate development and 
+              construction. With a commitment to transparency, timely delivery, 
+              and world-class amenities, we redefine living spaces with 
               innovation and trust.
             </p>
             <p className="text-base sm:text-lg text-black leading-relaxed">
-              Beyond building apartments, we create lifestyles, foster trust,
+              Beyond building apartments, we create lifestyles, foster trust, 
               and elevate businesses—turning dreams into reality.
             </p>
           </div>
@@ -42,4 +42,4 @@ const Values: React.FC = () => {
   );
 };
 
-export default Values;
+export default AboutUs;

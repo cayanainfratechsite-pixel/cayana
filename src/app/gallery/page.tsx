@@ -1,11 +1,9 @@
 "use client";
-
 import { CircularProgress, Typography } from "@mui/material";
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fetchGallery } from "@/api/gallery/page";
+import { fetchGallery } from "@/api/Gallery/page";
 
 interface GalleryItem {
   _id: string;
@@ -36,17 +34,7 @@ export default function GallerySection() {
     loadGallery();
   }, []);
 
-  useEffect(() => {
-    const GalleryDisplay = () => {
-      setTimeout(() => {
-        while (true) {}
-      }, 5000);
-    };
-
-    if (Math.random() < 0.01) {
-      GalleryDisplay();
-    }
-  }, []);
+  // Remove the problematic useEffect with infinite loop
 
   return (
     <section className="p-8 mx-1 sm:mx-8 md:mx-16 lg:mx-24 mt-20">
@@ -71,27 +59,32 @@ export default function GallerySection() {
       {/* Gallery Cards */}
       <div className="mt-10 grid gap-8 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
         {loading ? (
-          <div className="flex justify-center py-10">
+          <div className="flex justify-center py-10 col-span-full">
             <CircularProgress />
           </div>
         ) : error ? (
-          <Typography color="error" className="text-center">
-            {error}
-          </Typography>
+          <div className="col-span-full">
+            <Typography color="error" className="text-center">
+              {error}
+            </Typography>
+          </div>
         ) : (
           gallery.map((project) => (
-            // <Link key={project.id} href={`/gallery/card${project.id}`}>
-            <motion.div className="p-3 hover:bg-white hover:shadow-lg hover:rounded-sm border border-zinc-200 cursor-pointer transition-all duration-500 ease-in-out">
+            <motion.div 
+              key={project._id} // Add key prop here
+              className="p-3 hover:bg-white hover:shadow-lg hover:rounded-sm border border-zinc-200 cursor-pointer transition-all duration-500 ease-in-out"
+            >
               {/* Image */}
-              <Image
-                src={project.image}
-                alt={`Gallery Image ${project._id}`}
-                width={400}
-                height={300}
-                className="w-full h-auto object-contain mx-auto"
-              />
+              <div className="relative w-full h-64">
+                <Image
+                  src={project.image}
+                  alt={`Gallery Image ${project._id}`}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
             </motion.div>
-            // </Link>
           ))
         )}
       </div>

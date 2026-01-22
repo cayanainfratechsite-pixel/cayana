@@ -66,7 +66,7 @@ const GetInTouch: React.FC<GetInTouchProps> = ({ projectId }) => {
           </h1>
           <Underline />
           <p className="text-center text-gray-600 mb-6">
-            We'd love to hear from you! Please fill out the form below and our team will reach out shortly.
+            Wed love to hear from you! Please fill out the form below and our team will reach out shortly.
           </p>
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Row 1: First Name, Last Name, Email */}
