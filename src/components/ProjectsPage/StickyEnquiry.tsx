@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { submitProjectEnquiry } from "@/api/projects/page"; // Adjust the path as needed
 
 
-
 interface StickyEnquiryProps {
   projectId?: string;
 }
@@ -29,8 +28,7 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
     
 
     const data = {
-      category: "project",
-      projectId: projectId || "general",
+      category: "general",
       firstName,
       lastName,
       email,

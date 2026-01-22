@@ -3,7 +3,7 @@
 import React, { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { submitProjectEnquiry } from "@/api/projects/page";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
 interface StickyEnquiryProps {
   projectId: string;
@@ -11,7 +11,11 @@ interface StickyEnquiryProps {
   onClose: () => void;
 }
 
-const EnquiryModal: React.FC<StickyEnquiryProps> = ({ projectId, onSuccess, onClose }) => {
+const EnquiryModal: React.FC<StickyEnquiryProps> = ({
+  projectId,
+  onSuccess,
+  onClose,
+}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,18 +26,39 @@ const EnquiryModal: React.FC<StickyEnquiryProps> = ({ projectId, onSuccess, onCl
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const data = { category: "project", projectId, firstName, lastName, email, mobile, date, time: selectedTime };
+    if (!projectId) {
+      alert("Invalid project selected");
+      return;
+    }
+
+    const data = {
+      category: "project",
+      projectId,
+      firstName,
+      lastName,
+      email,
+      mobile,
+      date,
+      time: selectedTime,
+    };
 
     try {
       const response = await submitProjectEnquiry(data);
       if (response?.status === 201) {
         alert("Your enquiry has been submitted successfully!");
-        setFirstName(""); setLastName(""); setEmail(""); setMobile(""); setDate(""); setSelectedTime("10:00 AM");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setMobile("");
+        setDate("");
+        setSelectedTime("10:00 AM");
         onSuccess();
       }
     } catch (error) {
       console.error("Error submitting enquiry:", error);
-      alert("There was an error submitting your enquiry. Please try again later.");
+      alert(
+        "There was an error submitting your enquiry. Please try again later.",
+      );
     }
   };
 
@@ -52,11 +77,11 @@ const EnquiryModal: React.FC<StickyEnquiryProps> = ({ projectId, onSuccess, onCl
         transition={{ duration: 0.2 }}
       >
         {/* Close Button */}
-        <button 
+        <button
           className="absolute top-3 right-3 text-gray-600 hover:text-gray-900 transition"
           onClick={onClose}
         >
-          <CloseIcon fontSize="medium"/>
+          <CloseIcon fontSize="medium" />
         </button>
 
         {/* Title */}
@@ -70,8 +95,13 @@ const EnquiryModal: React.FC<StickyEnquiryProps> = ({ projectId, onSuccess, onCl
           <div className="grid grid-cols-2 gap-4">
             <div className="relative z-0 w-full group">
               <label className="block relative">
-                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder=" " required 
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
+                <input
+                  type="text"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  placeholder=" "
+                  required
+                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer"
                 />
                 <span className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 pointer-events-none">
                   First Name
@@ -80,8 +110,13 @@ const EnquiryModal: React.FC<StickyEnquiryProps> = ({ projectId, onSuccess, onCl
             </div>
             <div className="relative z-0 w-full group">
               <label className="block relative">
-                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder=" " required 
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
+                <input
+                  type="text"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  placeholder=" "
+                  required
+                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer"
                 />
                 <span className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 pointer-events-none">
                   Last Name
@@ -93,8 +128,13 @@ const EnquiryModal: React.FC<StickyEnquiryProps> = ({ projectId, onSuccess, onCl
           {/* Email */}
           <div className="relative z-0 w-full group">
             <label className="block relative">
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder=" " required 
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder=" "
+                required
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer"
               />
               <span className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 pointer-events-none">
                 Email ID
@@ -105,8 +145,13 @@ const EnquiryModal: React.FC<StickyEnquiryProps> = ({ projectId, onSuccess, onCl
           {/* Mobile Number */}
           <div className="relative z-0 w-full group">
             <label className="block relative">
-              <input type="tel" value={mobile} onChange={(e) => setMobile(e.target.value)} placeholder=" " required 
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
+              <input
+                type="tel"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+                placeholder=" "
+                required
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer"
               />
               <span className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 pointer-events-none">
                 Mobile No
@@ -117,8 +162,12 @@ const EnquiryModal: React.FC<StickyEnquiryProps> = ({ projectId, onSuccess, onCl
           {/* Date */}
           <div className="relative z-0 w-full group">
             <label className="block relative">
-              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required 
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer" 
+              <input
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                required
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 peer"
               />
               <span className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 pointer-events-none">
                 Date
@@ -127,30 +176,33 @@ const EnquiryModal: React.FC<StickyEnquiryProps> = ({ projectId, onSuccess, onCl
           </div>
 
           {/* Time Selection */}
-            {/* Select Time */}
-            <div className="relative z-0 w-full group">
-              <select
-                id="time"
-                value={selectedTime}
-                onChange={(e) => setSelectedTime(e.target.value)}
-                required
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer my-8"
-              >
-                <option value="10:00 AM">10:00 AM</option>
-                <option value="12:00 PM">12:00 PM</option>
-                <option value="2:00 PM">2:00 PM</option>
-                <option value="5:00 PM">5:00 PM</option>
-              </select>
-              <label
-                htmlFor="time"
-                className="absolute text-sm text-zinc-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Select Time
-              </label>
-            </div>
+          {/* Select Time */}
+          <div className="relative z-0 w-full group">
+            <select
+              id="time"
+              value={selectedTime}
+              onChange={(e) => setSelectedTime(e.target.value)}
+              required
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer my-8"
+            >
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="2:00 PM">2:00 PM</option>
+              <option value="5:00 PM">5:00 PM</option>
+            </select>
+            <label
+              htmlFor="time"
+              className="absolute text-sm text-zinc-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Select Time
+            </label>
+          </div>
           <div className="relative z-0 w-full group"></div>
           {/* Submit Button */}
-          <button type="submit" className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
+          >
             Submit
           </button>
         </form>
