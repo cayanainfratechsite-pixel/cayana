@@ -26,7 +26,6 @@
 import { useEffect } from "react";
 
 const AisensyWhatsApp = () => {
-<<<<<<< HEAD
   return (
     <>
       {/* ✅ Load the AiSensy integration script */}
@@ -45,7 +44,6 @@ const AisensyWhatsApp = () => {
       />
     </>
   );
-=======
   useEffect(() => {
     // Add delay before loading the script (e.g., 2 seconds)
     const timer = setTimeout(() => {
@@ -69,7 +67,6 @@ const AisensyWhatsApp = () => {
   }, []);
 
   return null; 
->>>>>>> f263bae125357dab5a4655cbd878feb4bc792a15
 };
 
 export default AisensyWhatsApp;

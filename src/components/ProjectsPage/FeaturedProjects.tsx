@@ -146,7 +146,7 @@ const FeaturedProjects: React.FC = () => {
         {projects.map((project) => (
           <Link key={project._id} href={`/projects/${project._id}`}>
             <motion.div className="p-3 hover:bg-white hover:shadow-lg hover:rounded-sm border border-zinc-200 cursor-pointer transition-all duration-500 ease-in-out">
-<<<<<<< HEAD
+
               <div className="relative w-full h-[300px]">
                 <Image
                   src={project.cardImage}
@@ -156,7 +156,7 @@ const FeaturedProjects: React.FC = () => {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
-=======
+
              <Image
   src={project.cardImage}
   alt={project.name || "Project Image"}
@@ -165,7 +165,6 @@ const FeaturedProjects: React.FC = () => {
   className="w-full h-auto object-contain mx-auto"
 />
 
->>>>>>> f263bae125357dab5a4655cbd878feb4bc792a15
               <div>
                 <div className="flex items-center justify-between mt-4">
                   <h2 className="text-lg md:text-xl font-medium text-zinc-800">
