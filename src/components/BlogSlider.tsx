@@ -62,7 +62,7 @@ const BlogBentoGridSmall: React.FC = () => {
           setBlogs(data.result.blogs);
           setTotalPages(data.result.totalPages);
         } else {
-          setError(data.message || "An error occurred");
+          setError(data.message || "An error a occurred");
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred");
