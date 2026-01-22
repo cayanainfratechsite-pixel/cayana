@@ -4,7 +4,7 @@ const API_BASE_URL = "https://backend.cayana.co.in/api/v1";
 
 export interface ProjectEnquiryPayload {
   category: string;
-  projectId: string;
+  projectId?: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -32,10 +32,10 @@ export const fetchProjects = async (page: number) => {
         page,
         limit: limit,
       },
-        headers: {
-    "Content-Type": "application/json",
-    "Accept": "application/json"
-  }
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
     });
     console.log("API Response:", response.data);
     return response.data;
@@ -48,7 +48,7 @@ export const fetchProjects = async (page: number) => {
       });
       throw new Error(
         error.response?.data?.message ||
-          "An error occurred while fetching projects"
+        "An error occurred while fetching projects"
       );
     } else {
       console.error("Unknown Error:", error);

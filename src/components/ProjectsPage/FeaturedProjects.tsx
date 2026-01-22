@@ -16,8 +16,6 @@ import { useParams } from "next/navigation";
 import AddTaskSharpIcon from "@mui/icons-material/AddTaskSharp";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
-import Image from "next/image";
-
 
 interface Project {
   _id: string;
@@ -62,7 +60,7 @@ const FeaturedProjects: React.FC = () => {
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
-    value: number
+    value: number,
   ) => {
     setPage(value);
   };
@@ -146,7 +144,6 @@ const FeaturedProjects: React.FC = () => {
         {projects.map((project) => (
           <Link key={project._id} href={`/projects/${project._id}`}>
             <motion.div className="p-3 hover:bg-white hover:shadow-lg hover:rounded-sm border border-zinc-200 cursor-pointer transition-all duration-500 ease-in-out">
-
               <div className="relative w-full h-[300px]">
                 <Image
                   src={project.cardImage}
@@ -157,13 +154,13 @@ const FeaturedProjects: React.FC = () => {
                 />
               </div>
 
-             <Image
-  src={project.cardImage}
-  alt={project.name || "Project Image"}
-  width={400}
-  height={300}
-  className="w-full h-auto object-contain mx-auto"
-/>
+              <Image
+                src={project.cardImage}
+                alt={project.name || "Project Image"}
+                width={400}
+                height={300}
+                className="w-full h-auto object-contain mx-auto"
+              />
 
               <div>
                 <div className="flex items-center justify-between mt-4">
@@ -173,7 +170,7 @@ const FeaturedProjects: React.FC = () => {
                   {project.status && (
                     <span
                       className={`px-2 py-1 rounded text-xs font-medium flex items-center gap-1 ${getStatusClasses(
-                        project.status
+                        project.status,
                       )}`}
                     >
                       {getStatusIcon(project.status)}
