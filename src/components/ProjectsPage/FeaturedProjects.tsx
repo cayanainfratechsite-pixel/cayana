@@ -154,13 +154,13 @@ const FeaturedProjects: React.FC = () => {
                 />
               </div>
 
-              <Image
+              {/* <Image
                 src={project.cardImage}
                 alt={project.name || "Project Image"}
                 width={400}
                 height={300}
                 className="w-full h-auto object-contain mx-auto"
-              />
+              /> */}
 
               <div>
                 <div className="flex items-center justify-between mt-4">
