@@ -4,13 +4,11 @@ import React, { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { submitProjectEnquiry } from "@/api/projects/page"; // Adjust the path as needed
 
-
 interface StickyEnquiryProps {
   projectId?: string;
 }
 
-
-const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
+const StickyEnquiry: React.FC<StickyEnquiryProps> = ({ projectId }) => {
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
 
   // Form field states
@@ -24,8 +22,6 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
   // Form submission handler that uses the API service
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
-    
 
     const data = {
       category: "general",
@@ -54,7 +50,9 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
       setIsFormOpen(false);
     } catch (error) {
       console.error("Error submitting enquiry:", error);
-      alert("There was an error submitting your enquiry. Please try again later.");
+      alert(
+        "There was an error submitting your enquiry. Please try again later.",
+      );
     }
   };
 
@@ -65,20 +63,21 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
         className="fixed -right-20 top-1/2 flex items-center justify-center bg-white border border-[#27262e] rounded-t-[20px] rounded-b-none cursor-pointer h-[40px] lg:h-[50px] w-[180px] lg:w-[200px] -translate-y-1/2 -rotate-90 transition-all duration-800 ease-[cubic-bezier(.45,.05,.55,.95)] z-40"
         onClick={() => setIsFormOpen(true)}
       >
-        <span className="text-sm lg:text-lg font-medium text-zinc-950">ENQUIRY</span>
+        <span className="text-sm lg:text-lg font-medium text-zinc-950">
+          ENQUIRY
+        </span>
       </motion.button>
 
       {/* Enquiry Form Modal */}
       {isFormOpen && (
         <motion.div
-          className="fixed right-0 bg-zinc-50 p-6 shadow-xl w-[420px] h-[67vh] z-40 rounded-sm overflow-y-auto"
-          style={{ top: "calc((100% - 18rem) - 50vh)" }}
-          initial={{ opacity: 0, x: 3000, y: 100 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 0.2 }}
+          className="fixed right-0 top-0 sm:top-[10vh] bg-zinc-50 p-6 shadow-xl w-full sm:w-[420px] h-full sm:h-auto sm:max-h-[85vh] z-50 rounded-none sm:rounded-sm overflow-y-auto"
+          initial={{ opacity: 0, x: "100%" }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
         >
           <button
-            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 p-2 text-2xl"
             onClick={() => setIsFormOpen(false)}
           >
             &#10005;
@@ -88,7 +87,7 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* First and Last Name */}
-            <div className="grid grid-cols-2 gap-4 my-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 my-2">
               <div className="relative z-0 w-full group mt-3">
                 <input
                   type="text"
@@ -134,7 +133,7 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder=" "
                 required
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-900 focus:outline-none focus:ring-0 focus:border-blue-600 peer my-8"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-900 focus:outline-none focus:ring-0 focus:border-blue-600 peer my-6"
               />
               <label
                 htmlFor="email"
@@ -153,7 +152,7 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
                 onChange={(e) => setMobile(e.target.value)}
                 placeholder=" "
                 required
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 focus:outline-none focus:ring-0 focus:border-blue-600 peer my-8"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 focus:outline-none focus:ring-0 focus:border-blue-600 peer my-6"
               />
               <label
                 htmlFor="mobile"
@@ -172,7 +171,7 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
                 onChange={(e) => setDate(e.target.value)}
                 placeholder=" "
                 required
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 focus:outline-none focus:ring-0 focus:border-blue-600 peer my-8"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 focus:outline-none focus:ring-0 focus:border-blue-600 peer my-6"
               />
               <label
                 htmlFor="date"
@@ -189,7 +188,7 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
                 value={selectedTime}
                 onChange={(e) => setSelectedTime(e.target.value)}
                 required
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer my-8"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-zinc-700 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer my-6"
               >
                 <option value="10:00 AM">10:00 AM</option>
                 <option value="12:00 PM">12:00 PM</option>
@@ -203,8 +202,6 @@ const StickyEnquiry: React.FC <StickyEnquiryProps> = ({projectId}) => {
                 Select Time
               </label>
             </div>
-
-            
 
             {/* Submit Button */}
             <button
