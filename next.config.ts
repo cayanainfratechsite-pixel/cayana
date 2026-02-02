@@ -1,92 +1,54 @@
-// import type { NextConfig } from "next";
-
-// const nextConfig: NextConfig = {
-//   images: {
-//     remotePatterns: [
-//       { hostname: "images.unsplash.com" },
-//       { hostname: "artgallery.yale.edu" },
-//       { hostname: "www.photocrati.com" },
-//       { hostname: "145.223.23.134" },
-//       {
-//         protocol: 'http',
-//         hostname: 'localhost',
-//         port: '4000',
-//         pathname: '/public/**',
-//       },
-//       {
-//         protocol: "https",
-//         hostname: "cdn-icons-png.flaticon.com",
-//       },
-//       {
-//         protocol: 'http',
-//         hostname: 'custom-images.strikinglycdn.com',
-//       },
-//     ],
-//     domains: [
-//       "images.unsplash.com",
-//       "media.istockphoto.com",
-//       "images.ctfassets.net",
-//       "example.com",
-//       "artgallery.yale.edu",
-//       "www.photocrati.com",
-//       "145.223.23.134",
-//       "api.cayana.co.in",
-//     ],
-//   },
-//   eslint: {
-//     ignoreDuringBuilds: true,
-//   },
-// };
-
-// export default nextConfig;
-
-
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
+      { hostname: "images.unsplash.com" },
+      { hostname: "artgallery.yale.edu" },
+      { hostname: "www.photocrati.com" },
+      { hostname: "145.223.23.134" },
+
       {
-        protocol: "https",
-        hostname: "backend.cayana.co.in",
-        pathname: "/**",
+        protocol: "http",
+        hostname: "localhost",
+        port: "4000",
+        pathname: "/public/**",
       },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "artgallery.yale.edu",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "www.photocrati.com",
-        pathname: "/**",
-      },
+
       {
         protocol: "https",
         hostname: "cdn-icons-png.flaticon.com",
-        pathname: "/**",
       },
+
+      {
+        protocol: "http",
+        hostname: "custom-images.strikinglycdn.com",
+      },
+
+      // ✅ ADD THIS (S3)
       {
         protocol: "https",
-        hostname: "custom-images.strikinglycdn.com",
+        hostname: "cayana.s3.amazonaws.com",
         pathname: "/**",
       },
     ],
+
+    // (optional but fine to keep)
     domains: [
-      "backend.cayana.co.in",
       "images.unsplash.com",
       "media.istockphoto.com",
       "images.ctfassets.net",
+      "example.com",
       "artgallery.yale.edu",
       "www.photocrati.com",
-      "cdn-icons-png.flaticon.com",
-      "custom-images.strikinglycdn.com",
+      "145.223.23.134",
+      "api.cayana.co.in",
+      "cayana.s3.amazonaws.com", // ✅ add here too
     ],
+  },
+
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 
