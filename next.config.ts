@@ -1,8 +1,15 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+
+  images: {
+    domains: [
+      "cayana.s3.amazonaws.com",
+      "backend.cayana.co.in",
+      "admin.cayana.co.in"
+    ],
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
