@@ -36,6 +36,7 @@ const nextConfig: NextConfig = {
       "www.photocrati.com",
       "145.223.23.134",
       "api.cayana.co.in",
+      "cayana.s3.amazonaws.com",
     ],
   },
   eslint: {
