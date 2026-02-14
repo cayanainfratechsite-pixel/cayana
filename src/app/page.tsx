@@ -8,6 +8,7 @@ import VideosSection from "@/components/video";
 import BlogSlider from "@/components/BlogSlider";
 import Partners from "@/components/Partners";
 // import FAQ from "@/components/FAQ";
+
 import Reviews from "@/components/Reviews";
 import FeaturedProjectsPopup from "@/components/FeaturedProjectsPopup";
 

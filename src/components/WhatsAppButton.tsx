@@ -43,8 +43,55 @@ const AisensyWhatsApp = () => {
       }
     }, 2000); // 2 second delay
 
+    // Cleanup function to remove the script and widget when component unmounts
     return () => {
       clearTimeout(timer);
+
+      // Remove all AiSensy/Dashly widget elements by ID
+      const selectors = [
+        "#aisensy-wa-widget", // Initial script tag
+        "#df-script", // Main widget plugin script
+        "#df-style", // Widget styles
+        "#df-btn-cont", // Main container for the WhatsApp button
+        "#preact-border-shadow-host", // Shadow DOM host
+      ];
+
+      selectors.forEach((selector) => {
+        const element = document.querySelector(selector);
+        if (element) {
+          element.remove();
+        }
+      });
+
+      // Remove any elements with classes starting with 'df-'
+      const dfElements = document.querySelectorAll(
+        '[class^="df-"], [class*=" df-"]',
+      );
+      dfElements.forEach((element) => element.remove());
+
+      // Clean up global variables to prevent widget re-injection
+      if (typeof window !== "undefined") {
+        try {
+          delete (window as any).aisensyLink;
+        } catch {
+          (window as any).aisensyLink = undefined;
+        }
+        try {
+          delete (window as any).aisensyWidgetOptions;
+        } catch {
+          (window as any).aisensyWidgetOptions = undefined;
+        }
+        try {
+          delete (window as any).dfToggled;
+        } catch {
+          (window as any).dfToggled = undefined;
+        }
+        try {
+          delete (window as any).dfToggle;
+        } catch {
+          (window as any).dfToggle = undefined;
+        }
+      }
     };
   }, []);
 

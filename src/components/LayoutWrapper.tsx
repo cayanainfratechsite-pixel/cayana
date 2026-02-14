@@ -16,6 +16,8 @@ export default function LayoutWrapper({
   const pathname = usePathname();
   const hidelayout = ["/app-comming-soon"];
 
+  console.log("csdfdsfsdfsdfsdfsd", pathname);
+
   const shouldHideLayout = hidelayout.includes(pathname);
 
   return (
@@ -25,7 +27,7 @@ export default function LayoutWrapper({
       {!shouldHideLayout && (
         <>
           <Footer />
-          <WhatsAppButton />
+          {pathname === "/" && <WhatsAppButton />}
           <StickyEnquiry />
         </>
       )}
