@@ -39,9 +39,7 @@ const nextConfig: NextConfig = {
       "cayana.s3.amazonaws.com",
     ],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+
 };
 
 export default nextConfig;
