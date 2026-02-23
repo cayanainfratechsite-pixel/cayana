@@ -26,6 +26,14 @@ const nextConfig: NextConfig = {
         hostname: "cayana.s3.amazonaws.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.ambitionbox.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.glassdoor.com",
+      },
     ],
     domains: [
       "images.unsplash.com",
@@ -37,6 +45,8 @@ const nextConfig: NextConfig = {
       "145.223.23.134",
       "api.cayana.co.in",
       "cayana.s3.amazonaws.com",
+      "cdn.ambitionbox.com",
+      "www.glassdoor.com",
     ],
   },
 

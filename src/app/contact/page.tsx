@@ -114,9 +114,13 @@ export default function ContactPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="mb-10 font-medium text-zinc-900 text-lg sm:text-xl md:text-xl uppercase">
-          Contact Us
-        </h1>
+        <div className="text-center mb-16">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 mb-6 text-[10px] md:text-xs font-bold tracking-[0.2em] text-blue-700 uppercase bg-blue-50
         <div className="flex md:flex-row flex-col gap-12">
           {/* Left Side: Contact Form */}
           <motion.div
