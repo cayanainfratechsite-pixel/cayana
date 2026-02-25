@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Handshake, Lightbulb, TrendingUp, Trophy } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { Handshake, Lightbulb, TrendingUp, Trophy, Award } from "lucide-react";
 
 const reasons = [
   {
@@ -32,9 +32,16 @@ const reasons = [
       "Be part of a company committed to long-term vision and quality-driven growth.",
     color: "bg-amber-50",
   },
+  {
+    icon: <Award className="w-6 h-6 text-orange-600" />,
+    title: "Awards & Recognition",
+    description:
+      "Our commitment to quality, integrity, and timely delivery has earned industry recognition and client trust. We take pride in building developments that meet high standards and strengthen our reputation as a dependable real estate developer.",
+    color: "bg-orange-50",
+  },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -44,14 +51,14 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.21, 0.47, 0.32, 0.98],
+      ease: "easeOut" as any,
     },
   },
 };
@@ -66,7 +73,7 @@ const WhyJoinCayana = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-6 text-[10px] md:text-xs font-bold tracking-[0.2em] text-blue-700 uppercase bg-blue-50 border border-blue-100/50 rounded-full shadow-sm"
+            className="inline-block px-6 py-2 mb-6 text-sm md:text-base font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-100/50 rounded-full"
           >
             Opportunities
           </motion.span>
@@ -109,9 +116,9 @@ const WhyJoinCayana = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 justify-center"
         >
-          {reasons.map((reason, index) => (
+          {reasons.slice(0, 4).map((reason, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
@@ -137,6 +144,33 @@ const WhyJoinCayana = () => {
               </div>
             </motion.div>
           ))}
+
+          {/* Centered 5th Item */}
+          <div className="md:col-span-2 flex justify-center">
+            <motion.div
+              variants={itemVariants}
+              whileHover={{
+                y: -10,
+                backgroundColor: "rgba(249, 250, 251, 1)",
+                transition: { duration: 0.3 },
+              }}
+              className="group p-8 bg-zinc-50 border border-zinc-100 rounded-3xl transition-all duration-300 flex items-start space-x-6 shadow-sm hover:shadow-md w-full md:max-w-[70%] lg:max-w-[65%]"
+            >
+              <div
+                className={`flex-shrink-0 w-14 h-14 ${reasons[4].color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm`}
+              >
+                {reasons[4].icon}
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-zinc-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                  {reasons[4].title}
+                </h3>
+                <p className="text-zinc-600 leading-relaxed text-[15px]">
+                  {reasons[4].description}
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

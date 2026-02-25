@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ShieldCheck, Users, Award, TrendingUp } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { ShieldCheck, Users, Award, TrendingUp, Heart } from "lucide-react";
 
 const pillars = [
   {
@@ -32,9 +32,16 @@ const pillars = [
       "As we grow as an organization, we ensure our people grow with us.",
     color: "bg-emerald-50",
   },
+  {
+    icon: <Heart className="w-6 h-6 text-rose-600" />,
+    title: "Employee Engagement",
+    description:
+      "We believe strong teams are built beyond workspaces. Through collaborative initiatives, knowledge-sharing sessions, team interactions, and milestone celebrations, we foster a culture that values connection and shared growth.",
+    color: "bg-rose-50",
+  },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -44,14 +51,14 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.21, 0.47, 0.32, 0.98],
+      ease: "easeOut" as any,
     },
   },
 };
@@ -72,7 +79,7 @@ const WorkingAtCayana = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-6 text-[10px] md:text-xs font-bold tracking-[0.2em] text-blue-700 uppercase bg-blue-50/80 backdrop-blur-sm border border-blue-100/50 rounded-full shadow-sm"
+            className="inline-block px-6 py-2 mb-6 text-sm md:text-base font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-100/50 rounded-full"
           >
             Empowerment & Culture
           </motion.span>
@@ -82,7 +89,7 @@ const WorkingAtCayana = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight mb-4"
+            className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight mb-2"
           >
             Working at{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
@@ -98,18 +105,27 @@ const WorkingAtCayana = () => {
             className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-8 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
           />
 
+          <motion.h3
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-xl md:text-2xl font-semibold text-zinc-900 mb-6"
+          >
+            Where Professionals Grow
+          </motion.h3>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-base md:text-lg text-zinc-600 max-w-2xl mx-auto leading-relaxed"
+            className="text-base md:text-lg text-zinc-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Where Professionals Grow. We foster a workplace built on{" "}
-            <span className="font-semibold text-zinc-900">trust</span>,
-            <span className="font-semibold text-zinc-900"> collaboration</span>,
-            and{" "}
-            <span className="font-semibold text-zinc-900">accountability</span>.
+            Cayana fosters a workplace built on{" "}
+            <span className="font-semibold text-zinc-900">trust</span>,{" "}
+            <span className="font-semibold text-zinc-900">collaboration</span>, and{" "}
+            <span className="font-semibold text-zinc-900">accountability</span>. Every role carries responsibility, every contribution creates impact, and every individual is empowered to progress.
           </motion.p>
         </div>
 
@@ -118,7 +134,7 @@ const WorkingAtCayana = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           {pillars.map((pillar, index) => (
             <motion.div
@@ -127,7 +143,7 @@ const WorkingAtCayana = () => {
               whileHover={{
                 y: -10,
                 backgroundColor: "rgba(255, 255, 255, 1)",
-                transition: { duration: 0.3, ease: "easeOut" },
+                transition: { duration: 0.3, ease: "easeOut" as any },
               }}
               className="group p-8 bg-white/40 backdrop-blur-md border border-white/60 rounded-[2.5rem] shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)] transition-all duration-500 flex flex-col items-center text-center lg:items-start lg:text-left"
             >

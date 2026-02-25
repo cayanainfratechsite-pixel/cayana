@@ -1,20 +1,43 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
-import { Quote } from "lucide-react";
+import { FaQuoteLeft } from "react-icons/fa";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as any,
+    },
+  },
+};
 
 const LifeAtCayana = () => {
   return (
-    <section className="py-20 bg-zinc-50/50">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+    <section className="py-24 bg-blue-200/30">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        {/* Reverted Original Heading Style */}
         <div className="mb-16">
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-6 text-[10px] md:text-xs font-bold tracking-[0.2em] text-blue-700 uppercase bg-blue-50 border border-blue-100/50 rounded-full shadow-sm"
+            className="inline-block px-6 py-2 mb-6 text-sm md:text-base font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-100/50 rounded-full"
           >
             Our Community
           </motion.span>
@@ -41,120 +64,140 @@ const LifeAtCayana = () => {
           />
         </div>
 
-        {/* Improved Masonry-style Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 relative">
-          {/* Main Large Image */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative col-span-2 row-span-2 h-[350px] md:h-[500px] group overflow-hidden rounded-[2rem] shadow-lg"
-          >
-            <Image
-              src="/images/DSC_9697.JPG (1).jpeg"
-              alt="Team at Cayana"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          </motion.div>
+        {/* Screenshot-Inspired Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-12 gap-3 md:gap-4"
+        >
+          {/* TOP ROW */}
 
-          {/* Top Right */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="relative col-span-2 h-[170px] md:h-[240px] group overflow-hidden rounded-[2rem] shadow-lg"
-          >
-            <Image
-              src="/images/ed629296-76c4-48a4-9304-d3777b1bfbc2.jpg"
-              alt="Work Culture"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-          </motion.div>
-
-          {/* Middle Thumbnails */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="relative h-[170px] md:h-[235px] group overflow-hidden rounded-[2rem] shadow-lg"
-          >
-            <Image
-              src="/images/DSC_9374.JPG (2).jpeg"
-              alt="Team Collaboration"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="relative h-[170px] md:h-[235px] group overflow-hidden rounded-[2rem] shadow-lg"
-          >
-            <Image
-              src="/images/2a90011b-aea7-412d-b1ac-600e2bd97931.jpg"
-              alt="Team Spirit"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-          </motion.div>
-
-          {/* Bottom Images */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="relative col-span-2 h-[200px] md:h-[300px] group overflow-hidden rounded-[2rem] shadow-lg"
-          >
-            <Image
-              src="/images/60d68854-6605-4af4-96ec-ad6537891ed0.jpg"
-              alt="Team Events"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="relative col-span-2 h-[200px] md:h-[300px] group overflow-hidden rounded-[2rem] shadow-lg"
-          >
-            <Image
-              src="/images/73e92b2c-a781-4b32-8acb-56bddec78a55.jpg"
-              alt="Office Environment"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-          </motion.div>
-
-          {/* Premium Tagline Overlay */}
-          <div className="absolute inset-x-0 bottom-4 md:bottom-10 flex justify-center px-4 pointer-events-none">
+          {/* Block 1: Left Stack (Cols 1-3) */}
+          <div className="col-span-12 md:col-span-3 flex flex-col gap-3 md:gap-4">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-black/70 backdrop-blur-md px-8 py-5 rounded-2xl md:rounded-[2rem] shadow-2xl flex items-center gap-4 max-w-2xl border border-white/10"
+              variants={itemVariants}
+              className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-sm group"
             >
-              <Quote className="w-6 h-6 md:w-8 md:h-8 text-blue-400 flex-shrink-0" />
-              <p className="text-zinc-100 text-sm md:text-xl font-medium tracking-tight leading-tight text-center md:text-left">
-                Driven by People. Defined by Culture.
-              </p>
+              <Image
+                src="/images/DSC_9697.JPG (1).jpeg"
+                alt="Culture"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </motion.div>
+            <motion.div
+              variants={itemVariants}
+              className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-sm group"
+            >
+              <Image
+                src="/images/ed629296-76c4-48a4-9304-d3777b1bfbc2.jpg"
+                alt="Culture"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
             </motion.div>
           </div>
-        </div>
+
+          {/* Block 2: Middle Tall (Cols 4-6) */}
+          <motion.div variants={itemVariants} className="col-span-12 md:col-span-3 h-full">
+            <div className="relative h-full aspect-[3/4] md:aspect-auto rounded-sm overflow-hidden shadow-sm group">
+              <Image
+                src="/images/DSC_9374.JPG (2).jpeg"
+                alt="Culture"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          </motion.div>
+
+          {/* Block 3: Right Wide (Cols 7-12) */}
+          <motion.div variants={itemVariants} className="col-span-12 md:col-span-6 h-full">
+            <div className="relative h-full aspect-video md:aspect-auto rounded-sm overflow-hidden shadow-sm group">
+              <Image
+                src="/images/2a90011b-aea7-412d-b1ac-600e2bd97931.jpg"
+                alt="Culture"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          </motion.div>
+
+          {/* BOTTOM ROW */}
+
+          {/* Block 4: Left Wide (Cols 1-6) */}
+          <motion.div variants={itemVariants} className="col-span-12 md:col-span-6 h-full">
+            <div className="relative aspect-video rounded-sm overflow-hidden shadow-sm group">
+              <Image
+                src="/images/60d68854-6605-4af4-96ec-ad6537891ed0.jpg"
+                alt="Culture"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          </motion.div>
+
+          {/* Block 5: Right Small 1 (Cols 7-9) */}
+          <motion.div variants={itemVariants} className="col-span-6 md:col-span-3 h-full">
+            <div className="relative aspect-square md:aspect-auto h-full rounded-sm overflow-hidden shadow-sm group">
+              <Image
+                src="/images/73e92b2c-a781-4b32-8acb-56bddec78a55.jpg"
+                alt="Culture"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          </motion.div>
+
+          {/* Block 6: Right Small 2 (Cols 10-12) */}
+          <motion.div variants={itemVariants} className="col-span-6 md:col-span-3 h-full">
+            <div className="relative aspect-square md:aspect-auto h-full rounded-sm overflow-hidden shadow-sm group">
+              <Image
+                src="/images/Career/Cayana web.jpg.jpeg"
+                alt="Culture"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="mt-16 md:mt-20 max-w-4xl mx-auto flex flex-col items-center"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-4"
+          >
+            <FaQuoteLeft className="w-6 h-6 md:w-8 md:h-8" style={{ color: '#0061ff', opacity: 0.4 }} />
+          </motion.div>
+
+          <p
+            className="font-serif text-xl sm:text-2xl md:text-3xl italic text-center leading-relaxed text-transparent bg-clip-text uppercase tracking-wider"
+            style={{ backgroundImage: 'linear-gradient(to right, #60efff, #0061ff)' }}
+          >
+            "DRIVEN BY PEOPLE. DEFINED BY CULTURE"
+          </p>
+
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "80px" }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.6, ease: "easeInOut" }}
+            className="h-1 mt-6 rounded-full"
+            style={{
+              backgroundImage: 'linear-gradient(to right, #60efff, #0061ff)',
+              opacity: 0.3
+            }}
+          />
+        </motion.div>
       </div>
     </section>
   );

@@ -1,21 +1,64 @@
 "use client";
-import { Star, ExternalLink, TrendingUp } from "lucide-react";
+import { Star, ExternalLink, TrendingUp, Quote } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+const REVIEWS = [
+  {
+    id: 1,
+    name: "Sales Executive",
+    role: "Sales Department",
+    location: "Bhubaneswar",
+    rating: 5,
+    date: "06 Aug 2025",
+    content: "Cayana Infratech Pvt. Ltd. fosters a progressive and empowering workplace culture. It promotes teamwork, innovation, and continuous learning, enabling employees to grow both personally and professionally. The leadership is transparent and supportive, creating an environment where individuals feel motivated to take initiative and drive their career forward.",
+    initials: "SE"
+  },
+  {
+    id: 2,
+    name: "HR Executive",
+    role: "Compensation & Benefits Dept.",
+    location: "Bhubaneswar",
+    rating: 5,
+    date: "23 May 2025",
+    content: "Cayana is the best company in bhubaneswar. You will get on time salary and a corporate environment to work with. Now a days in Bhubaneswar, finding a company like Cayana is tough. CEO is very much friendly and a good human being. Love the workplace like my home.",
+    initials: "HE"
+  },
+  {
+    id: 3,
+    name: "Senior Operations Manager",
+    role: "Operations Department",
+    location: "Bhubaneswar",
+    rating: 5,
+    date: "01 Aug 2025",
+    content: "The best thing I liked about Cayana is they are pretty much employee oriented. Both CEO and CMD are taking care of their employee in a very professional way. With a good working environment and culture it was really tough for me to bid a good bye. But I really love everything about Cayana.",
+    initials: "OM"
+  },
+  {
+    id: 4,
+    name: "Marketing Officer",
+    role: "Marketing Department",
+    location: "Bhubaneswar",
+    rating: 5,
+    date: "09 Oct 2025",
+    content: "Positive work environment, good work culture, timely salary, and excellent management. The company provides great opportunities for growth and values individual contributions to the team's success.",
+    initials: "MO"
+  }
+];
+
 const CompanyReviews = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section className="py-20 bg-slate-50 overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-6 text-[10px] md:text-xs font-bold tracking-[0.2em] text-blue-700 uppercase bg-blue-50 border border-blue-100/50 rounded-full shadow-sm"
+            className="inline-block px-6 py-2 mb-6 text-sm md:text-base font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-100/50 rounded-full"
           >
-            Employee Reviews
+            Employee Voices
           </motion.span>
 
           <motion.h2
@@ -23,173 +66,149 @@ const CompanyReviews = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tight mb-4"
+            className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
           >
-            Trusted by Our{" "}
+            What Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-              Team
+              Team Says
             </span>
           </motion.h2>
-
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: "80px" }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeInOut" }}
-            className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-6 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
-          />
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-base md:text-lg text-zinc-600 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed"
           >
-            See what our employees say about working at Cayana Infratech on leading review platforms.
+            Real feedback from our talented professionals who drive Cayana Infratech forward every day.
           </motion.p>
         </div>
 
-        {/* Ratings Summary */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {/* AmbitionBox Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="group relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-blue-300 hover:bg-blue-50/50 transition-all duration-300 overflow-hidden"
-          >
-            {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            <div className="relative z-10 flex items-center justify-between gap-6">
-              {/* Left Side - Rating Info */}
-              <div className="flex-1">
-                {/* Badge */}
-                <div className="inline-flex items-center gap-1 text-xs font-semibold text-green-600 bg-green-50 px-3 py-1.5 rounded-full mb-4">
-                  <TrendingUp className="w-3 h-3" />
-                  <span>Excellent</span>
-                </div>
+        {/* Individual Reviews Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          {REVIEWS.map((review, index) => (
+            <motion.div
+              key={review.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group relative bg-white rounded-3xl p-8 shadow-sm border border-slate-200/60 hover:shadow-xl hover:border-blue-200 transition-all duration-500 flex flex-col h-full"
+            >
+              {/* Quote Icon Decoration */}
+              <div className="absolute top-6 right-8 text-slate-100 group-hover:text-blue-50 transition-colors duration-500 -z-0">
+                <Quote className="w-16 h-16 fill-current" />
+              </div>
 
-                {/* Rating */}
-                <div className="mb-4">
-                  <div className="flex items-end gap-2 mb-2">
-                    <span className="text-5xl font-bold text-gray-900">4.7</span>
-                    <span className="text-gray-500 text-lg mb-2">/5</span>
-                  </div>
-                  <div className="flex items-center gap-1 mb-3">
-                    {[1, 2, 3, 4, 5].map((star) => (
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Rating & Date */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
                       <Star
-                        key={star}
-                        className={`w-6 h-6 ${
-                          star <= 4.7
-                            ? "fill-yellow-400 text-yellow-400"
-                            : "fill-gray-200 text-gray-200"
-                        }`}
+                        key={i}
+                        className={`w-4 h-4 ${i < review.rating ? "fill-yellow-400 text-yellow-400" : "text-slate-200"}`}
                       />
                     ))}
                   </div>
-                  <p className="text-sm text-gray-600">
-                    Based on <span className="font-semibold text-gray-900">50+</span> employee reviews
-                  </p>
+                  <span className="text-xs font-medium text-slate-400 uppercase tracking-tighter">
+                    {review.date}
+                  </span>
                 </div>
 
-                {/* CTA Button */}
-                <a
-                  href="https://www.ambitionbox.com/reviews/cayana-infratech-reviews"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2.5 rounded-lg transition-all duration-200 group/link"
-                >
-                  <span>View All Reviews</span>
-                  <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                </a>
-              </div>
+                {/* Content */}
+                <p className="text-slate-700 leading-relaxed mb-8 italic flex-grow">
+                  "{review.content}"
+                </p>
 
-              {/* Right Side - Logo */}
-              <div className="flex flex-col items-center justify-center gap-3">
-                <div className="relative w-28 h-28 bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl shadow-md border border-blue-100 p-3 flex items-center justify-center">
-                  <Image
-                    src="/images/ab-brand.png"
-                    alt="AmbitionBox Logo"
-                    fill
-                    className="object-contain p-2"
-                  />
+                {/* Profile Section */}
+                <div className="flex items-center gap-4 pt-6 border-t border-slate-100">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-200">
+                    {review.initials}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                      {review.name}
+                    </h4>
+                    <p className="text-sm text-slate-500 font-medium">
+                      {review.role} • {review.location}
+                    </p>
+                  </div>
                 </div>
-                <span className="text-base font-bold text-gray-800">AmbitionBox</span>
               </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Platforms Summary */}
+        <div className="mt-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="relative bg-gradient-to-br from-blue-50 to-indigo-50/30 rounded-[2rem] p-6 md:p-10 shadow-lg border border-blue-100/50 overflow-hidden"
+          >
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-50 pointer-events-none">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-100/20 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
             </div>
-          </motion.div>
 
-          {/* Glassdoor Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="group relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-green-300 hover:bg-green-50/50 transition-all duration-300 overflow-hidden"
-          >
-            {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-green-100/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            <div className="relative z-10 flex items-center justify-between gap-6">
-              {/* Left Side - Rating Info */}
-              <div className="flex-1">
-                {/* Badge */}
-                <div className="inline-flex items-center gap-1 text-xs font-semibold text-green-600 bg-green-50 px-3 py-1.5 rounded-full mb-4">
-                  <TrendingUp className="w-3 h-3" />
-                  <span>Great</span>
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12">
+              <div className="text-center lg:text-left max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white rounded-full text-blue-700 text-xs font-bold mb-4 border border-blue-100 shadow-sm">
+                  <TrendingUp className="w-3.5 h-3.5" />
+                  <span>AmbitionBox Rating 2025</span>
                 </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 leading-tight">
+                  Check out all our <span className="text-blue-600">50+ authentic reviews</span>
+                </h3>
+                <p className="text-slate-600 text-base mb-6 leading-relaxed">
+                  We are proud to maintain a high rating on major platforms, reflecting our commitment to creating the best workplace in Odisha.
+                </p>
+                <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                  <a
+                    href="https://www.ambitionbox.com/reviews/cayana-infratech-reviews"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all duration-300 shadow-md shadow-blue-200 hover:scale-[1.02] active:scale-[0.98] text-sm"
+                  >
+                    <span>AmbitionBox Profile</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
 
-                {/* Rating */}
-                <div className="mb-4">
-                  <div className="flex items-end gap-2 mb-2">
-                    <span className="text-5xl font-bold text-gray-900">4.5</span>
-                    <span className="text-gray-500 text-lg mb-2">/5</span>
+              <div className="flex flex-col sm:flex-row lg:flex-col items-center gap-4 md:gap-6">
+                <div className="bg-white border border-blue-100 shadow-xl shadow-blue-200/20 p-6 rounded-[1.5rem] flex flex-col items-center gap-2 min-w-[220px]">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-5xl font-black text-slate-900 leading-none">4.7</span>
+                    <span className="text-xl font-extrabold text-blue-600">/5</span>
                   </div>
-                  <div className="flex items-center gap-1 mb-3">
+                  <div className="flex gap-1">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star
                         key={star}
-                        className={`w-6 h-6 ${
-                          star <= 4
-                            ? "fill-green-500 text-green-500"
-                            : star === 5
-                            ? "fill-green-500/30 text-green-500/30"
-                            : "fill-gray-200 text-gray-200"
-                        }`}
+                        className={`w-5 h-5 ${star <= 4 ? "fill-yellow-400 text-yellow-400" : "fill-slate-100 text-slate-100"}`}
                       />
                     ))}
                   </div>
-                  <p className="text-sm text-gray-600">
-                    Based on <span className="font-semibold text-gray-900">20+</span> employee reviews
-                  </p>
+                  <div className="text-slate-400 font-bold text-[10px] uppercase tracking-widest">Excellent Rating</div>
                 </div>
 
-                {/* CTA Button */}
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-green-600 hover:text-green-700 bg-green-50 hover:bg-green-100 px-4 py-2.5 rounded-lg transition-all duration-200 group/link"
-                >
-                  <span>View All Reviews</span>
-                  <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                </a>
-              </div>
-
-              {/* Right Side - Logo */}
-              <div className="flex flex-col items-center justify-center gap-3">
-                <div className="relative w-28 h-28 bg-gradient-to-br from-green-50 to-green-100/50 rounded-2xl shadow-md border border-green-100 p-3 flex items-center justify-center">
-                  <Image
-                    src="/images/free-glassdoor-logo-icon-svg-download-png-3030157.webp"
-                    alt="Glassdoor Logo"
-                    fill
-                    className="object-contain p-2"
-                  />
+                <div className="flex items-center gap-3 bg-white/60 backdrop-blur-sm px-5 py-3 rounded-xl border border-blue-100">
+                  <div className="relative w-8 h-8 bg-white rounded-lg p-1.5 shadow-sm border border-blue-50">
+                    <Image
+                      src="/images/ab-brand.png"
+                      alt="AmbitionBox"
+                      fill
+                      className="object-contain p-1"
+                    />
+                  </div>
+                  <span className="font-bold text-slate-800 text-lg tracking-tight">AmbitionBox</span>
                 </div>
-                <span className="text-base font-bold text-gray-800">Glassdoor</span>
               </div>
             </div>
           </motion.div>
@@ -200,3 +219,4 @@ const CompanyReviews = () => {
 };
 
 export default CompanyReviews;
+

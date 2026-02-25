@@ -1,8 +1,9 @@
+"use client";
 import React, { useState, useEffect, useRef } from "react";
+
 import { motion, AnimatePresence } from "framer-motion";
 import Underline from "../Underline";
 import PaginationComponent from "../Pagination";
-import { fetchJobPosts, submitJobApplication } from "@/api/jobPosts/page";
 import {
   Upload,
   X,
@@ -11,6 +12,8 @@ import {
   Clock,
   ChevronRight,
 } from "lucide-react";
+import { useParams } from "next/navigation";
+import { fetchJobPosts, submitJobApplication } from "@/api/jobPosts/page";
 
 export interface JobPosts {
   _id: string;
@@ -31,6 +34,9 @@ interface JobPostsResponse {
 }
 
 const JobOppeningNew = () => {
+  const params = useParams();
+  const id = params?.id as string | undefined;
+
   const [showForm, setShowForm] = useState(false);
   const [jobPosts, setJobPosts] = useState<JobPosts[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -51,13 +57,28 @@ const JobOppeningNew = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const fetchJobPostsData = async () => {
+    const fetchJobData = async () => {
       setLoading(true);
+      setError(null);
       try {
         const data: JobPostsResponse = await fetchJobPosts(page);
         if (data.success == 0) {
-          setJobPosts(data.result.jobs);
-          setTotalPages(data.result.totalPages);
+          const allJobs = data.result.jobs;
+          if (id) {
+            const job = allJobs.find((j) => j._id === id);
+            if (job) {
+              setJobPosts([job]);
+              setSelectedJobId(job._id);
+              setSelectedJobTitle(job.title);
+              setTotalPages(0);
+            } else {
+              setJobPosts([]);
+              setError("Job details not found");
+            }
+          } else {
+            setJobPosts(allJobs);
+            setTotalPages(data.result.totalPages);
+          }
         } else {
           setError(data.message || "Failed to fetch jobs");
         }
@@ -68,8 +89,9 @@ const JobOppeningNew = () => {
       }
     };
 
-    fetchJobPostsData();
-  }, [page]);
+    fetchJobData();
+  }, [page, id]);
+
 
   const validateForm = () => {
     const errors: { [key: string]: string } = {};
@@ -153,8 +175,9 @@ const JobOppeningNew = () => {
       setApplyMobile("");
       setApplyResume(null);
       setApplyMessage("");
-      closeForm();
+      if (!id) closeForm();
     } catch (error) {
+
       console.error("Application error:", error);
       setApplyError(
         error instanceof Error ? error.message : "An error occurred",
@@ -170,7 +193,7 @@ const JobOppeningNew = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight text-center">
-              Current Openings
+              Work at Cayana
             </h2>
             <div className="mt-4 w-24 h-1.5 bg-blue-600 rounded-full"></div>
             <p className="mt-6 text-gray-600 text-center max-w-2xl text-lg">
@@ -179,9 +202,9 @@ const JobOppeningNew = () => {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+          <div className={`grid gap-6 ${id ? "max-w-4xl mx-auto grid-cols-1" : "md:grid-cols-1 lg:grid-cols-2"}`}>
             {loading ? (
-              Array.from({ length: 4 }).map((_, i) => (
+              Array.from({ length: id ? 1 : 4 }).map((_, i) => (
                 <div
                   key={i}
                   className="bg-white p-6 rounded-2xl shadow-sm animate-pulse border border-gray-100"
@@ -234,11 +257,11 @@ const JobOppeningNew = () => {
                     <div className="flex flex-wrap gap-4 mb-6 text-sm text-gray-500">
                       <div className="flex items-center gap-1.5">
                         <MapPin className="w-4 h-4 text-gray-400" />
-                        <span>Remote / Office</span>
+                        <span>{job.location || "Remote / Office"}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <Clock className="w-4 h-4 text-gray-400" />
-                        <span>Experience: 2-5 Yrs</span>
+                        <span>Experience: {job.experience || "2-5 Yrs"}</span>
                       </div>
                     </div>
 
@@ -299,21 +322,187 @@ const JobOppeningNew = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-6 border-t border-gray-50">
-                    <button
-                      onClick={() => handleApplyClick(job._id, job.title)}
-                      className="px-8 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-black transition-all flex items-center gap-2 group/btn shadow-lg shadow-zinc-200"
-                    >
-                      Apply Now
-                      <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
+                  {!id && (
+                    <div className="flex items-center justify-between pt-6 border-t border-gray-50">
+                      <button
+                        onClick={() => handleApplyClick(job._id, job.title)}
+                        className="px-8 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-black transition-all flex items-center gap-2 group/btn shadow-lg shadow-zinc-200"
+                      >
+                        Apply Now
+                        <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </button>
+                    </div>
+                  )}
                 </motion.div>
               ))
             )}
           </div>
 
-          {!loading && totalPages > 1 && (
+          {/* Job Application Form - Direct on page when ID is present */}
+          {id && !loading && jobPosts.length > 0 && (
+            <div className="mt-12 max-w-4xl mx-auto">
+              <div className="mb-6 md:mb-10 text-center">
+                <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-2">
+                  Apply for {selectedJobTitle}
+                </h3>
+                <p className="text-sm md:text-base text-gray-500">
+                  Fill in your details and we&apos;ll get back to you soon.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-[24px] md:rounded-[32px] p-6 md:p-12 shadow-xl border border-gray-100">
+                {applyError && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-100 text-red-600 rounded-xl text-sm text-center">
+                    {applyError}
+                  </div>
+                )}
+
+                <form
+                  onSubmit={handleApplicationSubmit}
+                  className="space-y-8 md:space-y-10"
+                  noValidate
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 md:gap-y-10">
+                    {/* Full Name */}
+                    <div className="relative">
+                      <input
+                        type="text"
+                        id="fullName"
+                        value={applyFullName}
+                        onChange={(e) => {
+                          setApplyFullName(e.target.value);
+                          if (fieldErrors.fullName) {
+                            setFieldErrors((prev) => ({
+                              ...prev,
+                              fullName: "",
+                            }));
+                          }
+                        }}
+                        className={`w-full bg-transparent border-b ${fieldErrors.fullName ? "border-red-500" : "border-gray-200"} py-3 text-gray-900 placeholder:text-gray-400 focus:border-black outline-none transition-colors text-base md:text-lg`}
+                        placeholder="Enter full name"
+                      />
+                      {fieldErrors.fullName && (
+                        <p className="absolute -bottom-6 left-0 text-red-500 text-xs">
+                          {fieldErrors.fullName}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Mobile Number */}
+                    <div className="relative">
+                      <div
+                        className={`flex items-center border-b ${fieldErrors.mobile ? "border-red-500" : "border-gray-200"} focus-within:border-black transition-colors`}
+                      >
+                        <span className="text-gray-400 text-base md:text-lg mr-2">
+                          +91 -
+                        </span>
+                        <input
+                          type="tel"
+                          id="mobile"
+                          value={applyMobile}
+                          onChange={(e) => {
+                            setApplyMobile(e.target.value);
+                            if (fieldErrors.mobile) {
+                              setFieldErrors((prev) => ({
+                                ...prev,
+                                mobile: "",
+                              }));
+                            }
+                          }}
+                          className="flex-1 bg-transparent py-3 text-gray-900 placeholder:text-gray-400 outline-none text-base md:text-lg"
+                          placeholder="Enter mobile number"
+                        />
+                      </div>
+                      {fieldErrors.mobile && (
+                        <p className="absolute -bottom-6 left-0 text-red-500 text-xs">
+                          {fieldErrors.mobile}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Email ID */}
+                    <div className="relative">
+                      <input
+                        type="email"
+                        id="email"
+                        value={applyEmail}
+                        onChange={(e) => {
+                          setApplyEmail(e.target.value);
+                          if (fieldErrors.email) {
+                            setFieldErrors((prev) => ({
+                              ...prev,
+                              email: "",
+                            }));
+                          }
+                        }}
+                        className={`w-full bg-transparent border-b ${fieldErrors.email ? "border-red-500" : "border-gray-200"} py-3 text-gray-900 placeholder:text-gray-400 focus:border-black outline-none transition-colors text-base md:text-lg`}
+                        placeholder="Enter email id"
+                      />
+                      {fieldErrors.email && (
+                        <p className="absolute -bottom-6 left-0 text-red-500 text-xs">
+                          {fieldErrors.email}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Resume Upload */}
+                    <div className="relative">
+                      <div
+                        onClick={() => fileInputRef.current?.click()}
+                        className={`flex items-center justify-between border-b ${fieldErrors.resume ? "border-red-500" : "border-gray-200"} py-3 cursor-pointer hover:border-gray-400 focus-within:border-black transition-colors`}
+                      >
+                        <span
+                          className={`text-base md:text-lg truncate mr-2 ${applyResume ? "text-gray-900" : "text-gray-400"}`}
+                        >
+                          {applyResume
+                            ? applyResume.name
+                            : "Upload your resume ( .pdf )"}
+                        </span>
+                        <Upload className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                      </div>
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept=".pdf"
+                        className="hidden"
+                        onChange={(e) => {
+                          if (e.target.files && e.target.files[0]) {
+                            setApplyResume(e.target.files[0]);
+                            if (fieldErrors.resume) {
+                              setFieldErrors((prev) => ({
+                                ...prev,
+                                resume: "",
+                              }));
+                            }
+                          }
+                        }}
+                      />
+                      {fieldErrors.resume && (
+                        <p className="absolute -bottom-6 left-0 text-red-500 text-xs">
+                          {fieldErrors.resume}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col items-center pt-6">
+                    <button
+                      type="submit"
+                      disabled={applyLoading}
+                      className="w-full sm:min-w-[240px] sm:w-auto bg-black text-white text-base md:text-lg font-semibold py-3.5 md:py-4 px-12 rounded-full hover:bg-zinc-800 transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed shadow-xl shadow-zinc-200"
+                    >
+                      {applyLoading ? "Sending..." : "Apply Now"}
+                    </button>
+                    <p className="mt-4 text-xs text-gray-400 text-center">
+                      By applying, you agree to our terms and privacy policy.
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
+
+          {!loading && totalPages > 1 && !id && (
             <div className="mt-16 flex justify-center">
               <PaginationComponent
                 count={totalPages}
@@ -325,9 +514,10 @@ const JobOppeningNew = () => {
         </div>
       </section>
 
-      {/* Modern Application Modal */}
+      {/* Modern Application Modal - Only when no ID */}
       <AnimatePresence>
-        {showForm && (
+        {!id && showForm && (
+
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             <motion.div
               initial={{ opacity: 0 }}
