@@ -1,0 +1,45 @@
+{
+  "id": "32d1418a74b54d26ac6cbb628c6d7700",
+  "perspectiveSettings": {
+    "grid": {
+      "settingsKey": "tsPerspectiveGrid",
+      "orderBy": true,
+      "sortBy": "byName",
+      "layoutType": "grid",
+      "singleClickAction": "openInternal",
+      "entrySize": "small",
+      "thumbnailMode": "contain",
+      "showDirectories": true,
+      "showDetails": true,
+      "showDescription": false,
+      "showEntriesDescription": true,
+      "showTags": true,
+      "gridPageLimit": 100,
+      "maxDescriptionPreviewLength": 100
+    }
+  },
+  "customOrder": {
+    "folders": [
+      {
+        "uuid": "e72ea194bd814bf7a114f97d2f98efeb",
+        "name": "node_modules"
+      },
+      {
+        "uuid": "2a1fba8e40d7400f8cdd6ce7aa931b86",
+        "name": "public"
+      },
+      {
+        "uuid": "001b8fb2a39b495798617d40a14ceb13",
+        "name": "src"
+      }
+    ]
+  },
+  "tags": [
+    {
+      "title": "💎",
+      "color": "#d2d1d19e",
+      "textcolor": "#000000",
+      "description": "diamond"
+    }
+  ]
+}

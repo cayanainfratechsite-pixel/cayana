@@ -55,7 +55,7 @@ const JobOppening = () => {
 
   const handlePageChange = (
     _event: React.ChangeEvent<unknown>,
-    value: number
+    value: number,
   ) => {
     setPage(value);
   };
@@ -66,7 +66,7 @@ const JobOppening = () => {
   };
 
   const handleApplicationSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
+    e: React.FormEvent<HTMLFormElement>,
   ) => {
     e.preventDefault();
     if (!selectedJobId) return;
@@ -100,7 +100,7 @@ const JobOppening = () => {
     } catch (error) {
       console.error("Application error:", error);
       setApplyError(
-        error instanceof Error ? error.message : "An error occurred"
+        error instanceof Error ? error.message : "An error occurred",
       );
     } finally {
       setApplyLoading(false);
@@ -167,7 +167,7 @@ const JobOppening = () => {
                         <p>
                           {job.description
                             .split(/(?:\d+\.\s*|•)/)
-                            .filter((part) => part.trim() !== "") 
+                            .filter((part) => part.trim() !== "")
                             .map((part, index) => (
                               <p key={index} className="mb-1">
                                 •{part.trim()}

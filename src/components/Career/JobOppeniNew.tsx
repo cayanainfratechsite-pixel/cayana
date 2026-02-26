@@ -92,7 +92,6 @@ const JobOppeningNew = () => {
     fetchJobData();
   }, [page, id]);
 
-
   const validateForm = () => {
     const errors: { [key: string]: string } = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -165,6 +164,34 @@ const JobOppeningNew = () => {
         applyMessage || "Applying for " + selectedJobTitle,
       );
 
+      // Web3Forms submission
+      const web3FormData = new FormData();
+      web3FormData.append(
+        "access_key",
+        process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "",
+      );
+      web3FormData.append(
+        "subject",
+        `New Job Application: ${selectedJobTitle}`,
+      );
+      web3FormData.append("from_name", applyFullName || "Cayana Careers");
+      web3FormData.append("fullName", applyFullName);
+      web3FormData.append("email", applyEmail);
+      web3FormData.append("mobile", applyMobile);
+      web3FormData.append(
+        "message",
+        applyMessage || "Applying for " + selectedJobTitle,
+      );
+
+      try {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: web3FormData,
+        });
+      } catch (err) {
+        console.error("Web3Forms error:", err);
+      }
+
       const response = await submitJobApplication(formData);
       if (response && response.data) {
         console.log("Application Response:", response.data);
@@ -177,7 +204,6 @@ const JobOppeningNew = () => {
       setApplyMessage("");
       if (!id) closeForm();
     } catch (error) {
-
       console.error("Application error:", error);
       setApplyError(
         error instanceof Error ? error.message : "An error occurred",
@@ -218,7 +244,9 @@ const JobOppeningNew = () => {
             </p>
           </div>
 
-          <div className={`grid gap-6 ${id ? "max-w-4xl mx-auto grid-cols-1" : "md:grid-cols-1 lg:grid-cols-2"}`}>
+          <div
+            className={`grid gap-6 ${id ? "max-w-4xl mx-auto grid-cols-1" : "md:grid-cols-1 lg:grid-cols-2"}`}
+          >
             {loading ? (
               Array.from({ length: id ? 1 : 4 }).map((_, i) => (
                 <div
@@ -533,7 +561,6 @@ const JobOppeningNew = () => {
       {/* Modern Application Modal - Only when no ID */}
       <AnimatePresence>
         {!id && showForm && (
-
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             <motion.div
               initial={{ opacity: 0 }}
