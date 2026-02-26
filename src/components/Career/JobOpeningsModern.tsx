@@ -334,7 +334,7 @@ const JobOpeningsModern = () => {
                                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-zinc-900 mb-4 tracking-tight">
                                     Don&apos;t see the right role?
                                 </h3>
-                                <p className="text-gray-400 max-w-3xl text-sm md:text-base leading-relaxed">
+                                <p className="text-gray-500 max-w-3xl text-sm md:text-base leading-relaxed">
                                     We&apos;re always on the lookout for exceptional talent. If you don&apos;t see a current opening that matches your profile, share your resume with us, and we&apos;ll reach out when the right opportunity arises.
                                 </p>
                             </div>

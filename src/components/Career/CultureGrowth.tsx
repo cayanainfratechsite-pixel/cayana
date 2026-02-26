@@ -15,7 +15,7 @@ const CultureGrowth = () => {
         >
           {/* Content on Left */}
           <div>
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-zinc-900 uppercase mb-6">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase mb-6">
               Work Culture
             </h3>
             <p className="text-gray-700 mb-4">
@@ -60,7 +60,7 @@ const CultureGrowth = () => {
           </div>
           {/* Content on Right */}
           <div className="md:order-2">
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-zinc-900 uppercase mb-6">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase mb-6">
               Career Growth at Cayana
             </h3>
             <p className="text-gray-700">

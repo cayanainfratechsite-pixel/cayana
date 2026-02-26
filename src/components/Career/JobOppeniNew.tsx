@@ -197,7 +197,7 @@ const JobOppeningNew = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-lg sm:text-xl md:text-2xl font-bold text-zinc-900 tracking-tight text-center mb-2"
+              className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase mb-2"
             >
               Work at{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
@@ -262,7 +262,7 @@ const JobOppeningNew = () => {
                 >
                   <div>
                     <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-base sm:text-lg md:text-xl font-medium text-gray-900 uppercase group-hover:text-blue-600 transition-colors">
                         {job.title}
                       </h3>
                       <span className="px-4 py-1.5 bg-blue-50 text-blue-700 text-xs font-bold rounded-full uppercase tracking-wider">
@@ -358,7 +358,7 @@ const JobOppeningNew = () => {
           {id && !loading && jobPosts.length > 0 && (
             <div className="mt-12 max-w-4xl mx-auto">
               <div className="mb-6 md:mb-10 text-center">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-900 uppercase mb-2">
                   Apply for {selectedJobTitle}
                 </h3>
                 <p className="text-sm md:text-base text-gray-500">
@@ -560,7 +560,7 @@ const JobOppeningNew = () => {
 
               <div className="flex-1 overflow-y-auto p-6 md:p-12">
                 <div className="mb-6 md:mb-10 text-center">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-900 uppercase mb-2">
                     Apply for {selectedJobTitle}
                   </h3>
                   <p className="text-sm md:text-base text-gray-500">
