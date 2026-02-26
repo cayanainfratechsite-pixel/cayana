@@ -50,13 +50,13 @@ const CompanyReviews = () => {
   return (
     <section className="py-20 bg-slate-50 overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-block px-6 py-2 mb-6 text-sm md:text-base font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-100/50 rounded-full"
+            className="inline-block px-6 py-2 mb-3 text-sm md:text-base font-medium tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-100/50 rounded-full"
           >
             Employee Voices
           </motion.span>
@@ -66,13 +66,21 @@ const CompanyReviews = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
+            className="text-lg sm:text-xl md:text-2xl font-medium text-slate-900 uppercase mb-2"
           >
             What Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
               Team Says
             </span>
           </motion.h2>
+
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "80px" }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-6 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -162,7 +170,7 @@ const CompanyReviews = () => {
                   <TrendingUp className="w-3.5 h-3.5" />
                   <span>AmbitionBox Rating 2025</span>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 leading-tight">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 mb-3 leading-tight">
                   Check out all our <span className="text-blue-600">50+ authentic reviews</span>
                 </h3>
                 <p className="text-slate-600 text-base mb-6 leading-relaxed">

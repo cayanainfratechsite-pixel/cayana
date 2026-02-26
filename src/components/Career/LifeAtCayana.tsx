@@ -31,13 +31,13 @@ const LifeAtCayana = () => {
     <section className="py-24 bg-blue-200/30">
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Reverted Original Heading Style */}
-        <div className="mb-16">
+        <div className="mb-10">
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-block px-6 py-2 mb-6 text-sm md:text-base font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-100/50 rounded-full"
+            className="inline-block px-6 py-2 mb-3 text-sm md:text-base font-medium tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-100/50 rounded-full"
           >
             Our Community
           </motion.span>
@@ -47,7 +47,7 @@ const LifeAtCayana = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight mb-4"
+            className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase mb-4"
           >
             Life at{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
@@ -60,7 +60,7 @@ const LifeAtCayana = () => {
             whileInView={{ width: "80px" }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-8 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
+            className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-6 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
           />
         </div>
 
@@ -116,7 +116,7 @@ const LifeAtCayana = () => {
           <motion.div variants={itemVariants} className="col-span-12 md:col-span-6 h-full">
             <div className="relative h-full aspect-video md:aspect-auto rounded-sm overflow-hidden shadow-sm group">
               <Image
-                src="/images/2a90011b-aea7-412d-b1ac-600e2bd97931.jpg"
+                src="/images/Career/14ba1a0b-06ef-413e-b049-097b3b6113e7.jpg"
                 alt="Culture"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -154,7 +154,7 @@ const LifeAtCayana = () => {
           <motion.div variants={itemVariants} className="col-span-6 md:col-span-3 h-full">
             <div className="relative aspect-square md:aspect-auto h-full rounded-sm overflow-hidden shadow-sm group">
               <Image
-                src="/images/Career/Cayana web.jpg.jpeg"
+                src="/images/2a90011b-aea7-412d-b1ac-600e2bd97931.jpg"
                 alt="Culture"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -180,7 +180,7 @@ const LifeAtCayana = () => {
           </motion.div>
 
           <p
-            className="font-serif text-xl sm:text-2xl md:text-3xl italic text-center leading-relaxed text-transparent bg-clip-text uppercase tracking-wider"
+            className="font-serif text-lg sm:text-xl md:text-2xl italic text-center leading-relaxed text-transparent bg-clip-text uppercase tracking-wider"
             style={{ backgroundImage: 'linear-gradient(to right, #60efff, #0061ff)' }}
           >
             "DRIVEN BY PEOPLE. DEFINED BY CULTURE"

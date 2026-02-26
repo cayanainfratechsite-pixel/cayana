@@ -156,20 +156,35 @@ const JobOpeningsModern = () => {
         <div id="job-openings-section" className="relative">
             <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col items-center mb-16">
+                    <div className="flex flex-col items-center mb-10">
                         <motion.span
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5 }}
                             viewport={{ once: true }}
-                            className="inline-block px-6 py-2 mb-6 text-sm md:text-base font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-100/50 rounded-full"
+                            className="inline-block px-6 py-2 mb-3 text-sm md:text-base font-medium tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-100/50 rounded-full"
                         >
                             Career Roles
                         </motion.span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight text-center">
-                            Work With Us
-                        </h2>
-                        <div className="mt-4 w-24 h-1.5 bg-blue-600 rounded-full"></div>
+                        <motion.h2
+                            initial={{ opacity: 0, y: -20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            viewport={{ once: true }}
+                            className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase text-center mb-2"
+                        >
+                            Explore{" "}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                                Opportunities With Us
+                            </span>
+                        </motion.h2>
+                        <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "80px" }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, ease: "easeInOut" }}
+                            className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-6 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
+                        />
                         <p className="mt-6 text-gray-600 text-center max-w-2xl text-lg">
                             Be part of a team that empowers innovation and fosters growth.
                             Find your next challenge and grow with us.
@@ -214,7 +229,7 @@ const JobOpeningsModern = () => {
                             Array.from({ length: 6 }).map((_, i) => (
                                 <div
                                     key={i}
-                                    className="bg-white p-8 rounded-[32px] shadow-sm animate-pulse border border-gray-100"
+                                    className="bg-white p-8 rounded-[32px] shadow-sm animate-pulse border border-gray-200"
                                 >
                                     <div className="h-8 bg-gray-200 rounded-full w-3/4 mb-6"></div>
                                     <div className="h-4 bg-gray-100 rounded-full w-full mb-3"></div>
@@ -236,7 +251,7 @@ const JobOpeningsModern = () => {
                                 </button>
                             </div>
                         ) : jobPosts.length === 0 ? (
-                            <div className="col-span-full py-20 text-center bg-white rounded-3xl shadow-sm border border-gray-100">
+                            <div className="col-span-full py-20 text-center bg-white rounded-3xl shadow-sm border border-gray-200">
                                 <Briefcase className="w-16 h-16 text-gray-300 mx-auto mb-4" />
                                 <h3 className="text-xl font-semibold text-gray-900">
                                     No vacancies right now
@@ -257,7 +272,7 @@ const JobOpeningsModern = () => {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.5 }}
-                                        className="group relative bg-white p-6 rounded-[2rem] border border-gray-100 hover:border-blue-500 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 flex flex-col justify-between overflow-hidden"
+                                        className="group relative bg-white p-6 rounded-[2rem] border border-gray-200 hover:border-blue-500 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 flex flex-col justify-between overflow-hidden"
                                     >
                                         {/* Decorative element */}
                                         <div className="absolute -right-6 -top-6 w-24 h-24 bg-blue-50/50 rounded-full blur-2xl group-hover:bg-blue-100/50 transition-colors duration-500" />
@@ -270,7 +285,7 @@ const JobOpeningsModern = () => {
                                             </div>
 
                                             <div className="mb-6">
-                                                <h3 className="text-xl font-extrabold text-zinc-900 group-hover:text-blue-600 transition-colors leading-tight bg-zinc-50 px-4 py-4 rounded-2xl border border-zinc-100 group-hover:border-blue-100 group-hover:bg-blue-50/30">
+                                                <h3 className="text-lg font-bold text-zinc-900 group-hover:text-blue-600 transition-colors leading-tight bg-zinc-50 px-4 py-4 rounded-2xl border border-zinc-100 group-hover:border-blue-100 group-hover:bg-blue-50/30">
                                                     {job.title}
                                                 </h3>
                                             </div>
@@ -314,9 +329,9 @@ const JobOpeningsModern = () => {
                     )}
                     {/* General Application Section (Static Form)  */}
                     <div className="mt-20 max-w-5xl mx-auto">
-                        <div className="bg-white rounded-[40px] p-6 md:p-10 shadow-xl shadow-zinc-200/40 border border-gray-100">
+                        <div className="bg-white rounded-[40px] p-6 md:p-10 shadow-xl shadow-zinc-200/40 border border-gray-200">
                             <div className="mb-6">
-                                <h3 className="text-3xl md:text-[40px] font-bold text-zinc-900 mb-4 tracking-tight">
+                                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-zinc-900 mb-4 tracking-tight">
                                     Don&apos;t see the right role?
                                 </h3>
                                 <p className="text-gray-400 max-w-3xl text-sm md:text-base leading-relaxed">
@@ -330,7 +345,7 @@ const JobOpeningsModern = () => {
                                         <input
                                             type="text"
                                             placeholder="What should we call you?"
-                                            className={`w-full bg-transparent border-b ${fieldErrors.fullName ? "border-red-500" : "border-gray-100"} py-3 text-sm md:text-base outline-none focus:border-black transition-colors placeholder:text-gray-300`}
+                                            className={`w-full bg-transparent border-b ${fieldErrors.fullName ? "border-red-500" : "border-gray-200"} py-3 text-sm md:text-base outline-none focus:border-black transition-colors placeholder:text-gray-400`}
                                             value={generalName}
                                             onChange={(e) => {
                                                 setGeneralName(e.target.value);
@@ -348,12 +363,12 @@ const JobOpeningsModern = () => {
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6">
                                         <div className="relative">
-                                            <div className={`flex items-center border-b ${fieldErrors.mobile ? "border-red-500" : "border-gray-100"} focus-within:border-black transition-colors`}>
+                                            <div className={`flex items-center border-b ${fieldErrors.mobile ? "border-red-500" : "border-gray-200"} focus-within:border-black transition-colors`}>
                                                 <span className="text-gray-400 text-sm md:text-base mr-2">+91 -</span>
                                                 <input
                                                     type="tel"
                                                     placeholder="Phone Number"
-                                                    className="flex-1 bg-transparent py-3 text-sm md:text-base outline-none placeholder:text-gray-300"
+                                                    className="flex-1 bg-transparent py-3 text-sm md:text-base outline-none placeholder:text-gray-400"
                                                     value={generalMobile}
                                                     onChange={(e) => {
                                                         setGeneralMobile(e.target.value);
@@ -374,7 +389,7 @@ const JobOpeningsModern = () => {
                                             <input
                                                 type="email"
                                                 placeholder="Email Address"
-                                                className={`w-full bg-transparent border-b ${fieldErrors.email ? "border-red-500" : "border-gray-100"} py-3 text-sm md:text-base outline-none focus:border-black transition-colors placeholder:text-gray-300`}
+                                                className={`w-full bg-transparent border-b ${fieldErrors.email ? "border-red-500" : "border-gray-200"} py-3 text-sm md:text-base outline-none focus:border-black transition-colors placeholder:text-gray-400`}
                                                 value={generalEmail}
                                                 onChange={(e) => {
                                                     setGeneralEmail(e.target.value);
@@ -397,7 +412,7 @@ const JobOpeningsModern = () => {
                                             <input
                                                 type="text"
                                                 placeholder="Desired Role"
-                                                className={`w-full bg-transparent border-b ${fieldErrors.role ? "border-red-500" : "border-gray-100"} py-3 text-sm md:text-base outline-none focus:border-black transition-colors placeholder:text-gray-300`}
+                                                className={`w-full bg-transparent border-b ${fieldErrors.role ? "border-red-500" : "border-gray-200"} py-3 text-sm md:text-base outline-none focus:border-black transition-colors placeholder:text-gray-400`}
                                                 value={generalRole}
                                                 onChange={(e) => {
                                                     setGeneralRole(e.target.value);
@@ -416,10 +431,10 @@ const JobOpeningsModern = () => {
                                         <div className="relative">
                                             <div
                                                 onClick={() => generalFileRef.current?.click()}
-                                                className={`flex items-center justify-between border-b ${fieldErrors.resume ? "border-red-500" : "border-gray-100"} py-3 cursor-pointer hover:border-black transition-colors`}
+                                                className={`flex items-center justify-between border-b ${fieldErrors.resume ? "border-red-500" : "border-gray-200"} py-3 cursor-pointer hover:border-black transition-colors`}
                                             >
                                                 <span
-                                                    className={`text-sm md:text-base truncate ${generalResume ? "text-gray-900" : "text-gray-300"}`}
+                                                    className={`text-sm md:text-base truncate ${generalResume ? "text-gray-900" : "text-gray-400"}`}
                                                 >
                                                     {generalResume
                                                         ? generalResume.name

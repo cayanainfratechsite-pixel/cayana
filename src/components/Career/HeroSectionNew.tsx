@@ -15,7 +15,7 @@ const HeroSectionNew = () => {
         return () => window.removeEventListener("resize", checkScreenSize);
     }, []);
 
-    const heroImage = "/images/dynamic-data-visualization-3d.jpg";
+    const heroImage = "/images/Career/Ultrarealistic_corporate_lifestyle_4k_202602 (1) (1).jpeg";
 
     return (
         <section className="w-full">
@@ -51,8 +51,7 @@ const HeroSectionNew = () => {
                         transition={{ duration: 1, delay: 0.4 }}
                         className="m-1 mx-auto font-serif text-zinc-100 text-base sm:text-lg md:text-xl lg:text-2xl text-center"
                     >
-                        Join our team and be a part of a culture driven by passion,
-                        innovation, and excellence.
+                        Build Spaces. Build Futures. Build Your Career.
                     </motion.p>
                 </div>
             </div>

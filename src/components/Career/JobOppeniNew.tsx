@@ -192,10 +192,26 @@ const JobOppeningNew = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight text-center">
-              Work at Cayana
-            </h2>
-            <div className="mt-4 w-24 h-1.5 bg-blue-600 rounded-full"></div>
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-lg sm:text-xl md:text-2xl font-bold text-zinc-900 tracking-tight text-center mb-2"
+            >
+              Work at{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                Cayana
+              </span>
+            </motion.h2>
+
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: "80px" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-8 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
+            />
             <p className="mt-6 text-gray-600 text-center max-w-2xl text-lg">
               Join our mission to transform the industry. Discover your next
               career move at Cayana.
@@ -227,7 +243,7 @@ const JobOppeningNew = () => {
             ) : jobPosts.length === 0 ? (
               <div className="col-span-full py-20 text-center bg-white rounded-3xl shadow-sm border border-gray-100">
                 <Briefcase className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">
                   No vacancies right now
                 </h3>
                 <p className="text-gray-500 mt-2">
@@ -246,7 +262,7 @@ const JobOppeningNew = () => {
                 >
                   <div>
                     <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                         {job.title}
                       </h3>
                       <span className="px-4 py-1.5 bg-blue-50 text-blue-700 text-xs font-bold rounded-full uppercase tracking-wider">
@@ -342,7 +358,7 @@ const JobOppeningNew = () => {
           {id && !loading && jobPosts.length > 0 && (
             <div className="mt-12 max-w-4xl mx-auto">
               <div className="mb-6 md:mb-10 text-center">
-                <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-2">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2">
                   Apply for {selectedJobTitle}
                 </h3>
                 <p className="text-sm md:text-base text-gray-500">
@@ -544,7 +560,7 @@ const JobOppeningNew = () => {
 
               <div className="flex-1 overflow-y-auto p-6 md:p-12">
                 <div className="mb-6 md:mb-10 text-center">
-                  <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2">
                     Apply for {selectedJobTitle}
                   </h3>
                   <p className="text-sm md:text-base text-gray-500">
