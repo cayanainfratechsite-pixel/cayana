@@ -1,12 +1,12 @@
 "use client";
 import Underline from "@/components/Underline";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import img from "../../../public/images/privacypolicy/privacy2.jpg"; // You might want to use a different image
 import { FaQuoteLeft } from "react-icons/fa";
 
 const PrivacyPolicy = () => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
     }
   };
 
-  const sectionVariants = {
+  const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -44,9 +44,9 @@ const PrivacyPolicy = () => {
           priority
         />
         <div className="absolute inset-0 bg-black/10" />
-        
+
         <div className="right-0 bottom-0 left-0 absolute bg-black/60 mx-2 md:mx-10 lg:mx-28 mb-2 md:mb-5 px-4 md:px-8 py-1 md:py-5 rounded-lg">
-                      
+
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,8 +61,8 @@ const PrivacyPolicy = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="m-1 mx-auto font-serif text-zinc-100 text-base sm:text-lg md:text-xl lg:text-2xl text-center"
           >
-            We respect your privacy and are committed to protecting it through this Privacy Policy. 
-            This document outlines how we collect, use, disclose, and safeguard your information 
+            We respect your privacy and are committed to protecting it through this Privacy Policy.
+            This document outlines how we collect, use, disclose, and safeguard your information
             when you use our website and services.
           </motion.p>
         </div>
@@ -81,24 +81,24 @@ const PrivacyPolicy = () => {
           <Underline />
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="space-y-6 sm:space-y-8 md:space-y-10 mb-1"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
             <h2 className="mb-3 sm:mb-4 font-medium text-gray-800 text-lg sm:text-xl">1. Information We Collect</h2>
-            
+
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
               We collect information that you provide directly to us, including name, email address, phone number, and property preferences when you interact with our website or services. We may also collect technical information about your device and usage of our website.
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -108,7 +108,7 @@ const PrivacyPolicy = () => {
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -118,7 +118,7 @@ const PrivacyPolicy = () => {
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -128,7 +128,7 @@ const PrivacyPolicy = () => {
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -138,7 +138,7 @@ const PrivacyPolicy = () => {
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -146,7 +146,7 @@ const PrivacyPolicy = () => {
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
               For any query on our Privacy Policy, please write to us at:<br />
               Cayana Infratech Pvt. Ltd.<br />
-              Email: <a 
+              Email: <a
                 href="mailto:support@cayana.co.in"
                 className="text-blue-600 hover:text-blue-800 hover:underline transition-colors cursor-pointer"
               >

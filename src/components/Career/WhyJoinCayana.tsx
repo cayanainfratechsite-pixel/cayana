@@ -34,9 +34,9 @@ const reasons = [
   },
   {
     icon: <Award className="w-6 h-6 text-orange-600" />,
-    title: "Awards & Recognition",
+    title: "Rewards & Recognition",
     description:
-      "Our commitment to quality, integrity, and timely delivery has earned industry recognition and client trust. We take pride in building developments that meet high standards and strengthen our reputation as a dependable real estate developer.",
+      "We recognise excellence and value contribution. At Cayana, performance and merit remain the foundation for acknowledgment and career growth.",
     color: "bg-orange-50",
   },
 ];

@@ -120,7 +120,9 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-6 text-[10px] md:text-xs font-bold tracking-[0.2em] text-blue-700 uppercase bg-blue-50
+            className="inline-block px-4 py-1.5 mb-6 text-[10px] md:text-xs font-bold tracking-[0.2em] text-blue-700 uppercase bg-blue-50"
+          />
+        </div>
         <div className="flex md:flex-row flex-col gap-12">
           {/* Left Side: Contact Form */}
           <motion.div
@@ -133,15 +135,11 @@ export default function ContactPage() {
               {/* Name Fields */}
               <div className="gap-4 grid grid-cols-1 lg:grid-cols-2">
                 {/* First Name */}
-                
+
                 <div className="group z-0 relative mt-6 w-full">
-
-
-
                   <input
                     type="text"
                     id="firstName"
-
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder=" "
@@ -296,7 +294,7 @@ export default function ContactPage() {
                   <MdPhone className="mr-2 w-6 h-6 text-blue-500" />
                   <span className="font-bold">Phone</span>
                 </div>
-                <a 
+                <a
                   href="tel:+918908012233"
                   className="text-gray-600 hover:text-blue-500 hover:underline transition-colors cursor-pointer"
                 >
@@ -312,7 +310,7 @@ export default function ContactPage() {
                   <MdEmail className="mr-2 w-6 h-6 text-blue-500" />
                   <span className="font-bold">Email</span>
                 </div>
-                <a 
+                <a
                   href="mailto:support@cayana.co.in"
                   className="text-gray-600 hover:text-blue-500 hover:underline transition-colors cursor-pointer"
                 >
@@ -329,7 +327,7 @@ export default function ContactPage() {
                   <span className="font-bold">Address</span>
                 </div>
                 <p className="text-gray-600 text-sm">
-                  <a 
+                  <a
                     href="https://maps.google.com/?q=N1/187, IRC Village, Nayapalli, Bhubaneswar, Odisha"
                     target="_blank"
                     rel="noopener noreferrer"

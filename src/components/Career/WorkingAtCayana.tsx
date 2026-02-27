@@ -36,7 +36,7 @@ const pillars = [
     icon: <Heart className="w-6 h-6 text-rose-600" />,
     title: "Employee Engagement",
     description:
-      "We believe strong teams are built beyond workspaces. Through collaborative initiatives, knowledge-sharing sessions, team interactions, and milestone celebrations, we foster a culture that values connection and shared growth.",
+      "We promote a balanced work culture through team outings, sports activities, and festive celebrations that strengthen connection and team spirit.",
     color: "bg-rose-50",
   },
 ];

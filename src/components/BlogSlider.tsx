@@ -12,7 +12,7 @@ interface BlogImage {
   coverImage: string;
 }
 
-export interface Blog { 
+export interface Blog {
   id: string;
   images: BlogImage;
   publisherName: string;
@@ -132,19 +132,19 @@ const BlogBentoGridSmall: React.FC = () => {
             ))}
           </motion.div>
           {blogs.length > 6 && (
-          <div className="flex justify-center mt-12">
-            <Link href="/blogs">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group bg-transparent border border-zinc-900 text-zinc-900 
+            <div className="flex justify-center mt-12">
+              <Link href="/blogs">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group bg-transparent border border-zinc-900 text-zinc-900 
                  px-8 py-2 rounded-sm font-semibold flex items-center gap-2 
                  transition-colors duration-300 hover:bg-zinc-900 hover:text-white"
-              >
-                Explore All Blogs
-              </motion.button>
-            </Link>
-          </div>)}
+                >
+                  Explore All Blogs
+                </motion.button>
+              </Link>
+            </div>)}
         </div>
       </section>
     </>

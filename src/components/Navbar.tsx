@@ -88,13 +88,11 @@ const Navbar: React.FC = () => {
     <>
       {/* Top Navbar with Conditional Blur Background */}
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
-          showNavbar ? "translate-y-0" : "-translate-y-full"
-        } ${
-          isScrolled
+        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${showNavbar ? "translate-y-0" : "-translate-y-full"
+          } ${isScrolled
             ? "bg-gradient-to-b from-black/70 to-transparent backdrop-blur-sm"
             : "bg-gradient-to-b from-black/70 to-transparent"
-        }`}
+          }`}
       >
         <div className="flex justify-between items-center mx-auto px-4 py-4 container">
           <Link href="/" className="flex items-center">
@@ -136,14 +134,13 @@ const Navbar: React.FC = () => {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.8, y: 10 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className={`absolute right-0 mt-3 w-80 bg-black/30 ${
-                      !isScrolled ? "backdrop-blur-md" : ""
-                    } border border-white/20 shadow-xl rounded-xl p-4 z-50`}
+                    className={`absolute right-0 mt-3 w-80 bg-black/30 ${!isScrolled ? "backdrop-blur-md" : ""
+                      } border border-white/20 shadow-xl rounded-xl p-4 z-50`}
                   >
                     {/* Phone Section */}
                     <div className="flex items-center space-x-3 mb-2 pb-2 border-gray-200 border-b">
                       <FaPhoneAlt className="w-4 h-4 text-purple-600" />
-                      <a 
+                      <a
                         href="tel:+918908012233"
                         className="font-semibold text-zinc-100 hover:text-blue-300 hover:underline transition-colors cursor-pointer"
                       >
@@ -204,11 +201,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/"
-                    className={`block text-lg font-medium pb-3 transition-colors ${
-                      pathname === "/"
+                    className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/"
                         ? "text-zinc-100"
                         : "text-white hover:text-zinc-400"
-                    }`}
+                      }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
                     HOME
@@ -217,11 +213,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/about"
-                    className={`block text-lg font-medium pb-3 transition-colors ${
-                      pathname === "/about"
+                    className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/about"
                         ? "text-zinc-50"
                         : "text-white hover:text-zinc-400"
-                    }`}
+                      }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
                     ABOUT US
@@ -230,11 +225,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/projects"
-                    className={`block text-lg font-medium pb-3 transition-colors ${
-                      pathname === "/projects"
+                    className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/projects"
                         ? "text-zinc-100"
                         : "text-white hover:text-zinc-400"
-                    }`}
+                      }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
                     PROJECTS
@@ -243,11 +237,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/blogs"
-                    className={`block text-lg font-medium pb-3 transition-colors ${
-                      pathname === "/blogs"
+                    className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/blogs"
                         ? "text-zinc-100"
                         : "text-white hover:text-zinc-400"
-                    }`}
+                      }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
                     BLOGS
@@ -256,11 +249,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/gallery"
-                    className={`block text-lg font-medium pb-3 transition-colors ${
-                      pathname === "/gallery"
+                    className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/gallery"
                         ? "text-zinc-100"
                         : "text-white hover:text-zinc-400"
-                    }`}
+                      }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
                     GALLERY
@@ -269,11 +261,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/careers"
-                    className={`block text-lg font-medium pb-3 transition-colors ${
-                      pathname === "/careers"
+                    className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/careers"
                         ? "text-zinc-100"
                         : "text-white hover:text-zinc-400"
-                    }`}
+                      }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
                     CAREERS
@@ -282,11 +273,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/emi-calculator"
-                    className={`block text-lg font-medium pb-3 transition-colors ${
-                      pathname === "/emi-calculator"
+                    className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/emi-calculator"
                         ? "text-zinc-100"
                         : "text-white hover:text-zinc-400"
-                    }`}
+                      }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
                     EMI CALCULATOR
@@ -295,11 +285,10 @@ const Navbar: React.FC = () => {
                 <motion.li variants={menuItemVariants}>
                   <Link
                     href="/contact"
-                    className={`block text-lg font-medium pb-3 transition-colors ${
-                      pathname === "/contact"
+                    className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/contact"
                         ? "text-zinc-100"
                         : "text-white hover:text-zinc-400"
-                    }`}
+                      }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
                     CONTACT US

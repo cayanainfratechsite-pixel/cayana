@@ -1,13 +1,13 @@
 "use client";
 import Underline from "@/components/Underline";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import img from "../../../public/images/TermsandConditions/termsandcondition2.jpg";
 import { FaQuoteLeft } from "react-icons/fa";
 
 const TermsAndConditions = () => {
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -17,7 +17,7 @@ const TermsAndConditions = () => {
     }
   };
 
-  const sectionVariants = {
+  const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -45,7 +45,7 @@ const TermsAndConditions = () => {
           priority
         />
         <div className="absolute inset-0 bg-black/10" />
-        
+
         {/* Quote Container */}
         <div className="right-0 bottom-0 left-0 absolute bg-black/60 mx-2 md:mx-10 lg:mx-28 mb-2 md:mb-5 px-4 md:px-8 py-1 md:py-5 rounded-lg">
           <motion.div
@@ -79,16 +79,16 @@ const TermsAndConditions = () => {
           <h2 className="font-medium text-zinc-900 text-lg sm:text-xl md:text-2xl uppercase">
             Terms and Conditions
           </h2>
-          <Underline maxWidth="400px"/>
+          <Underline maxWidth="400px" />
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="space-y-6 sm:space-y-8 md:space-y-10"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -98,7 +98,7 @@ const TermsAndConditions = () => {
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -108,7 +108,7 @@ const TermsAndConditions = () => {
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -118,7 +118,7 @@ const TermsAndConditions = () => {
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -128,7 +128,7 @@ const TermsAndConditions = () => {
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -138,7 +138,7 @@ const TermsAndConditions = () => {
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -148,7 +148,7 @@ const TermsAndConditions = () => {
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
@@ -158,13 +158,13 @@ const TermsAndConditions = () => {
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="shadow-sm p-4 sm:p-6 rounded-lg"
             variants={sectionVariants}
           >
             <h2 className="mb-3 sm:mb-4 font-medium text-gray-900 text-lg sm:text-xl">8. Contact Information</h2>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              For any queries regarding these Terms and Conditions, please write to us at <a 
+              For any queries regarding these Terms and Conditions, please write to us at <a
                 href="mailto:support@cayana.co.in"
                 className="text-blue-600 hover:text-blue-800 hover:underline transition-colors cursor-pointer"
               >
