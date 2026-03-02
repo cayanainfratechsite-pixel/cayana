@@ -11,9 +11,9 @@ import {
   FaInstagram,
   FaFacebook,
   FaWhatsapp,
+  FaLinkedin,
 } from "react-icons/fa";
 import { usePathname } from "next/navigation";
-import { FaXTwitter } from "react-icons/fa6";
 
 const Navbar: React.FC = () => {
   const [showCallPopup, setShowCallPopup] = useState(false);
@@ -317,28 +317,28 @@ const Navbar: React.FC = () => {
                 {/* <p className="mb-2 font-bold text-white text-xs">Follow Us :</p> */}
                 <div className="flex space-x-9">
                   <Link
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/cayana_infratech?igsh=dWE3c3Z1N2NxYjI2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <FaInstagram className="w-6 h-6 text-white hover:text-yellow-500 transition-colors" />
                   </Link>
                   <Link
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/share/1C8jTgodqy/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <FaFacebook className="w-6 h-6 text-white hover:text-yellow-500 transition-colors" />
                   </Link>
                   <Link
-                    href="https://twitter.com"
+                    href="https://www.linkedin.com/company/cayana-infratech-pvt-ltd/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <FaXTwitter className="w-6 h-6 text-white hover:text-yellow-500 transition-colors" />
+                    <FaLinkedin className="w-6 h-6 text-white hover:text-yellow-500 transition-colors" />
                   </Link>
                   <Link
-                    href="https://whatsapp.com"
+                    href="https://wa.me/918908012233"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

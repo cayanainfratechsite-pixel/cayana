@@ -213,7 +213,7 @@ const JobOpeningsModern = () => {
                             transition={{ duration: 1, ease: "easeInOut" }}
                             className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-6 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
                         />
-                        <p className="mt-6 text-gray-600 text-center max-w-2xl text-lg">
+                        <p className="mt-6 text-lg text-gray-600 text-center max-w-2xl">
                             Be part of a team that empowers innovation and fosters growth.
                             Find your next challenge and grow with us.
                         </p>

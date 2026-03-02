@@ -126,7 +126,7 @@ const CompanyReviews = () => {
                 </div>
 
                 {/* Content */}
-                <p className="text-slate-700 leading-relaxed mb-8 italic flex-grow">
+                <p className="text-lg text-slate-700 leading-relaxed mb-8 italic flex-grow">
                   "{review.content}"
                 </p>
 
@@ -170,10 +170,10 @@ const CompanyReviews = () => {
                   <TrendingUp className="w-3.5 h-3.5" />
                   <span>AmbitionBox Rating 2025</span>
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 mb-3 leading-tight">
+                <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight">
                   Check out all our <span className="text-blue-600">50+ authentic reviews</span>
                 </h3>
-                <p className="text-slate-600 text-base mb-6 leading-relaxed">
+                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                   We are proud to maintain a high rating on major platforms, reflecting our commitment to creating the best workplace in Odisha.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center lg:justify-start">

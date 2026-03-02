@@ -110,7 +110,7 @@ const WorkingAtCayana = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-base sm:text-lg md:text-xl font-medium text-zinc-900 uppercase mb-6"
+            className="text-xl font-medium text-zinc-900 uppercase mb-6"
           >
             Where Professionals Grow
           </motion.h3>
@@ -120,7 +120,7 @@ const WorkingAtCayana = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-base md:text-lg text-zinc-600 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg text-zinc-600 max-w-3xl mx-auto leading-relaxed"
           >
             Cayana fosters a workplace built on{" "}
             <span className="font-semibold text-zinc-900">trust</span>,{" "}
@@ -155,7 +155,7 @@ const WorkingAtCayana = () => {
               <h3 className="text-xl font-medium text-zinc-900 uppercase mb-4 group-hover:text-blue-600 transition-colors duration-300">
                 {pillar.title}
               </h3>
-              <p className="text-zinc-500 leading-relaxed font-light text-[15px] group-hover:text-zinc-700 transition-colors duration-300">
+              <p className="text-lg text-zinc-500 leading-relaxed font-light group-hover:text-zinc-700 transition-colors duration-300">
                 {pillar.description}
               </p>
             </motion.div>

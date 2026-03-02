@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useRef, useEffect } from "react";
 import { FaFacebookF, FaInstagram, FaYoutube ,FaMapMarkerAlt} from "react-icons/fa";
-import { FaLinkedin, FaXTwitter, FaEnvelope, FaPhone, FaLocationPinLock , FaMap } from "react-icons/fa6";
+import { FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -86,21 +86,14 @@ const Footer: React.FC = () => {
               </p>
               <div className="flex gap-4 mt-6">
                 <Link
-                  href="https://www.facebook.com/profile.php?id=61574770836672"
+                  href="https://www.facebook.com/share/1C8jTgodqy/"
                   aria-label="Facebook"
                   className="bg-white bg-opacity-20 hover:bg-opacity-40 p-2 rounded-full hover:text-[#0553F1] transition"
                 >
                   <FaFacebookF size={18} />
                 </Link>
                 <Link
-                  href="#"
-                  aria-label="Twitter"
-                  className="bg-white bg-opacity-20 hover:bg-opacity-40 p-2 rounded-full hover:text-[#0553F1] transition"
-                >
-                  <FaXTwitter size={18} />
-                </Link>
-                <Link
-                  href="https://www.instagram.com/cayana_infratech/"
+                  href="https://www.instagram.com/cayana_infratech?igsh=dWE3c3Z1N2NxYjI2"
                   aria-label="Instagram"
                   className="bg-white bg-opacity-20 hover:bg-opacity-40 p-2 rounded-full hover:text-[#0553F1] transition"
                 >
@@ -108,14 +101,14 @@ const Footer: React.FC = () => {
                 </Link>
                 <Link
                   href="https://youtu.be/0VCjjqHLy2Y?si=CLYgU_cU9euHtdRG"
-                  aria-label="Instagram"
+                  aria-label="YouTube"
                   className="bg-white bg-opacity-20 hover:bg-opacity-40 p-2 rounded-full hover:text-[#0553F1] transition"
                 >
                   <FaYoutube size={18} />
                 </Link>
                 <Link
                   href="https://www.linkedin.com/company/cayana-infratech-pvt-ltd/"
-                  aria-label="Instagram"
+                  aria-label="LinkedIn"
                   className="bg-white bg-opacity-20 hover:bg-opacity-40 p-2 rounded-full hover:text-[#0553F1] transition"
                 >
                   <FaLinkedin size={18} />

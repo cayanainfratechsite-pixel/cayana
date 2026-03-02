@@ -116,7 +116,7 @@ const LifeAtCayana = () => {
           <motion.div variants={itemVariants} className="col-span-12 md:col-span-6 h-full">
             <div className="relative h-full aspect-video md:aspect-auto rounded-sm overflow-hidden shadow-sm group">
               <Image
-                src="/images/Career/14ba1a0b-06ef-413e-b049-097b3b6113e7.jpg"
+                src="/images/60d68854-6605-4af4-96ec-ad6537891ed0.jpg"
                 alt="Culture"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -130,7 +130,7 @@ const LifeAtCayana = () => {
           <motion.div variants={itemVariants} className="col-span-12 md:col-span-6 h-full">
             <div className="relative aspect-video rounded-sm overflow-hidden shadow-sm group">
               <Image
-                src="/images/60d68854-6605-4af4-96ec-ad6537891ed0.jpg"
+                src="/images/73e92b2c-a781-4b32-8acb-56bddec78a55.jpg"
                 alt="Culture"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -139,13 +139,13 @@ const LifeAtCayana = () => {
           </motion.div>
 
           {/* Block 5: Right Small 1 (Cols 7-9) */}
-          <motion.div variants={itemVariants} className="col-span-6 md:col-span-3 h-full">
+          <motion.div variants={itemVariants} className="col-span-6 md:col-span-3 h-full md:col-start-7">
             <div className="relative aspect-square md:aspect-auto h-full rounded-sm overflow-hidden shadow-sm group">
               <Image
-                src="/images/73e92b2c-a781-4b32-8acb-56bddec78a55.jpg"
+                src="/images/Career/14ba1a0b-06ef-413e-b049-097b3b6113e7.jpg"
                 alt="Culture"
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                className="object-cover object-[60%_center] group-hover:scale-105 transition-transform duration-700"
               />
             </div>
           </motion.div>

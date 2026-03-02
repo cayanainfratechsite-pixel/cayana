@@ -104,7 +104,7 @@ const WhyJoinCayana = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-base md:text-lg text-zinc-600 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg text-zinc-600 max-w-2xl mx-auto leading-relaxed"
           >
             Empowering professionals to build the future of urban living through
             innovation, dedication, and excellence.
@@ -138,7 +138,7 @@ const WhyJoinCayana = () => {
                 <h3 className="text-xl font-medium text-zinc-900 uppercase mb-3 group-hover:text-blue-600 transition-colors duration-300">
                   {reason.title}
                 </h3>
-                <p className="text-zinc-600 leading-relaxed text-[15px]">
+                <p className="text-lg text-zinc-600 leading-relaxed">
                   {reason.description}
                 </p>
               </div>
@@ -165,7 +165,7 @@ const WhyJoinCayana = () => {
                 <h3 className="text-xl font-medium text-zinc-900 uppercase mb-3 group-hover:text-blue-600 transition-colors duration-300">
                   {reasons[4].title}
                 </h3>
-                <p className="text-zinc-600 leading-relaxed text-[15px]">
+                <p className="text-lg text-zinc-600 leading-relaxed">
                   {reasons[4].description}
                 </p>
               </div>
