@@ -109,7 +109,7 @@ const JobOpeningsModern = () => {
     };
 
     const handleApplyClick = (jobId: string) => {
-        router.push(`/careers-new/job/${jobId}`);
+        router.push(`/careers/job/${jobId}`);
     };
 
     const handleGeneralSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
