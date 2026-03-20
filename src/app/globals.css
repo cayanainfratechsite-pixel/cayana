@@ -33,9 +33,24 @@ body {
   background: var(--background);
 }
 
-iframe {
+/* Responsive iframes (like maps/videos) */
+.responsive-iframe,
+.map-container iframe,
+iframe.responsive {
   width: 100% !important;
   height: 100% !important;
+}
+
+/* Fix WhatsApp Widget being cut off on mobile */
+@media (max-width: 480px) {
+  #df-btn-cont, 
+  #preact-border-shadow-host,
+  [class^="df-"], 
+  [class*=" df-"] {
+    max-width: 85vw !important;
+    right: 10px !important;
+    bottom: 10px !important;
+  }
 }
 
 

@@ -83,7 +83,7 @@ const WorkingAtCayana = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase mb-4"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-zinc-900 uppercase mb-4 text-center px-4"
           >
             Working at{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
@@ -126,20 +126,20 @@ const WorkingAtCayana = () => {
                 backgroundColor: "rgba(249, 250, 251, 1)",
                 transition: { duration: 0.3 },
               }}
-              className={`group p-8 bg-zinc-50 border border-zinc-100 rounded-3xl transition-all duration-300 flex items-start space-x-6 shadow-sm hover:shadow-md ${
+              className={`group p-4 sm:p-6 md:p-8 bg-zinc-50 border border-zinc-100 rounded-2xl sm:rounded-3xl transition-all duration-300 flex flex-col md:flex-row items-start gap-4 md:gap-6 shadow-sm hover:shadow-md ${
                 index === 4 ? "md:col-span-2 md:max-w-2xl md:mx-auto" : ""
               }`}
             >
               <div
-                className={`flex-shrink-0 w-14 h-14 ${pillar.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm`}
+                className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 ${pillar.color} rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm`}
               >
                 {pillar.icon}
               </div>
-              <div>
-                <h3 className="text-xl font-medium text-zinc-900 uppercase mb-3 group-hover:text-blue-600 transition-colors duration-300">
+              <div className="min-w-0 flex-1">
+                <h3 className="text-base sm:text-lg md:text-xl font-medium text-zinc-900 uppercase mb-1 sm:mb-2 md:mb-3 group-hover:text-blue-600 transition-colors duration-300 break-words">
                   {pillar.title}
                 </h3>
-                <p className="text-lg text-zinc-600 leading-relaxed">
+                <p className="text-base sm:text-lg text-zinc-600 leading-relaxed overflow-hidden">
                   {pillar.description}
                 </p>
               </div>

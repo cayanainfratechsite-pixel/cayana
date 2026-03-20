@@ -199,7 +199,7 @@ const JobOpeningsModern = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
-                            className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-900 uppercase text-center mb-2"
+                            className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-zinc-900 uppercase text-center mb-2 px-4"
                         >
                             Explore{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
@@ -213,7 +213,7 @@ const JobOpeningsModern = () => {
                             transition={{ duration: 1, ease: "easeInOut" }}
                             className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-6 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
                         />
-                        <p className="mt-6 text-lg text-gray-600 text-center max-w-2xl">
+                        <p className="mt-6 text-base sm:text-lg text-gray-600 text-center max-w-2xl px-4">
                             Be part of a team that empowers innovation and fosters growth.
                             Find your next challenge and grow with us.
                         </p>
@@ -225,17 +225,17 @@ const JobOpeningsModern = () => {
                             {/* Animated Background Glow */}
                             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[30px] blur opacity-10 group-focus-within:opacity-20 transition duration-1000 group-focus-within:duration-200"></div>
 
-                            <div className="relative bg-white/80 backdrop-blur-xl border border-white/20 p-1.5 rounded-[32px] shadow-2xl shadow-blue-500/10">
+                            <div className="relative bg-white/80 backdrop-blur-xl border border-white/20 p-1 md:p-1.5 rounded-full md:rounded-[32px] shadow-2xl shadow-blue-500/10">
                                 <div className="relative flex items-center">
-                                    <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
+                                    <div className="absolute inset-y-0 left-4 md:left-6 flex items-center pointer-events-none">
                                         <Search
-                                            className={`w-6 h-6 transition-all duration-300 ${searchTerm ? "text-blue-600 scale-110" : "text-gray-400 group-focus-within:text-blue-600"}`}
+                                            className={`w-4 h-4 md:w-6 md:h-6 transition-all duration-300 ${searchTerm ? "text-blue-600 scale-110" : "text-gray-400 group-focus-within:text-blue-600"}`}
                                         />
                                     </div>
                                     <input
                                         type="text"
-                                        placeholder="Search for your dream job..."
-                                        className="w-full bg-transparent py-6 pl-16 pr-14 text-zinc-900 outline-none placeholder:text-gray-400 text-xl font-medium"
+                                        placeholder="Search jobs..."
+                                        className="w-full bg-transparent py-2 md:py-6 pl-12 md:pl-16 pr-10 md:pr-14 text-zinc-900 outline-none placeholder:text-gray-400 text-sm md:text-xl font-medium"
                                         value={searchTerm}
                                         onChange={(e) => setSearchTerm(e.target.value)}
                                     />
@@ -317,8 +317,8 @@ const JobOpeningsModern = () => {
                                                 </span>
                                             </div>
 
-                                            <div className="mb-6">
-                                                <h3 className="text-lg font-bold text-zinc-900 group-hover:text-blue-600 transition-colors leading-tight bg-zinc-50 px-4 py-4 rounded-2xl border border-zinc-100 group-hover:border-blue-100 group-hover:bg-blue-50/30">
+                                            <div className="mb-4 sm:mb-6">
+                                                <h3 className="text-base sm:text-lg font-bold text-zinc-900 group-hover:text-blue-600 transition-colors leading-tight bg-zinc-50 px-4 py-4 rounded-xl md:rounded-2xl border border-zinc-100 group-hover:border-blue-100 group-hover:bg-blue-50/30 break-words">
                                                     {job.title}
                                                 </h3>
                                             </div>

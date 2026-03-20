@@ -170,7 +170,7 @@ const LifeAtCayana = () => {
           </motion.div>
 
           <p
-            className="font-serif text-lg sm:text-xl md:text-2xl italic text-center leading-relaxed text-transparent bg-clip-text uppercase tracking-wider"
+            className="font-serif text-base sm:text-lg md:text-xl italic text-center leading-relaxed text-transparent bg-clip-text uppercase tracking-wider"
             style={{ backgroundImage: 'linear-gradient(to right, #60efff, #0061ff)' }}
           >
             "DRIVEN BY PEOPLE. DEFINED BY CULTURE"

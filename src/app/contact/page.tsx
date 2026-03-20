@@ -351,11 +351,12 @@ export default function ContactPage() {
               <div className="shadow-md rounded-lg w-full h-64 sm:h-80 md:h-96 overflow-hidden">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.2636856106005!2d85.80419907599952!3d20.28934988118133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1907ed44015555%3A0xdb602bbf3b479019!2sCayana%20Infratech%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1741291386582!5m2!1sen!2sin"
-                  width="600"
-                  height="450"
+                  width="100%"
+                  height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
+                  className="responsive"
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>

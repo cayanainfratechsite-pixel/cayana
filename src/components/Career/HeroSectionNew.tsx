@@ -35,7 +35,7 @@ const HeroSectionNew = () => {
 
                 {/* Black background container at the bottom of the image */}
                 <div
-                    className="right-0 bottom-0 left-0 absolute bg-black/60 mx-2 md:mx-10 lg:mx-28 mb-2 md:mb-5 px-4 md:px-8 py-1 md:py-5 rounded-lg"
+                    className="right-0 bottom-0 left-0 absolute bg-black/60 mx-4 md:mx-10 lg:mx-28 mb-4 md:mb-5 px-5 md:px-8 py-4 md:py-5 rounded-xl"
                 >
                     <motion.div
                         initial={{ opacity: 0, y: -10 }}
@@ -49,7 +49,7 @@ const HeroSectionNew = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.4 }}
-                        className="m-1 mx-auto font-serif text-zinc-100 text-base sm:text-lg md:text-xl lg:text-2xl text-center"
+                        className="m-1 mx-auto font-serif text-zinc-100 text-sm sm:text-base md:text-xl lg:text-2xl text-center leading-relaxed"
                     >
                         Build Spaces. Build Futures. Build Your Career.
                     </motion.p>

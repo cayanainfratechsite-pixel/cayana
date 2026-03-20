@@ -66,7 +66,7 @@ const CompanyReviews = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-lg sm:text-xl md:text-2xl font-medium text-slate-900 uppercase mb-2"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-slate-900 uppercase mb-2 text-center"
           >
             What Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
@@ -87,7 +87,7 @@ const CompanyReviews = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-4"
           >
             Real feedback from our talented professionals who drive Cayana Infratech forward every day.
           </motion.p>
@@ -102,7 +102,7 @@ const CompanyReviews = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative bg-white rounded-3xl p-8 shadow-sm border border-slate-200/60 hover:shadow-xl hover:border-blue-200 transition-all duration-500 flex flex-col h-full"
+              className="group relative bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/60 hover:shadow-xl hover:border-blue-200 transition-all duration-500 flex flex-col h-full"
             >
               {/* Quote Icon Decoration */}
               <div className="absolute top-6 right-8 text-slate-100 group-hover:text-blue-50 transition-colors duration-500 -z-0">
@@ -126,7 +126,7 @@ const CompanyReviews = () => {
                 </div>
 
                 {/* Content */}
-                <p className="text-lg text-slate-700 leading-relaxed mb-8 italic flex-grow">
+                <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-8 italic flex-grow">
                   "{review.content}"
                 </p>
 
@@ -170,10 +170,10 @@ const CompanyReviews = () => {
                   <TrendingUp className="w-3.5 h-3.5" />
                   <span>AmbitionBox Rating 2025</span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 leading-tight">
                   Check out all our <span className="text-blue-600">50+ authentic reviews</span>
                 </h3>
-                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                <p className="text-base sm:text-lg text-slate-600 mb-6 leading-relaxed">
                   We are proud to maintain a high rating on major platforms, reflecting our commitment to creating the best workplace in Odisha.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
