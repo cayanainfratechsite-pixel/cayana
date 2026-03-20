@@ -60,7 +60,7 @@ const LifeAtCayana = () => {
             whileInView={{ width: "80px" }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-6 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
+            className="h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-6 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
           />
         </div>
 
@@ -72,13 +72,11 @@ const LifeAtCayana = () => {
           viewport={{ once: true }}
           className="grid grid-cols-12 gap-3 md:gap-4"
         >
-          {/* TOP ROW */}
-
           {/* Block 1: Left Stack (Cols 1-3) */}
           <div className="col-span-12 md:col-span-3 flex flex-col gap-3 md:gap-4">
             <motion.div
               variants={itemVariants}
-              className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-sm group"
+              className="relative aspect-video rounded-sm overflow-hidden shadow-sm group"
             >
               <Image
                 src="/images/DSC_9697.JPG (1).jpeg"
@@ -89,7 +87,7 @@ const LifeAtCayana = () => {
             </motion.div>
             <motion.div
               variants={itemVariants}
-              className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-sm group"
+              className="relative aspect-video rounded-sm overflow-hidden shadow-sm group"
             >
               <Image
                 src="/images/ed629296-76c4-48a4-9304-d3777b1bfbc2.jpg"
@@ -100,9 +98,9 @@ const LifeAtCayana = () => {
             </motion.div>
           </div>
 
-          {/* Block 2: Middle Tall (Cols 4-6) */}
+          {/* Block 2: Middle (Cols 4-6) */}
           <motion.div variants={itemVariants} className="col-span-12 md:col-span-3 h-full">
-            <div className="relative h-full aspect-[3/4] md:aspect-auto rounded-sm overflow-hidden shadow-sm group">
+            <div className="relative h-full aspect-video md:aspect-auto rounded-sm overflow-hidden shadow-sm group">
               <Image
                 src="/images/DSC_9374.JPG (2).jpeg"
                 alt="Culture"
@@ -112,11 +110,11 @@ const LifeAtCayana = () => {
             </div>
           </motion.div>
 
-          {/* Block 3: Right Wide (Cols 7-12) */}
+          {/* Block 3: Big Group Photo (Cols 7-12) */}
           <motion.div variants={itemVariants} className="col-span-12 md:col-span-6 h-full">
             <div className="relative h-full aspect-video md:aspect-auto rounded-sm overflow-hidden shadow-sm group">
               <Image
-                src="/images/60d68854-6605-4af4-96ec-ad6537891ed0.jpg"
+                src="/images/DSC_9944.JPG.jpg.jpeg"
                 alt="Culture"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -124,10 +122,11 @@ const LifeAtCayana = () => {
             </div>
           </motion.div>
 
-          {/* BOTTOM ROW */}
-
-          {/* Block 4: Left Wide (Cols 1-6) */}
-          <motion.div variants={itemVariants} className="col-span-12 md:col-span-6 h-full">
+          {/* Block 4: Bottom Row Left (Cols 1-6) */}
+          <motion.div
+            variants={itemVariants}
+            className="col-span-12 md:col-span-6"
+          >
             <div className="relative aspect-video rounded-sm overflow-hidden shadow-sm group">
               <Image
                 src="/images/73e92b2c-a781-4b32-8acb-56bddec78a55.jpg"
@@ -138,21 +137,12 @@ const LifeAtCayana = () => {
             </div>
           </motion.div>
 
-          {/* Block 5: Right Small 1 (Cols 7-9) */}
-          <motion.div variants={itemVariants} className="col-span-6 md:col-span-3 h-full md:col-start-7">
-            <div className="relative aspect-square md:aspect-auto h-full rounded-sm overflow-hidden shadow-sm group">
-              <Image
-                src="/images/Career/14ba1a0b-06ef-413e-b049-097b3b6113e7.jpg"
-                alt="Culture"
-                fill
-                className="object-cover object-[60%_center] group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-          </motion.div>
-
-          {/* Block 6: Right Small 2 (Cols 10-12) */}
-          <motion.div variants={itemVariants} className="col-span-6 md:col-span-3 h-full">
-            <div className="relative aspect-square md:aspect-auto h-full rounded-sm overflow-hidden shadow-sm group">
+          {/* Block 5: Bottom Row Right (Cols 7-12) */}
+          <motion.div
+            variants={itemVariants}
+            className="col-span-12 md:col-span-6"
+          >
+            <div className="relative aspect-video rounded-sm overflow-hidden shadow-sm group">
               <Image
                 src="/images/2a90011b-aea7-412d-b1ac-600e2bd97931.jpg"
                 alt="Culture"

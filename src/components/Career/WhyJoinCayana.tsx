@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Handshake, Lightbulb, TrendingUp, Trophy, Award } from "lucide-react";
+import { Handshake, Lightbulb, TrendingUp, Trophy, Award, Users } from "lucide-react";
 
 const reasons = [
   {
@@ -38,6 +38,13 @@ const reasons = [
     description:
       "We recognise excellence and value contribution. At Cayana, performance and merit remain the foundation for acknowledgment and career growth.",
     color: "bg-orange-50",
+  },
+  {
+    icon: <Users className="w-6 h-6 text-violet-600" />,
+    title: "Long-Term Careers",
+    description:
+      "Many of our team members have grown with Cayana for years, reflecting the trust, stability, and opportunities we provide.",
+    color: "bg-violet-50",
   },
 ];
 
@@ -96,7 +103,7 @@ const WhyJoinCayana = () => {
             whileInView={{ width: "80px" }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            className="h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-6 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
+            className="h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full mb-6 shadow-[0_2px_10px_rgba(37,99,235,0.1)]"
           />
 
           <motion.p
@@ -118,7 +125,7 @@ const WhyJoinCayana = () => {
           viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 justify-center"
         >
-          {reasons.slice(0, 4).map((reason, index) => (
+          {reasons.map((reason, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
@@ -144,33 +151,6 @@ const WhyJoinCayana = () => {
               </div>
             </motion.div>
           ))}
-
-          {/* Centered 5th Item */}
-          <div className="md:col-span-2 flex justify-center">
-            <motion.div
-              variants={itemVariants}
-              whileHover={{
-                y: -10,
-                backgroundColor: "rgba(249, 250, 251, 1)",
-                transition: { duration: 0.3 },
-              }}
-              className="group p-8 bg-zinc-50 border border-zinc-100 rounded-3xl transition-all duration-300 flex items-start space-x-6 shadow-sm hover:shadow-md w-full md:max-w-[70%] lg:max-w-[65%]"
-            >
-              <div
-                className={`flex-shrink-0 w-14 h-14 ${reasons[4].color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm`}
-              >
-                {reasons[4].icon}
-              </div>
-              <div>
-                <h3 className="text-xl font-medium text-zinc-900 uppercase mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                  {reasons[4].title}
-                </h3>
-                <p className="text-lg text-zinc-600 leading-relaxed">
-                  {reasons[4].description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
         </motion.div>
       </div>
     </section>

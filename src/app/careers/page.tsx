@@ -1,17 +1,25 @@
 "use client";
-import HeroSection from "@/components/Career/HeroSection";
-import JoinOurTeam from "@/components/Career/JoinOurTeam";
-import CultureGrowth from "@/components/Career/CultureGrowth";
-import JobOppening from "@/components/Career/JobOppening";
+import HeroSection from "@/components/Career/HeroSectionNew";
+import JobOppeningNew from "@/components/Career/JobOppeniNew";
+import LifeAtCayana from "@/components/Career/LifeAtCayana";
+import WhyJoinCayana from "@/components/Career/WhyJoinCayana";
+import WorkingAtCayana from "@/components/Career/WorkingAtCayana";
+import CompanyReviews from "@/components/Career/CompanyReviews";
+import JobOpeningsModern from "@/components/Career/JobOpeningsModern";
 
 const CareerPage = () => {
   return (
-    <div className="bg-gray-100">
+    <main className="min-h-screen bg-white overflow-x-hidden">
       <HeroSection />
-      <JoinOurTeam />
-      <CultureGrowth />
-      <JobOppening />
-    </div>
+      <div className="space-y-0">
+        <WorkingAtCayana />
+        <LifeAtCayana />
+        <WhyJoinCayana />
+        <CompanyReviews />
+        {/* <JobOppeningNew /> */}
+        <JobOpeningsModern />
+      </div>
+    </main>
   );
 };
 
