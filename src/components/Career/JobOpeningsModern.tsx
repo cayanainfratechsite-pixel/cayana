@@ -79,16 +79,25 @@ const JobOpeningsModern = () => {
     useEffect(() => {
         const fetchJobPostsData = async () => {
             setLoading(true);
+            setError(null);
             try {
-                const data: JobPostsResponse = await fetchJobPosts(page);
-                if (data.success == 0) {
+                const response = await fetchJobPosts(page);
+                
+                // Be inclusive with success codes as backend might be inconsistent (0 or 1)
+                const isSuccess = response && (response.data?.success === 0 || response.data?.success === 1 || response.success === 0 || response.success === 1);
+                const data = response.data || response;
+
+                if (isSuccess && data.result?.jobs) {
                     setJobPosts(data.result.jobs);
-                    setTotalPages(data.result.totalPages);
+                    setTotalPages(data.result.totalPages || 1);
+                } else if (!isSuccess) {
+                    setError(data?.message || "Failed to fetch job posts");
                 } else {
-                    setError(data.message || "Failed to fetch jobs");
+                    setError("Invalid response format from server");
                 }
             } catch (error) {
-                setError(error instanceof Error ? error.message : "An error occurred");
+                console.error("Fetch job posts error:", error);
+                setError(error instanceof Error ? error.message : "An unexpected error occurred while fetching jobs");
             } finally {
                 setLoading(false);
             }
