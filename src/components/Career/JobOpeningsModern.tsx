@@ -279,10 +279,11 @@ const JobOpeningsModern = () => {
                                     <X className="w-8 h-8 text-red-600" />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                                    Oops! Something went wrong
+                                    We'll be back soon!
                                 </h3>
-                                <p className="text-red-600 font-medium mb-8 max-w-md mx-auto">
-                                    {error}
+                                <p className="text-gray-600 font-medium mb-8 max-w-md mx-auto">
+                                    We're currently performing a quick update to this section. 
+                                    Please check back in a few minutes.
                                 </p>
                                 <button
                                     onClick={() => window.location.reload()}

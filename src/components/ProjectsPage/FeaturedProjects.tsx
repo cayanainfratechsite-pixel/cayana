@@ -47,7 +47,7 @@ const FeaturedProjects: React.FC = () => {
       setError(null);
       try {
         const response = await fetchProjects(page);
-        
+
         // Handle both nested and direct data structures
         const data = response.data || response;
         const isSuccess = response && (response.data?.success === 0 || response.data?.success === 1 || response.success === 0 || response.success === 1);
