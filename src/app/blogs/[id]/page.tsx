@@ -56,9 +56,13 @@ const Page: React.FC = () => {
   useEffect(() => {
     const getBlog = async () => {
       if (id) {
+        setLoading(true);
         try {
           const response = await fetchBlogById(id);
-          if (response.success === 0 && response.result) {
+          const isSuccess = response && (response.success === 0 || response.success === 1);
+          const data = response;
+
+          if (isSuccess && data.result) {
             const {
               images,
               publisherName,
@@ -67,7 +71,7 @@ const Page: React.FC = () => {
               approxReadTime,
               publishedDate,
               modifiedDate,
-            } = response.result;
+            } = data.result;
             setBlog({
               id,
               cardImage: images?.cardImage || "",
@@ -81,10 +85,12 @@ const Page: React.FC = () => {
               modifiedDate,
             });
           } else {
+            console.warn("Blog fetch unsuccessful:", data?.message);
             setBlog(null);
           }
         } catch (error) {
           console.error("Error fetching blog:", error);
+          setBlog(null);
         } finally {
           setLoading(false);
         }

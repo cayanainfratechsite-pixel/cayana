@@ -236,11 +236,16 @@ const Page: React.FC = () => {
   const [enquiryOpen, setEnquiryOpen] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`https://backend.cayana.co.in/api/v1/project/${id}`)
       .then((response) => {
-        if (response.data.success === 0) {
-          setProject(response.data.result);
+        const data = response.data;
+        const isSuccess = data && (data.success === 0 || data.success === 1);
+        if (isSuccess && data.result) {
+          setProject(data.result);
+        } else {
+          console.warn("Project fetch unsuccessful:", data?.message);
         }
       })
       .catch((error) => console.error("Error fetching project:", error))

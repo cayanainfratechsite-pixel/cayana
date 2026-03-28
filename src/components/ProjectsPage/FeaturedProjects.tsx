@@ -43,13 +43,26 @@ const FeaturedProjects: React.FC = () => {
 
   useEffect(() => {
     const fetchAllProjects = async () => {
+      setLoading(true);
+      setError(null);
       try {
-        const data = await fetchProjects(page);
-        setProjects(data.result.projects);
-        setTotalPages(data.result.totalPages);
+        const response = await fetchProjects(page);
+        
+        // Handle both nested and direct data structures
+        const data = response.data || response;
+        const isSuccess = response && (response.data?.success === 0 || response.data?.success === 1 || response.success === 0 || response.success === 1);
+
+        if (isSuccess && data.result?.projects) {
+          setProjects(data.result.projects);
+          setTotalPages(data.result.totalPages || 1);
+        } else if (!isSuccess) {
+          setError(data?.message || "Failed to fetch projects");
+        } else {
+          setError("Invalid response format from server");
+        }
       } catch (err) {
         console.error("Error fetching projects:", err);
-        setError("Error fetching projects.");
+        setError("Error fetching projects: " + (err instanceof Error ? err.message : "Unexpected error"));
       } finally {
         setLoading(false);
       }

@@ -61,11 +61,15 @@ const JobOppeningNew = () => {
       setLoading(true);
       setError(null);
       try {
-        const data: JobPostsResponse = await fetchJobPosts(page);
-        if (data.success == 0) {
+        const response = await fetchJobPosts(page);
+        
+        const isSuccess = response && (response.data?.success === 0 || response.data?.success === 1 || response.success === 0 || response.success === 1);
+        const data = response.data || response;
+
+        if (isSuccess && data.result?.jobs) {
           const allJobs = data.result.jobs;
           if (id) {
-            const job = allJobs.find((j) => j._id === id);
+            const job = allJobs.find((j: JobPosts) => j._id === id);
             if (job) {
               setJobPosts([job]);
               setSelectedJobId(job._id);
@@ -77,13 +81,16 @@ const JobOppeningNew = () => {
             }
           } else {
             setJobPosts(allJobs);
-            setTotalPages(data.result.totalPages);
+            setTotalPages(data.result.totalPages || 1);
           }
+        } else if (!isSuccess) {
+          setError(data?.message || "Failed to fetch job posts");
         } else {
-          setError(data.message || "Failed to fetch jobs");
+          setError("Invalid response format from server");
         }
       } catch (error) {
-        setError(error instanceof Error ? error.message : "An error occurred");
+        console.error("Fetch job posts error:", error);
+        setError(error instanceof Error ? error.message : "An unexpected error occurred while fetching jobs");
       } finally {
         setLoading(false);
       }

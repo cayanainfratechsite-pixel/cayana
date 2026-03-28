@@ -54,18 +54,28 @@ const BlogBentoGridSmall: React.FC = () => {
   const [page, setPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
 
-  useEffect(() => {
+    useEffect(() => {
     const fetchBlogsData = async () => {
+      setLoading(true);
+      setError(null);
       try {
-        const data: BlogResponse = await fetchBlogsHome(page);
-        if (data.success === 0) {
+        const response = await fetchBlogsHome(page);
+        
+        // Handle potentially nested or non-nested response
+        const data = response.data || response;
+        const isSuccess = response && (response.data?.success === 0 || response.data?.success === 1 || response.success === 0 || response.success === 1);
+
+        if (isSuccess && data.result?.blogs) {
           setBlogs(data.result.blogs);
-          setTotalPages(data.result.totalPages);
+          setTotalPages(data.result.totalPages || 1);
+        } else if (!isSuccess) {
+          setError(data?.message || "Failed to fetch blogs");
         } else {
-          setError(data.message || "An error a occurred");
+          setError("Invalid response format from server");
         }
       } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred");
+        console.error("Fetch blogs error:", err);
+        setError(err instanceof Error ? err.message : "An unexpected error occurred while fetching blogs");
       } finally {
         setLoading(false);
       }
