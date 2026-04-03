@@ -18,7 +18,7 @@ export interface JobPosts {
     title: string;
     description: string;
     location?: string;
-    type?: string;
+    jobType?: string;
     experience?: string;
 }
 
@@ -329,7 +329,7 @@ const JobOpeningsModern = () => {
                                         <div className="relative">
                                             <div className="flex justify-between items-start mb-6">
                                                 <span className="px-3 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold rounded-full uppercase tracking-widest border border-blue-100">
-                                                    {job.type || "Full Time"}
+                                                    {job.jobType}
                                                 </span>
                                             </div>
 
