@@ -82,7 +82,7 @@ const JobOpeningsModern = () => {
             setError(null);
             try {
                 const response = await fetchJobPosts(page);
-                
+
                 // Be inclusive with success codes as backend might be inconsistent (0 or 1)
                 const isSuccess = response && (response.data?.success === 0 || response.data?.success === 1 || response.success === 0 || response.success === 1);
                 const data = response.data || response;
@@ -282,7 +282,7 @@ const JobOpeningsModern = () => {
                                     We'll be back soon!
                                 </h3>
                                 <p className="text-gray-600 font-medium mb-8 max-w-md mx-auto">
-                                    We're currently performing a quick update to this section. 
+                                    We're currently performing a quick update to this section.
                                     Please check back in a few minutes.
                                 </p>
                                 <button

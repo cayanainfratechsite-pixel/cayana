@@ -13,15 +13,34 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useParams } from "next/navigation";
-import { fetchJobPosts, submitJobApplication } from "@/api/jobPosts/page";
+import { fetchJobPosts, fetchJobPostById, submitJobApplication } from "@/api/jobPosts/page";
 
 export interface JobPosts {
   _id: string;
   title: string;
   description: string;
   location?: string | { city?: string; headquarters?: string; type?: string };
-  type?: string;
-  experience?: string;
+  jobType?: string;
+  type?: string; // fallback for current usage
+  experience?: string | { min?: number; max?: number };
+  salary?: {
+    min?: number;
+    max?: number;
+    currency?: string;
+    period?: string;
+  };
+  requirements?: {
+    experience?: { min?: number; max?: number };
+    education?: string;
+    preferredEducation?: string;
+    skills?: string[];
+    materialKnowledge?: string[];
+  };
+  responsibilities?: string[];
+  benefits?: string[];
+  traits?: string[];
+  industry?: string;
+  whyJoinUs?: string;
 }
 
 interface JobPostsResponse {
@@ -61,35 +80,43 @@ const JobOppeningNew = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetchJobPosts(page);
+        if (id) {
+          // Fetch specific job by ID
+          const response = await fetchJobPostById(id);
+          const isSuccess = response && (response.success === 0 || response.success === 1);
+          const data = response.data || response;
 
-        const isSuccess = response && (response.data?.success === 0 || response.data?.success === 1 || response.success === 0 || response.success === 1);
-        const data = response.data || response;
-
-        if (isSuccess && data.result?.jobs) {
-          const allJobs = data.result.jobs;
-          if (id) {
-            const job = allJobs.find((j: JobPosts) => j._id === id);
-            if (job) {
-              setJobPosts([job]);
-              setSelectedJobId(job._id);
-              setSelectedJobTitle(job.title);
-              setTotalPages(0);
-            } else {
-              setJobPosts([]);
-              setError("Job details not found");
-            }
+          if (isSuccess && data.result) {
+            const job = data.result;
+            setJobPosts([job]);
+            setSelectedJobId(job._id);
+            setSelectedJobTitle(job.title);
+            setTotalPages(0);
           } else {
-            setJobPosts(allJobs);
-            setTotalPages(data.result.totalPages || 1);
+            setError(data?.message || "Job details not found");
+            setJobPosts([]);
           }
-        } else if (!isSuccess) {
-          setError(data?.message || "Failed to fetch job posts");
         } else {
-          setError("Invalid response format from server");
+          // Fetch all jobs for listing
+          const response = await fetchJobPosts(page);
+          const isSuccess = response && (response.data?.success === 0 || response.data?.success === 1 || response.success === 0 || response.success === 1 || response.status === 200);
+          const data = response.data || response;
+
+          if (isSuccess && data.result?.jobs) {
+            setJobPosts(data.result.jobs);
+            setTotalPages(data.result.totalPages || 1);
+          } else if (data.result && !data.result.jobs && Array.isArray(data.result)) {
+            // Fallback for different list format
+            setJobPosts(data.result);
+            setTotalPages(1);
+          } else if (!isSuccess) {
+            setError(data?.message || "Failed to fetch job posts");
+          } else {
+            setError("Invalid response format from server");
+          }
         }
       } catch (error) {
-        console.error("Fetch job posts error:", error);
+        console.error("Fetch job data error:", error);
         setError(error instanceof Error ? error.message : "An unexpected error occurred while fetching jobs");
       } finally {
         setLoading(false);
@@ -304,7 +331,7 @@ const JobOppeningNew = () => {
                       <span className="px-4 py-1.5 bg-blue-50 text-blue-700 text-xs font-bold rounded-full uppercase tracking-wider">
                         {typeof job.location === "object" && job.location?.type
                           ? job.location.type
-                          : job.type || "Full Time"}
+                          : job.jobType || job.type || "Full Time"}
                       </span>
                     </div>
 
@@ -319,7 +346,11 @@ const JobOppeningNew = () => {
                       </div>
                       <div className="flex items-center gap-1.5">
                         <Clock className="w-4 h-4 text-gray-400" />
-                        <span>Experience: {job.experience || "2-5 Yrs"}</span>
+                        <span>Experience: {
+                          typeof job.experience === 'object' && job.experience !== null
+                            ? `${job.experience.min}-${job.experience.max} Yrs`
+                            : job.experience || "2-5 Yrs"
+                        }</span>
                       </div>
                     </div>
 
@@ -329,19 +360,31 @@ const JobOppeningNew = () => {
                           What you will do
                         </h4>
                         <div className="text-gray-600 space-y-3">
-                          {job.description
-                            .split(/(?:\d+\.\s*|•)/)
-                            .filter((p) => p.trim())
-                            .slice(0, 12)
-                            .map((p, i) => (
+                          {job.responsibilities && job.responsibilities.length > 0 ? (
+                            job.responsibilities.map((resp, i) => (
                               <p
                                 key={i}
                                 className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed"
                               >
                                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                                {p.trim()}
+                                {resp}
                               </p>
-                            ))}
+                            ))
+                          ) : (
+                            job.description
+                              .split(/(?:\d+\.\s*|•)/)
+                              .filter((p) => p.trim())
+                              .slice(0, 12)
+                              .map((p, i) => (
+                                <p
+                                  key={i}
+                                  className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed"
+                                >
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                                  {p.trim()}
+                                </p>
+                              ))
+                          )}
                         </div>
                       </div>
 
@@ -355,29 +398,61 @@ const JobOppeningNew = () => {
                           What we expect
                         </h4>
                         <div className="text-gray-600 space-y-3">
-                          <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                            3+ years of professional experience in a similar
-                            role.
-                          </p>
-                          <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                            Strong analytical and creative problem-solving
-                            skills.
-                          </p>
-                          <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                            Excellent communication and team collaboration
-                            abilities.
-                          </p>
-                          <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                            Proven track record of delivering high-quality work
-                            in fast-paced environments.
-                          </p>
+                          {job.requirements ? (
+                            <>
+                              {job.requirements.skills && job.requirements.skills.length > 0 && (
+                                <div className="mb-4">
+                                  <p className="text-sm font-semibold text-gray-700 mb-2">Technical Skills:</p>
+                                  <div className="flex flex-wrap gap-2">
+                                    {job.requirements.skills.map((skill, i) => (
+                                      <span key={i} className="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                                        {skill}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                              <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                                Education: {job.requirements.education}
+                                {job.requirements.preferredEducation ? ` (Preferred: ${job.requirements.preferredEducation})` : ""}
+                              </p>
+                              {job.requirements.materialKnowledge && job.requirements.materialKnowledge.length > 0 && (
+                                <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                                  Knowledge of: {job.requirements.materialKnowledge.join(", ")}
+                                </p>
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                                3+ years of professional experience in a similar
+                                role.
+                              </p>
+                              <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                                Strong analytical and creative problem-solving
+                                skills.
+                              </p>
+                              <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                                Excellent communication and team collaboration
+                                abilities.
+                              </p>
+                              <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                                Proven track record of delivering high-quality work
+                                in fast-paced environments.
+                              </p>
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>
+
+
                   </div>
 
                   {!id && (
