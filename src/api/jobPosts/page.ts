@@ -54,4 +54,14 @@ export const submitJobApplication = async (formData: FormData) => {
   }
 }
 
+export const applyJobsRandom = async (formData: FormData) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/job/apply-jobs-random`, formData);
+    return response;
+  } catch (error) {
+    console.error("Error submitting general application:", error);
+    throw error;
+  }
+}
+
 

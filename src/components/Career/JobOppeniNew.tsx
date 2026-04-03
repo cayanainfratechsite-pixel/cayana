@@ -11,6 +11,9 @@ import {
   Briefcase,
   Clock,
   ChevronRight,
+  Building2,
+  Wallet,
+  Home,
 } from "lucide-react";
 import { useParams } from "next/navigation";
 import { fetchJobPosts, fetchJobPostById, submitJobApplication } from "@/api/jobPosts/page";
@@ -41,6 +44,8 @@ export interface JobPosts {
   traits?: string[];
   industry?: string;
   whyJoinUs?: string;
+  company?: string;
+  stayRequired?: boolean;
 }
 
 interface JobPostsResponse {
@@ -324,132 +329,216 @@ const JobOppeningNew = () => {
                   className="group bg-white p-8 rounded-[32px] border border-gray-100 hover:border-blue-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-base sm:text-lg md:text-xl font-medium text-gray-900 uppercase group-hover:text-blue-600 transition-colors">
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-6">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 uppercase group-hover:text-blue-600 transition-colors leading-tight">
                         {job.title}
                       </h3>
-                      <span className="px-4 py-1.5 bg-blue-50 text-blue-700 text-xs font-bold rounded-full uppercase tracking-wider">
-                        {typeof job.location === "object" && job.location?.type
-                          ? job.location.type
-                          : job.jobType || job.type || "Full Time"}
-                      </span>
+                      <div className="flex flex-wrap gap-2 sm:shrink-0">
+                        <span className="px-4 py-1.5 bg-blue-50 text-blue-700 text-[10px] font-bold rounded-full uppercase tracking-wider border border-blue-100">
+                          {job.jobType || job.type || "Full Time"}
+                        </span>
+                        {typeof job.location === "object" && job.location?.type && (
+                          <span className="px-4 py-1.5 bg-slate-50 text-slate-600 text-[10px] font-bold rounded-full uppercase tracking-wider border border-slate-100">
+                            {job.location.type}
+                          </span>
+                        )}
+                      </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-4 mb-6 text-sm text-gray-500">
-                      <div className="flex items-center gap-1.5">
-                        <MapPin className="w-4 h-4 text-gray-400" />
-                        <span>
-                          {typeof job.location === "object" && job.location !== null
-                            ? job.location.city || "Remote / Office"
-                            : job.location || "Remote / Office"}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Clock className="w-4 h-4 text-gray-400" />
-                        <span>Experience: {
-                          typeof job.experience === 'object' && job.experience !== null
-                            ? `${job.experience.min}-${job.experience.max} Yrs`
-                            : job.experience || "2-5 Yrs"
-                        }</span>
-                      </div>
+                    <div className="flex flex-wrap gap-x-6 gap-y-4 mb-8 text-xs sm:text-sm text-gray-500 font-medium">
+                      {job.company && (
+                        <div className="flex items-center gap-2">
+                          <Building2 className="w-5 h-5 text-blue-500" />
+                          <span className="text-gray-900 font-bold">{job.company}</span>
+                        </div>
+                      )}
+
+                      {job.location && (
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-5 h-5 text-gray-400" />
+                          <span className="text-gray-700">
+                            {typeof job.location === "object"
+                              ? `${job.location.city || ""}${job.location.city && job.location.headquarters ? " (HQ " + job.location.headquarters + ")" : job.location.headquarters || ""}`
+                              : job.location}
+                          </span>
+                        </div>
+                      )}
+
+                      {(job.requirements?.experience || job.experience) && (
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-5 h-5 text-gray-400" />
+                          <span className="text-gray-700">
+                            Experience: {
+                              job.requirements?.experience
+                                ? `${job.requirements.experience.min}-${job.requirements.experience.max} Yrs`
+                                : typeof job.experience === 'object' && job.experience !== null
+                                  ? `${job.experience.min}-${job.experience.max} Yrs`
+                                  : job.experience
+                            }
+                          </span>
+                        </div>
+                      )}
+
+                      {job.industry && (
+                        <div className="flex items-center gap-2">
+                          <Briefcase className="w-5 h-5 text-gray-400" />
+                          <span className="text-gray-700">{job.industry}</span>
+                        </div>
+                      )}
+
+                      {job.salary && (job.salary.min || job.salary.max) && (
+                        <div className="flex items-center gap-2">
+                          <Wallet className="w-5 h-5 text-blue-500" />
+                          <span className="text-gray-700">
+                            Salary: {job.salary.currency || "₹"} {job.salary.min ? job.salary.min.toLocaleString() : ""}
+                            {job.salary.min && job.salary.max ? " – " : ""}
+                            {job.salary.max ? job.salary.max.toLocaleString() : ""} {job.salary.period || ""}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
-                      <div>
-                        <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-[0.2em] mb-6">
-                          What you will do
-                        </h4>
-                        <div className="text-gray-600 space-y-3">
-                          {job.responsibilities && job.responsibilities.length > 0 ? (
-                            job.responsibilities.map((resp, i) => (
-                              <p
-                                key={i}
-                                className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed"
-                              >
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                                {resp}
-                              </p>
-                            ))
-                          ) : (
-                            job.description
-                              .split(/(?:\d+\.\s*|•)/)
-                              .filter((p) => p.trim())
-                              .slice(0, 12)
-                              .map((p, i) => (
-                                <p
-                                  key={i}
-                                  className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed"
-                                >
+                      {/* Responsibilities */}
+                      {(job.responsibilities?.length || job.description) && (
+                        <div>
+                          <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-[0.2em] mb-6">
+                            Key Responsibilities
+                          </h4>
+                          <div className="text-gray-600 space-y-3">
+                            {job.responsibilities && job.responsibilities.length > 0 ? (
+                              job.responsibilities.map((resp, i) => (
+                                <p key={i} className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
                                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                                  {p.trim()}
+                                  {resp}
                                 </p>
                               ))
-                          )}
+                            ) : (
+                              <p className="text-sm leading-relaxed">{job.description}</p>
+                            )}
+                          </div>
                         </div>
-                      </div>
+                      )}
 
+                      {/* Requirements */}
                       <div className="relative">
-                        {/* Vertical Divider for Desktop */}
                         <div className="hidden md:block absolute -left-5 top-0 bottom-0 w-px bg-gray-100"></div>
-                        {/* Horizontal Divider for Mobile */}
                         <div className="md:hidden h-px bg-gray-100 w-full mb-8"></div>
 
-                        <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-[0.2em] mb-6">
-                          What we expect
-                        </h4>
-                        <div className="text-gray-600 space-y-3">
-                          {job.requirements ? (
-                            <>
+                        {job.requirements && (
+                          <>
+                            <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-[0.2em] mb-6">
+                              What we expect
+                            </h4>
+                            <div className="text-gray-600 space-y-4">
+                              {job.requirements.education && (
+                                <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                                  <span>
+                                    <span className="font-semibold">Education:</span> {job.requirements.education}
+                                    {job.requirements.preferredEducation && ` (Preferred: ${job.requirements.preferredEducation})`}
+                                  </span>
+                                </p>
+                              )}
+
                               {job.requirements.skills && job.requirements.skills.length > 0 && (
-                                <div className="mb-4">
-                                  <p className="text-sm font-semibold text-gray-700 mb-2">Technical Skills:</p>
-                                  <div className="flex flex-wrap gap-2">
-                                    {job.requirements.skills.map((skill, i) => (
-                                      <span key={i} className="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                                        {skill}
-                                      </span>
-                                    ))}
+                                <div className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
+                                  <div>
+                                    <span className="font-semibold">Skills:</span>
+                                    <div className="flex flex-wrap gap-2 mt-2">
+                                      {job.requirements.skills.map((skill, i) => (
+                                        <span key={i} className="px-3 py-1 bg-gray-100 text-gray-600 text-[11px] font-medium rounded-full border border-gray-200">
+                                          {skill}
+                                        </span>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               )}
-                              <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                                Education: {job.requirements.education}
-                                {job.requirements.preferredEducation ? ` (Preferred: ${job.requirements.preferredEducation})` : ""}
-                              </p>
+
                               {job.requirements.materialKnowledge && job.requirements.materialKnowledge.length > 0 && (
-                                <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
+                                <div className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
                                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                                  Knowledge of: {job.requirements.materialKnowledge.join(", ")}
-                                </p>
+                                  <div>
+                                    <span className="font-semibold">Material Knowledge:</span>
+                                    <div className="flex flex-wrap gap-2 mt-2">
+                                      {job.requirements.materialKnowledge.map((item, i) => (
+                                        <span key={i} className="px-3 py-1 bg-blue-50 text-blue-700 text-[11px] font-medium rounded-full border border-blue-100">
+                                          {item}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
                               )}
-                            </>
-                          ) : (
-                            <>
-                              <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                                3+ years of professional experience in a similar
-                                role.
-                              </p>
-                              <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                                Strong analytical and creative problem-solving
-                                skills.
-                              </p>
-                              <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                                Excellent communication and team collaboration
-                                abilities.
-                              </p>
-                              <p className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
-                                Proven track record of delivering high-quality work
-                                in fast-paced environments.
-                              </p>
-                            </>
-                          )}
-                        </div>
+                            </div>
+                          </>
+                        )}
                       </div>
+                    </div>
+
+                    {/* Additional Sections: Traits & Benefits */}
+                    {((job.traits && job.traits.length > 0) || (job.benefits && job.benefits.length > 0)) && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10 pt-10 border-t border-gray-50">
+                        {job.traits && job.traits.length > 0 && (
+                          <div>
+                            <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-[0.2em] mb-6">
+                              Key Traits
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {job.traits.map((trait, i) => (
+                                <span key={i} className="px-4 py-2 bg-gradient-to-br from-indigo-50 to-blue-50 text-indigo-700 text-xs font-bold rounded-2xl border border-indigo-100">
+                                  {trait}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {job.benefits && job.benefits.length > 0 && (
+                          <div>
+                            <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-[0.2em] mb-6">
+                              Perks & Benefits
+                            </h4>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                              {job.benefits.map((benefit, i) => (
+                                <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
+                                  <div className="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center border border-green-100">
+                                    <span className="text-[10px] text-green-600 font-bold">✔</span>
+                                  </div>
+                                  {benefit}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Why Join Us & Detailed Description */}
+                    <div className="space-y-10 pt-10 border-t border-gray-100">
+                      {job.whyJoinUs && (
+                        <div>
+                          <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-[0.2em] mb-6">
+                            Why Join Us?
+                          </h4>
+                          <p className="text-gray-600 text-sm md:text-[15px] leading-relaxed font-medium bg-blue-50/30 p-6 rounded-2xl border border-blue-100/50">
+                            {job.whyJoinUs}
+                          </p>
+                        </div>
+                      )}
+
+                      {id && (
+                        <div>
+                          <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-[0.2em] mb-6">
+                            Job Description Summary
+                          </h4>
+                          <div className="prose prose-sm max-w-none text-gray-600 whitespace-pre-line leading-loose text-sm italic">
+                            {job.description}
+                          </div>
+                        </div>
+                      )}
                     </div>
 
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import PaginationComponent from "../Pagination";
-import { fetchJobPosts, submitJobApplication } from "@/api/jobPosts/page";
+import { fetchJobPosts, submitJobApplication, applyJobsRandom } from "@/api/jobPosts/page";
 import {
     Search,
     Upload,
@@ -46,6 +46,7 @@ const JobOpeningsModern = () => {
     const [generalEmail, setGeneralEmail] = useState("");
     const [generalMobile, setGeneralMobile] = useState("");
     const [generalRole, setGeneralRole] = useState("");
+    const [generalLocation, setGeneralLocation] = useState("");
     const [generalResume, setGeneralResume] = useState<File | null>(null);
     const generalFileRef = useRef<HTMLInputElement>(null);
 
@@ -70,6 +71,7 @@ const JobOpeningsModern = () => {
             errors.mobile = "Please enter a valid 10-digit mobile number";
         }
         if (!generalRole.trim()) errors.role = "Desired role is required";
+        if (!generalLocation.trim()) errors.currentLocation = "Current location is required";
         if (!generalResume) errors.resume = "Please upload your resume";
 
         setFieldErrors(errors);
@@ -136,10 +138,12 @@ const JobOpeningsModern = () => {
             formData.append("email", generalEmail);
             formData.append("mobile", generalMobile);
             formData.append("role", generalRole);
+            formData.append("currentLocation", generalLocation);
             if (generalResume) {
                 formData.append("resume", generalResume);
             }
-            formData.append("message", "General application for: " + generalRole);
+            formData.append("message", "General application for: " + generalRole + " from " + generalLocation);
+            formData.append("fullName", generalName); // Keeping it for Web3Forms/other logging even if not in screenshot result
 
             // Web3Forms submission
             const web3FormData = new FormData();
@@ -157,7 +161,8 @@ const JobOpeningsModern = () => {
             web3FormData.append("email", generalEmail);
             web3FormData.append("mobile", generalMobile);
             web3FormData.append("role", generalRole);
-            web3FormData.append("message", "General application for: " + generalRole);
+            web3FormData.append("currentLocation", generalLocation);
+            web3FormData.append("message", "General application for: " + generalRole + " from " + generalLocation);
 
             try {
                 await fetch("https://api.web3forms.com/submit", {
@@ -168,7 +173,7 @@ const JobOpeningsModern = () => {
                 console.error("Web3Forms error:", err);
             }
 
-            const response = await submitJobApplication(formData);
+            const response = await applyJobsRandom(formData);
             if (response && response.data) {
                 console.log("General Application Response:", response.data);
             }
@@ -177,6 +182,7 @@ const JobOpeningsModern = () => {
             setGeneralEmail("");
             setGeneralMobile("");
             setGeneralRole("");
+            setGeneralLocation("");
             setGeneralResume(null);
             setFieldErrors({});
         } catch (error) {
@@ -354,6 +360,7 @@ const JobOpeningsModern = () => {
                                                 <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                                             </button>
                                         </div>
+                                        {/* apply-jobs-random */}
                                     </motion.div>
                                 ))
                         )}
@@ -503,6 +510,29 @@ const JobOpeningsModern = () => {
                                             )}
                                         </div>
 
+                                        <div className="relative">
+                                            <input
+                                                type="text"
+                                                placeholder="Current Location"
+                                                className={`w-full bg-transparent border-b ${fieldErrors.currentLocation ? "border-red-500" : "border-gray-200"} py-3 text-sm md:text-base outline-none focus:border-black transition-colors placeholder:text-gray-400`}
+                                                value={generalLocation}
+                                                onChange={(e) => {
+                                                    setGeneralLocation(e.target.value);
+                                                    if (fieldErrors.currentLocation) {
+                                                        setFieldErrors((prev) => ({ ...prev, currentLocation: "" }));
+                                                    }
+                                                }}
+                                            />
+                                            {fieldErrors.currentLocation && (
+                                                <p className="absolute -bottom-5 left-0 text-red-500 text-[10px] md:text-xs">
+                                                    {fieldErrors.currentLocation}
+                                                </p>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Resume Upload */}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6">
                                         <div className="relative">
                                             <div
                                                 onClick={() => generalFileRef.current?.click()}
