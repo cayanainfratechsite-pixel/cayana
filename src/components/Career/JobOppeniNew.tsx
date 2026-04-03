@@ -19,7 +19,7 @@ export interface JobPosts {
   _id: string;
   title: string;
   description: string;
-  location?: string;
+  location?: string | { city?: string; headquarters?: string; type?: string };
   type?: string;
   experience?: string;
 }
@@ -62,7 +62,7 @@ const JobOppeningNew = () => {
       setError(null);
       try {
         const response = await fetchJobPosts(page);
-        
+
         const isSuccess = response && (response.data?.success === 0 || response.data?.success === 1 || response.success === 0 || response.success === 1);
         const data = response.data || response;
 
@@ -302,14 +302,20 @@ const JobOppeningNew = () => {
                         {job.title}
                       </h3>
                       <span className="px-4 py-1.5 bg-blue-50 text-blue-700 text-xs font-bold rounded-full uppercase tracking-wider">
-                        Full Time
+                        {typeof job.location === "object" && job.location?.type
+                          ? job.location.type
+                          : job.type || "Full Time"}
                       </span>
                     </div>
 
                     <div className="flex flex-wrap gap-4 mb-6 text-sm text-gray-500">
                       <div className="flex items-center gap-1.5">
                         <MapPin className="w-4 h-4 text-gray-400" />
-                        <span>{job.location || "Remote / Office"}</span>
+                        <span>
+                          {typeof job.location === "object" && job.location !== null
+                            ? job.location.city || "Remote / Office"
+                            : job.location || "Remote / Office"}
+                        </span>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <Clock className="w-4 h-4 text-gray-400" />

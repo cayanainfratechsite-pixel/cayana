@@ -46,7 +46,7 @@ export const fetchJobPostById = async (id: string) => {
 
 export const submitJobApplication = async (formData: FormData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/job/apply-job`, formData);
+    const response = await axios.post(`${API_BASE_URL}/job/apply-jobs`, formData);
     return response;
   } catch (error) {
     console.error("Error submitting enquiry:", error);

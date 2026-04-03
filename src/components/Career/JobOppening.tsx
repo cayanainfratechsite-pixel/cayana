@@ -43,7 +43,7 @@ const JobOppening = () => {
       setError(null);
       try {
         const response = await fetchJobPosts(page);
-        
+
         const isSuccess = response && (response.data?.success === 0 || response.data?.success === 1 || response.success === 0 || response.success === 1);
         const data = response.data || response;
 
