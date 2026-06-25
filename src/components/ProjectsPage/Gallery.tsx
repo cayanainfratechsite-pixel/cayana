@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 interface GalleryProps {
   images: string[];
+  cropImages?: boolean;
 }
 
 // Custom arrow components
@@ -59,7 +60,7 @@ const GalleryPrevArrow = (props: any) => {
   );
 };
 
-const Gallery: React.FC<GalleryProps> = ({ images }) => {
+const Gallery: React.FC<GalleryProps> = ({ images, cropImages = false }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const isSingleImage = images.length === 1;
 
@@ -104,13 +105,13 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
             className="flex justify-center cursor-pointer"
             onClick={() => setSelectedImage(images[0])}
           >
-            <motion.div className="relative w-full max-w-xl">
+            <motion.div className="relative w-full max-w-xl overflow-hidden rounded-lg">
               <Image
                 src={images[0]}
                 alt="Gallery image"
                 width={600}
                 height={400}
-                className="object-cover w-full h-full rounded-lg"
+                className={`object-cover w-full h-full ${cropImages ? 'scale-[1.2]' : ''}`}
               />
             </motion.div>
           </div>
@@ -122,13 +123,13 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
                 className="px-2 cursor-pointer"
                 onClick={() => setSelectedImage(src)}
               >
-                <motion.div className="min-w-[300px] relative flex-shrink-0">
+                <motion.div className="min-w-[300px] relative flex-shrink-0 overflow-hidden rounded-lg">
                   <Image
                     src={src}
                     alt={`Gallery image ${index + 1}`}
                     width={600}
                     height={400}
-                    className="object-cover w-full h-full rounded-lg"
+                    className={`object-cover w-full h-full ${cropImages ? 'scale-[1.2]' : ''}`}
                   />
                 </motion.div>
               </div>

@@ -400,6 +400,7 @@ const handleDownload = async () => {
 
         <div>
           <Gallery 
+            cropImages={project?.name?.toLowerCase().includes("elite")}
             images={
               project?.name?.toLowerCase().includes("elite")
                 ? [
