@@ -142,9 +142,8 @@ const FAQSection = () => {
           >
             <span className="font-medium text-zinc-900">{faq.question}</span>
             <svg
-              className={`w-5 h-5 text-gray-500 transform transition-transform duration-200 ${
-                openIndex === index ? "rotate-180" : ""
-              }`}
+              className={`w-5 h-5 text-gray-500 transform transition-transform duration-200 ${openIndex === index ? "rotate-180" : ""
+                }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -265,13 +264,13 @@ const Page: React.FC = () => {
     setEnquiryOpen(true);
   };
 
-const handleDownload = async () => {
-  try {
-    window.open(project.brochureURL, '_blank');
-  } catch (err) {
-    console.error("Open brochure error:", err);
-  }
-};
+  const handleDownload = async () => {
+    try {
+      window.open(project.brochureURL, '_blank');
+    } catch (err) {
+      console.error("Open brochure error:", err);
+    }
+  };
 
 
   if (loading) {
@@ -285,21 +284,35 @@ const handleDownload = async () => {
   return (
     <section className="relative">
       <div className="relative w-full h-[85vh]">
-        {project._id === "67caecc0e7cbf9eb800249c3" ? (
-          <video
-            src={"/videos/Nilachakra Residency.mp4"}
-            autoPlay
-            loop
-            muted
-            className="w-full h-full object-cover"
+        {project._id === "67caecc0e7cbf9eb800249c3" || project._id === "6a2a3c97e4034f37b7503e05" || project?.name?.toLowerCase().includes("nilachakra residency") ? (
+          <Image
+            src="/images/3dbae0f5fba24116b69c35752e956fd6.jpg"
+            alt={project.name}
+            fill
+            className="z-0 object-cover"
+            priority
+            quality={100}
+            unoptimized={true}
+          />
+        ) : project?.name?.toLowerCase().includes("elite") ? (
+          <Image
+            src="/images/47f97296-d3b9-4e62-8d7a-2791395f1913-cayana_proect_2.jpg"
+            alt={project.name}
+            fill
+            className="z-0 object-cover"
+            priority
+            quality={100}
+            unoptimized
           />
         ) : (
           <Image
             src={project.coverImage}
             alt={project.name}
             fill
-            objectFit="cover"
-            className="z-0"
+            className="z-0 object-cover"
+            priority
+            quality={100}
+            unoptimized
           />
         )}
 
@@ -399,22 +412,22 @@ const handleDownload = async () => {
         </div>
 
         <div>
-          <Gallery 
+          <Gallery
             cropImages={project?.name?.toLowerCase().includes("elite")}
             images={
               project?.name?.toLowerCase().includes("elite")
                 ? [
-                    "/images/project img/Nilachakra Elite Brochure 1-09.jpg.jpeg",
-                    "/images/project img/Nilachakra Elite Brochure 1-10.jpg.jpeg",
-                    "/images/project img/Nilachakra Elite Brochure 1-15.jpg.jpeg",
-                    "/images/project img/Nilachakra Elite Brochure 1-16.jpg.jpeg",
-                    "/images/project img/Nilachakra Elite Brochure 1-17.jpg (1).jpeg",
-                    "/images/project img/Nilachakra Elite Brochure 1-26.jpg.jpeg",
-                    "/images/project img/WhatsApp Image 2026-06-24 at 11.54.47 PM.jpeg",
-                    "/images/project img/WhatsApp Image 2026-06-24 at 11.54.48 PM.jpeg",
-                  ]
+                  "/images/project img/Nilachakra Elite Brochure 1-09.jpg.jpeg",
+                  "/images/project img/Nilachakra Elite Brochure 1-10.jpg.jpeg",
+                  "/images/project img/Nilachakra Elite Brochure 1-15.jpg.jpeg",
+                  "/images/project img/Nilachakra Elite Brochure 1-16.jpg.jpeg",
+                  "/images/project img/Nilachakra Elite Brochure 1-17.jpg (1).jpeg",
+                  "/images/project img/Nilachakra Elite Brochure 1-26.jpg.jpeg",
+                  "/images/project img/WhatsApp Image 2026-06-24 at 11.54.47 PM.jpeg",
+                  "/images/project img/WhatsApp Image 2026-06-24 at 11.54.48 PM.jpeg",
+                ]
                 : project.gallery || []
-            } 
+            }
           />
         </div>
 
