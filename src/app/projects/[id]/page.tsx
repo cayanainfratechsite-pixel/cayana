@@ -399,7 +399,22 @@ const handleDownload = async () => {
         </div>
 
         <div>
-          <Gallery images={project.gallery} />
+          <Gallery 
+            images={
+              project?.name?.toLowerCase().includes("elite")
+                ? [
+                    "/images/project img/Nilachakra Elite Brochure 1-09.jpg.jpeg",
+                    "/images/project img/Nilachakra Elite Brochure 1-10.jpg.jpeg",
+                    "/images/project img/Nilachakra Elite Brochure 1-15.jpg.jpeg",
+                    "/images/project img/Nilachakra Elite Brochure 1-16.jpg.jpeg",
+                    "/images/project img/Nilachakra Elite Brochure 1-17.jpg (1).jpeg",
+                    "/images/project img/Nilachakra Elite Brochure 1-26.jpg.jpeg",
+                    "/images/project img/WhatsApp Image 2026-06-24 at 11.54.47 PM.jpeg",
+                    "/images/project img/WhatsApp Image 2026-06-24 at 11.54.48 PM.jpeg",
+                  ]
+                : project.gallery || []
+            } 
+          />
         </div>
 
         {/* <div>

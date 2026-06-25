@@ -64,7 +64,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
   const isSingleImage = images.length === 1;
 
   const baseSettings: Settings = {
-    dots: !isSingleImage,
+    dots: false,
     infinite: !isSingleImage,
     centerMode: !isSingleImage,
     centerPadding: "60px",
