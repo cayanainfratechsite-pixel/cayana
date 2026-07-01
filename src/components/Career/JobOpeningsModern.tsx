@@ -280,23 +280,15 @@ const JobOpeningsModern = () => {
                                 </div>
                             ))
                         ) : error ? (
-                            <div className="col-span-full py-16 text-center bg-red-50/50 backdrop-blur-sm rounded-[40px] border border-red-100">
-                                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <X className="w-8 h-8 text-red-600" />
+                            <div className="col-span-full flex flex-col items-center justify-center py-16 text-center border border-gray-200 bg-white rounded-[40px]">
+                                <div className="w-16 h-16 border-2 border-dashed border-zinc-300 rounded-full flex items-center justify-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                                    We'll be back soon!
-                                </h3>
-                                <p className="text-gray-600 font-medium mb-8 max-w-md mx-auto">
-                                    We're currently performing a quick update to this section.
-                                    Please check back in a few minutes.
-                                </p>
-                                <button
-                                    onClick={() => window.location.reload()}
-                                    className="px-8 py-3 bg-red-600 text-white rounded-full font-bold hover:bg-red-700 transition shadow-lg shadow-red-200 active:scale-95"
-                                >
-                                    Try Again
-                                </button>
+                                <h2 className="text-xl md:text-2xl font-medium text-zinc-800 mb-2">Section Under Construction</h2>
+                                <p className="text-zinc-500 max-w-md mx-auto">We're currently updating our job openings section. Please check back later for the latest career opportunities.</p>
                             </div>
                         ) : jobPosts.length === 0 ? (
                             <div className="col-span-full py-20 text-center bg-white rounded-3xl shadow-sm border border-gray-200">
