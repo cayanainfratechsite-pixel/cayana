@@ -295,10 +295,10 @@ export default function ContactPage() {
                   <span className="font-bold">Phone</span>
                 </div>
                 <a
-                  href="tel:+918908012233"
+                  href="tel:+919937771889"
                   className="text-gray-600 hover:text-blue-500 hover:underline transition-colors cursor-pointer"
                 >
-                  +91 890-801-2233
+                  +91 99377 71889
                 </a>
               </motion.div>
               {/* Email Card */}

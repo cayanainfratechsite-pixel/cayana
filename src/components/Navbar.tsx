@@ -141,10 +141,10 @@ const Navbar: React.FC = () => {
                     <div className="flex items-center space-x-3 mb-2 pb-2 border-gray-200 border-b">
                       <FaPhoneAlt className="w-4 h-4 text-purple-600" />
                       <a
-                        href="tel:+918908012233"
+                        href="tel:+919937771889"
                         className="font-semibold text-zinc-100 hover:text-blue-300 hover:underline transition-colors cursor-pointer"
                       >
-                        890-801-2233
+                        +91 99377 71889
                       </a>
                     </div>
 
@@ -308,7 +308,7 @@ const Navbar: React.FC = () => {
                     </span>
                   </div>
                   <span className="mt-3 ml-6 font-bold text-white text-xs">
-                    890-801-2233
+                    +91 99377 71889
                   </span>
                 </div>
               </div> */}
@@ -338,7 +338,7 @@ const Navbar: React.FC = () => {
                     <FaLinkedin className="w-6 h-6 text-white hover:text-yellow-500 transition-colors" />
                   </Link>
                   <Link
-                    href="https://wa.me/918908012233"
+                    href="https://wa.me/919937771889"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
