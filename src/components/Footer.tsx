@@ -68,10 +68,10 @@ const Footer: React.FC = () => {
                 {/* Phone:{" "} */}
                 <FaPhone size={18} />
                 <a
-                  href="tel:+919937771889"
+                  href="tel:+918908012233"
                   className="hover:text-[#0553F1] underline transition"
                 >
-                  +91 99377 71889
+                  +91 890-801-2233
                 </a>
               </p>
               <p className="flex items-center gap-2 text-gray-300">
@@ -216,10 +216,10 @@ const Footer: React.FC = () => {
               {/* <p className="text-gray-300">
                 Call us at:{" "}
                 <a
-                  href="tel:+919937771889"
+                  href="tel:+918908012233"
                   className="hover:text-[#0553F1] underline transition"
                 >
-                  +91 99377 71889
+                  +91 890-801-2233
                 </a>
               </p> */}
 

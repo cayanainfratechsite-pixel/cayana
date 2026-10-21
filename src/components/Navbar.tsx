@@ -141,10 +141,10 @@ const Navbar: React.FC = () => {
                     <div className="flex items-center space-x-3 mb-2 pb-2 border-gray-200 border-b">
                       <FaPhoneAlt className="w-4 h-4 text-purple-600" />
                       <a
-                        href="tel:+919937771889"
+                        href="tel:+918908012233"
                         className="font-semibold text-zinc-100 hover:text-blue-300 hover:underline transition-colors cursor-pointer"
                       >
-                        +91 99377 71889
+                        890-801-2233
                       </a>
                     </div>
 
@@ -202,8 +202,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -214,8 +214,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/about"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/about"
-                        ? "text-zinc-50"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-50"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -226,8 +226,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/projects"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/projects"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -238,8 +238,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/blogs"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/blogs"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -250,8 +250,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/gallery"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/gallery"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -262,8 +262,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/careers"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/careers"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -274,8 +274,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/emi-calculator"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/emi-calculator"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -286,8 +286,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/contact"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/contact"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -308,7 +308,7 @@ const Navbar: React.FC = () => {
                     </span>
                   </div>
                   <span className="mt-3 ml-6 font-bold text-white text-xs">
-                    +91 99377 71889
+                    890-801-2233
                   </span>
                 </div>
               </div> */}

@@ -12,7 +12,7 @@
 //           type="text/javascript"
 //           src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
 //           id="aisensy-wa-widget"
-//           widget-id="aaao9r"
+//           widget-id="aabqbr"
 //         ></script>
 //       </head>
 //     </>
@@ -37,7 +37,7 @@ const AisensyWhatsApp = () => {
         script.src =
           "https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js";
         script.id = "aisensy-wa-widget";
-        script.setAttribute("widget-id", "aaao9r");
+        script.setAttribute("widget-id", "aabqbr");
         script.async = true;
         document.body.appendChild(script);
       }
