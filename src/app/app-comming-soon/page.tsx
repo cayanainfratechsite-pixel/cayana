@@ -192,7 +192,7 @@ export default function ComingSoon() {
         <div className="mb-8">
           <Image
             src="/images/CAYANA.png"
-            alt="Cayana Infratech Logo"
+            alt="Cayana® Infratech Logo"
             width={300}
             height={70}
           />
@@ -295,7 +295,7 @@ export default function ComingSoon() {
           rel="noopener noreferrer"
           className="text-white hover:text-indigo-400 text-2xl"
         >
-          <FaXTwitter/>
+          <FaXTwitter />
         </a>
         <a
           href="https://facebook.com"

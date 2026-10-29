@@ -1,10 +1,10 @@
 import { limit } from "@/lib/data";
 import axios from "axios";
 
-const API_BASE_URL = "https://backend.cayana.co.in/api/v1";
+const API_BASE_URL = "http://localhost:4000/api/v1";
 
 
-export const fetchBlogs = async (page:number) => {
+export const fetchBlogs = async (page: number) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/blog`, {
       params: {
@@ -17,7 +17,7 @@ export const fetchBlogs = async (page:number) => {
     if (axios.isAxiosError(error)) {
       throw new Error(
         error.response?.data?.message ||
-          "An error occurred while fetching blogs"
+        "An error occurred while fetching blogs"
       );
     } else {
       throw new Error("An unknown error occurred while fetching blogs");
@@ -25,7 +25,7 @@ export const fetchBlogs = async (page:number) => {
   }
 };
 
-export const fetchBlogsHome = async (page:number) => {
+export const fetchBlogsHome = async (page: number) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/blog`, {
       params: {
@@ -38,7 +38,7 @@ export const fetchBlogsHome = async (page:number) => {
     if (axios.isAxiosError(error)) {
       throw new Error(
         error.response?.data?.message ||
-          "An error occurred while fetching blogs"
+        "An error occurred while fetching blogs"
       );
     } else {
       throw new Error("An unknown error occurred while fetching blogs");
@@ -46,7 +46,7 @@ export const fetchBlogsHome = async (page:number) => {
   }
 };
 
-export const fetchBlogsRecent = async (page:number) => {
+export const fetchBlogsRecent = async (page: number) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/blog`, {
       params: {
@@ -59,7 +59,7 @@ export const fetchBlogsRecent = async (page:number) => {
     if (axios.isAxiosError(error)) {
       throw new Error(
         error.response?.data?.message ||
-          "An error occurred while fetching blogs"
+        "An error occurred while fetching blogs"
       );
     } else {
       throw new Error("An unknown error occurred while fetching blogs");

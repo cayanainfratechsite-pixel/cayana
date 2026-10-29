@@ -98,9 +98,10 @@ const Navbar: React.FC = () => {
           <Link href="/" className="flex items-center">
             <Image
               src="/images/CAYANA.png"
-              alt="Logo"
-              width={1000}
-              height={200}
+              alt="Cayana® Logo"
+              width={1105}
+              height={204}
+              priority
               className="w-36 sm:w-40 md:w-48 lg:w-52 xl:w-56 h-auto"
             />
           </Link>

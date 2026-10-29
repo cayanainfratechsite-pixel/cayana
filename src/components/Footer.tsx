@@ -242,7 +242,7 @@ const Footer: React.FC = () => {
           {/* Footer Bottom */}
           <div className="mt-32 pt-4 border-zinc-200 border-t text-center">
             <p className="text-zinc-200 text-sm">
-              &copy; Cayana Infratech Pvt. Ltd. All
+              &copy; Cayana&reg; Infratech Pvt. Ltd. All
               Rights Reserved
               {/* <a
                 href="https://vanurmedia.com/"
