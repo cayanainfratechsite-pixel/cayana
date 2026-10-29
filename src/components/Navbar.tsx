@@ -203,8 +203,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -215,8 +215,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/about"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/about"
-                        ? "text-zinc-50"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-50"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -227,8 +227,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/projects"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/projects"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -239,8 +239,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/blogs"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/blogs"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -251,8 +251,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/gallery"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/gallery"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -263,8 +263,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/careers"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/careers"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -275,8 +275,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/emi-calculator"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/emi-calculator"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -287,8 +287,8 @@ const Navbar: React.FC = () => {
                   <Link
                     href="/contact"
                     className={`block text-lg font-medium pb-3 transition-colors ${pathname === "/contact"
-                        ? "text-zinc-100"
-                        : "text-white hover:text-zinc-400"
+                      ? "text-zinc-100"
+                      : "text-white hover:text-zinc-400"
                       }`}
                     onClick={() => setShowMenuSidebar(false)}
                   >
@@ -339,7 +339,7 @@ const Navbar: React.FC = () => {
                     <FaLinkedin className="w-6 h-6 text-white hover:text-yellow-500 transition-colors" />
                   </Link>
                   <Link
-                    href="https://wa.me/918908012233"
+                    href="https://wa.me/919937771889"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
